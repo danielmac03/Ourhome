@@ -27,10 +27,8 @@ CREATE TABLE casas(
     numero_baños INT NOT NULL,
     direccion VARCHAR(100) DEFAULT NULL,
     metros INT DEFAULT NULL,
-    pisos INT NOT NULL,
-    parquing ENUM('Si', 'No') NOT NULL,
-    calefaccion ENUM('Si', 'No') NOT NULL,
-    ascensor ENUM('Si', 'No') NOT NULL,
+    plantas INT NOT NULL,
+	extras JSON DEFAULT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
