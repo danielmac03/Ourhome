@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="respuestas_tests_personalizados")
-public class respuestasTestsPersonalizados {
+public class RespuestasTestsPersonalizados {
 
 	@Id
 	@Column(name="id_respuestas_test_personalizado")
@@ -18,7 +18,7 @@ public class respuestasTestsPersonalizados {
 	
 	@ManyToOne
 	@JoinColumn(name="id_test_personalizado")
-	TestPersonalizados id_test_personalizado;
+	TestsPersonalizados id_test_personalizado;
 	
 	//JSON - Reparar
 	@Column(name="respuestas")

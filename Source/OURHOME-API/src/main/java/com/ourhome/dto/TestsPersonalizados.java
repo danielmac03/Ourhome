@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="test_personalizados")
-public class TestPersonalizados {
+public class TestsPersonalizados {
 	
 	@Id
 	@Column(name="id_test_personalizados")
@@ -30,6 +30,6 @@ public class TestPersonalizados {
 	
 	@OneToMany
 	@JoinColumn(name="id_test_personalizados")
-	private List<TestPersonalizados> testPersonalizados;
+	private List<TestsPersonalizados> testPersonalizados;
 	
 }
