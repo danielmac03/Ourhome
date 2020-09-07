@@ -14,8 +14,8 @@ CREATE TABLE usuarios(
 	respuestas_test_defecto JSON NOT NULL,
     mostrar_correo bit DEFAULT NULL,
 	mostrar_telefono bit DEFAULT NULL,
-	fecha_registro date DEFAULT NULL,
-	fecha_actualizacion date DEFAULT NULL
+	fecha_creacion DATE DEFAULT NULL,
+	fecha_actualizacion DATE DEFAULT NULL
 );
 
 CREATE TABLE casas(
@@ -26,17 +26,21 @@ CREATE TABLE casas(
     numero_habitaciones INT NOT NULL,
     numero_baños INT NOT NULL,
     direccion VARCHAR(100) DEFAULT NULL,
-    metros INT DEFAULT NULL,
+    metros DECIMAL DEFAULT NULL,
     plantas INT NOT NULL,
 	extras JSON DEFAULT NULL,
+	fecha_creacion DATE DEFAULT NULL,
+	fecha_actualizacion DATE DEFAULT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
-CREATE TABLE proceso(
+CREATE TABLE procesos(
 	id_proceso INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_usuario_1 INT NOT NULL,
     id_usuario_2 INT NOT NULL,
     estado ENUM('En Contacto', 'Cancelado', 'Finalizado') NOT NULL,
+	fecha_creacion DATE DEFAULT NULL,
+	fecha_actualizacion DATE DEFAULT NULL,
     FOREIGN KEY (id_usuario_1) REFERENCES usuarios(id_usuario),
     FOREIGN KEY (id_usuario_2) REFERENCES usuarios(id_usuario)
 );
@@ -45,15 +49,18 @@ CREATE TABLE test_personalizados(
 	id_test_personalizados INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_usuario_creador INT NOT NULL,
     respuestas_correctas JSON NOT NULL,
+    minimas_respuestas_correctas INT NOT NULL,
+	fecha_creacion DATE DEFAULT NULL,
     FOREIGN KEY (id_usuario_creador) REFERENCES usuarios(id_usuario)
 );
 
-CREATE TABLE respuestas_test_personalizado(
+CREATE TABLE respuestas_tests_personalizados(
 	id_respuestas_test_personalizado INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
     id_test_personalizado INT NOT NULL,
-    respuesta JSON NOT NULL,
+    respuestas JSON NOT NULL,
     compatibilidad DECIMAL NOT NULL,
+	fecha_creacion DATE DEFAULT NULL,
 	FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
     FOREIGN KEY (id_test_personalizado) REFERENCES test_personalizados(id_test_personalizados)
 );
