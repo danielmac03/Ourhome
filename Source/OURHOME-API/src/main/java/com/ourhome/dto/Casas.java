@@ -1,6 +1,5 @@
 package com.ourhome.dto;
 
-import java.util.List;
 import java.sql.Date;
 
 import javax.persistence.*;
@@ -40,7 +39,7 @@ public class Casas {
 	private int plantas;
 	
 	@Column(name="extras")
-	private List<String> extras;
+	private String extras[];
 	
 	@Column(name="fecha_creacion")
 	private Date fecha_creacion;
@@ -65,7 +64,7 @@ public class Casas {
 	 * @param fecha_actualizacion
 	 */
 	public Casas(int id_casa, Usuarios usuarios, String descripcion, double precio, int numero_habitaciones,
-			int numero_baños, String direccion, double metros, int plantas, List<String> extras, Date fecha_creacion,
+			int numero_baños, String direccion, double metros, int plantas, String extras[], Date fecha_creacion,
 			Date fecha_actualizacion) {
 		this.id_casa = id_casa;
 		this.usuarios = usuarios;
@@ -210,14 +209,14 @@ public class Casas {
 	/**
 	 * @return the extras
 	 */
-	public List<String> getExtras() {
+	public String[] getExtras() {
 		return extras;
 	}
 
 	/**
 	 * @param extras the extras to set
 	 */
-	public void setExtras(List<String> extras) {
+	public void setExtras(String[] extras) {
 		this.extras = extras;
 	}
 
