@@ -36,7 +36,7 @@ public class Usuarios {
 	private String rol;
 	
 	@Column(name="respuestas_test_defecto")
-	private String respuestas_test_defecto[];
+	private String respuestas_test_defecto;
 	
 	@Column(name="mostrar_correo")
 	private boolean mostrar_correo;
@@ -95,7 +95,7 @@ public class Usuarios {
 	 * @param respuestasTestsPersonalizados
 	 */
 	public Usuarios(int id_usuarios, String nombre, String apellidos, int edad, int telefono, String correo,
-			String contraseña, String rol, String respuestas_test_defecto[], boolean mostrar_correo,
+			String contraseña, String rol, String respuestas_test_defecto, boolean mostrar_correo,
 			boolean mostrar_telefono, Date fecha_creacion, Date fecha_actualizacion, List<Casas> casas,
 			List<Procesos> procesos_1, List<Procesos> procesos_2, List<TestsPersonalizados> testPersonalizados,
 			List<RespuestasTestsPersonalizados> respuestasTestsPersonalizados) {
@@ -234,14 +234,14 @@ public class Usuarios {
 	/**
 	 * @return the respuestas_test_defecto
 	 */
-	public String[] getRespuestas_test_defecto() {
+	public String getRespuestas_test_defecto() {
 		return respuestas_test_defecto;
 	}
 
 	/**
 	 * @param respuestas_test_defecto the respuestas_test_defecto to set
 	 */
-	public void setRespuestas_test_defecto(String[] respuestas_test_defecto) {
+	public void setRespuestas_test_defecto(String respuestas_test_defecto) {
 		this.respuestas_test_defecto = respuestas_test_defecto;
 	}
 

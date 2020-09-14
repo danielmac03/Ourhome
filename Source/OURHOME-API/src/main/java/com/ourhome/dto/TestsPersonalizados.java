@@ -19,7 +19,7 @@ public class TestsPersonalizados {
 	Usuarios id_usuario_creador;
 	
 	@Column(name="respuestas_correctas")
-	private String[] respuestas_correctas;
+	private String respuestas_correctas;
 	
 	@Column(name="minimas_respuestas_correctas")
 	private int minimas_respuestas_correctas;
@@ -42,7 +42,7 @@ public class TestsPersonalizados {
 	 * @param respuestasTestsPersonalizados
 	 */
 	public TestsPersonalizados(int id_test_personalizados, Usuarios id_usuario_creador,
-			String[] respuestas_correctas, int minimas_respuestas_correctas, Date fecha_creacion,
+			String respuestas_correctas, int minimas_respuestas_correctas, Date fecha_creacion,
 			List<RespuestasTestsPersonalizados> respuestasTestsPersonalizados) {
 		this.id_test_personalizados = id_test_personalizados;
 		this.id_usuario_creador = id_usuario_creador;
@@ -83,14 +83,14 @@ public class TestsPersonalizados {
 	/**
 	 * @return the respuestas_correctas
 	 */
-	public String[] getRespuestas_correctas() {
+	public String getRespuestas_correctas() {
 		return respuestas_correctas;
 	}
 
 	/**
 	 * @param respuestas_correctas the respuestas_correctas to set
 	 */
-	public void setRespuestas_correctas(String[] respuestas_correctas) {
+	public void setRespuestas_correctas(String respuestas_correctas) {
 		this.respuestas_correctas = respuestas_correctas;
 	}
 

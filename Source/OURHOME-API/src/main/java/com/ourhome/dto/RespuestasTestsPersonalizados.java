@@ -21,7 +21,7 @@ public class RespuestasTestsPersonalizados {
 	TestsPersonalizados id_test_personalizado;
 	
 	@Column(name="respuestas")
-	private String[] respuestas;
+	private String respuestas;
 	
 	@Column(name="compatibilidad")
 	private Double compatibilidad;
@@ -40,7 +40,7 @@ public class RespuestasTestsPersonalizados {
 	 * @param fecha_creacion
 	 */
 	public RespuestasTestsPersonalizados(int id_respuestas_test_personalizado, Usuarios id_usuario,
-			TestsPersonalizados id_test_personalizado, String[] respuestas, Double compatibilidad,
+			TestsPersonalizados id_test_personalizado, String respuestas, Double compatibilidad,
 			Date fecha_creacion) {
 		this.id_respuestas_test_personalizado = id_respuestas_test_personalizado;
 		this.id_usuario = id_usuario;
@@ -95,14 +95,14 @@ public class RespuestasTestsPersonalizados {
 	/**
 	 * @return the respuestas
 	 */
-	public String[] getRespuestas() {
+	public String getRespuestas() {
 		return respuestas;
 	}
 
 	/**
 	 * @param respuestas the respuestas to set
 	 */
-	public void setRespuestas(String[] respuestas) {
+	public void setRespuestas(String respuestas) {
 		this.respuestas = respuestas;
 	}
 
