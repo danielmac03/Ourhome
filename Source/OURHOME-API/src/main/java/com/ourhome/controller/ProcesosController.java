@@ -10,19 +10,21 @@ import com.ourhome.service.ProcesosServiceImpl;
 @RequestMapping("/api")
 public class ProcesosController {
 
-
 	@Autowired
 	ProcesosServiceImpl procesosServiceImpl;
+	
 	
 	@GetMapping("/procesos")
 	public List<Procesos> listarProcesos(){
 		return procesosServiceImpl.listarProcesos();
 	}
 
+	
 	@PostMapping("/procesos")
 	public Procesos guardarProceso(@RequestBody Procesos proceso) {
 		return procesosServiceImpl.guardarProceso(proceso);
 	}
+	
 	
 	@GetMapping("/procesos/{id}")
 	public Procesos buscarProceso(@PathVariable(name="id") int id) {
@@ -31,6 +33,7 @@ public class ProcesosController {
 		
 		return proceso;
 	}
+	
 	
 	@PutMapping("/procesos/{id}")
 	public Procesos actualizarProceso(@PathVariable(name="id") int id, @RequestBody Procesos proceso) {
@@ -54,6 +57,5 @@ public class ProcesosController {
 	public void eliminarProceso(@PathVariable(name="id") int id) {
 		procesosServiceImpl.eliminarProceso(id);
 	}
-
 	
 }

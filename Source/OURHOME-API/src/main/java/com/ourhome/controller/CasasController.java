@@ -13,15 +13,18 @@ public class CasasController {
 	@Autowired
 	CasasServiceImpl casasServiceImpl;
 	
+	
 	@GetMapping("/casas")
 	public List<Casas> listarCasas(){
 		return casasServiceImpl.listarCasas();
 	}
 
+	
 	@PostMapping("/casas")
 	public Casas guardarCasa(@RequestBody Casas casa) {
 		return casasServiceImpl.guardarCasa(casa);
 	}
+	
 	
 	@GetMapping("/casas/{id}")
 	public Casas buscarCasa(@PathVariable(name="id") int id) {
@@ -30,6 +33,7 @@ public class CasasController {
 		
 		return casa;
 	}
+	
 
 	@PutMapping("/casas/{id}")
 	public Casas actualizarCasa(@PathVariable(name="id") int id, @RequestBody Casas casa) {
@@ -55,10 +59,10 @@ public class CasasController {
 		
 	}
 	
+	
 	@DeleteMapping("/casas/{id}")
 	public void eliminarCasa(@PathVariable(name="id") int id) {
 		casasServiceImpl.eliminarCasa(id);
 	}
-
 	
 }

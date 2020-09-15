@@ -9,51 +9,55 @@ import com.ourhome.service.TestsPersonalizadosServiceImpl;
 @RestController
 @RequestMapping("/api")
 public class TestsPersonalizadosController {
-
+	
 	@Autowired
 	TestsPersonalizadosServiceImpl testsPersonalizadosServiceImpl;
 	
-	@GetMapping("/TestsPersonalizados")
+	
+	@GetMapping("/testsPersonalizados")
 	public List<TestsPersonalizados> listarTestsPersonalizados(){
-		return TestsPersonalizadosServiceImpl.listarTestsPersonalizados();
+		return testsPersonalizadosServiceImpl.listarTestsPersonalizados();
 	}
 
-	@PostMapping("/TestsPersonalizados")
+	
+	@PostMapping("/testsPersonalizados")
 	public TestsPersonalizados guardarTestPersonalizado(@RequestBody TestsPersonalizados testPersonalizado) {
-		return TestsPersonalizadosServiceImpl.guardarTestPersonalizado(testPersonalizado);
+		return testsPersonalizadosServiceImpl.guardarTestPersonalizado(testPersonalizado);
 	}
 	
-	@GetMapping("/TestsPersonalizados/{id}")
+	
+	@GetMapping("/testsPersonalizados/{id}")
 	public TestsPersonalizados buscarProceso(@PathVariable(name="id") int id) {
 		TestsPersonalizados TestsPersonalizado = new TestsPersonalizados();		
-		TestsPersonalizado = TestsPersonalizadosServiceImpl.buscarTestPersonalizado(id);
+		TestsPersonalizado = testsPersonalizadosServiceImpl.buscarTestPersonalizado(id);
 		
 		return TestsPersonalizado;
 	}
 	
-	@PutMapping("/departamentos/{id}")
+	
+	@PutMapping("/testsPersonalizados/{id}")
 	public TestsPersonalizados actualizarTestPersonalizado(@PathVariable(name="id") int id,@RequestBody TestsPersonalizados TestsPersonalizado) {
 		TestsPersonalizados testsPersonalizadosSeleccionado = new TestsPersonalizados();
 		TestsPersonalizados testsPersonalizadosActualizado= new TestsPersonalizados();
 		
-		testsPersonalizadosSeleccionado= TestsPersonalizadosServiceImpl.buscarTestPersonalizado(id);
+		testsPersonalizadosSeleccionado= testsPersonalizadosServiceImpl.buscarTestPersonalizado(id);
 		
-		testsPersonalizadosSeleccionado.setId_test_personalizados(TestsPersonalizados.getId_test_personalizados());
-		testsPersonalizadosSeleccionado.setId_usuario_creador(TestsPersonalizados.getId_usuario_creador());
-		testsPersonalizadosSeleccionado.setRespuestas_correctas(TestsPersonalizados.getRespuestas_correctas());
-		testsPersonalizadosSeleccionado.setMinimas_respuestas_correctas(TestsPersonalizados.getMinimas_respuestas_correctas());
-		testsPersonalizadosSeleccionado.setFecha_creacion(TestsPersonalizados.getFecha_creacion());
-		testsPersonalizadosSeleccionado.setRespuestasTestsPersonalizados(TestsPersonalizados.getRespuestasTestsPersonalizados());
+		testsPersonalizadosSeleccionado.setId_test_personalizados(TestsPersonalizado.getId_test_personalizados());
+		testsPersonalizadosSeleccionado.setId_usuario_creador(TestsPersonalizado.getId_usuario_creador());
+		testsPersonalizadosSeleccionado.setRespuestas_correctas(TestsPersonalizado.getRespuestas_correctas());
+		testsPersonalizadosSeleccionado.setMinimas_respuestas_correctas(TestsPersonalizado.getMinimas_respuestas_correctas());
+		testsPersonalizadosSeleccionado.setFecha_creacion(TestsPersonalizado.getFecha_creacion());
+		testsPersonalizadosSeleccionado.setRespuestasTestsPersonalizados(TestsPersonalizado.getRespuestasTestsPersonalizados());
 
-		testsPersonalizadosActualizado = TestsPersonalizadosServiceImpl.actualizarTestPersonalizado(testsPersonalizadosSeleccionado);
+		testsPersonalizadosActualizado = testsPersonalizadosServiceImpl.actualizarTestPersonalizado(testsPersonalizadosSeleccionado);
 		
 		return testsPersonalizadosActualizado;
 	}
 
 	
-	@DeleteMapping("/TestsPersonalizados/{id}")
+	@DeleteMapping("/testsPersonalizados/{id}")
 	public void eliminarTestPersonalizado(@PathVariable(name="id") int id) {
-		TestsPersonalizadosServiceImpl.eliminarTestPersonalizado(id);
+		testsPersonalizadosServiceImpl.eliminarTestPersonalizado(id);
 	}
 
 }

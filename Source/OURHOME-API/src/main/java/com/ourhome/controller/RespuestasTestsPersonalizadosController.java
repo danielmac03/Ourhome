@@ -3,8 +3,6 @@ package com.ourhome.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import com.ourhome.dto.Procesos;
 import com.ourhome.dto.RespuestasTestsPersonalizados;
 import com.ourhome.service.RespuestasTestsPersonalizadosServiceImpl;
 
@@ -40,8 +38,8 @@ public class RespuestasTestsPersonalizadosController {
 		RespuestasTestsPersonalizados RespuestasTestsPersonalizadosSeleccionado = new RespuestasTestsPersonalizados();
 		RespuestasTestsPersonalizados RespuestasTestsPersonalizadosActualizado = new RespuestasTestsPersonalizados();
 		
-		RespuestasTestsPersonalizadosSeleccionado = RespuestasTestsPersonalizadosServiceImpl.buscarRespuestaTestPersonalizado(id);
-		
+		RespuestasTestsPersonalizadosSeleccionado = respuestasTestsPersonalizadosServiceImpl.buscarRespuestaTestPersonalizado(id);
+				
 		RespuestasTestsPersonalizadosSeleccionado.setId_respuestas_test_personalizado(RespuestasTestsPersonalizado.getId_respuestas_test_personalizado());
 		RespuestasTestsPersonalizadosSeleccionado.setId_usuario(RespuestasTestsPersonalizado.getId_usuario());
 		RespuestasTestsPersonalizadosSeleccionado.setId_test_personalizado(RespuestasTestsPersonalizado.getId_test_personalizado());
@@ -49,7 +47,7 @@ public class RespuestasTestsPersonalizadosController {
 		RespuestasTestsPersonalizadosSeleccionado.setCompatibilidad(RespuestasTestsPersonalizado.getCompatibilidad());
 		RespuestasTestsPersonalizadosSeleccionado.setFecha_creacion(RespuestasTestsPersonalizado.getFecha_creacion());
 
-		RespuestasTestsPersonalizadosActualizado = RespuestasTestsPersonalizadosServiceImpl.actualizarRespuestaTestPersonalizado(RespuestasTestsPersonalizadosSeleccionado);
+		RespuestasTestsPersonalizadosActualizado = respuestasTestsPersonalizadosServiceImpl.actualizarRespuestaTestPersonalizado(RespuestasTestsPersonalizadosSeleccionado);
 		
 		return RespuestasTestsPersonalizadosActualizado;
 	}
