@@ -1,6 +1,6 @@
 body{
     /* Background pattern from Toptal Subtle Patterns */
-   background: url("../img/dot-grid.png");
+   background: url("../img/so-white.png");
 }
 
 .navbar-custom{
@@ -9,7 +9,7 @@ body{
 
 .navbar-custom .title{
     color: white;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .navbar-custom .nav-link{
