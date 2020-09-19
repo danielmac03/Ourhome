@@ -1,0 +1,26 @@
+body{
+    /* Background pattern from Toptal Subtle Patterns */
+   background: url("../img/dot-grid.png");
+}
+
+.navbar-custom{
+    background-color: #1C3144;
+}
+
+.navbar-custom .title{
+    color: white;
+    font-size: 25px;
+}
+
+.navbar-custom .nav-link{
+    color: white;
+}
+
+.btn-custom{
+    background-color: #477185;
+    color: white;
+}
+
+.footer{
+    background-color: #477185;
+}
