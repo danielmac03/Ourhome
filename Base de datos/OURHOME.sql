@@ -10,7 +10,7 @@ CREATE TABLE usuarios(
     telefono INT NOT NULL,
     correo VARCHAR(100) NOT NULL,
     contraseña VARCHAR(100) NOT NULL,
-    rol ENUM('Con Casa', 'Sin Casa') NOT NULL,
+    rol ENUM('con_casa', 'sin_casa', 'admin') NOT NULL,
 	respuestas_test_defecto MEDIUMTEXT NOT NULL,
     mostrar_correo bit DEFAULT NULL,
 	mostrar_telefono bit DEFAULT NULL,
