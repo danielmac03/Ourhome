@@ -27,6 +27,16 @@ form{
     border-radius: 4px;
 }
 
+#email, #password {
+    background-color: transparent;
+    color: #eeeeee;
+    outline: none;
+    outline-style: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid #1C3144 px;
+}
 
 .btn-custom{
     background-color: #477185;
@@ -35,4 +45,15 @@ form{
 
 .footer{
     background-color: #477185;
+}
+
+img {
+    width: 100%; 
+    height: 100%;
+}
+
+.linkregistrate {
+    text-decoration: none;
+    color: #1C3144;
+    font-size: large;
 }
