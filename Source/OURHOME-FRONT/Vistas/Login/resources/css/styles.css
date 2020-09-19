@@ -27,15 +27,14 @@ form{
     border-radius: 4px;
 }
 
-#email, #password {
-    background-color: transparent;
-    color: #eeeeee;
-    outline: none;
-    outline-style: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: solid #1C3144 px;
+form .logo_ourhome {
+    width: 80%; 
+}
+
+input[type="email"], input[type="password"]{
+    border: 0px;
+    border-bottom: 1px #1C3144 solid;
+    border-radius: 0;
 }
 
 .btn-custom{
@@ -43,17 +42,12 @@ form{
     color: white;
 }
 
-.footer{
-    background-color: #477185;
-}
-
-img {
-    width: 100%; 
-    height: 100%;
-}
-
-.linkregistrate {
+.link_registrate {
     text-decoration: none;
     color: #1C3144;
     font-size: large;
+}
+
+.footer{
+    background-color: #477185;
 }
