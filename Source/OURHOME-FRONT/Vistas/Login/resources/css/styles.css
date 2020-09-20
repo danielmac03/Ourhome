@@ -1,3 +1,6 @@
+html {
+    height: 100%;
+}
 body{
     /* Background pattern from Toptal Subtle Patterns */
    background: url("../img/so-white.png");
@@ -73,6 +76,7 @@ body{
 .footer{
     background-color: #477185;
 }
+
 
 /* Animacion para el label https://css-tricks.com/float-labels-css/ */
 /* Proyecto de codepen https://codepen.io/team/css-tricks/pen/XVBLRM */
