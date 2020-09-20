@@ -17,6 +17,9 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- Custom JS -->
+    <link rel="stylesheet" href="resources/js/script.js">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="resources/css/styles.css">
 </head>
@@ -43,39 +46,47 @@
             
             <!-- descripción, precio, num_habitaciones, num_baños, direccion, metros2, plantas, extras  -->
 
-            <div class="form-group mt-5">
-                <textarea id="descripcion" placeholder="Descripción" class="form-control" rows="4" cols="50" required></textarea>
+            <div class="form-group mt-5 field">
+                <textarea id="descripcion" placeholder="‎‎ " class="form-control" rows="2" cols="50" required></textarea>
+                <label for="descripcion">Descripción</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="number" id="precio" placeholder="Precio" class="form-control">
+            <div class="form-group mt-5 field">
+                <input type="number" id="precio" placeholder=" " class="form-control" rows="1">
+                <label for="precio">Precio</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="number" id="num_habitaciones" placeholder="Numero de habitaciones" class="form-control">
+            <div class="form-group mt-5 field">
+                <input type="number" id="num_habitaciones" placeholder=" " class="form-control">
+                <label for="num_habitaciones">Numero Habitaciones</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="number" id="num_baños" placeholder="Numero de baños" class="form-control">
+            <div class="form-group mt-5 field">
+                <input type="number" id="num_baños" placeholder=" " class="form-control">
+                <label for="num_baños">Numero Baños</label>
             </div>
 
-            <div class="form-group mt-5">
-                <textarea id="direccion" placeholder="Dirección" class="form-control" rows="2" cols="50" required></textarea>
+            <div class="form-group mt-5 field">
+                <textarea id="direccion" placeholder=" " class="form-control" rows="2" cols="50" required></textarea>
+                <label for="direccion">Dirección</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="number" id="metros2" placeholder="Metros cuadrados" class="form-control">
+            <div class="form-group mt-5 field">
+                <input type="number" id="metros2" placeholder=" " class="form-control">
+                <label for="metros2">Metros cuadrados</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="number" id="num_plantas" placeholder="Numero de plantas" class="form-control">
+            <div class="form-group mt-5 field">
+                <input type="number" id="num_plantas" placeholder=" " class="form-control">
+                <label for="num_plantas">Numero Plantas</label>
             </div>
 
-            <div class="form-group mt-5">
-                <textarea id="extras" placeholder="Extras" class="form-control" rows="3" cols="50" required></textarea>
+            <div class="form-group my-5 field">
+                <textarea id="extras" placeholder=" " class="form-control" rows="2" cols="50" required></textarea>
+                <label for="extras">Extras</label>
             </div>            
 
-            <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Regístrate</button>
+            <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Publica el anuncio</button>
 
         </form>
     </main>
