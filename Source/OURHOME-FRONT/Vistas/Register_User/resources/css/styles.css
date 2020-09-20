@@ -68,12 +68,14 @@ input[type="email"]:focus, input[type="tel"]:focus, input[type="password"]:focus
     margin-bottom: 1em;
 }
 
+.lab {    
+    font-size: 12px;
+}
+
 .lab, input {
     transition: all 0.2s;
     touch-action: manipulation;
 }
-
-  
   
 input[type="email"]:placeholder-shown  + .lab, input[type="tel"]:placeholder-shown  + .lab, input[type="password"]:placeholder-shown  + .lab, input[type="text"]:placeholder-shown  + .lab, input[type="number"]:placeholder-shown + .lab {
     cursor: text;
