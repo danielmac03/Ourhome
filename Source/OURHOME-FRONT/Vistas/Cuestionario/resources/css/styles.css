@@ -47,12 +47,6 @@ body{
     border-bottom: 1px #1C3144 solid;
 }
 
-.div-form .link_registrate {
-    text-decoration: none;
-    color: #1C3144;
-    font-size: large;
-}
-
 .btn-custom{
     background-color: #477185;
     color: white;

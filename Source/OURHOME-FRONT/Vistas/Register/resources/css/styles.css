@@ -12,33 +12,33 @@ body{
     font-size: 30px;
 }
 
-.form-login .title{
-    color: black;
-    font-size: 25px;
-}
-
 .navbar-custom .nav-link{
     color: white;
 }
 
-form{
+.div-form .title{
+    color: black;
+    font-size: 25px;
+}
+
+.div-form{
+    max-width: 700px;
     background-color: white;
     box-shadow: 0px 0px 10px 4px #cccccc;
     border-radius: 4px;
-    max-width: 50%;
 }
 
-form .logo_ourhome {
+.div-form .logo_ourhome {
     width: 80%; 
 }
 
-input[type="email"], input[type="tel"], input[type="password"], input[type="text"], input[type="number"] {
+.div-form input[type="email"], input[type="text"], input[type="number"], input[type="tel"], input[type="password"]{
     border: 0px;
     border-bottom: 1px #1C3144 solid;
     border-radius: 0;
 }
 
-input[type="email"]:focus, input[type="tel"]:focus, input[type="password"]:focus, input[type="text"]:focus, input[type="number"]:focus{
+.div-form input[type="email"]:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
     border-color: #477185;
     box-shadow: none;
 }
@@ -71,9 +71,8 @@ input[type="email"]:focus, input[type="tel"]:focus, input[type="password"]:focus
 .lab, input {
     transition: all 0.2s;
     touch-action: manipulation;
+    font-size: 12px;
 }
-
-  
   
 input[type="email"]:placeholder-shown  + .lab, input[type="tel"]:placeholder-shown  + .lab, input[type="password"]:placeholder-shown  + .lab, input[type="text"]:placeholder-shown  + .lab, input[type="number"]:placeholder-shown + .lab {
     cursor: text;
