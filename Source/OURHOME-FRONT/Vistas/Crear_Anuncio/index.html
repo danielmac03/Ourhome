@@ -48,12 +48,12 @@
 
             <div class="form-group mt-5 field">
                 <textarea id="descripcion" placeholder="‎‎ " class="form-control" rows="2" cols="50" required></textarea>
-                <label for="descripcion">Descripción</label>
+                <label for="descripcion">Descripción*</label>
             </div>
 
             <div class="form-group mt-5 field">
-                <input type="number" id="precio" placeholder=" " class="form-control" rows="1">
-                <label for="precio">Precio</label>
+                <input type="number" id="precio" placeholder=" " class="form-control" rows="1" required>
+                <label for="precio">Precio*</label>
             </div>
 
             <div class="form-group mt-5 field">
@@ -68,7 +68,7 @@
 
             <div class="form-group mt-5 field">
                 <textarea id="direccion" placeholder=" " class="form-control" rows="2" cols="50" required></textarea>
-                <label for="direccion">Dirección</label>
+                <label for="direccion">Dirección*</label>
             </div>
 
             <div class="form-group mt-5 field">
@@ -83,10 +83,14 @@
 
             <div class="form-group my-5 field">
                 <textarea id="extras" placeholder=" " class="form-control" rows="2" cols="50" required></textarea>
-                <label for="extras">Extras</label>
+                <label for="extras">Extras*</label>
             </div>            
 
             <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Publica el anuncio</button>
+
+            <hr>
+
+            <i>* Es obligatorio rellenar estos campos para publicar el anuncio.</i>
 
         </form>
     </main>
