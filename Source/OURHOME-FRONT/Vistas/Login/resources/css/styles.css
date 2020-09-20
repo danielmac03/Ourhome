@@ -58,8 +58,10 @@ input[type="email"]:focus, input[type="password"]:focus {
     background-color: #477185;
 }
 
+
 /* Animacion para el label https://css-tricks.com/float-labels-css/ */
 /* proyeto de codepen https://codepen.io/team/css-tricks/pen/XVBLRM */
+
 .field {
     display: flex;
     flex-flow: column-reverse;
@@ -69,10 +71,9 @@ input[type="email"]:focus, input[type="password"]:focus {
 label, input {
     transition: all 0.2s;
     touch-action: manipulation;
-  }
+}
 
-  
-  input {
+input {
     font-size: 1.5em;
     border: 0;
     border-bottom: 1px solid #ccc;
@@ -81,15 +82,14 @@ label, input {
     border-radius: 0;
     padding: 0;
     cursor: text;
-  }
+}
   
-  input:focus {
+input:focus {
     outline: 0;
     border-bottom: 1px solid #666;
-  }
-
+}
   
-  input:placeholder-shown + label {
+input:placeholder-shown + label {
     cursor: text;
     max-width: 66.66%;
     white-space: nowrap;
@@ -97,16 +97,14 @@ label, input {
     text-overflow: ellipsis;
     transform-origin: left bottom;
     transform: translate(0, 2.125rem) scale(1.5);
-  }
+}
 
-  ::-webkit-input-placeholder {
+::-webkit-input-placeholder {
     opacity: 0;
     transition: inherit;
-  }
+}
 
-
-  input:not(:placeholder-shown) + label,
-  input:focus + label {
+input:not(:placeholder-shown) + label, input:focus + label {
     transform: translate(0, 0) scale(1);
     cursor: pointer;
-  }
+}
