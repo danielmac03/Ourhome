@@ -43,28 +43,34 @@
             
             <!-- nombre, apellidos, edad, telefono, correo, contraseña, rol(con casa, sin casa), mostrar correo, mostrar telefono  -->
 
-            <div class="form-group mt-5">
-                <input type="text" id="nombre" placeholder="Nombre" class="form-control" required>
+            <div class="form-group mt-5 field">
+                <input type="text" id="nombre" placeholder=" " class="form-control" required>
+                <label class="lab"  for="nombre">Nombre</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="text" id="apellidos" placeholder="Apellidos" class="form-control" required>
+            <div class="form-group mt-5 field">
+                <input type="text" id="apellidos" placeholder=" " class="form-control" required>
+                <label class="lab"  for="apellidos">Apellidos</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="number" id="edad" placeholder="Edad" class="form-control">
+            <div class="form-group mt-5 field">
+                <input type="number" id="edad" placeholder=" " class="form-control" required>
+                <label class="lab"  for="edad">Edad</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="email" id="correo" placeholder="Correo" class="form-control" required>
+            <div class="form-group mt-5 field">
+                <input type="email" id="correo" placeholder=" " class="form-control" required>
+                <label class="lab"  for="correo">Correo</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="tel" id="telefono" placeholder="Telefono" class="form-control" maxlength="9">
+            <div class="form-group mt-5 field">
+                <input type="tel" id="telefono" placeholder=" " class="form-control" maxlength="9">
+                <label class="lab" for="telefono">Telefono</label>
             </div>
 
-            <div class="form-group mt-5">
-                <input type="password" id="password" placeholder="Password" class="form-control" required>
+            <div class="form-group mt-5 field">
+                <input type="password" id="password" placeholder=" " class="form-control" required>
+                <label class="lab" for="password">Password</label>
             </div>
 
             <div class="form-group mt-5 text-left">
@@ -72,12 +78,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <input type="radio" id="con_casa" name="casa" value="0">
+                            <input type="radio" id="con_casa" name="casa" value="0" required>
                             <label for="con_casa">Tengo Casa</label>
                         </div>
                         <div class="col">
-                            <input type="radio" id="sin_casa" name="casa" value="1">
-                        <label for="sin_casa">Busco Casa</label>  
+                            <input type="radio" id="sin_casa" name="casa" value="1" required>
+                            <label for="sin_casa">Busco Casa</label>  
                         </div>  
                     </div>
                 </div>                    
@@ -87,12 +93,12 @@
                 <label class="mr-3">Comunicación con usuarios:</label><br>
                 <div class="container">
                     <div class="row">
-                        <div class="col">
-                            <input type="radio" id="si_mostrar_correo" name="correo" value="1">
+                        <div class="col"> 
+                            <input type="radio" id="si_mostrar_correo" name="correo" value="1" required>
                             <label for="si_mostrar_correo">Mostrar Correo</label>
                         </div>
                         <div class="col">
-                            <input type="radio" id="no_mostrar_correo" name="correo" value="0">
+                            <input type="radio" id="no_mostrar_correo" name="correo" value="0" required>
                             <label for="no_mostrar_correo">No Mostrar Correo</label> 
                         </div>  
                     </div>
@@ -103,11 +109,11 @@
                 <div class="container">
                     <div class="row">        
                         <div class="col">
-                            <input type="radio" id="si_mostrar_telefono" name="telefono" value="1">
+                            <input type="radio" id="si_mostrar_telefono" name="telefono" value="1" required>
                             <label for="si_mostrar_telefono">Mostrar Telefono</label>
                         </div>
                         <div class="col">
-                            <input type="radio" id="no_mostrar_telefono" name="telefono" value="0">
+                            <input type="radio" id="no_mostrar_telefono" name="telefono" value="0" required>
                             <label for="no_mostrar_telefono">No Mostrar Telefono</label>   
                         </div>  
                     </div>

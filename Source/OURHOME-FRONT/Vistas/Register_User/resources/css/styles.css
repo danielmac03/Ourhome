@@ -57,3 +57,40 @@ input[type="email"]:focus, input[type="tel"]:focus, input[type="password"]:focus
 .footer{
     background-color: #477185;
 }
+
+
+/* Animacion para el label https://css-tricks.com/float-labels-css/ */
+/* Proyecto de codepen https://codepen.io/team/css-tricks/pen/XVBLRM */
+
+.field {
+    display: flex;
+    flex-flow: column-reverse;
+    margin-bottom: 1em;
+}
+
+.lab, input {
+    transition: all 0.2s;
+    touch-action: manipulation;
+}
+
+  
+  
+input[type="email"]:placeholder-shown  + .lab, input[type="tel"]:placeholder-shown  + .lab, input[type="password"]:placeholder-shown  + .lab, input[type="text"]:placeholder-shown  + .lab, input[type="number"]:placeholder-shown + .lab {
+    cursor: text;
+    max-width: 66.66%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform-origin: left bottom;
+    transform: translate(0, 2.125rem) scale(1.5);
+}
+
+::-webkit-input-placeholder {
+    opacity: 0;
+    transition: inherit;
+}
+
+input:not(:placeholder-shown) + .lab, input[type="email"]:focus  + .lab, input[type="tel"]:focus  + .lab, input[type="password"]:focus  + .lab, input[type="text"]:focus  + .lab, input[type="number"]:focus + .lab {
+    transform: translate(0, 0) scale(1);
+    cursor: pointer;
+}
