@@ -39,7 +39,6 @@ body{
 }
 
 .div-form input[type="email"]:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="password"]:focus, input[type="decimal"]:focus, textarea:hover {
-    border-color: #477185 !important;
     box-shadow: none !important;
 }
 
@@ -79,7 +78,7 @@ body{
     margin-bottom: 1em;
 }
 
-label, input, textarea {
+input, textarea {
     transition: all 0.2s;
     touch-action: manipulation;
     font-size: 12px;
@@ -100,7 +99,7 @@ input:focus, textarea:hover {
     border-bottom: 1px solid #666;
 }
   
-input:placeholder-shown + label, textarea:placeholder-shown + label {
+input:placeholder-shown, textarea:placeholder-shown{
     cursor: text;
     max-width: 66.66%;
     white-space: nowrap;
@@ -115,7 +114,7 @@ input:placeholder-shown + label, textarea:placeholder-shown + label {
     transition: inherit;
 }
 
-input:not(:placeholder-shown) + label, input:focus + label,  textarea:not(:placeholder-shown) + label, textarea:focus + label {
+input:not(:placeholder-shown), input:focus,  textarea:not(:placeholder-shown), textarea:focus{
     transform: translate(0, 0) scale(1);
     cursor: pointer;
 }
@@ -131,4 +130,8 @@ input:not(:placeholder-shown) + label, input:focus + label,  textarea:not(:place
 
 #descripcion, #metros2, #extras, #num_baños,#direccion, #num_plantas, #num_habitaciones, #decimal{
     background: transparent;
+}
+
+p{
+    font-size: 18px;
 }
