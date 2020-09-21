@@ -1,3 +1,6 @@
+html {
+    height: 100%;
+}
 body{
     /* Background pattern from Toptal Subtle Patterns */
    background: url("../img/so-white.png");
@@ -12,33 +15,39 @@ body{
     font-size: 30px;
 }
 
-.form-login .title{
-    color: black;
-    font-size: 25px;
-}
-
 .navbar-custom .nav-link{
     color: white;
 }
 
-form{
+.div-form .title{
+    color: black;
+    font-size: 25px;
+}
+
+.div-form {
+    max-width: 1000px;
     background-color: white;
     box-shadow: 0px 0px 10px 4px #cccccc;
     border-radius: 4px;
-    max-width: 50%;
 }
 
-form .logo_ourhome {
+.div-form .logo_ourhome {
     width: 80%; 
 }
 
-input[type="email"], input[type="password"]{
+.div-form input[type="email"], input[type="password"]{
     border: 0px;
     border-bottom: 1px #1C3144 solid;
     border-radius: 0;
 }
 
-input[type="email"]:focus, input[type="password"]:focus {
+.div-form input[type="email"], input[type="text"], input[type="number"], input[type="tel"], input[type="password"]{
+    border: 0px;
+    border-bottom: 1px #1C3144 solid;
+    border-radius: 0;
+}
+
+.div-form input[type="email"]:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
     border-color: #477185;
     box-shadow: none;
 }
@@ -70,6 +79,7 @@ input[type="email"]:focus, input[type="password"]:focus {
 }
 
 
+
 /* Animacion para el label https://css-tricks.com/float-labels-css/ */
 /* Proyecto de codepen https://codepen.io/team/css-tricks/pen/XVBLRM */
 
@@ -79,28 +89,17 @@ input[type="email"]:focus, input[type="password"]:focus {
     margin-bottom: 1em;
 }
 
-label, input {
-    transition: all 0.2s;
-    touch-action: manipulation;
+.lab {    
+    font-size: 12px;
 }
 
-input {
-    font-size: 1.5em;
-    border: 0;
-    border-bottom: 1px solid #ccc;
-    font-family: inherit;
-    -webkit-appearance: none;
-    border-radius: 0;
-    padding: 0;
-    cursor: text;
+.lab, input {
+    transition: all 0.2s;
+    touch-action: manipulation;
+    font-size: 12px;
 }
   
-input:focus {
-    outline: 0;
-    border-bottom: 1px solid #666;
-}
-  
-input:placeholder-shown + label {
+input[type="email"]:placeholder-shown  + .lab, input[type="tel"]:placeholder-shown  + .lab, input[type="password"]:placeholder-shown  + .lab, input[type="text"]:placeholder-shown  + .lab, input[type="number"]:placeholder-shown + .lab {
     cursor: text;
     max-width: 66.66%;
     white-space: nowrap;
@@ -115,7 +114,7 @@ input:placeholder-shown + label {
     transition: inherit;
 }
 
-input:not(:placeholder-shown) + label, input:focus + label {
+input:not(:placeholder-shown) + .lab, input[type="email"]:focus  + .lab, input[type="tel"]:focus  + .lab, input[type="password"]:focus  + .lab, input[type="text"]:focus  + .lab, input[type="number"]:focus + .lab {
     transform: translate(0, 0) scale(1);
     cursor: pointer;
 }

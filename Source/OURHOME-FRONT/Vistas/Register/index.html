@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="form-group mt-5 text-left">
-                    <label class="mr-3">Tipo de usuario:*</label><br>
+                    <label>Tipo de usuario:*</label><br>
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -96,37 +96,24 @@
                         </div>
                     </div>                    
                 </div>
-
-                <div class="form-group mt-3 text-left">
-                    <label class="mr-3">Comunicación con usuarios:*</label><br>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col"> 
-                                <input type="radio" id="si_mostrar_correo" name="correo" value="1" required>
-                                <label for="si_mostrar_correo">Mostrar Correo</label>
-                            </div>
-                            <div class="col">
-                                <input type="radio" id="no_mostrar_correo" name="correo" value="0" required>
-                                <label for="no_mostrar_correo">No Mostrar Correo</label> 
-                            </div>  
-                        </div>
+                
+                <div class="form-group mt-5 text-left">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="mtelefono">
+                        <label class="form-check-label" for="mtelefono">
+                            Mostrar telefono para contacto
+                        </label>
                     </div>
-                </div>  
-
-                <div class="form-group mt-3 text-left">
-                    <div class="container">
-                        <div class="row">        
-                            <div class="col">
-                                <input type="radio" id="si_mostrar_telefono" name="telefono" value="1" required>
-                                <label for="si_mostrar_telefono">Mostrar Telefono</label>
-                            </div>
-                            <div class="col">
-                                <input type="radio" id="no_mostrar_telefono" name="telefono" value="0" required>
-                                <label for="no_mostrar_telefono">No Mostrar Telefono</label>   
-                            </div>  
-                        </div>
-                    </div>     
-                </div>  
+                </div>
+                
+                <div class="form-group text-left">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="politica">
+                        <label class="form-check-label" for="politica">
+                            Acepto las Condiciones del servicio y la Politica de privacidad de OURHOME
+                        </label>
+                    </div>
+                </div>
 
                 <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Regístrate</button>
 
