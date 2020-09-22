@@ -17,9 +17,6 @@ public class Casas {
 	@JoinColumn(name="id_usuario")
 	Usuarios usuarios;
 
-	@Column(name="url_foto")
-	private String url_foto;
-	
 	@Column(name="descripcion")
 	private String descripcion;
 	
@@ -55,7 +52,6 @@ public class Casas {
 	/**
 	 * @param id_casa
 	 * @param usuarios
-	 * @param url_foto
 	 * @param descripcion
 	 * @param precio
 	 * @param numero_habitaciones
@@ -67,12 +63,11 @@ public class Casas {
 	 * @param fecha_creacion
 	 * @param fecha_actualizacion
 	 */
-	public Casas(int id_casa, Usuarios usuarios, String url_foto, String descripcion, double precio, int numero_habitaciones,
+	public Casas(int id_casa, Usuarios usuarios, String descripcion, double precio, int numero_habitaciones,
 			int numero_baños, String direccion, double metros, int plantas, String extras, Date fecha_creacion,
 			Date fecha_actualizacion) {
 		this.id_casa = id_casa;
 		this.usuarios = usuarios;
-		this.url_foto = url_foto;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.numero_habitaciones = numero_habitaciones;
@@ -111,20 +106,6 @@ public class Casas {
 	 */
 	public void setUsuarios(Usuarios usuarios) {
 		this.usuarios = usuarios;
-	}
-	
-	/**
-	 * @return the url_foto
-	 */
-	public String getUrl_foto() {
-		return url_foto;
-	}
-
-	/**
-	 * @param url_foto the url_foto to set
-	 */
-	public void setUrl_foto(String url_foto) {
-		this.url_foto = url_foto;
 	}
 
 	/**
@@ -269,11 +250,10 @@ public class Casas {
 
 	@Override
 	public String toString() {
-		return "Casas [id_casa=" + id_casa + ", usuarios=" + usuarios + ", url_foto=" + url_foto + ", descripcion="
-				+ descripcion + ", precio=" + precio + ", numero_habitaciones=" + numero_habitaciones
-				+ ", numero_baños=" + numero_baños + ", direccion=" + direccion + ", metros=" + metros + ", plantas="
-				+ plantas + ", extras=" + extras + ", fecha_creacion=" + fecha_creacion + ", fecha_actualizacion="
-				+ fecha_actualizacion + "]";
+		return "Casas [id_casa=" + id_casa + ", usuarios=" + usuarios + ", descripcion=" + descripcion + ", precio="
+				+ precio + ", numero_habitaciones=" + numero_habitaciones + ", numero_baños=" + numero_baños
+				+ ", direccion=" + direccion + ", metros=" + metros + ", plantas=" + plantas + ", extras=" + extras
+				+ ", fecha_creacion=" + fecha_creacion + ", fecha_actualizacion=" + fecha_actualizacion + "]";
 	}
-	
+
 }
