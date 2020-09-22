@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>OURHOME - CREACION CUSTIONARIO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="resources/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-custom">
+            <h1><a class="navbar-brand title" href="#">OURHOME</a></h1>
+        
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Anuncios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Procesos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mi Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Desconectar</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-fluid my-5">
+        <div class="container div-form p-5">
+            <img src="./resources/img/color1-logo.png" class="logo_ourhome mx-auto d-block">
+
+            <div class="my-3"></div>
+
+            <form action="#" method="">
+                <div class="form-group question p-2">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="visitas" value="0">No
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="visitas" value="1" required>Si
+                        </label>
+                    </div>
+
+                    <textarea id="pregunta" placeholder=" " class="form-control" required></textarea>
+                    <label for="pregunta">Pregunta 1</label>
+                                       
+                </div>
+
+                <div class="form-group question p-2">
+                    
+                   <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="visitas" value="0">No
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="visitas" value="1" required>Si
+                        </label>
+                    </div>
+                                       
+
+                    <textarea id="pregunta" placeholder=" " class="form-control" required></textarea>
+                    <label for="pregunta">Pregunta 2</label>
+                    
+                    
+
+                    
+                </div>
+
+                <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Guardar</button>
+            </form>
+
+        </div>
+    </main>
+
+    <footer class="footer fixed-bottom px-3 d-none d-sm-block">
+        <ul class="list-unstyled text-right text-white m-1">
+            <li>Arnau Colomé · Alba Fischer · Daniel Macías</li>
+        </ul>
+    </footer>
+</body>
+</html>
