@@ -12,7 +12,6 @@ CREATE TABLE usuarios(
     contraseña VARCHAR(100) NOT NULL,
     rol ENUM('con_casa', 'sin_casa', 'admin') NOT NULL,
 	respuestas_test_defecto MEDIUMTEXT NOT NULL,
-    mostrar_correo bit DEFAULT NULL,
 	mostrar_telefono bit DEFAULT NULL,
 	fecha_creacion DATE DEFAULT NULL,
 	fecha_actualizacion DATE DEFAULT NULL
