@@ -21,6 +21,7 @@ CREATE TABLE usuarios(
 CREATE TABLE casas(
 	id_casa INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_usuario INT NOT NULL,
+	url_foto MEDIUMTEXT NOT NULL,
     descripcion MEDIUMTEXT DEFAULT NULL,
     precio DOUBLE NOT NULL,
     numero_habitaciones INT NOT NULL,
