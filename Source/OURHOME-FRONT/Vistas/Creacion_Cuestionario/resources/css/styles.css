@@ -32,12 +32,12 @@ body{
     width: 80%; 
 }
 
-.div-form input[type="email"], input[type="text"], input[type="number"], input[type="tel"], input[type="password"]{
+.div-form input[type="text"]{
     border: 0px;
     border-radius: 0;
 }
 
-.div-form input[type="email"]:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
+.div-form input[type="text"]:focus {
     border-color: #477185;
     box-shadow: none;
 }
@@ -74,7 +74,7 @@ body{
     font-size: 12px;
 }
   
-input[type="email"]:placeholder-shown  + .lab, input[type="tel"]:placeholder-shown  + .lab, input[type="password"]:placeholder-shown  + .lab, input[type="text"]:placeholder-shown  + .lab, input[type="number"]:placeholder-shown + .lab {
+input[type="text"]:placeholder-shown  + .lab {
     cursor: text;
     max-width: 66.66%;
     white-space: nowrap;
@@ -89,7 +89,7 @@ input[type="email"]:placeholder-shown  + .lab, input[type="tel"]:placeholder-sho
     transition: inherit;
 }
 
-input:not(:placeholder-shown) + .lab, input[type="email"]:focus  + .lab, input[type="tel"]:focus  + .lab, input[type="password"]:focus  + .lab, input[type="text"]:focus  + .lab, input[type="number"]:focus + .lab {
+input:not(:placeholder-shown) + .lab, input[type="text"]:focus  + .lab {
     transform: translate(0, 0) scale(1);
     cursor: pointer;
 }
