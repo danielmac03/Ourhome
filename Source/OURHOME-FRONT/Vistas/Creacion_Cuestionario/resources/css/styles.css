@@ -32,13 +32,12 @@ body{
     width: 80%; 
 }
 
-.div-form input[type="email"], input[type="password"], .pregunta {
+.div-form input[type="email"], input[type="text"], input[type="number"], input[type="tel"], input[type="password"]{
     border: 0px;
-    border-bottom: 1px #1C3144 solid;
     border-radius: 0;
 }
 
-.div-form input[type="email"]:focus, input[type="password"]:focus, .pregunta:hover  {
+.div-form input[type="email"]:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
     border-color: #477185;
     box-shadow: none;
 }
@@ -52,45 +51,30 @@ body{
     color: white;
 }
 
-.btn-custom:hover {
-    background-color: #1C3144;
-    color: white;
-}
-
 .footer{
     background-color: #477185;
 }
 
-.question {
+/* Animacion para el label https://css-tricks.com/float-labels-css/ */
+/* Proyecto de codepen https://codepen.io/team/css-tricks/pen/XVBLRM */
+
+.field {
     display: flex;
     flex-flow: column-reverse;
     margin-bottom: 1em;
 }
 
-label, .pregunta {
+.lab {    
+    font-size: 12px;
+}
+
+.lab, input {
     transition: all 0.2s;
     touch-action: manipulation;
     font-size: 12px;
 }
-
-.pregunta {
-    font-size: 1.4em;
-    border: 0;
-    font-family: inherit;
-    -webkit-appearance: none;
-    border-radius: 0;
-    padding: 0;
-    cursor: text;
-}
-
-.pregunta:hover {
-    outline: 0;
-    border: 0px;
-    border-radius: 0;
-    
-}
   
-.pregunta:placeholder-shown + label{
+input[type="email"]:placeholder-shown  + .lab, input[type="tel"]:placeholder-shown  + .lab, input[type="password"]:placeholder-shown  + .lab, input[type="text"]:placeholder-shown  + .lab, input[type="number"]:placeholder-shown + .lab {
     cursor: text;
     max-width: 66.66%;
     white-space: nowrap;
@@ -100,7 +84,12 @@ label, .pregunta {
     transform: translate(0, 2.125rem) scale(1.5);
 }
 
-.pregunta:not(:placeholder-shown) + label, .pregunta:focus + label {
+::-webkit-input-placeholder {
+    opacity: 0;
+    transition: inherit;
+}
+
+input:not(:placeholder-shown) + .lab, input[type="email"]:focus  + .lab, input[type="tel"]:focus  + .lab, input[type="password"]:focus  + .lab, input[type="text"]:focus  + .lab, input[type="number"]:focus + .lab {
     transform: translate(0, 0) scale(1);
     cursor: pointer;
 }
