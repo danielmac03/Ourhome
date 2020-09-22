@@ -38,9 +38,6 @@ public class Usuarios {
 	@Column(name="respuestas_test_defecto")
 	private String respuestas_test_defecto;
 	
-	@Column(name="mostrar_correo")
-	private boolean mostrar_correo;
-	
 	@Column(name="mostrar_telefono")
 	private boolean mostrar_telefono;
 	
@@ -84,7 +81,6 @@ public class Usuarios {
 	 * @param contraseña
 	 * @param rol
 	 * @param respuestas_test_defecto
-	 * @param mostrar_correo
 	 * @param mostrar_telefono
 	 * @param fecha_creacion
 	 * @param fecha_actualizacion
@@ -95,9 +91,9 @@ public class Usuarios {
 	 * @param respuestasTestsPersonalizados
 	 */
 	public Usuarios(int id_usuarios, String nombre, String apellidos, int edad, int telefono, String correo,
-			String contraseña, String rol, String respuestas_test_defecto, boolean mostrar_correo,
-			boolean mostrar_telefono, Date fecha_creacion, Date fecha_actualizacion, List<Casas> casas,
-			List<Procesos> procesos_1, List<Procesos> procesos_2, List<TestsPersonalizados> testPersonalizados,
+			String contraseña, String rol, String respuestas_test_defecto, boolean mostrar_telefono, 
+			Date fecha_creacion, Date fecha_actualizacion, List<Casas> casas, List<Procesos> procesos_1, 
+			List<Procesos> procesos_2, List<TestsPersonalizados> testPersonalizados, 
 			List<RespuestasTestsPersonalizados> respuestasTestsPersonalizados) {
 		this.id_usuarios = id_usuarios;
 		this.nombre = nombre;
@@ -108,7 +104,6 @@ public class Usuarios {
 		this.contraseña = contraseña;
 		this.rol = rol;
 		this.respuestas_test_defecto = respuestas_test_defecto;
-		this.mostrar_correo = mostrar_correo;
 		this.mostrar_telefono = mostrar_telefono;
 		this.fecha_creacion = fecha_creacion;
 		this.fecha_actualizacion = fecha_actualizacion;
@@ -246,20 +241,6 @@ public class Usuarios {
 	}
 
 	/**
-	 * @return the mostrar_correo
-	 */
-	public boolean isMostrar_correo() {
-		return mostrar_correo;
-	}
-
-	/**
-	 * @param mostrar_correo the mostrar_correo to set
-	 */
-	public void setMostrar_correo(boolean mostrar_correo) {
-		this.mostrar_correo = mostrar_correo;
-	}
-
-	/**
 	 * @return the mostrar_telefono
 	 */
 	public boolean isMostrar_telefono() {
@@ -385,11 +366,10 @@ public class Usuarios {
 	public String toString() {
 		return "Usuarios [id_usuarios=" + id_usuarios + ", nombre=" + nombre + ", apellidos=" + apellidos + ", edad="
 				+ edad + ", telefono=" + telefono + ", correo=" + correo + ", contraseña=" + contraseña + ", rol=" + rol
-				+ ", respuestas_test_defecto=" + respuestas_test_defecto + ", mostrar_correo=" + mostrar_correo
-				+ ", mostrar_telefono=" + mostrar_telefono + ", fecha_creacion=" + fecha_creacion
-				+ ", fecha_actualizacion=" + fecha_actualizacion + ", casas=" + casas + ", procesos_1=" + procesos_1
-				+ ", procesos_2=" + procesos_2 + ", testPersonalizados=" + testPersonalizados
-				+ ", respuestasTestsPersonalizados=" + respuestasTestsPersonalizados + "]";
+				+ ", respuestas_test_defecto=" + respuestas_test_defecto + ", mostrar_telefono=" + mostrar_telefono
+				+ ", fecha_creacion=" + fecha_creacion + ", fecha_actualizacion=" + fecha_actualizacion + ", casas="
+				+ casas + ", procesos_1=" + procesos_1 + ", procesos_2=" + procesos_2 + ", testPersonalizados="
+				+ testPersonalizados + ", respuestasTestsPersonalizados=" + respuestasTestsPersonalizados + "]";
 	}
 	
 }

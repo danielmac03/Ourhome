@@ -51,7 +51,6 @@ public class UsuariosController {
 		usuarioSeleccionado.setContraseña(usuario.getContraseña());
 		usuarioSeleccionado.setRol(usuario.getRol());
 		usuarioSeleccionado.setRespuestas_test_defecto(usuario.getRespuestas_test_defecto());
-		usuarioSeleccionado.setMostrar_correo(usuario.isMostrar_correo());
 		usuarioSeleccionado.setMostrar_telefono(usuario.isMostrar_telefono());		
 		usuarioSeleccionado.setFecha_creacion(usuario.getFecha_creacion());
 		usuarioSeleccionado.setFecha_actualizacion(usuario.getFecha_actualizacion());
