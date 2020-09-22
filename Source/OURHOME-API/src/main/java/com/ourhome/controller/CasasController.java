@@ -42,7 +42,6 @@ public class CasasController {
 		
 		casaSeleccionada = casasServiceImpl.buscarCasa(id);
 		
-		//casaSeleccionada.setId_casa(casa.getId_casa());
 		casaSeleccionada.setUsuarios(casa.getUsuarios());
 		casaSeleccionada.setDescripcion(casa.getDescripcion());
 		casaSeleccionada.setPrecio(casa.getPrecio());

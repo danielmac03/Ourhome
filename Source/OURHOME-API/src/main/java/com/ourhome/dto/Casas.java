@@ -16,7 +16,7 @@ public class Casas {
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
 	Usuarios usuarios;
-	
+
 	@Column(name="descripcion")
 	private String descripcion;
 	
@@ -250,10 +250,10 @@ public class Casas {
 
 	@Override
 	public String toString() {
-		return "Casas [id_casa=" + id_casa + ", descripcion=" + descripcion + ", precio=" + precio
-				+ ", numero_habitaciones=" + numero_habitaciones + ", numero_baños=" + numero_baños + ", direccion="
-				+ direccion + ", metros=" + metros + ", plantas=" + plantas + ", extras=" + extras + ", fecha_creacion="
-				+ fecha_creacion + ", fecha_actualizacion=" + fecha_actualizacion + "]";
+		return "Casas [id_casa=" + id_casa + ", usuarios=" + usuarios + ", descripcion=" + descripcion + ", precio="
+				+ precio + ", numero_habitaciones=" + numero_habitaciones + ", numero_baños=" + numero_baños
+				+ ", direccion=" + direccion + ", metros=" + metros + ", plantas=" + plantas + ", extras=" + extras
+				+ ", fecha_creacion=" + fecha_creacion + ", fecha_actualizacion=" + fecha_actualizacion + "]";
 	}
-	
+
 }
