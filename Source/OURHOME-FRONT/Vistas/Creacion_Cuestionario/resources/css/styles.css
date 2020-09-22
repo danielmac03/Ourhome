@@ -32,13 +32,13 @@ body{
     width: 80%; 
 }
 
-.div-form input[type="email"], input[type="password"], textarea {
+.div-form input[type="email"], input[type="password"], .pregunta {
     border: 0px;
     border-bottom: 1px #1C3144 solid;
     border-radius: 0;
 }
 
-.div-form input[type="email"]:focus, input[type="password"]:focus, textarea:hover  {
+.div-form input[type="email"]:focus, input[type="password"]:focus, .pregunta:hover  {
     border-color: #477185;
     box-shadow: none;
 }
@@ -67,14 +67,14 @@ body{
     margin-bottom: 1em;
 }
 
-label, textarea {
+label, .pregunta {
     transition: all 0.2s;
     touch-action: manipulation;
     font-size: 12px;
 }
 
-textarea {
-    font-size: 1.5em;
+.pregunta {
+    font-size: 1.3em;
     border: 0;
     font-family: inherit;
     -webkit-appearance: none;
@@ -82,19 +82,15 @@ textarea {
     padding: 0;
     cursor: text;
 }
-#pregunta {
-    border-color: transparent;
-    
-    border-radius: 0;
-}
-textarea:hover {
+
+.pregunta:hover {
     outline: 0;
     border: 0px;
     border-radius: 0;
-    border-bottom: 1px solid #666;
+    
 }
   
-textarea:placeholder-shown + label{
+.pregunta:placeholder-shown + label{
     cursor: text;
     max-width: 66.66%;
     white-space: nowrap;
@@ -104,7 +100,7 @@ textarea:placeholder-shown + label{
     transform: translate(0, 2.125rem) scale(1.5);
 }
 
-textarea:not(:placeholder-shown) + label, textarea:focus + label {
+.pregunta:not(:placeholder-shown) + label, .pregunta:focus + label {
     transform: translate(0, 0) scale(1);
     cursor: pointer;
 }
