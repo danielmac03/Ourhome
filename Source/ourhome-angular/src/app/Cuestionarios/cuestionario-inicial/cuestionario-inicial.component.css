@@ -1,57 +1,7 @@
-body{
-  /* Background pattern from Toptal Subtle Patterns */
- background: url("../../../assets/so-white.png");
-}
-
-.navbar-custom{
-  background-color: #1C3144;
-}
-
-.navbar-custom .title{
-  color: white;
-  font-size: 30px;
-}
-
-.navbar-custom .nav-link{
-  color: white;
-}
-
-.div-form .title{
-  color: black;
-  font-size: 25px;
-}
-
 .div-form{
-  max-width: 700px;
-  background-color: white;
-  box-shadow: 0px 0px 10px 4px #cccccc;
-  border-radius: 4px;
-}
-
-.div-form .logo_ourhome {
-  width: 80%;
-}
-
-.div-form input[type="email"], input[type="password"]{
-  border: 0px;
-  border-bottom: 1px #1C3144 solid;
-  border-radius: 0;
-}
-
-.div-form input[type="email"]:focus, input[type="password"]:focus {
-  border-color: #477185;
-  box-shadow: none;
+  max-width: 700px !important;
 }
 
 .div-form .question{
   border-bottom: 1px #1C3144 solid;
-}
-
-.btn-custom{
-  background-color: #477185;
-  color: white;
-}
-
-.footer{
-  background-color: #477185;
 }
