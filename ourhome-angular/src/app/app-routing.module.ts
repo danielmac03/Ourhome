@@ -16,7 +16,7 @@ import { LoginComponent } from './login/login.component';
 
 import { RegisterComponent } from './register/register.component';
 
-import { InfoComponent } from './Info/info/info.component';
+import { NotFoundComponent } from './Info/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: 'cuestionarioPersonalizado', component:CuestionarioPersonalizadoComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
-  {path: '404', component: InfoComponent},
+  {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'},
 
 ];
