@@ -1,6 +1,6 @@
 body{
   /* Background pattern from Toptal Subtle Patterns */
- /* background: url("../img/so-white.png"); */
+  background: url("../assets/so-white.png");
 }
 
 .navbar-custom{

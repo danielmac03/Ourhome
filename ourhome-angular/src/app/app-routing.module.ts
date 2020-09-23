@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'verAnuncio', component:VerAnuncioComponent},
   {path: 'crearCuestionario', component:CrearCuestionarioComponent},
   {path: 'cuestionarioInicial', component:CuestionarioInicialComponent},
-  {path: 'cuestionariopersonalizado', component:CuestionarioPersonalizadoComponent},
+  {path: 'cuestionarioPersonalizado', component:CuestionarioPersonalizadoComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
   {path: '404', component: InfoComponent},
