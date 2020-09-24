@@ -23,6 +23,9 @@ public class Casas {
 	@Column(name="precio")
 	private double precio;
 	
+	@Column(name="url_fotos")
+	private int url_fotos;
+		
 	@Column(name="numero_habitaciones")
 	private int numero_habitaciones;
 	
@@ -52,6 +55,7 @@ public class Casas {
 	/**
 	 * @param id_casa
 	 * @param usuarios
+	 * @param url_fotos
 	 * @param descripcion
 	 * @param precio
 	 * @param numero_habitaciones
@@ -63,11 +67,12 @@ public class Casas {
 	 * @param fecha_creacion
 	 * @param fecha_actualizacion
 	 */
-	public Casas(int id_casa, Usuarios usuarios, String descripcion, double precio, int numero_habitaciones,
-			int numero_baños, String direccion, double metros, int plantas, String extras, Date fecha_creacion,
-			Date fecha_actualizacion) {
+	public Casas(int id_casa, Usuarios usuarios, String url_fotos, String descripcion, double precio, 
+			int numero_habitaciones, int numero_baños, String direccion, double metros, int plantas, 
+			String extras, Date fecha_creacion, Date fecha_actualizacion) {
 		this.id_casa = id_casa;
 		this.usuarios = usuarios;
+		this.url_fotos = url_fotos;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.numero_habitaciones = numero_habitaciones;
@@ -106,6 +111,20 @@ public class Casas {
 	 */
 	public void setUsuarios(Usuarios usuarios) {
 		this.usuarios = usuarios;
+	}
+
+	/**
+	 * @return the url_fotos
+	 */
+	public String getUrl_fotos() {
+		return descripcion;
+	}
+
+	/**
+	 * @param url_fotos the url_fotos to set
+	 */
+	public void setUrl_fotos(String url_fotos) {
+		this.url_fotos = url_fotos;
 	}
 
 	/**
@@ -250,10 +269,10 @@ public class Casas {
 
 	@Override
 	public String toString() {
-		return "Casas [id_casa=" + id_casa + ", usuarios=" + usuarios + ", descripcion=" + descripcion + ", precio="
-				+ precio + ", numero_habitaciones=" + numero_habitaciones + ", numero_baños=" + numero_baños
-				+ ", direccion=" + direccion + ", metros=" + metros + ", plantas=" + plantas + ", extras=" + extras
-				+ ", fecha_creacion=" + fecha_creacion + ", fecha_actualizacion=" + fecha_actualizacion + "]";
+		return "Casas [id_casa=" + id_casa + ", usuarios=" + usuarios + ", url_fotos=" + url_fotos +", descripcion=" + 
+				descripcion + ", precio=" + precio + ", numero_habitaciones=" + numero_habitaciones + ", numero_baños=" 
+				+ numero_baños + ", direccion=" + direccion + ", metros=" + metros + ", plantas=" + plantas + 
+				", extras=" + extras + ", fecha_creacion=" + fecha_creacion + ", fecha_actualizacion=" + fecha_actualizacion + "]";
 	}
 
 }

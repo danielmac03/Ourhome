@@ -43,6 +43,7 @@ public class CasasController {
 		casaSeleccionada = casasServiceImpl.buscarCasa(id);
 		
 		casaSeleccionada.setUsuarios(casa.getUsuarios());
+		casaSeleccionada.setUrl_fotos(casa.getUrl_fotos());
 		casaSeleccionada.setDescripcion(casa.getDescripcion());
 		casaSeleccionada.setPrecio(casa.getPrecio());
 		casaSeleccionada.setNumero_habitaciones(casa.getNumero_habitaciones());
