@@ -9,8 +9,8 @@ import { VerAnuncioComponent } from './Anuncios/ver-anuncio/ver-anuncio.componen
 import { CrearCuestionarioComponent } from './Cuestionarios/crear-cuestionario/crear-cuestionario.component';
 import { CuestionarioInicialComponent } from './Cuestionarios/cuestionario-inicial/cuestionario-inicial.component';
 import { CuestionarioPersonalizadoComponent } from './Cuestionarios/cuestionario-personalizado/cuestionario-personalizado.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './Usuarios/crud/login/login.component';
+import { RegisterComponent } from './Usuarios/crud/register/register.component';
 import { NotFoundComponent } from './Info/not-found/not-found.component';
 
 const routes: Routes = [

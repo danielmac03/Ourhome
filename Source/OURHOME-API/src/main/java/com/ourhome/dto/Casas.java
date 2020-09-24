@@ -24,7 +24,7 @@ public class Casas {
 	private double precio;
 	
 	@Column(name="url_fotos")
-	private int url_fotos;
+	private String url_fotos;
 		
 	@Column(name="numero_habitaciones")
 	private int numero_habitaciones;
@@ -117,7 +117,7 @@ public class Casas {
 	 * @return the url_fotos
 	 */
 	public String getUrl_fotos() {
-		return descripcion;
+		return url_fotos;
 	}
 
 	/**
