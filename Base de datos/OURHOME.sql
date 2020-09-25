@@ -9,7 +9,7 @@ CREATE TABLE usuarios(
     edad INT NOT NULL,
     telefono INT NULL,
     correo VARCHAR(100) NOT NULL,
-    contraseña VARCHAR(100) NOT NULL,
+    contrasena VARCHAR(100) NOT NULL,
     rol ENUM('tengo_casa', 'busco_casa', 'admin') NOT NULL,
     respuestas_test_defecto MEDIUMTEXT NOT NULL,
     mostrar_telefono bit DEFAULT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE usuarios(
     fecha_actualizacion DATE NOT NULL
 );
 
-INSERT INTO usuarios (nombre, apellidos, edad, telefono, correo, contraseña, rol, respuestas_test_defecto, mostrar_telefono, fecha_creacion, fecha_actualizacion) VALUES 
+INSERT INTO usuarios (nombre, apellidos, edad, telefono, correo, contrasena, rol, respuestas_test_defecto, mostrar_telefono, fecha_creacion, fecha_actualizacion) VALUES 
 ('Daniel', 'Rodrigues', 15, 699873544, 'danielrodrigues@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
 ('Marco', 'Polo', 20, 633254182, 'marcololo@hotmail.com', 'marco00', '1', 'sa', 0, CURRENT_DATE(), CURRENT_DATE()),
 ('Anna', 'mota', 25, 124512325, 'annamota@gmail.com', 'anna00', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
@@ -36,7 +36,7 @@ CREATE TABLE casas(
     descripcion MEDIUMTEXT DEFAULT NULL,
     precio DOUBLE NOT NULL,
     numero_habitaciones INT NOT NULL,
-    numero_baños INT NOT NULL,
+    numero_banos INT NOT NULL,
     direccion VARCHAR(100) DEFAULT NULL,
     metros DECIMAL DEFAULT NULL,
     plantas INT NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE casas(
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
-INSERT INTO casas (id_usuario, url_fotos, descripcion, precio, numero_habitaciones, numero_baños, direccion, metros, plantas, fecha_creacion, fecha_actualizacion) VALUES
+INSERT INTO casas (id_usuario, url_fotos, descripcion, precio, numero_habitaciones, numero_banos, direccion, metros, plantas, fecha_creacion, fecha_actualizacion) VALUES
 (10, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 2, 1, 'C/ Tarragona', 120, 1, CURRENT_DATE(), CURRENT_DATE()),
 (8, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 500, 4, 2, 'C/ San Pere', 220, 3, CURRENT_DATE(), CURRENT_DATE()),
 (5, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 400, 3, 1, 'C/ Alcalá', 155, 1, CURRENT_DATE(), CURRENT_DATE()),
