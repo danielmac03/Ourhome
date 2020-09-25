@@ -31,7 +31,7 @@ public class UsuariosController {
 	
 	@PostMapping("/usuarios")
 	public Usuarios guardarUsuario(@RequestBody Usuarios usuario) {
-		usuario.setContraseña(bCryptPasswordEncoder.encode(usuario.getContraseña()));
+		usuario.setContrasena(bCryptPasswordEncoder.encode(usuario.getContrasena()));
 		return usuariosServiceImpl.guardarUsuario(usuario);
 	}
 	
@@ -58,7 +58,7 @@ public class UsuariosController {
 		usuarioSeleccionado.setEdad(usuario.getEdad());
 		usuarioSeleccionado.setTelefono(usuario.getTelefono());
 		usuarioSeleccionado.setCorreo(usuario.getCorreo());
-		usuarioSeleccionado.setContraseña(usuario.getContraseña());
+		usuarioSeleccionado.setContrasena(usuario.getContrasena());
 		usuarioSeleccionado.setRol(usuario.getRol());
 		usuarioSeleccionado.setRespuestas_test_defecto(usuario.getRespuestas_test_defecto());
 		usuarioSeleccionado.setMostrar_telefono(usuario.isMostrar_telefono());		
