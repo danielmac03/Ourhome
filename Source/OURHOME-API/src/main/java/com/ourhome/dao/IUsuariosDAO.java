@@ -5,4 +5,6 @@ import com.ourhome.dto.Usuarios;
 
 public interface IUsuariosDAO extends JpaRepository<Usuarios, Integer>{
 
+	Usuarios findByCorreo(String correo);
+	
 }

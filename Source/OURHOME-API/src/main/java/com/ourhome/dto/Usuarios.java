@@ -3,6 +3,8 @@ package com.ourhome.dto;
 import java.sql.Date;
 import java.util.List;
 import javax.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -41,9 +43,11 @@ public class Usuarios {
 	@Column(name="mostrar_telefono")
 	private boolean mostrar_telefono;
 	
+	@CreationTimestamp
 	@Column(name="fecha_creacion")
 	private Date fecha_creacion;
 	
+	@UpdateTimestamp
 	@Column(name="fecha_actualizacion")
 	private Date fecha_actualizacion;
 	

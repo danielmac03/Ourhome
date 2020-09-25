@@ -18,7 +18,7 @@ CREATE TABLE usuarios(
 );
 
 INSERT INTO usuarios (nombre, apellidos, edad, telefono, correo, contraseña, rol, respuestas_test_defecto, mostrar_telefono, fecha_creacion, fecha_actualizacion) VALUES 
-('Daniel', 'Rodrigues', 15, 699873544, 'danielrodrigues@gmail.com', 'daniel00', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
+('Daniel', 'Rodrigues', 15, 699873544, 'danielrodrigues@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
 ('Marco', 'Polo', 20, 633254182, 'marcololo@hotmail.com', 'marco00', '1', 'sa', 0, CURRENT_DATE(), CURRENT_DATE()),
 ('Anna', 'mota', 25, 124512325, 'annamota@gmail.com', 'anna00', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
 ('Maria', 'Aguilea', 34, 489562558, 'mariaguilera@yahoo.com', 'maria00', '1', 'sa', 1, CURRENT_DATE(), CURRENT_DATE()),

@@ -3,17 +3,26 @@ package com.ourhome.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import com.ourhome.dto.Usuarios;
 import com.ourhome.service.UsuariosServiceImpl;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class UsuariosController {
 
 	@Autowired
 	UsuariosServiceImpl usuariosServiceImpl;
 	
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
+	public UsuariosController(BCryptPasswordEncoder bCryptPasswordEncoder) {
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	}
+
+
 	@GetMapping("/usuarios")
 	public List<Usuarios> listarUsuarios(){
 		return usuariosServiceImpl.listarUsuarios();
@@ -22,6 +31,7 @@ public class UsuariosController {
 	
 	@PostMapping("/usuarios")
 	public Usuarios guardarUsuario(@RequestBody Usuarios usuario) {
+		usuario.setContraseña(bCryptPasswordEncoder.encode(usuario.getContraseña()));
 		return usuariosServiceImpl.guardarUsuario(usuario);
 	}
 	
