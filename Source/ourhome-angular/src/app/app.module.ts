@@ -15,7 +15,6 @@ import { CuestionarioInicialComponent } from './cuestionario-inicial/cuestionari
 import { CuestionarioPersonalizadoComponent } from './cuestionario-personalizado/cuestionario-personalizado.component';
 import { InfoComponent } from './info/info.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ModelComponent } from './model/model.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +30,7 @@ import { ModelComponent } from './model/model.component';
     CuestionarioInicialComponent,
     CuestionarioPersonalizadoComponent,
     InfoComponent,
-    NotFoundComponent,
-    ModelComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

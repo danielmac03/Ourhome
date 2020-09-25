@@ -1,4 +1,4 @@
-// import {id_usuario_creador} from './usuarios';
+import {usuarios} from './usuarios';
 
 export class test_personalizados {
   id_test_personalizados: number;

@@ -1,4 +1,4 @@
-// import {id_usuario} from './usuarios';
+import {usuarios} from './usuarios';
 
 export class casas {
   id_casas: number;
@@ -7,7 +7,7 @@ export class casas {
   precio: number;
   url_fotos: string;
   numero_habitaciones: number;
-  numero_baños: number;
+  numero_banos: number;
   direccion: string;
   metros: number;
   plantas: number;

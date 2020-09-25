@@ -1,5 +1,5 @@
-// import {id_usuario} from './usuarios';
-// import {id_test_personalizado} from './test_personalizados';
+import {usuarios} from './usuarios';
+import {test_personalizados} from './test_personalizados';
 
 export class respuestas_tests_personalizados {
   id_respuestas_test_personalizado: number;
