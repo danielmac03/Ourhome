@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './Home/home/home.component';
-import { PerfilComponent } from './Home/perfil/perfil.component';
-import { ProcesosComponent } from './Home/procesos/procesos.component';
+import { PerfilComponent } from './Usuarios/perfil/perfil.component';
+import { ProcesosComponent } from './Procesos/procesos/procesos.component';
 import { CrearAnuncioComponent } from './Anuncios/crear-anuncio/crear-anuncio.component';
 import { VerAnuncioComponent } from './Anuncios/ver-anuncio/ver-anuncio.component';
 import { CrearCuestionarioComponent } from './Cuestionarios/crear-cuestionario/crear-cuestionario.component';
