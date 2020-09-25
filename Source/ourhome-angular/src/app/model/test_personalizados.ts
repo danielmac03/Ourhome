@@ -1,3 +1,5 @@
+// import {id_usuario_creador} from './usuarios';
+
 export class test_personalizados {
   id_test_personalizados: number;
   id_usuario_creador: number;

@@ -1,3 +1,5 @@
+// import {id_usuario} from './usuarios';
+
 export class casas {
   id_casas: number;
   id_usuario: number;
