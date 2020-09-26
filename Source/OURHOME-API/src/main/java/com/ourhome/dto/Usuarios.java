@@ -3,6 +3,8 @@ package com.ourhome.dto;
 import java.sql.Date;
 import java.util.List;
 import javax.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -29,8 +31,8 @@ public class Usuarios {
 	@Column(name="correo")
 	private String correo;
 	
-	@Column(name="contraseña")
-	private String contraseña;
+	@Column(name="contrasena")
+	private String contrasena;
 	
 	@Column(name="rol")
 	private String rol;
@@ -41,9 +43,11 @@ public class Usuarios {
 	@Column(name="mostrar_telefono")
 	private boolean mostrar_telefono;
 	
+	@CreationTimestamp
 	@Column(name="fecha_creacion")
 	private Date fecha_creacion;
 	
+	@UpdateTimestamp
 	@Column(name="fecha_actualizacion")
 	private Date fecha_actualizacion;
 	
@@ -78,7 +82,7 @@ public class Usuarios {
 	 * @param edad
 	 * @param telefono
 	 * @param correo
-	 * @param contraseña
+	 * @param contrasena
 	 * @param rol
 	 * @param respuestas_test_defecto
 	 * @param mostrar_telefono
@@ -91,7 +95,7 @@ public class Usuarios {
 	 * @param respuestasTestsPersonalizados
 	 */
 	public Usuarios(int id_usuarios, String nombre, String apellidos, int edad, int telefono, String correo,
-			String contraseña, String rol, String respuestas_test_defecto, boolean mostrar_telefono, 
+			String contrasena, String rol, String respuestas_test_defecto, boolean mostrar_telefono, 
 			Date fecha_creacion, Date fecha_actualizacion, List<Casas> casas, List<Procesos> procesos_1, 
 			List<Procesos> procesos_2, List<TestsPersonalizados> testPersonalizados, 
 			List<RespuestasTestsPersonalizados> respuestasTestsPersonalizados) {
@@ -101,7 +105,7 @@ public class Usuarios {
 		this.edad = edad;
 		this.telefono = telefono;
 		this.correo = correo;
-		this.contraseña = contraseña;
+		this.contrasena = contrasena;
 		this.rol = rol;
 		this.respuestas_test_defecto = respuestas_test_defecto;
 		this.mostrar_telefono = mostrar_telefono;
@@ -199,17 +203,17 @@ public class Usuarios {
 	}
 
 	/**
-	 * @return the contraseña
+	 * @return the contrasena
 	 */
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
 
 	/**
-	 * @param contraseña the contraseña to set
+	 * @param contrasena the contrasena to set
 	 */
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 	/**
@@ -365,7 +369,7 @@ public class Usuarios {
 	@Override
 	public String toString() {
 		return "Usuarios [id_usuarios=" + id_usuarios + ", nombre=" + nombre + ", apellidos=" + apellidos + ", edad="
-				+ edad + ", telefono=" + telefono + ", correo=" + correo + ", contraseña=" + contraseña + ", rol=" + rol
+				+ edad + ", telefono=" + telefono + ", correo=" + correo + ", contrasena=" + contrasena + ", rol=" + rol
 				+ ", respuestas_test_defecto=" + respuestas_test_defecto + ", mostrar_telefono=" + mostrar_telefono
 				+ ", fecha_creacion=" + fecha_creacion + ", fecha_actualizacion=" + fecha_actualizacion + ", casas="
 				+ casas + ", procesos_1=" + procesos_1 + ", procesos_2=" + procesos_2 + ", testPersonalizados="

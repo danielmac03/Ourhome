@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Home/home/home.component';
-import { PerfilComponent } from './Home/perfil/perfil.component';
-import { ProcesosComponent } from './Home/procesos/procesos.component';
-import { LoginComponent } from './Usuarios/crud/login/login.component';
-import { RegisterComponent } from './Usuarios/crud/register/register.component';
-import { CrearAnuncioComponent } from './Anuncios/crear-anuncio/crear-anuncio.component';
-import { VerAnuncioComponent } from './Anuncios/ver-anuncio/ver-anuncio.component';
-import { CrearCuestionarioComponent } from './Cuestionarios/crear-cuestionario/crear-cuestionario.component';
-import { CuestionarioInicialComponent } from './Cuestionarios/cuestionario-inicial/cuestionario-inicial.component';
-import { CuestionarioPersonalizadoComponent } from './Cuestionarios/cuestionario-personalizado/cuestionario-personalizado.component';
-import { InfoComponent } from './Info/info/info.component';
-import { NotFoundComponent } from './Info/not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { ProcesosComponent } from './procesos/procesos.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { CrearAnuncioComponent } from './crear-anuncio/crear-anuncio.component';
+import { VerAnuncioComponent } from './ver-anuncio/ver-anuncio.component';
+import { CrearCuestionarioComponent } from './crear-cuestionario/crear-cuestionario.component';
+import { CuestionarioInicialComponent } from './cuestionario-inicial/cuestionario-inicial.component';
+import { CuestionarioPersonalizadoComponent } from './cuestionario-personalizado/cuestionario-personalizado.component';
+import { InfoComponent } from './info/info.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [

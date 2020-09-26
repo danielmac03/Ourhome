@@ -47,7 +47,7 @@ public class CasasController {
 		casaSeleccionada.setDescripcion(casa.getDescripcion());
 		casaSeleccionada.setPrecio(casa.getPrecio());
 		casaSeleccionada.setNumero_habitaciones(casa.getNumero_habitaciones());
-		casaSeleccionada.setNumero_baños(casa.getNumero_baños());
+		casaSeleccionada.setNumero_banos(casa.getNumero_banos());
 		casaSeleccionada.setDireccion(casa.getDireccion());
 		casaSeleccionada.setMetros(casa.getMetros());
 		casaSeleccionada.setPlantas(casa.getPlantas());

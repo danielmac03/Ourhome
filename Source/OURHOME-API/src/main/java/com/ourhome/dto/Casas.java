@@ -29,8 +29,8 @@ public class Casas {
 	@Column(name="numero_habitaciones")
 	private int numero_habitaciones;
 	
-	@Column(name="numero_baños")
-	private int numero_baños;
+	@Column(name="numero_banos")
+	private int numero_banos;
 	
 	@Column(name="direccion")
 	private String direccion;
@@ -59,7 +59,7 @@ public class Casas {
 	 * @param descripcion
 	 * @param precio
 	 * @param numero_habitaciones
-	 * @param numero_baños
+	 * @param numero_banos
 	 * @param direccion
 	 * @param metros
 	 * @param plantas
@@ -68,7 +68,7 @@ public class Casas {
 	 * @param fecha_actualizacion
 	 */
 	public Casas(int id_casa, Usuarios usuarios, String url_fotos, String descripcion, double precio, 
-			int numero_habitaciones, int numero_baños, String direccion, double metros, int plantas, 
+			int numero_habitaciones, int numero_banos, String direccion, double metros, int plantas, 
 			String extras, Date fecha_creacion, Date fecha_actualizacion) {
 		this.id_casa = id_casa;
 		this.usuarios = usuarios;
@@ -76,7 +76,7 @@ public class Casas {
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.numero_habitaciones = numero_habitaciones;
-		this.numero_baños = numero_baños;
+		this.numero_banos = numero_banos;
 		this.direccion = direccion;
 		this.metros = metros;
 		this.plantas = plantas;
@@ -170,17 +170,17 @@ public class Casas {
 	}
 
 	/**
-	 * @return the numero_baños
+	 * @return the numero_banos
 	 */
-	public int getNumero_baños() {
-		return numero_baños;
+	public int getNumero_banos() {
+		return numero_banos;
 	}
 
 	/**
-	 * @param numero_baños the numero_baños to set
+	 * @param numero_banos the numero_banos to set
 	 */
-	public void setNumero_baños(int numero_baños) {
-		this.numero_baños = numero_baños;
+	public void setNumero_banos(int numero_banos) {
+		this.numero_banos = numero_banos;
 	}
 
 	/**
@@ -270,8 +270,8 @@ public class Casas {
 	@Override
 	public String toString() {
 		return "Casas [id_casa=" + id_casa + ", usuarios=" + usuarios + ", url_fotos=" + url_fotos +", descripcion=" + 
-				descripcion + ", precio=" + precio + ", numero_habitaciones=" + numero_habitaciones + ", numero_baños=" 
-				+ numero_baños + ", direccion=" + direccion + ", metros=" + metros + ", plantas=" + plantas + 
+				descripcion + ", precio=" + precio + ", numero_habitaciones=" + numero_habitaciones + ", numero_banos=" 
+				+ numero_banos + ", direccion=" + direccion + ", metros=" + metros + ", plantas=" + plantas + 
 				", extras=" + extras + ", fecha_creacion=" + fecha_creacion + ", fecha_actualizacion=" + fecha_actualizacion + "]";
 	}
 
