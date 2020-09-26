@@ -57,11 +57,11 @@ public class Users {
 	
 	@OneToMany
 	@JoinColumn(name="id_usuario")
-	private List<Procesos> process_1;
+	private List<Processes> process_1;
 	
 	@OneToMany
 	@JoinColumn(name="id_usuario")
-	private List<Procesos> process_2;
+	private List<Processes> process_2;
 	
 	@OneToMany
 	@JoinColumn(name="id_usuario")
@@ -94,7 +94,7 @@ public class Users {
 	 */
 	public Users(int id, String name, String surnames, int age, int phone, String mail, String password, String role,
 			String defaultTestResponses, boolean showPhone, Date createdAt, Date updatedAt, List<Homes> homes,
-			List<Procesos> process_1, List<Procesos> process_2, List<TestsPersonalizados> customTest,
+			List<Processes> process_1, List<Processes> process_2, List<TestsPersonalizados> customTest,
 			List<RespuestasTestsPersonalizados> customTestsResponses) {
 		super();
 		this.id = id;
@@ -305,14 +305,14 @@ public class Users {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "procesos")
-	public List<Procesos> getProcesos_1() {
+	public List<Processes> getProcesos_1() {
 		return process_1;
 	}
 
 	/**
 	 * @param procesos_1 the process_1 to set
 	 */
-	public void setProcesos_1(List<Procesos> procesos_1) {
+	public void setProcesos_1(List<Processes> procesos_1) {
 		this.process_1 = procesos_1;
 	}
 
@@ -321,14 +321,14 @@ public class Users {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "procesos")
-	public List<Procesos> getProcesos_2() {
+	public List<Processes> getProcesos_2() {
 		return process_2;
 	}
 
 	/**
 	 * @param procesos_2 the process_2 to set
 	 */
-	public void setProcesos_2(List<Procesos> procesos_2) {
+	public void setProcesos_2(List<Processes> procesos_2) {
 		this.process_2 = procesos_2;
 	}
 

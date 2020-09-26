@@ -18,14 +18,12 @@ public class TestsPersonalizadosController {
 	public List<TestsPersonalizados> listarTestsPersonalizados(){
 		return testsPersonalizadosServiceImpl.listarTestsPersonalizados();
 	}
-
 	
 	@PostMapping("/testsPersonalizados")
 	public TestsPersonalizados guardarTestPersonalizado(@RequestBody TestsPersonalizados testPersonalizado) {
 		return testsPersonalizadosServiceImpl.guardarTestPersonalizado(testPersonalizado);
 	}
-	
-	
+		
 	@GetMapping("/testsPersonalizados/{id}")
 	public TestsPersonalizados buscarProceso(@PathVariable(name="id") int id) {
 		TestsPersonalizados TestsPersonalizado = new TestsPersonalizados();		
@@ -33,8 +31,7 @@ public class TestsPersonalizadosController {
 		
 		return TestsPersonalizado;
 	}
-	
-	
+		
 	@PutMapping("/testsPersonalizados/{id}")
 	public TestsPersonalizados actualizarTestPersonalizado(@PathVariable(name="id") int id,@RequestBody TestsPersonalizados TestsPersonalizado) {
 		TestsPersonalizados testsPersonalizadosSeleccionado = new TestsPersonalizados();
@@ -53,7 +50,6 @@ public class TestsPersonalizadosController {
 		
 		return testsPersonalizadosActualizado;
 	}
-
 	
 	@DeleteMapping("/testsPersonalizados/{id}")
 	public void eliminarTestPersonalizado(@PathVariable(name="id") int id) {

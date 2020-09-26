@@ -51,8 +51,7 @@ public class RespuestasTestsPersonalizadosController {
 		
 		return RespuestasTestsPersonalizadosActualizado;
 	}
-	
-	
+		
 	@DeleteMapping("/respuestasTestsPersonalizados/{id}")
 	public void eliminarRespuestaTestPersonalizado(@PathVariable(name="id")int id) {
 		respuestasTestsPersonalizadosServiceImpl.eliminarRespuestaTestPersonalizado(id);

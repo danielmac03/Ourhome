@@ -18,14 +18,12 @@ public class HomesController {
 	public List<Homes> listHomes(){
 		return homesServiceImpl.listHomes();
 	}
-
 	
 	@PostMapping("/homes")
 	public Homes saveHomes(@RequestBody Homes home) {
 		return homesServiceImpl.saveHomes(home);
 	}
-	
-	
+		
 	@GetMapping("/homes/{id}")
 	public Homes searchHome(@PathVariable(name="id") int id) {
 		Homes home = new Homes();		
@@ -34,7 +32,6 @@ public class HomesController {
 		return home;
 	}
 	
-
 	@PutMapping("/homes/{id}")
 	public Homes updateHome(@PathVariable(name="id") int id, @RequestBody Homes home) {
 		Homes homeSelected = new Homes();
@@ -57,7 +54,6 @@ public class HomesController {
 		
 		return homeUpdated;
 	}
-	
 	
 	@DeleteMapping("/homes/{id}")
 	public void deleteHome(@PathVariable(name="id") int id) {
