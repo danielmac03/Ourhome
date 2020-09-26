@@ -17,7 +17,7 @@ CREATE TABLE users(
     updated_at DATE NOT NULL
 );
 
-INSERT INTO users (name, surname, age, phone, mail, password, role, default_test_responses, show_phone, created_at, updated_at) VALUES
+INSERT INTO users (name, surnames, age, phone, mail, password, role, default_test_responses, show_phone, created_at, updated_at) VALUES
 ('Daniel', 'Rodrigues', 15, 699873544, 'danielrodrigues@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
 ('Marco', 'Polo', 20, 633254182, 'marcololo@hotmail.com', 'marco00', '1', 'sa', 0, CURRENT_DATE(), CURRENT_DATE()),
 ('Anna', 'mota', 25, 124512325, 'annamota@gmail.com', 'anna00', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
@@ -46,7 +46,7 @@ CREATE TABLE homes(
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO casas (user_id, url_photos, description, price, num_bedrooms, num_bathroom, direction, meters, floors, additional, created_at, updated_at) VALUES
+INSERT INTO homes (user_id, url_photos, description, price, num_bedrooms, num_bathroom, direction, meters, floors, created_at, updated_at) VALUES
 (10, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 2, 1, 'C/ Tarragona', 120, 1, CURRENT_DATE(), CURRENT_DATE()),
 (8, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 500, 4, 2, 'C/ San Pere', 220, 3, CURRENT_DATE(), CURRENT_DATE()),
 (5, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 400, 3, 1, 'C/ Alcalá', 155, 1, CURRENT_DATE(), CURRENT_DATE()),
@@ -124,4 +124,3 @@ INSERT INTO custom_tests_responses (user_id, custom_test_id, answers, compatibil
 (8, 3, 'a', 95, CURRENT_DATE()),
 (9, 2, 'a', 34, CURRENT_DATE()),
 (10, 1, 'a', 77, CURRENT_DATE());
-
