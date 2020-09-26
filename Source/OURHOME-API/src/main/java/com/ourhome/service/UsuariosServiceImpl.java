@@ -53,7 +53,7 @@ public class UsuariosServiceImpl implements IUsuariosService, UserDetailsService
 			throw new UsernameNotFoundException(correo);
 		}
 		
-		return new User(usuario.getCorreo(), usuario.getContrasena(), emptyList());
+		return new User(usuario.getCorreo(), usuario.getContraseña(), emptyList());
 	}
 
 

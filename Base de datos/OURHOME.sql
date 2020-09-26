@@ -9,7 +9,7 @@ CREATE TABLE usuarios(
     edad INT NOT NULL,
     telefono INT NULL,
     correo VARCHAR(100) NOT NULL,
-    contrasena VARCHAR(100) NOT NULL,
+    contraseña VARCHAR(100) NOT NULL,
     rol ENUM('tengo_casa', 'busco_casa', 'admin') NOT NULL,
     respuestas_test_defecto MEDIUMTEXT NOT NULL,
     mostrar_telefono bit DEFAULT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE usuarios(
     fecha_actualizacion DATE NOT NULL
 );
 
-INSERT INTO usuarios (nombre, apellidos, edad, telefono, correo, contrasena, rol, respuestas_test_defecto, mostrar_telefono, fecha_creacion, fecha_actualizacion) VALUES 
+INSERT INTO usuarios (nombre, apellidos, edad, telefono, correo, contraseña, rol, respuestas_test_defecto, mostrar_telefono, fecha_creacion, fecha_actualizacion) VALUES 
 ('Daniel', 'Rodrigues', 15, 699873544, 'danielrodrigues@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
 ('Marco', 'Polo', 20, 633254182, 'marcololo@hotmail.com', 'marco00', '1', 'sa', 0, CURRENT_DATE(), CURRENT_DATE()),
 ('Anna', 'mota', 25, 124512325, 'annamota@gmail.com', 'anna00', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
