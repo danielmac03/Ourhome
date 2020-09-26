@@ -15,7 +15,7 @@ public class Casas {
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
-	Usuarios usuarios;
+	Users users;
 
 	@Column(name="descripcion")
 	private String descripcion;
@@ -54,7 +54,7 @@ public class Casas {
 
 	/**
 	 * @param id_casa
-	 * @param usuarios
+	 * @param users
 	 * @param url_fotos
 	 * @param descripcion
 	 * @param precio
@@ -67,11 +67,11 @@ public class Casas {
 	 * @param fecha_creacion
 	 * @param fecha_actualizacion
 	 */
-	public Casas(int id_casa, Usuarios usuarios, String url_fotos, String descripcion, double precio, 
+	public Casas(int id_casa, Users users, String url_fotos, String descripcion, double precio, 
 			int numero_habitaciones, int numero_banos, String direccion, double metros, int plantas, 
 			String extras, Date fecha_creacion, Date fecha_actualizacion) {
 		this.id_casa = id_casa;
-		this.usuarios = usuarios;
+		this.users = users;
 		this.url_fotos = url_fotos;
 		this.descripcion = descripcion;
 		this.precio = precio;
@@ -102,15 +102,15 @@ public class Casas {
 	/**
 	 * @return the usuarios
 	 */
-	public Usuarios getUsuarios() {
-		return usuarios;
+	public Users getUsuarios() {
+		return users;
 	}
 
 	/**
-	 * @param usuarios the usuarios to set
+	 * @param users the usuarios to set
 	 */
-	public void setUsuarios(Usuarios usuarios) {
-		this.usuarios = usuarios;
+	public void setUsuarios(Users users) {
+		this.users = users;
 	}
 
 	/**
@@ -269,7 +269,7 @@ public class Casas {
 
 	@Override
 	public String toString() {
-		return "Casas [id_casa=" + id_casa + ", usuarios=" + usuarios + ", url_fotos=" + url_fotos +", descripcion=" + 
+		return "Casas [id_casa=" + id_casa + ", usuarios=" + users + ", url_fotos=" + url_fotos +", descripcion=" + 
 				descripcion + ", precio=" + precio + ", numero_habitaciones=" + numero_habitaciones + ", numero_banos=" 
 				+ numero_banos + ", direccion=" + direccion + ", metros=" + metros + ", plantas=" + plantas + 
 				", extras=" + extras + ", fecha_creacion=" + fecha_creacion + ", fecha_actualizacion=" + fecha_actualizacion + "]";

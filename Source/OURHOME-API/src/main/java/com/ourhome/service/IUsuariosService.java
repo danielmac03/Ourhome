@@ -1,18 +1,22 @@
 package com.ourhome.service;
 
 import java.util.List;
-import com.ourhome.dto.Usuarios;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.ourhome.dto.Users;
 
 public interface IUsuariosService {
 
-	public List<Usuarios> listarUsuarios(); 
+	public List<Users> listUsers(); 
 	
-	public Usuarios guardarUsuario(Usuarios usuario);	
+	public Users saveUser(Users user);	
 	
-	public Usuarios buscarUsuario(int id);
+	public Users searchUser(int id);
 	
-	public Usuarios actualizarUsuario(Usuarios usuario); 
+	public Users updateUser(Users user); 
 	
-	public void eliminarUsuario(int id);
+	public void deleteUser(int id);
+
+	public UserDetails loadUserByUsername(String correo);
 	
 }

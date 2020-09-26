@@ -14,11 +14,11 @@ public class Procesos {
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario_1")
-	Usuarios id_usuario_1;
+	Users id_usuario_1;
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario_2")
-	Usuarios id_usuario_2;
+	Users id_usuario_2;
 	
 	@Column(name="estado")
 	private String estado;
@@ -40,7 +40,7 @@ public class Procesos {
 	 * @param fecha_creacion
 	 * @param fecha_actualizacion
 	 */
-	public Procesos(int id_proceso, Usuarios id_usuario_1, Usuarios id_usuario_2, String estado, Date fecha_creacion, Date fecha_actualizacion) {
+	public Procesos(int id_proceso, Users id_usuario_1, Users id_usuario_2, String estado, Date fecha_creacion, Date fecha_actualizacion) {
 		this.id_proceso = id_proceso;
 		this.id_usuario_1 = id_usuario_1;
 		this.id_usuario_2 = id_usuario_2;
@@ -69,7 +69,7 @@ public class Procesos {
 	/**
 	 * @return the id_usuario_1
 	 */
-	public Usuarios getId_usuario_1() {
+	public Users getId_usuario_1() {
 		return id_usuario_1;
 	}
 
@@ -77,7 +77,7 @@ public class Procesos {
 	/**
 	 * @param id_usuario_1 the id_usuario_1 to set
 	 */
-	public void setId_usuario_1(Usuarios id_usuario_1) {
+	public void setId_usuario_1(Users id_usuario_1) {
 		this.id_usuario_1 = id_usuario_1;
 	}
 
@@ -85,7 +85,7 @@ public class Procesos {
 	/**
 	 * @return the id_usuario_2
 	 */
-	public Usuarios getId_usuario_2() {
+	public Users getId_usuario_2() {
 		return id_usuario_2;
 	}
 
@@ -93,7 +93,7 @@ public class Procesos {
 	/**
 	 * @param id_usuario_2 the id_usuario_2 to set
 	 */
-	public void setId_usuario_2(Usuarios id_usuario_2) {
+	public void setId_usuario_2(Users id_usuario_2) {
 		this.id_usuario_2 = id_usuario_2;
 	}
 

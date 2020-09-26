@@ -18,7 +18,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 import static com.ourhome.security.Constants.*;
-import com.ourhome.dto.Usuarios;
+import com.ourhome.dto.Users;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 
@@ -32,10 +32,10 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 	throws AuthenticationException {
 		try {
-			Usuarios credenciales = new ObjectMapper().readValue(request.getInputStream(), Usuarios.class);
+			Users credenciales = new ObjectMapper().readValue(request.getInputStream(), Users.class);
 	
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-					credenciales.getCorreo(), credenciales.getContraseña(), new ArrayList<>()));
+					credenciales.getEmail(), credenciales.getPassword(), new ArrayList<>()));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

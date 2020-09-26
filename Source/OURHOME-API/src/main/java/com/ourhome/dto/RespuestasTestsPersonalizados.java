@@ -14,7 +14,7 @@ public class RespuestasTestsPersonalizados {
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
-	Usuarios id_usuario;
+	Users id_usuario;
 	
 	@ManyToOne
 	@JoinColumn(name="id_test_personalizado")
@@ -39,7 +39,7 @@ public class RespuestasTestsPersonalizados {
 	 * @param compatibilidad
 	 * @param fecha_creacion
 	 */
-	public RespuestasTestsPersonalizados(int id_respuestas_test_personalizado, Usuarios id_usuario,
+	public RespuestasTestsPersonalizados(int id_respuestas_test_personalizado, Users id_usuario,
 			TestsPersonalizados id_test_personalizado, String respuestas, Double compatibilidad,
 			Date fecha_creacion) {
 		this.id_respuestas_test_personalizado = id_respuestas_test_personalizado;
@@ -67,14 +67,14 @@ public class RespuestasTestsPersonalizados {
 	/**
 	 * @return the id_usuario
 	 */
-	public Usuarios getId_usuario() {
+	public Users getId_usuario() {
 		return id_usuario;
 	}
 
 	/**
 	 * @param id_usuario the id_usuario to set
 	 */
-	public void setId_usuario(Usuarios id_usuario) {
+	public void setId_usuario(Users id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 

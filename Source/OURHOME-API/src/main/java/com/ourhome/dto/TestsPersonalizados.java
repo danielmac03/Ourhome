@@ -16,7 +16,7 @@ public class TestsPersonalizados {
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario_creador")
-	Usuarios id_usuario_creador;
+	Users id_usuario_creador;
 	
 	@Column(name="respuestas_correctas")
 	private String respuestas_correctas;
@@ -41,7 +41,7 @@ public class TestsPersonalizados {
 	 * @param fecha_creacion
 	 * @param respuestasTestsPersonalizados
 	 */
-	public TestsPersonalizados(int id_test_personalizados, Usuarios id_usuario_creador,
+	public TestsPersonalizados(int id_test_personalizados, Users id_usuario_creador,
 			String respuestas_correctas, int minimas_respuestas_correctas, Date fecha_creacion,
 			List<RespuestasTestsPersonalizados> respuestasTestsPersonalizados) {
 		this.id_test_personalizados = id_test_personalizados;
@@ -69,14 +69,14 @@ public class TestsPersonalizados {
 	/**
 	 * @return the id_usuario_creador
 	 */
-	public Usuarios getId_usuario_creador() {
+	public Users getId_usuario_creador() {
 		return id_usuario_creador;
 	}
 
 	/**
 	 * @param id_usuario_creador the id_usuario_creador to set
 	 */
-	public void setId_usuario_creador(Usuarios id_usuario_creador) {
+	public void setId_usuario_creador(Users id_usuario_creador) {
 		this.id_usuario_creador = id_usuario_creador;
 	}
 
