@@ -2,6 +2,8 @@ package com.ourhome.dto;
 
 import java.sql.Date;
 import javax.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name="processes")
@@ -23,9 +25,11 @@ public class Processes {
 	@Column(name="state")
 	private String state;
 	
+	@CreationTimestamp
 	@Column(name="created_at")
 	private Date createdAt;
 	
+	@UpdateTimestamp
 	@Column(name="updated_at")
 	private Date updatedAt;
 	

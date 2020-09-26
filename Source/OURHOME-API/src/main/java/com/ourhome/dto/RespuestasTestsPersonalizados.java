@@ -2,6 +2,7 @@ package com.ourhome.dto;
 
 import java.sql.Date;
 import javax.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name="respuestas_tests_personalizados")
@@ -18,7 +19,7 @@ public class RespuestasTestsPersonalizados {
 	
 	@ManyToOne
 	@JoinColumn(name="id_test_personalizado")
-	TestsPersonalizados id_test_personalizado;
+	CustomTests id_test_personalizado;
 	
 	@Column(name="respuestas")
 	private String respuestas;
@@ -26,6 +27,7 @@ public class RespuestasTestsPersonalizados {
 	@Column(name="compatibilidad")
 	private Double compatibilidad;
 	
+	@CreationTimestamp
 	@Column(name="fecha_creacion")
 	private Date fecha_creacion;	
 	
@@ -40,7 +42,7 @@ public class RespuestasTestsPersonalizados {
 	 * @param fecha_creacion
 	 */
 	public RespuestasTestsPersonalizados(int id_respuestas_test_personalizado, Users id_usuario,
-			TestsPersonalizados id_test_personalizado, String respuestas, Double compatibilidad,
+			CustomTests id_test_personalizado, String respuestas, Double compatibilidad,
 			Date fecha_creacion) {
 		this.id_respuestas_test_personalizado = id_respuestas_test_personalizado;
 		this.id_usuario = id_usuario;
@@ -81,14 +83,14 @@ public class RespuestasTestsPersonalizados {
 	/**
 	 * @return the id_test_personalizado
 	 */
-	public TestsPersonalizados getId_test_personalizado() {
+	public CustomTests getId_test_personalizado() {
 		return id_test_personalizado;
 	}
 
 	/**
 	 * @param id_test_personalizado the id_test_personalizado to set
 	 */
-	public void setId_test_personalizado(TestsPersonalizados id_test_personalizado) {
+	public void setId_test_personalizado(CustomTests id_test_personalizado) {
 		this.id_test_personalizado = id_test_personalizado;
 	}
 

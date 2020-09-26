@@ -65,7 +65,7 @@ public class Users {
 	
 	@OneToMany
 	@JoinColumn(name="id_usuario")
-	private List<TestsPersonalizados> customTest;
+	private List<CustomTests> customTest;
 	
 	@OneToMany
 	@JoinColumn(name="id_usuario")
@@ -94,7 +94,7 @@ public class Users {
 	 */
 	public Users(int id, String name, String surnames, int age, int phone, String mail, String password, String role,
 			String defaultTestResponses, boolean showPhone, Date createdAt, Date updatedAt, List<Homes> homes,
-			List<Processes> process_1, List<Processes> process_2, List<TestsPersonalizados> customTest,
+			List<Processes> process_1, List<Processes> process_2, List<CustomTests> customTest,
 			List<RespuestasTestsPersonalizados> customTestsResponses) {
 		super();
 		this.id = id;
@@ -337,14 +337,14 @@ public class Users {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "custom_test")
-	public List<TestsPersonalizados> getCustomTest() {
+	public List<CustomTests> getCustomTest() {
 		return customTest;
 	}
 
 	/**
 	 * @param customTest the customTest to set
 	 */
-	public void setCustomTest(List<TestsPersonalizados> customTest) {
+	public void setCustomTest(List<CustomTests> customTest) {
 		this.customTest = customTest;
 	}
 
