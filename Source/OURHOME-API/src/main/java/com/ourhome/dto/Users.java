@@ -53,7 +53,7 @@ public class Users {
 	
 	@OneToMany
 	@JoinColumn(name="id_usuario")
-	private List<Casas> homes;
+	private List<Homes> homes;
 	
 	@OneToMany
 	@JoinColumn(name="id_usuario")
@@ -93,7 +93,7 @@ public class Users {
 	 * @param customTestsResponses
 	 */
 	public Users(int id, String name, String surnames, int age, int phone, String mail, String password, String role,
-			String defaultTestResponses, boolean showPhone, Date createdAt, Date updatedAt, List<Casas> homes,
+			String defaultTestResponses, boolean showPhone, Date createdAt, Date updatedAt, List<Homes> homes,
 			List<Procesos> process_1, List<Procesos> process_2, List<TestsPersonalizados> customTest,
 			List<RespuestasTestsPersonalizados> customTestsResponses) {
 		super();
@@ -289,14 +289,14 @@ public class Users {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "casas")
-	public List<Casas> getHomes() {
+	public List<Homes> getHomes() {
 		return homes;
 	}
 
 	/**
 	 * @param homes the homes to set
 	 */
-	public void setHomes(List<Casas> homes) {
+	public void setHomes(List<Homes> homes) {
 		this.homes = homes;
 	}
 

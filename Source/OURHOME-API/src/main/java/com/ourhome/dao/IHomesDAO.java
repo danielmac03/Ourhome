@@ -1,8 +1,8 @@
 package com.ourhome.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.ourhome.dto.Casas;
+import com.ourhome.dto.Homes;
 
-public interface ICasasDAO extends JpaRepository<Casas, Integer>{
+public interface IHomesDAO extends JpaRepository<Homes, Integer>{
 
 }
