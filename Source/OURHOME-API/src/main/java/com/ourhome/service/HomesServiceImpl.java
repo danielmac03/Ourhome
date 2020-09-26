@@ -10,31 +10,31 @@ import com.ourhome.dto.Homes;
 public class HomesServiceImpl implements IHomesService{
 
 	@Autowired
-	IHomesDAO iCasasDAO;
+	IHomesDAO iHomesDAO;
 	
 	@Override
 	public List<Homes> listHomes() {
-		return iCasasDAO.findAll();
+		return iHomesDAO.findAll();
 	}
 
 	@Override
 	public Homes saveHomes(Homes home) {
-		return iCasasDAO.save(home);
+		return iHomesDAO.save(home);
 	}
 
 	@Override
 	public Homes searchHome(int id) {
-		return iCasasDAO.findById(id).get();
+		return iHomesDAO.findById(id).get();
 	}
 
 	@Override
 	public Homes updateHome(Homes home) {
-		return iCasasDAO.save(home);
+		return iHomesDAO.save(home);
 	}
 
 	@Override
 	public void deleteHome(int id) {
-		iCasasDAO.deleteById(id);
+		iHomesDAO.deleteById(id);
 	}
 
 }

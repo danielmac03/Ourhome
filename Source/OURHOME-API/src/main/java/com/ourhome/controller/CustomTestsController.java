@@ -25,18 +25,18 @@ public class CustomTestsController {
 		
 	@GetMapping("/customTests/{id}")
 	public CustomTests searchCustomTest(@PathVariable(name="id") int id) {
-		CustomTests TestsPersonalizado = new CustomTests();		
-		TestsPersonalizado = customTestsServiceImpl.searchCustomTest(id);
+		CustomTests customTest = new CustomTests();		
+		customTest = customTestsServiceImpl.searchCustomTest(id);
 		
-		return TestsPersonalizado;
+		return customTest;
 	}
 		
 	@PutMapping("/customTests/{id}")
 	public CustomTests updateCustomTest(@PathVariable(name="id") int id, @RequestBody CustomTests customTest) {
 		CustomTests customTestsSelected = new CustomTests();
-		CustomTests customTestsUpdated= new CustomTests();
+		CustomTests customTestsUpdated = new CustomTests();
 		
-		customTestsSelected= customTestsServiceImpl.searchCustomTest(id);
+		customTestsSelected = customTestsServiceImpl.searchCustomTest(id);
 		
 		customTestsSelected.setUser(customTest.getUser());
 		customTestsSelected.setCorrectAnswers(customTest.getCorrectAnswers());
