@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProcessesComponent } from './processes/processes.component';
 import { CrearAnuncioComponent } from './crear-anuncio/crear-anuncio.component';
-import { VerAnuncioComponent } from './ver-anuncio/ver-anuncio.component';
+import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
 import { CrearCuestionarioComponent } from './crear-cuestionario/crear-cuestionario.component';
 import { CuestionarioInicialComponent } from './cuestionario-inicial/cuestionario-inicial.component';
 import { CuestionarioPersonalizadoComponent } from './cuestionario-personalizado/cuestionario-personalizado.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'profile', component:ProfileComponent},
   {path: 'processes', component:ProcessesComponent},
   {path: 'crearAnuncio', component:CrearAnuncioComponent},
-  {path: 'verAnuncio', component:VerAnuncioComponent},
+  {path: 'SeeAdvertisement', component:SeeAdvertisementComponent},
   {path: 'crearCuestionario', component:CrearCuestionarioComponent},
   {path: 'cuestionarioInicial', component:CuestionarioInicialComponent},
   {path: 'cuestionarioPersonalizado', component:CuestionarioPersonalizadoComponent},
