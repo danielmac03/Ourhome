@@ -6,45 +6,31 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { ProcesosComponent } from './procesos/procesos.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { CrearAnuncioComponent } from './crear-anuncio/crear-anuncio.component';
-import { VerAnuncioComponent } from './ver-anuncio/ver-anuncio.component';
-import { CrearCuestionarioComponent } from './crear-cuestionario/crear-cuestionario.component';
-import { CuestionarioInicialComponent } from './cuestionario-inicial/cuestionario-inicial.component';
-import { CuestionarioPersonalizadoComponent } from './cuestionario-personalizado/cuestionario-personalizado.component';
-import { InfoComponent } from './info/info.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProcessesComponent } from './processes/processes.component';
-import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
 import { CreateAdvertisementComponent } from './create-advertisement/create-advertisement.component';
-import { CreateQuizComponent } from './create-quiz/create-quiz.component';
+import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
 import { CreateTestComponent } from './create-test/create-test.component';
+import { InitialTestComponent } from './initial-test/initial-test.component';
+import { CustomTestComponent } from './custom-test/custom-test.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PerfilComponent,
-    ProcesosComponent,
     LoginComponent,
     RegisterComponent,
-    CrearAnuncioComponent,
-    VerAnuncioComponent,
-    CrearCuestionarioComponent,
-    CuestionarioInicialComponent,
-    CuestionarioPersonalizadoComponent,
-    InfoComponent,
     NotFoundComponent,
     ProfileComponent,
     ProcessesComponent,
     SeeAdvertisementComponent,
     CreateAdvertisementComponent,
-    CreateQuizComponent,
-    CreateTestComponent
+    CreateTestComponent,
+    InitialTestComponent,
+    CustomTestComponent
   ],
   imports: [
     BrowserModule,

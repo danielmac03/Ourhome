@@ -7,8 +7,8 @@ import { ProcessesComponent } from './processes/processes.component';
 import { CreateAdvertisementComponent } from './create-advertisement/create-advertisement.component';
 import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
 import { CreateTestComponent } from './create-test/create-test.component';
-import { CuestionarioInicialComponent } from './cuestionario-inicial/cuestionario-inicial.component';
-import { CuestionarioPersonalizadoComponent } from './cuestionario-personalizado/cuestionario-personalizado.component';
+import { InitialTestComponent } from './initial-test/initial-test.component';
+import { CustomTestComponent } from './custom-test/custom-test.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -21,8 +21,8 @@ const routes: Routes = [
   {path: 'createAdvertisement', component:CreateAdvertisementComponent},
   {path: 'seeAdvertisement', component:SeeAdvertisementComponent},
   {path: 'createTest', component:CreateTestComponent},
-  {path: 'cuestionarioInicial', component:CuestionarioInicialComponent},
-  {path: 'cuestionarioPersonalizado', component:CuestionarioPersonalizadoComponent},
+  {path: 'initialTest', component:InitialTestComponent},
+  {path: 'customTest', component:CustomTestComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
   {path: '404', component: NotFoundComponent},
