@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ProcesosComponent } from './procesos/procesos.component';
-import { CrearAnuncioComponent } from './crear-anuncio/crear-anuncio.component';
+import { CrearAnuncioComponent } from './create-advertisement/create-advertisement.component';
 import { VerAnuncioComponent } from './ver-anuncio/ver-anuncio.component';
 import { CrearCuestionarioComponent } from './crear-cuestionario/crear-cuestionario.component';
 import { CuestionarioInicialComponent } from './cuestionario-inicial/cuestionario-inicial.component';
