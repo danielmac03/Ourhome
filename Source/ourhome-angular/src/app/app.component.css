@@ -16,6 +16,12 @@ body{
   color: white;
 }
 
+
+.navbar-custom input[type="search"] {
+  border-radius: 5px;
+  height: 38px;
+}
+
 .div-form .title{
   color: black;
   font-size: 25px;
