@@ -19,6 +19,7 @@ import { InfoComponent } from './info/info.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProcessesComponent } from './processes/processes.component';
+import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ProcessesComponent } from './processes/processes.component';
     InfoComponent,
     NotFoundComponent,
     ProfileComponent,
-    ProcessesComponent
+    ProcessesComponent,
+    SeeAdvertisementComponent
   ],
   imports: [
     BrowserModule,
