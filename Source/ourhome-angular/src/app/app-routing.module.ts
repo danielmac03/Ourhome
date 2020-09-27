@@ -4,9 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProcessesComponent } from './processes/processes.component';
-import { CrearAnuncioComponent } from './crear-anuncio/crear-anuncio.component';
+import { CreateAdvertisementComponent } from './create-advertisement/create-advertisement.component';
 import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
-import { CrearCuestionarioComponent } from './crear-cuestionario/crear-cuestionario.component';
+import { CreateTestComponent } from './create-test/create-test.component';
 import { CuestionarioInicialComponent } from './cuestionario-inicial/cuestionario-inicial.component';
 import { CuestionarioPersonalizadoComponent } from './cuestionario-personalizado/cuestionario-personalizado.component';
 import { LoginComponent } from './login/login.component';
@@ -18,9 +18,9 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'profile', component:ProfileComponent},
   {path: 'processes', component:ProcessesComponent},
-  {path: 'crearAnuncio', component:CrearAnuncioComponent},
-  {path: 'SeeAdvertisement', component:SeeAdvertisementComponent},
-  {path: 'crearCuestionario', component:CrearCuestionarioComponent},
+  {path: 'createAdvertisement', component:CreateAdvertisementComponent},
+  {path: 'seeAdvertisement', component:SeeAdvertisementComponent},
+  {path: 'createTest', component:CreateTestComponent},
   {path: 'cuestionarioInicial', component:CuestionarioInicialComponent},
   {path: 'cuestionarioPersonalizado', component:CuestionarioPersonalizadoComponent},
   {path: 'login', component:LoginComponent},

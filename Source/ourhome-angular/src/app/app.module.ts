@@ -20,6 +20,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProcessesComponent } from './processes/processes.component';
 import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
+import { CreateAdvertisementComponent } from './create-advertisement/create-advertisement.component';
+import { CreateQuizComponent } from './create-quiz/create-quiz.component';
+import { CreateTestComponent } from './create-test/create-test.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement
     NotFoundComponent,
     ProfileComponent,
     ProcessesComponent,
-    SeeAdvertisementComponent
+    SeeAdvertisementComponent,
+    CreateAdvertisementComponent,
+    CreateQuizComponent,
+    CreateTestComponent
   ],
   imports: [
     BrowserModule,

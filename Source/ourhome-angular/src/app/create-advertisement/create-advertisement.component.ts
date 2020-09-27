@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-create-advertisement',
   templateUrl: './create-advertisement.component.html',
-  styleUrls: ['./create-advertisement.component.css', '../app.component.css']
+  styleUrls: ['./create-advertisement.component.css']
 })
-export class CrearAnuncioComponent implements OnInit {
+export class CreateAdvertisementComponent implements OnInit {
 
   constructor() { }
 
