@@ -33,6 +33,9 @@ public class Homes {
 	@Column(name="num_bathroom")
 	private int numBathroom;
 	
+	@Column(name="city")
+	private String city;
+	
 	@Column(name="direction")
 	private String direction;
 	
@@ -63,6 +66,7 @@ public class Homes {
 	 * @param price
 	 * @param numBedrooms
 	 * @param numBathroom
+	 * @param city
 	 * @param direction
 	 * @param meters
 	 * @param floors
@@ -71,7 +75,7 @@ public class Homes {
 	 * @param updatedAt
 	 */
 	public Homes(int id, Users user, String urlPhotos, String description, double price, int numBedrooms,
-			int numBathroom, String direction, double meters, int floors, String additional, Date createdAt,
+			int numBathroom, String city, String direction, double meters, int floors, String additional, Date createdAt,
 			Date updatedAt) {
 		super();
 		this.id = id;
@@ -81,6 +85,7 @@ public class Homes {
 		this.price = price;
 		this.numBedrooms = numBedrooms;
 		this.numBathroom = numBathroom;
+		this.city = city;
 		this.direction = direction;
 		this.meters = meters;
 		this.floors = floors;
@@ -186,6 +191,20 @@ public class Homes {
 	public void setNumBathroom(int numBathroom) {
 		this.numBathroom = numBathroom;
 	}
+	
+	/**
+	 * @return the city
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * @param city the city to set
+	 */
+	public void setCity(String city) {
+		this.city = city;
+	}
 
 	/**
 	 * @return the direction
@@ -274,9 +293,9 @@ public class Homes {
 	@Override
 	public String toString() {
 		return "Homes [id=" + id + ", user=" + user + ", urlPhotos=" + urlPhotos + ", description=" + description
-				+ ", price=" + price + ", numBedrooms=" + numBedrooms + ", numBathroom=" + numBathroom + ", direction="
-				+ direction + ", meters=" + meters + ", floors=" + floors + ", additional=" + additional
-				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+				+ ", price=" + price + ", numBedrooms=" + numBedrooms + ", numBathroom=" + numBathroom + ", city=" 
+				+ city + ", direction="	+ direction + ", meters=" + meters + ", floors=" + floors + ", additional=" 
+				+ additional + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
 	}
 
 }
