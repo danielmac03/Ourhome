@@ -10,31 +10,31 @@ import com.ourhome.dto.CustomTests;
 public class CustomTestsServiceImpl implements ICustomTestsService{
 
 	@Autowired
-	ICustomTestsDAO iTestsPersonalizadosDAO;
+	ICustomTestsDAO iCustomTestsDAO;
 	
 	@Override
 	public List<CustomTests> listCustomTests() {
-		return iTestsPersonalizadosDAO.findAll();
+		return iCustomTestsDAO.findAll();
 	}
 
 	@Override
 	public CustomTests saveCustomTest(CustomTests customTest) {
-		return iTestsPersonalizadosDAO.save(customTest);
+		return iCustomTestsDAO.save(customTest);
 	}
 
 	@Override
 	public CustomTests searchCustomTest(int id) {
-		return iTestsPersonalizadosDAO.findById(id).get();
+		return iCustomTestsDAO.findById(id).get();
 	}
 
 	@Override
 	public CustomTests updateCustomTest(CustomTests customTest) {
-		return iTestsPersonalizadosDAO.save(customTest);
+		return iCustomTestsDAO.save(customTest);
 	}
 
 	@Override
 	public void deleteCustomTest(int id) {
-		iTestsPersonalizadosDAO.deleteById(id);
+		iCustomTestsDAO.deleteById(id);
 	}
 
 }

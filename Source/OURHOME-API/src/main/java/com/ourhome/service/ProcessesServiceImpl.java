@@ -10,31 +10,31 @@ import com.ourhome.dto.Processes;
 public class ProcessesServiceImpl implements IProcessesService {
 
 	@Autowired
-	IProcessesDAO iProcesosDAO;
+	IProcessesDAO iProcessesDAO;
 	
 	@Override
 	public List<Processes> listProcesses() {
-		return iProcesosDAO.findAll();
+		return iProcessesDAO.findAll();
 	}
 
 	@Override
 	public Processes saveProcess(Processes process) {
-		return iProcesosDAO.save(process);
+		return iProcessesDAO.save(process);
 	}
 
 	@Override
 	public Processes searchProcess(int id) {
-		return iProcesosDAO.findById(id).get();
+		return iProcessesDAO.findById(id).get();
 	}
 
 	@Override
 	public Processes updateProcess(Processes process) {
-		return iProcesosDAO.save(process);
+		return iProcessesDAO.save(process);
 	}
 
 	@Override
 	public void deleteProcess(int id) {
-		iProcesosDAO.deleteById(id);
+		iProcessesDAO.deleteById(id);
 	}
 
 }

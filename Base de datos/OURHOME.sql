@@ -8,7 +8,7 @@ CREATE TABLE users(
     surnames VARCHAR(100) DEFAULT NULL,
     age INT NOT NULL,
     phone INT NULL,
-    mail VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
     role ENUM('tengo_casa', 'busco_casa', 'admin') NOT NULL,
     default_test_responses MEDIUMTEXT NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE users(
     updated_at DATE NOT NULL
 );
 
-INSERT INTO users (name, surnames, age, phone, mail, password, role, default_test_responses, show_phone, created_at, updated_at) VALUES
+INSERT INTO users (name, surnames, age, phone, email, password, role, default_test_responses, show_phone, created_at, updated_at) VALUES
 ('Daniel', 'Rodrigues', 15, 699873544, 'danielrodrigues@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
 ('Marco', 'Polo', 20, 633254182, 'marcololo@hotmail.com', 'marco00', '1', 'sa', 0, CURRENT_DATE(), CURRENT_DATE()),
 ('Anna', 'mota', 25, 124512325, 'annamota@gmail.com', 'anna00', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
@@ -81,7 +81,7 @@ INSERT INTO processes (user_id_1 , user_id_2, state, created_at , updated_at) VA
 (4, 3, 3, CURRENT_DATE(), CURRENT_DATE()),
 (1, 10, 1, CURRENT_DATE(), CURRENT_DATE());
 
-CREATE TABLE custom_test(
+CREATE TABLE custom_tests(
 	custom_test_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     correct_answers MEDIUMTEXT NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE custom_test(
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO custom_test (user_id, correct_answers, minimum_correct_responses, created_at) VALUES
+INSERT INTO custom_tests (user_id, correct_answers, minimum_correct_responses, created_at) VALUES
 (3, 'a', 1, CURRENT_DATE()),
 (3, 'a', 5, CURRENT_DATE()),
 (3, 'a', 6, CURRENT_DATE()),
@@ -110,7 +110,7 @@ CREATE TABLE custom_tests_responses(
     compatibility DECIMAL NOT NULL,
 	created_at DATE DEFAULT NULL,
 	FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (custom_test_id) REFERENCES custom_test(custom_test_id)
+    FOREIGN KEY (custom_test_id) REFERENCES custom_tests(custom_test_id)
 );
 
 INSERT INTO custom_tests_responses (user_id, custom_test_id, answers, compatibility, created_at) VALUES 

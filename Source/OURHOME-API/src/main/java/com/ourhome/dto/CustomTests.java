@@ -31,7 +31,7 @@ public class CustomTests {
 	
 	@OneToMany
 	@JoinColumn(name="custom_test_id")
-	private List<RespuestasTestsPersonalizados> respuestasTestsPersonalizados;
+	private List<CustomTestsResponses> customTestsResponses;
 	
 	public CustomTests() {}
 
@@ -41,17 +41,17 @@ public class CustomTests {
 	 * @param correctAnswers
 	 * @param minimumCorrectResponses
 	 * @param createdAt
-	 * @param respuestasTestsPersonalizados
+	 * @param customTestsResponses
 	 */
 	public CustomTests(int id, Users user, String correctAnswers, int minimumCorrectResponses, Date createdAt,
-			List<RespuestasTestsPersonalizados> respuestasTestsPersonalizados) {
+			List<CustomTestsResponses> customTestsResponses) {
 		super();
 		this.id = id;
 		this.user = user;
 		this.correctAnswers = correctAnswers;
 		this.minimumCorrectResponses = minimumCorrectResponses;
 		this.createdAt = createdAt;
-		this.respuestasTestsPersonalizados = respuestasTestsPersonalizados;
+		this.customTestsResponses = customTestsResponses;
 	}
 
 	/**
@@ -129,22 +129,22 @@ public class CustomTests {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "custom_tests_responses")
-	public List<RespuestasTestsPersonalizados> getRespuestasTestsPersonalizados() {
-		return respuestasTestsPersonalizados;
+	public List<CustomTestsResponses> getRespuestasTestsPersonalizados() {
+		return customTestsResponses;
 	}
 
 	/**
-	 * @param respuestasTestsPersonalizados the respuestasTestsPersonalizados to set
+	 * @param customTestsResponses the respuestasTestsPersonalizados to set
 	 */
-	public void setRespuestasTestsPersonalizados(List<RespuestasTestsPersonalizados> respuestasTestsPersonalizados) {
-		this.respuestasTestsPersonalizados = respuestasTestsPersonalizados;
+	public void setRespuestasTestsPersonalizados(List<CustomTestsResponses> customTestsResponses) {
+		this.customTestsResponses = customTestsResponses;
 	}
 
 	@Override
 	public String toString() {
 		return "CustomTests [id=" + id + ", user=" + user + ", correctAnswers=" + correctAnswers
 				+ ", minimumCorrectResponses=" + minimumCorrectResponses + ", createdAt=" + createdAt
-				+ ", respuestasTestsPersonalizados=" + respuestasTestsPersonalizados + "]";
+				+ ", respuestasTestsPersonalizados=" + customTestsResponses + "]";
 	}
 	
 }
