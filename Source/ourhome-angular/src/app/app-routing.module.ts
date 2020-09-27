@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { ProcesosComponent } from './procesos/procesos.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProcessesComponent } from './processes/processes.component';
 import { CrearAnuncioComponent } from './crear-anuncio/crear-anuncio.component';
 import { VerAnuncioComponent } from './ver-anuncio/ver-anuncio.component';
 import { CrearCuestionarioComponent } from './crear-cuestionario/crear-cuestionario.component';
@@ -16,8 +16,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'home', component:HomeComponent},
-  {path: 'perfil', component:PerfilComponent},
-  {path: 'procesos', component:ProcesosComponent},
+  {path: 'profile', component:ProfileComponent},
+  {path: 'processes', component:ProcessesComponent},
   {path: 'crearAnuncio', component:CrearAnuncioComponent},
   {path: 'verAnuncio', component:VerAnuncioComponent},
   {path: 'crearCuestionario', component:CrearCuestionarioComponent},
