@@ -45,6 +45,7 @@ public class HomesController {
 		homeSelected.setPrice(home.getPrice());
 		homeSelected.setNumBedrooms(home.getNumBedrooms());
 		homeSelected.setNumBathroom(home.getNumBathroom());
+		homeSelected.setCity(home.getCity());
 		homeSelected.setDirection(home.getDirection());
 		homeSelected.setMeters(home.getMeters());
 		homeSelected.setFloors(home.getFloors());
