@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { users } from '../model/users';
 import { UsersService } from '../service/users.service';
 
@@ -29,7 +28,7 @@ export class RegisterComponent implements OnInit {
     .createUsers(this.users).subscribe(data => {
       console.log(data)
       this.users = new users();
-      this.gotoList();
+    /*  this.gotoInitialTest(); */
     },
     error => console.log(error));
   }
@@ -38,9 +37,9 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
     this.save();
   }
-
-  gotoList() {
-    this.router.navigate(['/employees']);
-  }
+/*
+  gotoInitialTest() {
+    this.router.navigate(['/home']);
+  }*/
 
 }
