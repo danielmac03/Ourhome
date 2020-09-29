@@ -13,6 +13,8 @@ public interface IUsuariosService {
 	
 	public Users searchUser(int id);
 	
+	public Users searchUserByEmail(String email);
+	
 	public Users updateUser(Users user); 
 	
 	public void deleteUser(int id);
