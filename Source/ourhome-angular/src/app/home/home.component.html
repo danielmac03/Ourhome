@@ -1,63 +1,24 @@
 <div class="container-fluid p-4">
 
   <!--
-    <div class="add d-inline-block" *ngFor="let houses of houses | async">
+
+    <div class="add d-inline-block" *ngFor="let homes of homes | async">
       <div class="card m-3">
-        <img class="card-img-top" src="{{houses.url_photos}}" alt="Card image">
+        <img class="card-img-top" src="{{homes.url_photos}}" alt="Card image">
         <div class="card-body">
           <p class="card-text">
-            {{houses.description}}
+            {{homes.description}}
           </p>
           <p class="card-text">
-            {{houses.price}} €
+            {{homes.price}} €
           </p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="" (click)="homesDetail(homes.id)" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
 
-    -->
+  -->
 
-    <div class="add d-inline-block">
-      <div class="card m-3">
-        <img class="card-img-top" src="https://st3.idealista.com/news/archivos/styles/news_detail/public/2018-11/casa_prefabricada.jpg?sv=pX_Hqy9d&itok=kCOtbqgQ" alt="Card image">
-        <div class="card-body">
-          <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
-          <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
-        </div>
-      </div>
-    </div>
-    <div class="add d-inline-block">
-      <div class="card m-3">
-        <img class="card-img-top" src="https://st3.idealista.com/news/archivos/styles/news_detail/public/2018-11/casa_prefabricada.jpg?sv=pX_Hqy9d&itok=kCOtbqgQ" alt="Card image">
-        <div class="card-body">
-          <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
-          <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
-        </div>
-      </div>
-    </div>
-    <div class="add d-inline-block">
-      <div class="card m-3">
-        <img class="card-img-top" src="https://st3.idealista.com/news/archivos/styles/news_detail/public/2018-11/casa_prefabricada.jpg?sv=pX_Hqy9d&itok=kCOtbqgQ" alt="Card image">
-        <div class="card-body">
-          <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
-          <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
-        </div>
-      </div>
-    </div>
-    <div class="add d-inline-block">
-      <div class="card m-3">
-        <img class="card-img-top" src="https://st3.idealista.com/news/archivos/styles/news_detail/public/2018-11/casa_prefabricada.jpg?sv=pX_Hqy9d&itok=kCOtbqgQ" alt="Card image">
-        <div class="card-body">
-          <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
-          <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
-        </div>
-      </div>
-    </div>
 
 
     <div class="add d-inline-block">
@@ -66,7 +27,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -76,7 +37,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -86,7 +47,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -96,10 +57,11 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
+
 
     <div class="add d-inline-block">
       <div class="card m-3">
@@ -107,7 +69,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -117,7 +79,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -127,7 +89,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -137,7 +99,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -148,7 +110,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -158,7 +120,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -168,7 +130,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -178,7 +140,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -189,7 +151,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -199,7 +161,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -209,7 +171,7 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
@@ -219,11 +181,50 @@
         <div class="card-body">
           <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
           <p class="card-text">950 €</p>
-          <a href="#" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
 
-
+    <div class="add d-inline-block">
+      <div class="card m-3">
+        <img class="card-img-top" src="https://st3.idealista.com/news/archivos/styles/news_detail/public/2018-11/casa_prefabricada.jpg?sv=pX_Hqy9d&itok=kCOtbqgQ" alt="Card image">
+        <div class="card-body">
+          <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
+          <p class="card-text">950 €</p>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
+        </div>
+      </div>
+    </div>
+    <div class="add d-inline-block">
+      <div class="card m-3">
+        <img class="card-img-top" src="https://st3.idealista.com/news/archivos/styles/news_detail/public/2018-11/casa_prefabricada.jpg?sv=pX_Hqy9d&itok=kCOtbqgQ" alt="Card image">
+        <div class="card-body">
+          <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
+          <p class="card-text">950 €</p>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
+        </div>
+      </div>
+    </div>
+    <div class="add d-inline-block">
+      <div class="card m-3">
+        <img class="card-img-top" src="https://st3.idealista.com/news/archivos/styles/news_detail/public/2018-11/casa_prefabricada.jpg?sv=pX_Hqy9d&itok=kCOtbqgQ" alt="Card image">
+        <div class="card-body">
+          <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
+          <p class="card-text">950 €</p>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
+        </div>
+      </div>
+    </div>
+    <div class="add d-inline-block">
+      <div class="card m-3">
+        <img class="card-img-top" src="https://st3.idealista.com/news/archivos/styles/news_detail/public/2018-11/casa_prefabricada.jpg?sv=pX_Hqy9d&itok=kCOtbqgQ" alt="Card image">
+        <div class="card-body">
+          <p class="card-text">Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500.</p>
+          <p class="card-text">950 €</p>
+          <a href="/seeAdvertisement" class="btn btn-custom">Ver anuncio</a>
+        </div>
+      </div>
+    </div>
 
   </div>
