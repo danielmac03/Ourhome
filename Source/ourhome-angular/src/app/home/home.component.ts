@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { homes } from '../model/homes';
+import { HomesService } from '../service/homes.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  homes: Observable<homes[]>;
 
-  ngOnInit(): void {
+  constructor(private homesService: HomesService, private router: Router) { }
+
+  ngOnInit() {
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.homes = this.homesService.getHomesList();
+  }
+
+  homesDetail(id: number){
+    this.router.navigate(['details', id]);
   }
 
 }

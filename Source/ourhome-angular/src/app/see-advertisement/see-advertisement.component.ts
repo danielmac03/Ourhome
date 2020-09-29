@@ -29,8 +29,4 @@ export class SeeAdvertisementComponent implements OnInit {
 
   }
 
-  list(){
-    this.router.navigate(['homes']);
-  }
-
 }
