@@ -15,7 +15,7 @@ export class LoginComponent {
   login() {
     const user = {email: this.email, password: this.password};
     this.authService.login(user).subscribe( data => {
-      console.log(data);
+      console.log(data.headers.get("Authorization"));
     });
   }
 }
