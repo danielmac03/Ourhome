@@ -2,35 +2,34 @@
     <img src="../../assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block">
 
     <div class="my-3"></div>
-
-    <form action="#" method="">
+    <form  (ngSubmit)="onSubmit()">
         <div class="form-group mt-5 field">
-            <input type="text" id="nombre" placeholder=" " class="form-control" required>
+            <input type="text" id="nombre" placeholder=" " class="form-control" required required [(ngModel)]="users.name">
             <label class="lab" for="nombre">Nombre*</label>
         </div>
 
         <div class="form-group mt-5 field">
-            <input type="text" id="apellidos" placeholder=" " class="form-control" required>
+            <input type="text" id="apellidos" placeholder=" " class="form-control" required [(ngModel)]="users.surnames">
             <label class="lab" for="apellidos">Apellidos*</label>
         </div>
 
         <div class="form-group mt-5 field">
-            <input type="number" id="edad" placeholder=" " class="form-control" required>
+            <input type="number" id="edad" placeholder=" " class="form-control" required [(ngModel)]="users.age">
             <label class="lab" for="edad">Edad*</label>
         </div>
 
         <div class="form-group mt-5 field">
-            <input type="email" id="correo" placeholder=" " class="form-control" required>
+            <input type="email" id="correo" placeholder=" " class="form-control" required [(ngModel)]="users.email">
             <label class="lab" for="correo">Correo*</label>
         </div>
 
         <div class="form-group mt-5 field">
-            <input type="tel" id="telefono" placeholder=" " class="form-control" maxlength="9">
+            <input type="tel" id="telefono" placeholder=" " class="form-control" maxlength="9" [(ngModel)]="users.phone">
             <label class="lab" for="telefono">Telefono</label>
         </div>
 
         <div class="form-group mt-5 field">
-            <input type="password" id="password" placeholder=" " class="form-control" required>
+            <input type="password" id="password" placeholder=" " class="form-control" required [(ngModel)]="users.password">
             <label class="lab" for="password">Contraseña*</label>
         </div>
 
@@ -75,4 +74,5 @@
         <i>* Es obligatorio rellenar estos campos para completar el registro.</i>
 
     </form>
+
 </div>
