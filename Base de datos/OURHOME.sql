@@ -48,16 +48,16 @@ CREATE TABLE homes(
 );
 
 INSERT INTO homes (user_id, url_photos, description, price, num_bedrooms, num_bathroom, city, direction, meters, floors, created_at, updated_at) VALUES
-(10, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 2, 1, 'Reus', 'C/ Tarragona', 120, 1, CURRENT_DATE(), CURRENT_DATE()),
-(8, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 500, 4, 2, 'Tarragona','C/ San Pere', 220, 3, CURRENT_DATE(), CURRENT_DATE()),
-(5, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 400, 3, 1, 'Reus', 'C/ Alcalá', 155, 1, CURRENT_DATE(), CURRENT_DATE()),
-(3, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 3, 1, 'Gerona', 'C/ Larios', 90, 1, CURRENT_DATE(), CURRENT_DATE()),
-(6, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 390, 4, 1, 'Barcelona', 'C/ de lo Ciegos', 120, 2, CURRENT_DATE(), CURRENT_DATE()),
-(4, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 480, 6, 2, 'Lleida', 'C/ Betis', 170, 3, CURRENT_DATE(), CURRENT_DATE()),
-(7, 'https://imgur.com/a/9kTvflF','Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 300, 4, 1, 'Barcelona', 'C/ Alfonso', 100, 1, CURRENT_DATE(), CURRENT_DATE()),
-(1, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 200, 2, 1, 'Lleida', 'C/ del Ángel', 100, 1, CURRENT_DATE(), CURRENT_DATE()),
-(9, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 525, 6, 3, 'Gerona', 'Avenida Constitución ', 200, 2, CURRENT_DATE(), CURRENT_DATE()),
-(2, 'https://imgur.com/a/9kTvflF', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 445, 2, 2, 'Tarragona', 'C/ de la Compañia', 150, 2, CURRENT_DATE(), CURRENT_DATE());
+(10, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 2, 1, 'Reus', 'C/ Tarragona', 120, 1, CURRENT_DATE(), CURRENT_DATE()),
+(8, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 500, 4, 2, 'Tarragona','C/ San Pere', 220, 3, CURRENT_DATE(), CURRENT_DATE()),
+(5, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 400, 3, 1, 'Reus', 'C/ Alcalá', 155, 1, CURRENT_DATE(), CURRENT_DATE()),
+(3, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 3, 1, 'Gerona', 'C/ Larios', 90, 1, CURRENT_DATE(), CURRENT_DATE()),
+(6, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 390, 4, 1, 'Barcelona', 'C/ de lo Ciegos', 120, 2, CURRENT_DATE(), CURRENT_DATE()),
+(4, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 480, 6, 2, 'Lleida', 'C/ Betis', 170, 3, CURRENT_DATE(), CURRENT_DATE()),
+(7, 'https://i.imgur.com/4tg7o3U.jpeg','Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 300, 4, 1, 'Barcelona', 'C/ Alfonso', 100, 1, CURRENT_DATE(), CURRENT_DATE()),
+(1, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 200, 2, 1, 'Lleida', 'C/ del Ángel', 100, 1, CURRENT_DATE(), CURRENT_DATE()),
+(9, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 525, 6, 3, 'Gerona', 'Avenida Constitución ', 200, 2, CURRENT_DATE(), CURRENT_DATE()),
+(2, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 445, 2, 2, 'Tarragona', 'C/ de la Compañia', 150, 2, CURRENT_DATE(), CURRENT_DATE());
 
 CREATE TABLE processes(
     process_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
