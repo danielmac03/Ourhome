@@ -30,6 +30,12 @@
 
   <div *ngIf="Homes">
 
+    <div>
+      <img src="{{ Homes.user.urlPhotos }}">
+      <p>{{ Homes.user.name }} {{ Homes.user.surnames }}</p>
+      <label>{{ Homes.user.age }}</label>
+    </div>
+
     <div class="row mt-5 mb-3">
       <div class="col-md-12">
         <p>Descripción</p>
@@ -52,7 +58,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="row mt-5">
         <div class="col-md-6">
@@ -101,9 +106,8 @@
         <textarea id="extras" placeholder=" " class="form-control" disabled style="resize: none;">{{Homes.additional}}</textarea>
       </div>
     </div>
-
   </div>
 
-  <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Contacta</button>
-
+    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Contacta</button>
 </div>
+

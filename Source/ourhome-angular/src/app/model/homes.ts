@@ -13,4 +13,5 @@ export class homes {
   additional: string;
   createdAt: Date;
   updatedAt: Date;
+  user: Object;
 }
