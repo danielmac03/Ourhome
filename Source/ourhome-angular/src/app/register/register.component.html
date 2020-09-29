@@ -38,11 +38,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <input type="radio" id="con_casa" name="casa" value="0" required>
+                        <input type="radio" id="con_casa" name="casa" value="0" required [(ngModel)]="users.role">
                         <label for="con_casa">&nbsp; Tengo Casa</label>
                     </div>
                     <div class="col">
-                        <input type="radio" id="sin_casa" name="casa" value="1" required>
+                        <input type="radio" id="sin_casa" name="casa" value="1" required [(ngModel)]="users.role">
                         <label for="sin_casa">&nbsp; Busco Casa</label>
                     </div>
                 </div>

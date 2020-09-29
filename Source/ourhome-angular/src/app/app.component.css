@@ -16,7 +16,6 @@ body{
   color: white;
 }
 
-
 .navbar-custom input[type="search"] {
   border-radius: 5px;
   height: 38px;
@@ -46,6 +45,10 @@ body{
 .div-form input[type="email"]:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="password"]:focus, input[type="decimal"]:focus, textarea:hover {
   border-color: #477185 !important;
   box-shadow: none !important;
+}
+
+.form-control:disabled {
+  background-color: white;
 }
 
 .btn-custom{

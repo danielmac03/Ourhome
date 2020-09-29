@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     .createUsers(this.users).subscribe(data => {
       console.log(data)
       this.users = new users();
-    /*  this.gotoInitialTest(); */
+      this.router.navigate(['home']);
     },
     error => console.log(error));
   }
@@ -37,9 +37,4 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
     this.save();
   }
-/*
-  gotoInitialTest() {
-    this.router.navigate(['/home']);
-  }*/
-
 }
