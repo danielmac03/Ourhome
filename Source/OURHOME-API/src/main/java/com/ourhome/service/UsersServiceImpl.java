@@ -30,6 +30,11 @@ public class UsersServiceImpl implements IUsuariosService, UserDetailsService {
 	public Users searchUser(int id) {
 		return iUsersDAO.findById(id).get();
 	}
+	
+	@Override
+	public Users searchUserByEmail(String email) {
+		return iUsersDAO.findByEmail(email);
+	}
 
 	@Override
 	public Users updateUser(Users user) {

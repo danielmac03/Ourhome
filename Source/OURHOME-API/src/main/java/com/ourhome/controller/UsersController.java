@@ -41,6 +41,14 @@ public class UsersController {
 		return user;
 	}
 	
+	@GetMapping("/users/email/{email}")
+	public Users searchUserByEmail(@PathVariable(name="email") String email) {
+		Users user = new Users();		
+		user = usersServiceImpl.searchUserByEmail(email);
+		
+		return user;
+	}
+	
 	@PutMapping("/users/{id}")
 	public Users updateUser(@PathVariable(name="id") int id, @RequestBody Users user) {
 		Users userSelected = new Users();

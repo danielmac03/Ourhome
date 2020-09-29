@@ -11,8 +11,12 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(user_id: number): Observable<any> {
+  getUserById(user_id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${user_id}`);
+  }
+
+  getUserByEmail(user_email: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/email/${user_email}`);
   }
 
   createUsers(users: Object): Observable<Object> {
