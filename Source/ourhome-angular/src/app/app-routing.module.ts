@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'profile', component:ProfileComponent},
   {path: 'processes', component:ProcessesComponent},
   {path: 'createAdvertisement', component:CreateAdvertisementComponent},
-  {path: 'seeAdvertisement', component:SeeAdvertisementComponent},
+  {path: 'seeAdvertisement/:id', component:SeeAdvertisementComponent},
   {path: 'createTest', component:CreateTestComponent},
   {path: 'initialTest', component:InitialTestComponent},
   {path: 'customTest', component:CustomTestComponent},

@@ -13,7 +13,7 @@ export class LoginComponent {
   email: string;
   password: string;
 
-  constructor(public usersService: UsersService, public authService: AuthService, public tokenStorage: TokenStorageService, public router: Router) {}
+  constructor(private usersService: UsersService, private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) {}
 
   login() {
     const user = {email: this.email, password: this.password};

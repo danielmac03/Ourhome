@@ -4,13 +4,13 @@ export class homes {
   description: string;
   price: number;
   urlPhotos: string;
-  num_bedrooms: number;
-  num_bathroom: number;
+  numBedrooms: number;
+  numBathroom: number;
   city: string;
   direction: string;
   meters: number;
   floors: number;
   additional: string;
-  created_at: Date;
-  updated_at: Date;
+  createdAt: Date;
+  updatedAt: Date;
 }

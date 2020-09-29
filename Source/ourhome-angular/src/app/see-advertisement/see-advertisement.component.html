@@ -28,8 +28,6 @@
 
   <div class="my-3"></div>
 
-  <!--
-
   <div *ngIf="Homes">
 
     <div class="row mt-5 mb-3">
@@ -50,7 +48,7 @@
         <div class="col-md-6">
             <p> Numero Habitaciones</p>
             <div class="form-group field">
-                <input type="number" id="num_habitaciones" placeholder=" " class="form-control" value="{{Homes.num_bedrooms}}" disabled>
+                <input type="number" id="num_habitaciones" placeholder=" " class="form-control" value="{{Homes.numBedrooms}}" disabled>
             </div>
         </div>
     </div>
@@ -60,7 +58,7 @@
         <div class="col-md-6">
             <p>Numero Baños</p>
             <div class="form-group field">
-                <input type="number" id="num_baños" placeholder=" " class="form-control" value="{{Homes.num_bathroom}}" disabled>
+                <input type="number" id="num_baños" placeholder=" " class="form-control" value="{{Homes.numBathroom}}" disabled>
             </div>
         </div>
 
@@ -106,85 +104,6 @@
 
   </div>
 
--->
-
-  <div>
-
-    <div class="row mt-5 mb-3">
-      <div class="col-md-12">
-        <p>Descripción</p>
-      <textarea id="descripcion" placeholder="‎‎ " class="form-control" disabled style="resize: none;">casa acogedora en manhattan</textarea>
-      </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-6">
-            <p>Precio</p>
-            <div class="form-group field">
-                <input type="number" id="decimal" class="form-control" value="12" disabled>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <p> Numero Habitaciones</p>
-            <div class="form-group field">
-                <input type="number" id="num_habitaciones" placeholder=" " class="form-control" value="2" disabled>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-6">
-            <p>Numero Baños</p>
-            <div class="form-group field">
-                <input type="number" id="num_baños" placeholder=" " class="form-control" value="3" disabled>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-          <p>Numero Plantas</p>
-          <div class="form-group field">
-              <input type="number" id="num_plantas" placeholder=" " class="form-control" value="2" disabled>
-          </div>
-      </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-6">
-            <p>Metros cuadrados</p>
-            <div class="form-group field">
-                <input type="decimal" id="metros2" placeholder=" " class="form-control" value="30" disabled>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-          <p>Ciudad</p>
-          <div class="form-group field">
-              <input type="text" id="ciudad" placeholder=" " class="form-control" value="Reus" disabled>
-          </div>
-      </div>
-    </div>
-
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <p>Dirección</p>
-        <div class="form-group field">
-            <input type="text" id="direccion" placeholder=" " class="form-control" value="Calle Paco, 23" disabled>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mt-5 mb-5">
-      <div class="col-md-12">
-        <p>Extras</p>
-        <textarea id="extras" placeholder=" " class="form-control" disabled style="resize: none;"> Aire Acondicionado · Calefacción · Animales admitidos · Baño personal · App domótica · Barra de Bar</textarea>
-      </div>
-    </div>
-
-  </div>
-
   <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Contacta</button>
-
-
 
 </div>
