@@ -28,12 +28,10 @@
 
   <div class="my-3"></div>
 
-  <div *ngIf="Homes">
+  <div>
 
     <div>
-      <img src="{{ Homes.user.urlPhotos }}">
-      <p>{{ Homes.user.name }} {{ Homes.user.surnames }}</p>
-      <label>{{ Homes.user.age }}</label>
+      <i>Creado por: {{ Homes.user.name }} {{ Homes.user.surnames }}</i>
     </div>
 
     <div class="row mt-5 mb-3">
