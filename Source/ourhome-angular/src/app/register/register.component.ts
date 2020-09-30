@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
                 this.tokenStorage.saveToken(resp3.headers.get("Authorization"));
               });
 
-              this.router.navigate(['home']);
+              this.router.navigate(['initialTest']);
             });
           }else{
             alert("El email ya se ha registrado");

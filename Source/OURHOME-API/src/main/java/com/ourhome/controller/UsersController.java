@@ -10,7 +10,7 @@ import com.ourhome.service.UsersServiceImpl;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class UsersController {
 
 	@Autowired
@@ -72,6 +72,8 @@ public class UsersController {
 		userSelected.setProcesos_2(user.getProcesos_2());
 		userSelected.setCustomTest(user.getCustomTest());
 		userSelected.setCustomTestsResponses(user.getCustomTestsResponses());
+		
+		userUpdated = usersServiceImpl.updateUser(userSelected);
 		
 		return userUpdated;	
 	}

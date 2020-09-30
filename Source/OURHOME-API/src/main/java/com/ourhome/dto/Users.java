@@ -52,23 +52,23 @@ public class Users {
 	private Date updatedAt;
 	
 	@OneToMany
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name="user_id")
 	private List<Homes> homes;
 	
 	@OneToMany
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name="user_id")
 	private List<Processes> process_1;
 	
 	@OneToMany
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name="user_id")
 	private List<Processes> process_2;
 	
 	@OneToMany
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name="user_id")
 	private List<CustomTests> customTest;
 	
 	@OneToMany
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name="user_id")
 	private List<CustomTestsResponses> customTestsResponses;
 	
 	public Users() {}
