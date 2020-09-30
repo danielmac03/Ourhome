@@ -1,42 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 import { homes } from '../model/homes';
 import { HomesService } from '../service/homes.service';
+import { TokenStorageService } from '../service/authentication/token-storage.service'
 
 @Component({
   selector: 'app-create-advertisement',
   templateUrl: './create-advertisement.component.html',
   styleUrls: ['./create-advertisement.component.css', '../app.component.css']
 })
-export class CreateAdvertisementComponent implements OnInit {
+export class CreateAdvertisementComponent implements OnInit{
 
-  homes: homes = new homes();
-  submitted = false;
+  id: number;
+  description: string;
+  price: number;
+  urlPhotos: string;
+  numBedrooms: number;
+  numBathroom: number;
+  city: string;
+  direction: string;
+  meters: number;
+  floors: number;
+  additional: string;
+  createdAt: Date;
+  updatedAt: Date;
+  user: Object;
 
-  constructor(private homesService: HomesService, private router: Router) { }
+  constructor(private homesService: HomesService, private router: Router, private tokenStorage: TokenStorageService) { }
 
-  ngOnInit() {
-  }
-
-  newHome() :  void {
-    this.submitted  = false;
-    this.homes = new homes();
-  }
+  ngOnInit() { }
 
   save() {
-    this.homesService
-    .createHomes(this.homes).subscribe(data => {
-      console.log(data)
-      this.homes = new homes();
-      this.router.navigate(['home']);
-      //PONER QUE REENVIE AL ANUNCIO ID
-    },
-    error => console.log(error));
-  }
+    this.user = this.tokenStorage.getUser();
 
-  onSubmit() {
-    this.submitted = true;
-    this.save();
+    let homes = {description: this.description, price: this.price, urlPhotos: this.urlPhotos, numBedrooms: this.numBedrooms, numBathroom: this.numBathroom, city: this.city, direction: this.direction, meters: this.meters, floors: this.floors, additional: this.additional, user: this.user};
+
+    this.homesService.createHomes(homes).subscribe(data => {
+      this.router.navigate(['/seeAdvertisement/' + data.id]);
+    },
+    error => console.log(error))
   }
 
 }

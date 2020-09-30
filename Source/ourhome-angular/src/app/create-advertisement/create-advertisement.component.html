@@ -4,59 +4,72 @@
 
   <div class="my-3"></div>
 
-  <form (ngSubmit)="onSubmit()">
+  <form action="#" method="POST">
 
     <div class="form-group mt-5 field">
-        <input type="text" placeholder=" " class="form-control" required>
-        <label for="url_fotos">Url fotos</label>
+        <input type="text" placeholder=" " class="form-control" name="urlPhotos" required [(ngModel)]="urlPhotos">
+        <label for="urlPhotos">Url fotos</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <textarea id="descripcion" placeholder="‎‎ " class="form-control" required></textarea>
-        <label for="descripcion">Descripción*</label>
+        <textarea name="description" placeholder="‎‎ " class="form-control" required [(ngModel)]="description"></textarea>
+        <label for="description">Descripción*</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <input type="number" id="decimal" placeholder=" " class="form-control" required>
-        <label for="precio">Precio*</label>
+        <input type="number" name="price" placeholder=" " class="form-control" required [(ngModel)]="price">
+        <label for="price">Precio*</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <input type="number" id="num_habitaciones" placeholder=" " class="form-control">
-        <label for="num_habitaciones">Numero Habitaciones</label>
+        <input type="number" name="numBedrooms" placeholder=" " class="form-control" [(ngModel)]="numBedrooms">
+        <label for="numBedrooms">Numero Habitaciones</label>
     </div>
 
-    <div class="form-group mt-5 field">
-        <input type="number" id="num_baños" placeholder=" " class="form-control">
-        <label for="num_baños">Numero Baños</label>
-    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group mt-5 field">
+          <input type="number" name="numBathroom" placeholder=" " class="form-control" [(ngModel)]="numBathroom">
+          <label for="numBathroom">Numero Baños</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group mt-5 field">
+          <input type="text" name="city" placeholder=" " class="form-control" [(ngModel)]="city">
+          <label for="city">Ciudad</label>
+       </div>
+      </div>
+   </div>
 
     <div class="form-group mt-5 field">
-        <input type="text" id="direccion" placeholder=" " class="form-control">
-        <label for="direccion">Dirección*</label>
+        <input type="text" name="direction" placeholder=" " class="form-control" [(ngModel)]="direction">
+        <label for="direction">Dirección*</label>
     </div>
 
     <div class="row mt-5">
         <div class="col-md-6">
             <div class="form-group field">
-                <input type="decimal" id="metros2" placeholder=" " class="form-control">
-                <label for="metros2">Metros cuadrados</label>
+                <input type="decimal" name="meters" placeholder=" " class="form-control" [(ngModel)]="meters">
+                <label for="meters">Metros cuadrados</label>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group field">
-                <input type="number" id="num_plantas" placeholder=" " class="form-control">
-                <label for="num_plantas">Numero Plantas</label>
+                <input type="number" name="floors" placeholder=" " class="form-control" [(ngModel)]="floors">
+                <label for="floors">Numero Plantas</label>
             </div>
         </div>
     </div>
 
     <div class="form-group my-5 field">
-        <textarea id="extras" placeholder=" " class="form-control" required></textarea>
+        <textarea name="extras" placeholder=" " class="form-control" required [(ngModel)]="additional"></textarea>
         <label for="extras">Extras*</label>
     </div>
 
-    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Publicar</button>
+    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" (click)="save()">Publicar</button>
   </form>
 </div>
