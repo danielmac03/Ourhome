@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { custom_tests } from '../model/custom_tests';
+import { CustomTestsService } from '../service/custom-tests.service';
 
 @Component({
   selector: 'app-custom-test',
@@ -8,9 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomTestComponent implements OnInit {
 
-  constructor() { }
+  custom_tests: custom_tests = new custom_tests();
+  submitted = false;
 
-  ngOnInit(): void {
+  constructor(private customTestsService: CustomTestsService, private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  newUser() :  void {
+    this.submitted  = false;
+    this.custom_tests = new custom_tests();
+  }
+
+  save() {
+    this.customTestsService
+    .createCustomTests(this.custom_tests).subscribe(data => {
+      console.log(data)
+      this.custom_tests = new custom_tests();
+      this.router.navigate(['home']);
+    },
+    error => console.log(error));
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();
   }
 
 }
