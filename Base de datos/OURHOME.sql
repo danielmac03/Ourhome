@@ -6,7 +6,7 @@ CREATE TABLE users(
     user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     surnames VARCHAR(100) DEFAULT NULL,
-    age INT NOT NULL,
+    age INT NULL,
     phone INT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
@@ -14,20 +14,20 @@ CREATE TABLE users(
     default_test_responses MEDIUMTEXT NULL,
     show_phone bit DEFAULT NULL,
     created_at DATE NOT NULL,
-    updated_at DATE NOT NULL
+    updated_at DATE NULL
 );
 
-INSERT INTO users (name, surnames, age, phone, email, password, role, default_test_responses, show_phone, created_at, updated_at) VALUES
-('Daniel', 'Rodrigues', 15, 699873544, 'danielrodrigues@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
-('Marco', 'Polo', 20, 633254182, 'marcololo@hotmail.com', 'marco00', '1', 'sa', 0, CURRENT_DATE(), CURRENT_DATE()),
-('Anna', 'mota', 25, 124512325, 'annamota@gmail.com', 'anna00', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
-('Maria', 'Aguilea', 34, 489562558, 'mariaguilera@yahoo.com', 'maria00', '1', 'sa', 1, CURRENT_DATE(), CURRENT_DATE()),
-('Sergi', 'Lopez', 23, 152248621, 'sergilopez@hotmail.com', 'sergi00', '2', 'as', 1, CURRENT_DATE(), CURRENT_DATE()),
-('Jose', 'Pablo', 24, 162584759, 'josepablo@hotmail.com', 'jose00', '1', 'sa', 0, CURRENT_DATE(), CURRENT_DATE()),
-('Max', 'Ten', 29, 157448526, 'maxten@gmail.com', 'max00', '2', 'as', 0, CURRENT_DATE(), CURRENT_DATE()),
-('Laura', 'Mandez', 30, 524886695, 'lauramendez@yahoo.com', 'laura00', '1', 'sa', 1, CURRENT_DATE(), CURRENT_DATE()),
-('Amapola', 'Guarana', 18, 188526785, 'amapolaguarana@hotmail.com', 'amapola00', '2', 'sa', 0, CURRENT_DATE(), CURRENT_DATE()),
-('Paco', 'Marquez', 19, 632251856, 'pacomarquez@gmail.com', 'paco00', '2', 'sa', 0, CURRENT_DATE(), CURRENT_DATE());
+INSERT INTO users (name, surnames, age, phone, email, password, role, default_test_responses, show_phone, created_at) VALUES
+('Admin', '', 15, 000000000, 'admin@ourhome.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '3', '', 0, CURRENT_DATE()),
+('Marco', 'Polo', 20, 633254182, 'marcololo@hotmail.com', 'marco00', '1', 'sa', 0, CURRENT_DATE()),
+('Anna', 'mota', 25, 124512325, 'annamota@gmail.com', 'anna00', '2', 'as', 1, CURRENT_DATE()),
+('Maria', 'Aguilea', 34, 489562558, 'mariaguilera@yahoo.com', 'maria00', '1', 'sa', 1, CURRENT_DATE()),
+('Sergi', 'Lopez', 23, 152248621, 'sergilopez@hotmail.com', 'sergi00', '2', 'as', 1, CURRENT_DATE()),
+('Jose', 'Pablo', 24, 162584759, 'josepablo@hotmail.com', 'jose00', '1', 'sa', 0, CURRENT_DATE()),
+('Max', 'Ten', 29, 157448526, 'maxten@gmail.com', 'max00', '2', 'as', 0, CURRENT_DATE()),
+('Laura', 'Mandez', 30, 524886695, 'lauramendez@yahoo.com', 'laura00', '1', 'sa', 1, CURRENT_DATE()),
+('Amapola', 'Guarana', 18, 188526785, 'amapolaguarana@hotmail.com', 'amapola00', '2', 'sa', 0, CURRENT_DATE()),
+('Paco', 'Marquez', 19, 632251856, 'pacomarquez@gmail.com', 'paco00', '2', 'sa', 0, CURRENT_DATE());
 
 CREATE TABLE homes(
     home_id INT AUTO_INCREMENT PRIMARY KEY,
