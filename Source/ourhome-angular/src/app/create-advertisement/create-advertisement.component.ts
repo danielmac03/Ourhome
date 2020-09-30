@@ -1,8 +1,8 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router"
+import { Router } from "@angular/router";
 import { homes } from '../model/homes';
 import { HomesService } from '../service/homes.service';
+import { TokenStorageService } from '../service/authentication/token-storage.service'
 
 @Component({
   selector: 'app-create-advertisement',
@@ -11,28 +11,41 @@ import { HomesService } from '../service/homes.service';
 })
 export class CreateAdvertisementComponent implements OnInit{
 
- home: homes = new homes();
+  id: number;
+  description: string;
+  price: number;
+  urlPhotos: string;
+  numBedrooms: number;
+  numBathroom: number;
+  city: string;
+  direction: string;
+  meters: number;
+  floors: number;
+  additional: string;
+  createdAt: Date;
+  updatedAt: Date;
+  user: number;
 
+  constructor(private homesService: HomesService, private router: Router, private tokenStorage: TokenStorageService) { }
 
- constructor(private homesService: HomesService, private router: Router) { }
+  ngOnInit() { }
 
- ngOnInit () { }
+  save() {
+    console.log(this.tokenStorage.getUser());
 
-  newAdvertisement(): void {
-    this.home = new homes();
-  }
+    this.user = this.tokenStorage.getUser().id;
 
- save () {
-   this.homesService.createHomes(this.home).subscribe(data => {
+    let homes = {description: this.description, price: this.price, urlPhotos: this.urlPhotos, numBedrooms: this.numBedrooms, numBathroom: this.numBathroom,
+      city: this.city, direction: this.direction, meters: this.meters, floors: this.floors, additional: this.additional, user: this.user};
+
+    console.log(homes);
+    this.homesService.createHomes(homes).subscribe(data => {
+
       console.log(data)
-      this.home = new homes();
       this.router.navigate(['/homes']);
-   },
-   error => console.log(error))
- }
 
-  onSubmit () {
-    this.save();
+    },
+    error => console.log(error))
   }
 
 }

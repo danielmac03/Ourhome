@@ -1,6 +1,6 @@
 export class homes {
   id: number;
-  users: number;
+  user_id: number;
   description: string;
   price: number;
   urlPhotos: string;
