@@ -10,31 +10,34 @@ import { UsersService } from '../service/users.service';
 })
 export class RegisterComponent implements OnInit {
 
-  users: users = new users();
-  submitted = false;
+  name: string;
+  surnames: string;
+  age: number;
+  email: string;
+  phone: number;
+  password: string;
+  role: number;
+  showPhone: number;
 
   constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  newUser() :  void {
-    this.submitted  = false;
-    this.users = new users();
+  register() {
+    let user = {name: this.name, surnames: this.surnames, age: this.age, email: this.email, password: this.password, role: this.role, showPhone: this.showPhone};
+
+    this.usersService.getUserByEmail(this.email).subscribe(
+      resp => {
+        if(resp == null){
+          this.usersService.createUsers(user).subscribe(data => {
+            this.router.navigate(['home']);
+          });
+        }else{
+          alert("El email ya existe");
+        }
+      },
+    );
   }
 
-  save() {
-    this.usersService
-    .createUsers(this.users).subscribe(data => {
-      console.log(data)
-      this.users = new users();
-      this.router.navigate(['home']);
-    },
-    error => console.log(error));
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.save();
-  }
 }
