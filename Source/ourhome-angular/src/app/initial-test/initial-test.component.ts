@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from "@angular/router";
 import { UsersService } from '../service/users.service';
+import { AuthService } from "../service/authentication/auth.service";
 import { TokenStorageService } from '../service/authentication/token-storage.service';
 
 @Component({
@@ -15,21 +17,21 @@ export class InitialTestComponent {
   p4: string;
   p5: string;
 
-  constructor(private usersService: UsersService, private tokenStorageService: TokenStorageService) { }
+  constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private tokenStorageService: TokenStorageService) { }
 
   save(){
-    let answer = this.p1.toString() + this.p2.toString() + this.p3.toString() + this.p4.toString() + this.p5.toString();
-
     var user = this.tokenStorageService.getUser();
-    user.defaultTestResponses = answer;
+    user.defaultTestResponses = this.p1.toString() + this.p2.toString() + this.p3.toString() + this.p4.toString() + this.p5.toString();
 
-    console.log(user)
-
-    this.usersService.updateUsers(user.id, user).subscribe(
-      resp =>{
-        console.log("jklj")
-      }
-    );
+    this.usersService.createUsers(user).subscribe(resp1 => {
+      this.tokenStorageService.saveUser(resp1);
+      /*
+      this.authService.login({email: user.email, password: user.password}).subscribe(resp2 => {
+        this.tokenStorageService.saveToken(resp2.headers.get("Authorization"));
+      });
+      */
+      this.router.navigate(['home']);
+    });
 
   }
 

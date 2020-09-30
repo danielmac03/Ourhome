@@ -33,15 +33,8 @@ export class RegisterComponent implements OnInit {
 
       this.usersService.getUserByEmail(this.email).subscribe(resp1 => {
           if(resp1 == null){
-            this.usersService.createUsers(user).subscribe(resp2 => {
-              this.tokenStorage.saveUser(resp2);
-
-              this.authService.login({email: this.email, password: this.password}).subscribe(resp3 => {
-                this.tokenStorage.saveToken(resp3.headers.get("Authorization"));
-              });
-
-              this.router.navigate(['initialTest']);
-            });
+            this.tokenStorage.saveUser(user);
+            this.router.navigate(['initialTest']);
           }else{
             alert("El email ya se ha registrado");
           }

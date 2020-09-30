@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { homes } from '../model/homes';
 import { HomesService } from '../service/homes.service';
 import { TokenStorageService } from '../service/authentication/token-storage.service'
 
