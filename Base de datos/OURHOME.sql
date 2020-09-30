@@ -8,10 +8,10 @@ CREATE TABLE users(
     surnames VARCHAR(100) DEFAULT NULL,
     age INT NOT NULL,
     phone INT NULL,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
-    role ENUM('tengo_casa', 'busco_casa', 'admin') NOT NULL,
-    default_test_responses MEDIUMTEXT NOT NULL,
+    role ENUM('busco_casa', 'tengo_casa', 'admin') NOT NULL,
+    default_test_responses MEDIUMTEXT NULL,
     show_phone bit DEFAULT NULL,
     created_at DATE NOT NULL,
     updated_at DATE NOT NULL
