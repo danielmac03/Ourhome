@@ -7,32 +7,32 @@
   <form (ngSubmit)="onSubmit()">
 
     <div class="form-group mt-5 field">
-        <input type="text" placeholder=" " class="form-control" required>
+        <input type="text" placeholder=" " class="form-control" required [(ngModel)]="home.urlPhotos">
         <label for="url_fotos">Url fotos</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <textarea id="descripcion" placeholder="‎‎ " class="form-control" required></textarea>
+        <textarea id="descripcion" placeholder="‎‎ " class="form-control" required [(ngModel)]="home.description"></textarea>
         <label for="descripcion">Descripción*</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <input type="number" id="decimal" placeholder=" " class="form-control" required>
+        <input type="number" id="decimal" placeholder=" " class="form-control" required [(ngModel)]="home.price">
         <label for="precio">Precio*</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <input type="number" id="num_habitaciones" placeholder=" " class="form-control">
+        <input type="number" id="num_habitaciones" placeholder=" " class="form-control" [(ngModel)]="home.numBedrooms">
         <label for="num_habitaciones">Numero Habitaciones</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <input type="number" id="num_baños" placeholder=" " class="form-control">
+        <input type="number" id="num_baños" placeholder=" " class="form-control" [(ngModel)]="home.numBathroom">
         <label for="num_baños">Numero Baños</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <input type="text" id="direccion" placeholder=" " class="form-control">
+        <input type="text" id="direccion" placeholder=" " class="form-control" [(ngModel)]="home.direction">
         <label for="direccion">Dirección*</label>
     </div>
 
@@ -53,7 +53,7 @@
     </div>
 
     <div class="form-group my-5 field">
-        <textarea id="extras" placeholder=" " class="form-control" required></textarea>
+        <textarea id="extras" placeholder=" " class="form-control" required [(ngModel)]="home.additional"></textarea>
         <label for="extras">Extras*</label>
     </div>
 
