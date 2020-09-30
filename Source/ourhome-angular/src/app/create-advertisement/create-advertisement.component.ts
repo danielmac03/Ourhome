@@ -24,26 +24,19 @@ export class CreateAdvertisementComponent implements OnInit{
   additional: string;
   createdAt: Date;
   updatedAt: Date;
-  user: number;
+  user: Object;
 
   constructor(private homesService: HomesService, private router: Router, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() { }
 
   save() {
-    console.log(this.tokenStorage.getUser());
+    this.user = this.tokenStorage.getUser();
 
-    this.user = this.tokenStorage.getUser().id;
+    let homes = {description: this.description, price: this.price, urlPhotos: this.urlPhotos, numBedrooms: this.numBedrooms, numBathroom: this.numBathroom, city: this.city, direction: this.direction, meters: this.meters, floors: this.floors, additional: this.additional, user: this.user};
 
-    let homes = {description: this.description, price: this.price, urlPhotos: this.urlPhotos, numBedrooms: this.numBedrooms, numBathroom: this.numBathroom,
-      city: this.city, direction: this.direction, meters: this.meters, floors: this.floors, additional: this.additional, user: this.user};
-
-    console.log(homes);
     this.homesService.createHomes(homes).subscribe(data => {
-
-      console.log(data)
-      this.router.navigate(['/homes']);
-
+      this.router.navigate(['/home']);
     },
     error => console.log(error))
   }
