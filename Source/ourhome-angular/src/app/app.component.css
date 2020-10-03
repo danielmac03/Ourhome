@@ -36,13 +36,13 @@ body{
   width: 80%;
 }
 
-.div-form input[type="email"], input[type="text"], input[type="number"], input[type="tel"], input[type="password"], input[type="decimal"], textarea {
+input[type="email"], input[type="text"], input[type="number"], input[type="tel"], input[type="password"], input[type="decimal"], textarea {
   border: 0px !important;
   border-bottom: 1px #1C3144 solid !important;
   border-radius: 0 !important;
 }
 
-.div-form input[type="email"]:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="password"]:focus, input[type="decimal"]:focus, textarea:hover {
+input[type="email"]:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="password"]:focus, input[type="decimal"]:focus, textarea:hover {
   border-color: #477185 !important;
   box-shadow: none !important;
 }
