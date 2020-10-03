@@ -19,15 +19,16 @@ CREATE TABLE users(
 
 INSERT INTO users (name, surnames, age, phone, email, password, role, default_test_responses, show_phone, created_at) VALUES
 ('Admin', '', 15, 000000000, 'admin@ourhome.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '3', '', 0, CURRENT_DATE()),
-('Marco', 'Polo', 20, 633254182, 'marcololo@hotmail.com', 'marco00', '1', 'sa', 0, CURRENT_DATE()),
-('Anna', 'mota', 25, 124512325, 'annamota@gmail.com', 'anna00', '2', 'as', 1, CURRENT_DATE()),
-('Maria', 'Aguilea', 34, 489562558, 'mariaguilera@yahoo.com', 'maria00', '1', 'sa', 1, CURRENT_DATE()),
-('Sergi', 'Lopez', 23, 152248621, 'sergilopez@hotmail.com', 'sergi00', '2', 'as', 1, CURRENT_DATE()),
-('Jose', 'Pablo', 24, 162584759, 'josepablo@hotmail.com', 'jose00', '1', 'sa', 0, CURRENT_DATE()),
-('Max', 'Ten', 29, 157448526, 'maxten@gmail.com', 'max00', '2', 'as', 0, CURRENT_DATE()),
-('Laura', 'Mandez', 30, 524886695, 'lauramendez@yahoo.com', 'laura00', '1', 'sa', 1, CURRENT_DATE()),
-('Amapola', 'Guarana', 18, 188526785, 'amapolaguarana@hotmail.com', 'amapola00', '2', 'sa', 0, CURRENT_DATE()),
-('Paco', 'Marquez', 19, 632251856, 'pacomarquez@gmail.com', 'paco00', '2', 'sa', 0, CURRENT_DATE());
+('Marco', 'Polo', 20, 633254182, 'marcololo@hotmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '1', '01001', 0, CURRENT_DATE()), 			#busco
+('Anna', 'mota', 25, 124512325, 'annamota@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', '11001', 1, CURRENT_DATE()), 				#tengo
+('Maria', 'Aguilea', 34, 489562558, 'mariaguilera@yahoo.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '1', '11011', 1, CURRENT_DATE()), 		#busco
+('Sergi', 'Lopez', 23, 152248621, 'sergilopez@hotmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', '00011', 1, CURRENT_DATE()), 			#tengo
+('Jose', 'Pablo', 24, 162584759, 'josepablo@hotmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '1', '11111', 0, CURRENT_DATE()),				#tengo
+('Max', 'Ten', 29, 157448526, 'maxten@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', '00100', 0, CURRENT_DATE()), 					#busco
+('Laura', 'Mandez', 30, 524886695, 'lauramendez@yahoo.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '1', '11000', 1, CURRENT_DATE()), 			#tengo
+('Amapola', 'Guarana', 18, 188526785, 'amapolaguarana@hotmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', '00010', 0, CURRENT_DATE()), 	#busco
+('Paco', 'Marquez', 19, 632251856, 'pacomarquez@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', '00101', 0, CURRENT_DATE()), 			#busco
+('Angel', 'Gracia', 28, 662551449, 'angelgarcia@gmail.com', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.', '2', '11200', 0, CURRENT_DATE()); 			#busco
 
 CREATE TABLE homes(
     home_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -48,16 +49,17 @@ CREATE TABLE homes(
 );
 
 INSERT INTO homes (user_id, url_photos, description, price, num_bedrooms, num_bathroom, city, direction, meters, floors, created_at, updated_at) VALUES
-(10, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 2, 1, 'Reus', 'C/ Tarragona', 120, 1, CURRENT_DATE(), CURRENT_DATE()),
-(8, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 500, 4, 2, 'Tarragona','C/ San Pere', 220, 3, CURRENT_DATE(), CURRENT_DATE()),
-(5, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 400, 3, 1, 'Reus', 'C/ Alcalá', 155, 1, CURRENT_DATE(), CURRENT_DATE()),
-(3, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 3, 1, 'Gerona', 'C/ Larios', 90, 1, CURRENT_DATE(), CURRENT_DATE()),
-(6, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 390, 4, 1, 'Barcelona', 'C/ de lo Ciegos', 120, 2, CURRENT_DATE(), CURRENT_DATE()),
-(4, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 480, 6, 2, 'Lleida', 'C/ Betis', 170, 3, CURRENT_DATE(), CURRENT_DATE()),
-(7, 'https://i.imgur.com/4tg7o3U.jpeg','Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 300, 4, 1, 'Barcelona', 'C/ Alfonso', 100, 1, CURRENT_DATE(), CURRENT_DATE()),
-(1, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 200, 2, 1, 'Lleida', 'C/ del Ángel', 100, 1, CURRENT_DATE(), CURRENT_DATE()),
-(9, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 525, 6, 3, 'Gerona', 'Avenida Constitución ', 200, 2, CURRENT_DATE(), CURRENT_DATE()),
-(2, 'https://i.imgur.com/4tg7o3U.jpeg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 445, 2, 2, 'Tarragona', 'C/ de la Compañia', 150, 2, CURRENT_DATE(), CURRENT_DATE());
+(2, 'https://i.imgur.com/I50hiEl.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 2, 1, 'Reus', 'C/ Tarragona', 120, 1, CURRENT_DATE(), CURRENT_DATE()),
+(4, 'https://i.imgur.com/69sudKd.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 500, 4, 2, 'Tarragona','C/ San Pere', 220, 3, CURRENT_DATE(), CURRENT_DATE()),
+(5, 'https://i.imgur.com/fuanOPn.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 400, 3, 1, 'Reus', 'C/ Alcalá', 155, 1, CURRENT_DATE(), CURRENT_DATE()),
+(7, 'https://i.imgur.com/1V3V5rF.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 350, 3, 1, 'Gerona', 'C/ Larios', 90, 1, CURRENT_DATE(), CURRENT_DATE()),
+(4, 'https://i.imgur.com/DFlAUOD.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 390, 4, 1, 'Barcelona', 'C/ de lo Ciegos', 120, 2, CURRENT_DATE(), CURRENT_DATE()),
+(7, 'https://i.imgur.com/7GCuLrZ.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 480, 6, 2, 'Lleida', 'C/ Betis', 170, 3, CURRENT_DATE(), CURRENT_DATE()),
+(7, 'https://i.imgur.com/NalEEwP.jpg','Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 300, 4, 1, 'Barcelona', 'C/ Alfonso', 100, 1, CURRENT_DATE(), CURRENT_DATE()),
+(5, 'https://i.imgur.com/SrLj4LE.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 200, 2, 1, 'Lleida', 'C/ del Ángel', 100, 1, CURRENT_DATE(), CURRENT_DATE()),
+(2, 'https://i.imgur.com/baPZUyN.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 525, 6, 3, 'Gerona', 'Avenida Constitución ', 200, 2, CURRENT_DATE(), CURRENT_DATE()),
+(2, 'https://i.imgur.com/sJjM1Ck.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 445, 2, 2, 'Tarragona', 'C/ de la Compañia', 150, 2, CURRENT_DATE(), CURRENT_DATE()),
+(4, 'https://i.imgur.com/RrmknIT.jpg', 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', 550, 3, 1, 'tarragona', 'C/ Rapita', 180, 1, CURRENT_DATE(), CURRENT_DATE());
 
 CREATE TABLE processes(
     process_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
