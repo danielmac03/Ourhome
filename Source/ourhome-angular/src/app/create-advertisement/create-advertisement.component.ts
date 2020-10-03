@@ -34,8 +34,8 @@ export class CreateAdvertisementComponent implements OnInit{
 
     let homes = {description: this.description, price: this.price, urlPhotos: this.urlPhotos, numBedrooms: this.numBedrooms, numBathroom: this.numBathroom, city: this.city, direction: this.direction, meters: this.meters, floors: this.floors, additional: this.additional, user: this.user};
 
-    this.homesService.createHomes(homes).subscribe(data => {
-      this.router.navigate(['/seeAdvertisement/' + data.id]);
+    this.homesService.createHomes(homes).subscribe((data :any) => {
+      this.router.navigate(['/seeAdvertisement/', data.id]);
     },
     error => console.log(error))
   }
