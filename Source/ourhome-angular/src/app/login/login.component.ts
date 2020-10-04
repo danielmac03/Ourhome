@@ -14,17 +14,17 @@ export class LoginComponent {
   email: string;
   password: string;
 
-  constructor(private usersService: UsersService, private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) {}
+  constructor(private usersService: UsersService, private authService: AuthService, private tokenStorageService: TokenStorageService, private router: Router) {}
 
   login() {
     let user = {email: this.email, password: this.password};
 
     this.authService.login(user).subscribe(
       resp => {
-        this.tokenStorage.saveToken(resp.headers.get("Authorization"));
+        this.tokenStorageService.saveToken(resp.headers.get("Authorization"));
 
         this.usersService.getUserByEmail(this.email).subscribe(resp => {
-          this.tokenStorage.saveUser(resp);
+          this.tokenStorageService.saveUser(resp);
         });
 
         this.router.navigate(['home']);

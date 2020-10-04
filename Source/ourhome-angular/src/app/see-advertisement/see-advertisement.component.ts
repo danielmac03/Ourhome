@@ -9,25 +9,24 @@ import { HomesService } from '../service/homes.service';
   styleUrls: ['./see-advertisement.component.css', '../app.component.css'],
 })
 export class SeeAdvertisementComponent implements OnInit {
-    home_id: number;
-    Homes: homes;
+  homes: homes;
 
-        constructor(
-            private route: ActivatedRoute,
-            private router: Router,
-            private homesService: HomesService,
-        ) {}
+  constructor(
+      private route: ActivatedRoute,
+      private router: Router,
+      private homesService: HomesService,
+  ) {}
 
-        ngOnInit() {
-        this.Homes = new homes();
+  ngOnInit() {
+    this.homes = new homes();
 
-        this.homesService.getHomes(this.route.snapshot.params['id']).subscribe(
-            (data) => {
-            this.Homes = data;
-            },
-            (error) => {
-              this.router.navigate(['home']);
-            }
-        );
-    }
+    this.homesService.getHomes(this.route.snapshot.params['id']).subscribe(
+      (data) => {
+      this.homes = data;
+      },
+      (error) => {
+        this.router.navigate(['home']);
+      }
+    );
+  }
 }
