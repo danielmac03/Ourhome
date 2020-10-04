@@ -87,23 +87,24 @@ INSERT INTO processes (user_id_1 , user_id_2, state, created_at , updated_at) VA
 CREATE TABLE custom_tests(
 	custom_test_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
+    questions MEDIUMTEXT NOT NULL,
     correct_answers MEDIUMTEXT NOT NULL,
     minimum_correct_responses INT NOT NULL,
 	created_at DATE DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO custom_tests (user_id, correct_answers, minimum_correct_responses, created_at) VALUES
-(3, 'a', 1, CURRENT_DATE()),
-(3, 'a', 5, CURRENT_DATE()),
-(3, 'a', 6, CURRENT_DATE()),
-(3, 'a', 4, CURRENT_DATE()),
-(3, 'a', 7, CURRENT_DATE()),
-(3, 'a', 2, CURRENT_DATE()),
-(3, 'a', 10, CURRENT_DATE()),
-(3, 'a', 8, CURRENT_DATE()),
-(3, 'a', 3, CURRENT_DATE()),
-(3, 'a', 9, CURRENT_DATE());
+INSERT INTO custom_tests (user_id, questions, correct_answers, minimum_correct_responses, created_at) VALUES
+(3, 'a', 'a', 1, CURRENT_DATE()),
+(3, 'a', 'a', 5, CURRENT_DATE()),
+(3, 'a', 'a', 6, CURRENT_DATE()),
+(3, 'a', 'a', 4, CURRENT_DATE()),
+(3, 'a', 'a', 7, CURRENT_DATE()),
+(3, 'a', 'a', 2, CURRENT_DATE()),
+(3, 'a', 'a', 10, CURRENT_DATE()),
+(3, 'a', 'a', 8, CURRENT_DATE()),
+(3, 'a', 'a', 3, CURRENT_DATE()),
+(3, 'a', 'a', 9, CURRENT_DATE());
 
 CREATE TABLE custom_tests_responses(
 	custom_test_response_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -127,3 +128,4 @@ INSERT INTO custom_tests_responses (user_id, custom_test_id, answers, compatibil
 (8, 3, 'a', 95, CURRENT_DATE()),
 (9, 2, 'a', 34, CURRENT_DATE()),
 (10, 1, 'a', 77, CURRENT_DATE());
+
