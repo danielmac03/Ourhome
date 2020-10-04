@@ -15,7 +15,11 @@ export class AppComponent implements OnInit {
   role = "";
 
   ngOnInit() {
-    this.role = this.tokenStorageService.getUser().role;
+    var user = this.tokenStorageService.getUser();
+
+    if(user != null){
+      this.role = user.role;
+    }
   }
 
   logout() {
