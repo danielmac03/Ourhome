@@ -12,22 +12,22 @@ import { CustomTestComponent } from './custom-test/custom-test.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CheckLoginHelper } from './helpers/check-login.helper';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'home', component:HomeComponent},
   {path: 'profile', component:ProfileComponent},
-  {path: 'processes', component:ProcessesComponent},
-  {path: 'createAdvertisement', component:CreateAdvertisementComponent},
+  {path: 'processes', component:ProcessesComponent, canActivate: [CheckLoginHelper]},
+  {path: 'createAdvertisement', component:CreateAdvertisementComponent, canActivate: [CheckLoginHelper]},
   {path: 'seeAdvertisement/:id', component:SeeAdvertisementComponent},
-  {path: 'createTest', component:CreateTestComponent},
-  {path: 'initialTest', component:InitialTestComponent},
-  {path: 'customTest', component:CustomTestComponent},
+  {path: 'createTest', component:CreateTestComponent, canActivate: [CheckLoginHelper]},
+  {path: 'initialTest', component:InitialTestComponent, canActivate: [CheckLoginHelper]},
+  {path: 'customTest', component:CustomTestComponent, canActivate: [CheckLoginHelper]},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'},
-
 ];
 
 @NgModule({

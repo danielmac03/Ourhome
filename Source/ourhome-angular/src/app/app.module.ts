@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { authInterceptorHelper } from './helpers/auth-interceptor.helper';
+import { CheckLoginHelper } from './helpers/check-login.helper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +40,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorHelper, CheckLoginHelper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
