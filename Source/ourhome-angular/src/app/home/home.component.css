@@ -1,3 +1,7 @@
 .add {
   max-width: 380px;
 }
+
+.card-img, .card-img-top{
+  height: 250px;
+}
