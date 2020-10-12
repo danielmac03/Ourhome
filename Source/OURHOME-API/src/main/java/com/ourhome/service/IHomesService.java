@@ -10,6 +10,8 @@ public interface IHomesService {
 	public Homes saveHomes(Homes home);	
 	
 	public Homes searchHome(int id);
+
+	public List<Homes> searchHomeByCity(String city);
 	
 	public Homes updateHome(Homes home); 
 	

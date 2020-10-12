@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router"
+import { Router } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 import { TokenStorageService } from './service/authentication/token-storage.service';
 
 @Component({
@@ -12,16 +13,21 @@ export class AppComponent implements OnInit {
 
   constructor(private tokenStorageService: TokenStorageService, private router: Router) {}
 
-  role = '';
   id = '';
+  role = '';
+  city: string;
 
   ngOnInit() {
-    var user = this.tokenStorageService.getUser();
+    const user = this.tokenStorageService.getUser();
 
-    if(user != null){
+    if (user != null){
       this.role = user.role;
       this.id = user.id;
     }
+  }
+
+  searchByCity() {
+    this.router.navigate(['home', this.city]);
   }
 
   logout() {
