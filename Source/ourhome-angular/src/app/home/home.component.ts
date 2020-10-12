@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { homes } from '../model/homes';
 import { HomesService } from '../service/homes.service';
@@ -13,18 +13,14 @@ export class HomeComponent implements OnInit {
 
   homes: Observable<homes[]>;
 
-  constructor(private homesService: HomesService, private router: Router) { }
+  constructor(private homesService: HomesService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.reloadData();
-  }
-
-  reloadData() {
-    this.homes = this.homesService.getHomesList();
-  }
-
-  homesDetail(id: number){
-    this.router.navigate(['details', id]);
+    if (this.route.snapshot.params['city']){
+      this.homes = this.homesService.getHomesByCity(this.route.snapshot.params['city']);
+    }else{
+      this.homes = this.homesService.getHomes();
+    }
   }
 
 }

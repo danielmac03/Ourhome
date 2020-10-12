@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorHelper } from './helpers/auth-interceptor.helper';
-import { CheckLoginHelper } from './helpers/check-login.helper';
+import { RequireLoginHelper } from './helpers/require-login.helper';
+import { RequireGuestHelper } from './helpers/require-guest.helper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +41,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [authInterceptorHelper, CheckLoginHelper],
+  providers: [authInterceptorHelper, RequireLoginHelper, RequireGuestHelper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

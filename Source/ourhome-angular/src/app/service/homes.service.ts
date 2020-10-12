@@ -12,8 +12,16 @@ export class HomesService {
 
   constructor(private http: HttpClient) { }
 
-  getHomes(home_id: number): Observable<any> {
+  getHomes(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+
+  getHomesById(home_id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${home_id}`);
+  }
+
+  getHomesByCity(city: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/city/${city}`);
   }
 
   createHomes(homes: Object): Observable<Object> {
@@ -28,7 +36,4 @@ export class HomesService {
     return this.http.delete(`${this.baseUrl}/${home_id}`, { responseType: 'text' });
   }
 
-  getHomesList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
-  }
 }
