@@ -13,12 +13,14 @@ export class AppComponent implements OnInit {
   constructor(private tokenStorageService: TokenStorageService, private router: Router) {}
 
   role = "";
+  id = "";
 
   ngOnInit() {
     var user = this.tokenStorageService.getUser();
 
     if(user != null){
       this.role = user.role;
+      this.id = user.id;
     }
   }
 
