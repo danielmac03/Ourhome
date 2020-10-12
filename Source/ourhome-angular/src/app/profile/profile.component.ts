@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { users } from '../model/users';
 import { UsersService } from '../service/users.service';
 
@@ -10,13 +10,28 @@ import { UsersService } from '../service/users.service';
 })
 export class ProfileComponent implements OnInit {
 
-  users: users = new users();
+  users: users;
   submitted = false;
 
-  constructor(private usersService: UsersService, private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private profileComponent: ProfileComponent,
+  ) {}
 
   ngOnInit() {
+    this.users = new users();
+
+    this.users.getUsers(this.route.snapshot.params['id']).subscribe(
+      (data) => {
+        this.users = data;
+      },
+      (error) => {
+        this.router.navigate(['home']);
+      }
+    );
   }
+
 
   newUser() :  void {
     this.submitted  = false;

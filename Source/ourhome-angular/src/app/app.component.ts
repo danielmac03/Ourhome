@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
 
   constructor(private tokenStorageService: TokenStorageService, private router: Router) {}
 
+  id = '';
   role = '';
   city: string;
 
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
 
     if (user != null){
       this.role = user.role;
+      this.id = user.id;
     }
   }
 
@@ -32,4 +34,5 @@ export class AppComponent implements OnInit {
     this.tokenStorageService.signOut();
     this.router.navigate(['home']);
   }
+
 }
