@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { homes } from '../model/homes';
 import { HomesService } from '../service/homes.service';
 
@@ -20,7 +20,7 @@ export class SeeAdvertisementComponent implements OnInit {
   ngOnInit() {
     this.homes = new homes();
 
-    this.homesService.getHomes(this.route.snapshot.params['id']).subscribe(
+    this.homesService.getHomesById(this.route.snapshot.params['id']).subscribe(
       (data) => {
       this.homes = data;
       },
