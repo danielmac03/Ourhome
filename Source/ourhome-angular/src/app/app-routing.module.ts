@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'home', component: HomeComponent},
   {path: 'home/:city', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent, canActivate: [RequireLoginHelper]},
+  {path: 'profile/:id', component: ProfileComponent, canActivate: [RequireLoginHelper]},
   {path: 'processes', component: ProcessesComponent, canActivate: [RequireLoginHelper]},
   {path: 'createAdvertisement', component: CreateAdvertisementComponent, canActivate: [RequireLoginHelper]},
   {path: 'seeAdvertisement/:id', component: SeeAdvertisementComponent},

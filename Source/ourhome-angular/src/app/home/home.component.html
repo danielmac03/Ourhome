@@ -1,16 +1,16 @@
 <div class="container-fluid text-center p-4">
 
-    <div class="add d-inline-block" *ngFor="let homes of homes | async">
+    <div class="add d-inline-block" *ngFor="let home of homes | async">
       <div class="card m-3">
-        <img class="card-img-top" src="{{homes.urlPhotos}}" alt="Card image">
+        <img class="card-img-top" src="{{home.urlPhotos}}" alt="Card image">
         <div class="card-body">
           <p class="card-text">
-            {{homes.description}}
+            {{home.description}}
           </p>
           <p class="card-text">
-            {{homes.price}} €
+            {{home.price}} €
           </p>
-          <a href="/seeAdvertisement/{{homes.id}}" class="btn btn-custom">Ver anuncio</a>
+          <a href="/seeAdvertisement/{{home.id}}" class="btn btn-custom">Ver anuncio</a>
         </div>
       </div>
     </div>
