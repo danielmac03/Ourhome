@@ -28,6 +28,11 @@ public class HomesServiceImpl implements IHomesService{
 	}
 
 	@Override
+	public List<Homes> searchHomeByCity(String city){
+		return iHomesDAO.findByCity(city);
+	}
+
+	@Override
 	public Homes updateHome(Homes home) {
 		return iHomesDAO.save(home);
 	}

@@ -13,7 +13,6 @@ public class HomesController {
 	@Autowired
 	HomesServiceImpl homesServiceImpl;
 	
-	
 	@GetMapping("/homes")
 	public List<Homes> listHomes(){
 		return homesServiceImpl.listHomes();
@@ -30,6 +29,11 @@ public class HomesController {
 		home = homesServiceImpl.searchHome(id);
 		
 		return home;
+	}
+
+	@GetMapping("/homes/city/{city}")
+	public List<Homes> searchHomeByCity(@PathVariable(name="city") String city){
+		return homesServiceImpl.searchHomeByCity(city);
 	}
 	
 	@PutMapping("/homes/{id}")

@@ -1,6 +1,6 @@
 <main class="container-fluid p-0">
 
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" *ngIf="(role == '')">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
     <a class="navbar-brand title" href="#">OURHOME</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barra2" aria-controls="barra2"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -11,136 +11,76 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item mr-3">
           <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            <input [(ngModel)]="city" name="city" class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" (click)="searchByCity()">Search</button>
           </form>
         </li>
 
-        <li class="nav-item dropleft">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Usuario
-          </a>
-          <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/profile">Mi Perfil Sin sessión</a>
-            <a class="dropdown-item" href="/processes">Procesos</a>
-            <a class="dropdown-item" href="/customTest">Cuestionario</a>
-          </div>
-        </li>
+        <!-- Usuario Invitado -->
+        <div *ngIf="(role == '')" class="d-inline-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+        </div>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
+        <!-- Usuario Busco Casa -->
+        <div *ngIf="(role == 'busco_casa')" class="d-inline-flex">
+          <li class="nav-item dropleft">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+              Usuario
+            </a>
+            <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown2">
+              <a class="dropdown-item" href="/profile">Mi Perfil Busco Casa</a>
+              <a class="dropdown-item" href="/processes">Procesos</a>
+              <a class="dropdown-item" href="/customTest">Cuestionario</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="" (click)="logout()">Logout</a>
+          </li>
+        </div>
+
+        <!-- Usuario Tengo Casa -->
+        <div *ngIf="(role == 'tengo_casa')" class="d-inline-flex">
+          <li class="nav-item dropleft">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+              Usuario
+            </a>
+            <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown3">
+              <a class="dropdown-item" href="/profile">Mi Perfil Tengo Casa</a>
+              <a class="dropdown-item" href="/processes">Procesos</a>
+              <a class="dropdown-item" href="/customTest">Cuestionario</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="" (click)="logout()">Logout</a>
+          </li>
+        </div>
+
+        <!-- Usuario Admin -->
+        <div *ngIf="(role == 'admin')" class="d-inline-flex">
+          <li class="nav-item dropleft">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+              Administración
+            </a>
+            <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown4">
+              <a class="dropdown-item" href="/">Usuarios</a>
+              <a class="dropdown-item" href="/">Casas</a>
+              <a class="dropdown-item" href="/">Procesos</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="" (click)="logout()">Logout</a>
+          </li>
+        </div>
       </ul>
     </div>
   </nav>
-
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" *ngIf="(role == 'busco_casa')">
-    <a class="navbar-brand title" href="#">OURHOME</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barra2" aria-controls="barra2"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="barra2">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item mr-3">
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </li>
-
-        <li class="nav-item dropleft">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Usuario
-          </a>
-          <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/profile">Mi Perfil Busco Casa</a>
-            <a class="dropdown-item" href="/processes">Procesos</a>
-            <a class="dropdown-item" href="/customTest">Cuestionario</a>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="" (click)="logout()">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" *ngIf="(role == 'tengo_casa')">
-    <a class="navbar-brand title" href="#">OURHOME</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barra2" aria-controls="barra2"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="barra2">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item mr-3">
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </li>
-
-        <li class="nav-item dropleft">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Usuario
-          </a>
-          <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/profile">Mi Perfil Tengo Casa</a>
-            <a class="dropdown-item" href="/processes">Procesos</a>
-            <a class="dropdown-item" href="/customTest">Cuestionario</a>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="" (click)="logout()">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" *ngIf="(role == 'admin')">
-    <a class="navbar-brand title" href="#">OURHOME</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barra2" aria-controls="barra2"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="barra2">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item mr-3">
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </li>
-
-        <li class="nav-item dropleft">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Administración
-          </a>
-          <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/">Usuarios</a>
-            <a class="dropdown-item" href="/">Casas</a>
-            <a class="dropdown-item" href="/">Procesos</a>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="" (click)="logout()">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-</main>
 
 <router-outlet></router-outlet>
