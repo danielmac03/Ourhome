@@ -17,12 +17,14 @@ export class ProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private profileComponent: ProfileComponent,
+    private usersService: UsersService
   ) {}
+
 
   ngOnInit() {
     this.users = new users();
 
-    this.users.getUsers(this.route.snapshot.params['id']).subscribe(
+    this.usersService.getUserById(this.route.snapshot.params['id']).subscribe(
       (data) => {
         this.users = data;
       },
@@ -32,25 +34,20 @@ export class ProfileComponent implements OnInit {
     );
   }
 
+  /*
+    save(){
+      this.usersService
+      .createUsers(this.users).subscribe(data => {
+        console.log(data);
+        this.users = new users();
+        this.router.navigate(['home']);
+      },
+      error => console.log(error));
+    }
 
-  newUser() :  void {
-    this.submitted  = false;
-    this.users = new users();
-  }
-
-  save() {
-    this.usersService
-    .createUsers(this.users).subscribe(data => {
-      console.log(data)
-      this.users = new users();
-      this.router.navigate(['home']);
-    },
-    error => console.log(error));
-  }
-
-  onSubmit() {
+  onSubmit(){
     this.submitted = true;
     this.save();
-  }
+  }*/
 
 }
