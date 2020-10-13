@@ -11,12 +11,10 @@ import { UsersService } from '../service/users.service';
 export class ProfileComponent implements OnInit {
 
   users: users;
-  submitted = false;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private profileComponent: ProfileComponent,
     private usersService: UsersService
   ) {}
 
@@ -33,21 +31,5 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
-
-  /*
-    save(){
-      this.usersService
-      .createUsers(this.users).subscribe(data => {
-        console.log(data);
-        this.users = new users();
-        this.router.navigate(['home']);
-      },
-      error => console.log(error));
-    }
-
-  onSubmit(){
-    this.submitted = true;
-    this.save();
-  }*/
 
 }

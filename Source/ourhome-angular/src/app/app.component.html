@@ -31,7 +31,7 @@
               Usuario
             </a>
             <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown2">
-              <a class="dropdown-item" href="/profile">Mi Perfil Busco Casa</a>
+              <a class="dropdown-item" href="/profile/{{this.id}}">Mi Perfil</a>
               <a class="dropdown-item" href="/processes">Procesos</a>
               <a class="dropdown-item" href="/customTest">Cuestionario</a>
             </div>
@@ -50,7 +50,7 @@
               Usuario
             </a>
             <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown3">
-              <a class="dropdown-item" href="/profile">Mi Perfil Tengo Casa</a>
+              <a class="dropdown-item" href="/profile/{{this.id}}">Mi Perfil</a>
               <a class="dropdown-item" href="/processes">Procesos</a>
               <a class="dropdown-item" href="/customTest">Cuestionario</a>
             </div>
@@ -69,12 +69,11 @@
               Administración
             </a>
             <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown4">
-              <a class="dropdown-item" href="/">Usuarios</a>
-              <a class="dropdown-item" href="/">Casas</a>
-              <a class="dropdown-item" href="/">Procesos</a>
+              <a class="dropdown-item" href="#">Usuarios</a>
+              <a class="dropdown-item" href="#">Casas</a>
+              <a class="dropdown-item" href="#">Procesos</a>
             </div>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="" (click)="logout()">Logout</a>
           </li>

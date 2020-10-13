@@ -22,7 +22,7 @@ export class SeeAdvertisementComponent implements OnInit {
 
     this.homesService.getHomesById(this.route.snapshot.params['id']).subscribe(
       (data) => {
-      this.homes = data;
+        this.homes = data;
       },
       (error) => {
         this.router.navigate(['home']);

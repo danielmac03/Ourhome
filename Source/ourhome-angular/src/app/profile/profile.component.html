@@ -51,7 +51,7 @@
               </div>
 
               <div class="form-group field">
-                  <input type="number" id="edad" placeholder=" " class="form-control" value="{{users.phone}}" required>
+                  <input type="number" id="edad" placeholder=" " class="form-control" value="{{users.age}}" required>
                   <label class="lab" for="edad">Edad</label>
               </div>
 
@@ -79,17 +79,43 @@
           </div>
 
           <div class="col-md-8 mb-4">
-              <div class="row mt-2">
-                  <div class="col">
-                      <input type="radio" id="con_casa" name="casa" value="0" required>
-                      <label for="con_casa">&nbsp; Tengo Casa</label>
-                  </div>
-                  <div class="col">
-                      <input type="radio" id="sin_casa" name="casa" value="1" required>
-                      <label for="sin_casa">&nbsp; Busco Casa</label>
-                  </div>
+<!--
+            <div class="row mt-2" *ngIf="({{users.role}} == 'tengo_casa')">
+              <div class="col">
+                  <input type="radio" id="con_casa" name="casa" value="0" required checked>
+                  <label for="con_casa">&nbsp; Tengo Casa</label>
+              </div>
+
+              <div class="col">
+                  <input type="radio" id="sin_casa" name="casa" value="1" required>
+                  <label for="sin_casa">&nbsp; Busco Casa</label>
               </div>
           </div>
+
+          <div class="row mt-2" *ngIf="({{users.role}} == 'busco_casa')">
+            <div class="col">
+              <input type="radio" id="con_casa" name="casa" value="0" required >
+              <label for="con_casa">&nbsp; Tengo Casa</label>
+            </div>
+
+            <div class="col">
+              <input type="radio" id="sin_casa" name="casa" value="1" required checked>
+              <label for="sin_casa">&nbsp; Busco Casa</label>
+            </div>
+          </div>
+-->
+          <div class="row mt-2">
+            <div class="col">
+                <input type="radio" id="con_casa" name="casa" value="0" required>
+                <label for="con_casa">&nbsp; Tengo Casa</label>
+            </div>
+            <div class="col">
+                <input type="radio" id="sin_casa" name="casa" value="1" required>
+                <label for="sin_casa">&nbsp; Busco Casa</label>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       <hr>
@@ -105,14 +131,15 @@
           <div class="col-md-8 mb-4">
               <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
+                  <label class="form-check-label" for="defaultCheck1"> <!-- {{users.show_phone}} -->
                       Mostrar teléfono para contactar
                   </label>
               </div>
           </div>
+
       </div>
 
-      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" href="/perfil">Actualizar</button>
+      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" href="#">Actualizar</button> <!-- href al mismo perfil -->
 
   </form>
 </div>
