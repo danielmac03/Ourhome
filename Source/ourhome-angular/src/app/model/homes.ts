@@ -1,4 +1,4 @@
-export class homes {
+export class HomesModel {
   id: number;
   user_id: number;
   description: string;

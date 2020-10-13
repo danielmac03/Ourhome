@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { homes } from '../model/homes';
+import { HomesModel } from '../model/homes';
 import { HomesService } from '../service/homes.service';
+import { TokenStorageService } from '../service/authentication/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -11,16 +12,40 @@ import { HomesService } from '../service/homes.service';
 })
 export class HomeComponent implements OnInit {
 
-  homes: Observable<homes[]>;
+  homes: Observable<HomesModel[]>;
 
-  constructor(private homesService: HomesService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private homesService: HomesService, private router: Router, private route: ActivatedRoute, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
-    if (this.route.snapshot.params['city']){
-      this.homes = this.homesService.getHomesByCity(this.route.snapshot.params['city']);
+    if (this.route.snapshot.params.city){
+      this.homes = this.homesService.getHomesByCity(this.route.snapshot.params.city);
     }else{
       this.homes = this.homesService.getHomes();
     }
+  }
+
+  existeComprobarCompatibilidad(defaultTestResponses: string){
+    const user = this.tokenStorageService.getUser();
+
+    if (user != null){
+      const userDefaultTestResponses = user.defaultTestResponses;
+      const defaultTestResponsesString = defaultTestResponses;
+
+      let contador = 0;
+      for (let i = 0; i < userDefaultTestResponses.length; i++){
+        if (defaultTestResponsesString.charAt(i) === userDefaultTestResponses.charAt(i)){
+          contador++;
+        }
+      }
+
+      if (contador < userDefaultTestResponses.length / 2){
+        return false;
+      }
+    }else{
+      return false;
+    }
+
+    return true;
   }
 
 }

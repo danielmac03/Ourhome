@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { homes } from '../model/homes';
+import { HomesModel } from '../model/homes';
 import { HomesService } from '../service/homes.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { HomesService } from '../service/homes.service';
   styleUrls: ['./see-advertisement.component.css', '../app.component.css'],
 })
 export class SeeAdvertisementComponent implements OnInit {
-  homes: homes;
+  homes: HomesModel;
 
   constructor(
       private route: ActivatedRoute,
@@ -18,7 +18,7 @@ export class SeeAdvertisementComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.homes = new homes();
+    this.homes = new HomesModel();
 
     this.homesService.getHomesById(this.route.snapshot.params['id']).subscribe(
       (data) => {
