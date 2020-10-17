@@ -19,8 +19,8 @@ export class UsersService {
     return this.http.get(`${this.baseUrl}/email/${user_email}`);
   }
 
-  createUsers(users: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, users);
+  createUsers(user: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, user);
   }
 
   updateUsers(user_id: number, value: any): Observable<Object> {
