@@ -32,12 +32,23 @@ export class CreateAdvertisementComponent implements OnInit{
   save() {
     this.user = this.tokenStorage.getUser();
 
-    let homes = {description: this.description, price: this.price, urlPhotos: this.urlPhotos, numBedrooms: this.numBedrooms, numBathroom: this.numBathroom, city: this.city, direction: this.direction, meters: this.meters, floors: this.floors, additional: this.additional, user: this.user};
+    const homes = {description: this.description,
+      price: this.price,
+      urlPhotos: this.urlPhotos,
+      numBedrooms: this.numBedrooms,
+      numBathroom: this.numBathroom,
+      city: this.city,
+      direction: this.direction,
+      meters: this.meters,
+      floors: this.floors,
+      additional: this.additional,
+      user: this.user
+    };
 
-    this.homesService.createHomes(homes).subscribe((data :any) => {
+    this.homesService.createHomes(homes).subscribe((data: any) => {
       this.router.navigate(['/seeAdvertisement/', data.id]);
     },
-    error => console.log(error))
+    error => console.log(error));
   }
 
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
-import {UsersService} from '../service/users.service';
-import {AuthService} from '../service/authentication/auth.service';
+import { UsersService } from '../service/users.service';
+import { AuthService } from '../service/authentication/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -34,8 +34,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.user = this.tokenStorageService.getUser();
   }
-
-  update() {
+/*
+  updateUser() {
     const user = {
       name: this.name,
       surnames: this.surnames,
@@ -48,9 +48,6 @@ export class ProfileComponent implements OnInit {
 
     this.tokenStorageService.saveUser(user);
     this.router.navigate(['initialTest']);
-
   }
-
-
-
+*/
 }

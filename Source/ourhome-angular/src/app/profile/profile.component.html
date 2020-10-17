@@ -16,7 +16,7 @@
 
               <div class="row">
                   <div class="col-md-4">
-                      <img src="../../../assets/b.png" class="rounded-circle" width="150px" height="150px">
+                      <img src="./assets/img/b.png" class="rounded-circle" width="150px" height="150px">
                   </div>
                   <div class="col-md-8 mt-auto">
                       <div class="form-group">
@@ -42,28 +42,28 @@
 
           <div class="col-md-8 mb-4">
               <div class="form-group field">
-                  <input type="text" id="nombre" placeholder=" " class="form-control" value="{{ user.name }}" required>
-                  <label class="lab" for="nombre">Nombre</label>
+                  <input type="text" id="name" name="name" placeholder=" " class="form-control" value="{{ user.name }}" required [(ngModel)]="name">
+                  <label class="lab" for="name">Nombre</label>
               </div>
 
               <div class="form-group field">
-                  <input type="text" id="apellidos" placeholder=" " class="form-control" value="{{ user.surnames }}" required>
-                  <label class="lab" for="apellidos">Apellidos</label>
+                  <input type="text" id="surnames" name="surnames" placeholder=" " class="form-control" value="{{ user.surnames }}" required [(ngModel)]="surnames">
+                  <label class="lab" for="surnames">Apellidos</label>
               </div>
 
               <div class="form-group field">
-                  <input type="number" id="edad" placeholder=" " class="form-control" value="{{ user.age }}" required>
-                  <label class="lab" for="edad">Edad</label>
+                  <input type="number" name="age" placeholder=" " class="form-control" value="{{ user.age }}" required [(ngModel)]="age">
+                  <label class="lab" for="age">Edad</label>
               </div>
 
               <div class="form-group field">
-                  <input type="email" id="correo" placeholder=" " class="form-control" value="{{ user.email }}" required>
-                  <label class="lab" for="correo">Correo</label>
+                  <input type="email" name="email" placeholder=" " class="form-control" value="{{ user.email }}" required [(ngModel)]="email">
+                  <label class="lab" for="email">Correo</label>
               </div>
 
               <div class="form-group field">
-                  <input type="tel" id="telefono" placeholder=" " class="form-control" maxlength="9" value="{{ user.phone }}">
-                  <label class="lab" for="telefono">Teléfono</label>
+                  <input type="tel" name="phone" placeholder=" " class="form-control" maxlength="9" value="{{ user.phone }}" [(ngModel)]="phone">
+                  <label class="lab" for="phone">Teléfono</label>
               </div>
 
           </div>
@@ -83,25 +83,25 @@
 
             <div class="row mt-2" *ngIf="(user.role == 'tengo_casa')">
               <div class="col">
-                  <input type="radio" id="con_casa" name="casa" value="0" required checked>
-                  <label for="con_casa">&nbsp; Tengo Casa</label>
+                  <input type="radio" name="role" [value]="0" required [(ngModel)]="role" checked>
+                  <label for="role">&nbsp; Tengo Casa</label>
               </div>
 
               <div class="col">
-                  <input type="radio" id="sin_casa" name="casa" value="1" required>
-                  <label for="sin_casa">&nbsp; Busco Casa</label>
+                  <input type="radio" name="role" [value]="1" required [(ngModel)]="role">
+                  <label for="role">&nbsp; Busco Casa</label>
               </div>
           </div>
 
           <div class="row mt-2" *ngIf="(user.role == 'busco_casa')">
             <div class="col">
-              <input type="radio" id="con_casa" name="casa" value="0" required >
-              <label for="con_casa">&nbsp; Tengo Casa</label>
+              <input type="radio" name="role" [value]="0" required [(ngModel)]="role">
+              <label for="role">&nbsp; Tengo Casa</label>
             </div>
 
             <div class="col">
-              <input type="radio" id="sin_casa" name="casa" value="1" required checked>
-              <label for="sin_casa">&nbsp; Busco Casa</label>
+              <input type="radio" name="role" [value]="1" required [(ngModel)]="role" checked>
+              <label for="role">&nbsp; Busco Casa</label>
             </div>
           </div>
 
@@ -123,14 +123,14 @@
             <div class="form-check">
 
               <div *ngIf="(user.showPhone == true)">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+                  <input class="form-check-input" type="checkbox" value="" name="showPhone" checked [(ngModel)]="showPhone">
               </div>
 
               <div *ngIf="(user.showPhone == false)">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <input class="form-check-input" type="checkbox" value="" name="showPhone" [(ngModel)]="showPhone">
               </div>
 
-              <label class="form-check-label" for="defaultCheck1">
+              <label class="form-check-label" for="phone">
                 Mostrar teléfono para contactar
               </label>
 
@@ -140,7 +140,7 @@
 
       </div>
 
-      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" (click)="update()">Actualizar</button>
+      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" href="#">Actualizar</button>
 
   </form>
 </div>

@@ -9,12 +9,13 @@ import { HomesService } from '../service/homes.service';
   styleUrls: ['./see-advertisement.component.css', '../app.component.css'],
 })
 export class SeeAdvertisementComponent implements OnInit {
+
   homes: HomesModel;
 
   constructor(
       private route: ActivatedRoute,
       private router: Router,
-      private homesService: HomesService,
+      private homesService: HomesService
   ) {}
 
   ngOnInit() {
