@@ -34,7 +34,7 @@ export class RegisterComponent {
       age: this.age,
       email: this.email,
       password: this.password,
-      role: this.role,
+      role: (this.role === 1) ? 'tengo_casa' : 'busco_casa',
       showPhone: this.showPhone
     };
 
@@ -44,6 +44,7 @@ export class RegisterComponent {
       this.usersService.getUserByEmail(this.email).subscribe(resp1 => {
           if (resp1 == null){
             this.tokenStorageService.saveUser(user);
+
             this.router.navigate(['initialTest']);
           }else{
             alert('El email ya se ha registrado');
