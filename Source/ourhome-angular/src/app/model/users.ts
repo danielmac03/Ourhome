@@ -1,4 +1,4 @@
-export class users {
+export class UsersModel {
   user_id: number;
   name: string;
   surnames: string;
@@ -8,7 +8,7 @@ export class users {
   password: string;
   role: number;
   default_test_responses: string;
-  show_phone: number;
+  showPhone: number;
   created_at: Date;
   updated_at: Date;
 }
