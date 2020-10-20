@@ -12,7 +12,19 @@ export class ProcessesService {
 
   constructor(private http: HttpClient) { }
 
-  getProcesses(process_id: number): Observable<any> {
+  listProcesses(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+
+  listProcessByHome(home_id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/home/${home_id}`);
+  }
+
+  listProcessByUser(user_id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user/${user_id}`);
+  }
+
+  getProcess(process_id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${process_id}`);
   }
 
@@ -28,7 +40,4 @@ export class ProcessesService {
     return this.http.delete(`${this.baseUrl}/${process_id}`, { responseType: 'text' });
   }
 
-  getProcessesList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
-  }
 }

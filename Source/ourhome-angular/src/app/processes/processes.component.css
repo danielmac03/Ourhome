@@ -1,3 +1,11 @@
 .div-form{
   max-width: 1000px !important;
 }
+
+.add {
+  max-width: 380px;
+}
+
+.add .card-img, .add .card-img-top{
+  height: 250px;
+}
