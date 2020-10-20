@@ -9,8 +9,12 @@ public interface IProcessesService {
 	
 	public Processes saveProcess(Processes process);	
 	
-	public Processes searchProcess(int id);
-	
+	public Processes getProcess(int id);
+
+	public List<Processes> listProcessByHome(int homeId);
+
+	public List<Processes> listProcessByUser(int userId);
+
 	public Processes updateProcess(Processes process); 
 	
 	public void deleteProcess(int id);

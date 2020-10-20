@@ -9,9 +9,9 @@ public interface IHomesService {
 	
 	public Homes saveHomes(Homes home);	
 	
-	public Homes searchHome(int id);
+	public Homes getHome(int id);
 
-	public List<Homes> searchHomeByCity(String city);
+	public List<Homes> getHomesByCity(String city);
 	
 	public Homes updateHome(Homes home); 
 	

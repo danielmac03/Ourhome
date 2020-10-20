@@ -23,12 +23,12 @@ public class HomesServiceImpl implements IHomesService{
 	}
 
 	@Override
-	public Homes searchHome(int id) {
+	public Homes getHome(int id) {
 		return iHomesDAO.findById(id).get();
 	}
 
 	@Override
-	public List<Homes> searchHomeByCity(String city){
+	public List<Homes> getHomesByCity(String city){
 		return iHomesDAO.findByCity(city);
 	}
 

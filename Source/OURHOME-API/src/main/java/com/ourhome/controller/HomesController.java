@@ -24,16 +24,16 @@ public class HomesController {
 	}
 		
 	@GetMapping("/homes/{id}")
-	public Homes searchHome(@PathVariable(name="id") int id) {
+	public Homes getHome(@PathVariable(name="id") int id) {
 		Homes home = new Homes();		
-		home = homesServiceImpl.searchHome(id);
+		home = homesServiceImpl.getHome(id);
 		
 		return home;
 	}
 
 	@GetMapping("/homes/city/{city}")
-	public List<Homes> searchHomeByCity(@PathVariable(name="city") String city){
-		return homesServiceImpl.searchHomeByCity(city);
+	public List<Homes> getHomesByCity(@PathVariable(name="city") String city){
+		return homesServiceImpl.getHomesByCity(city);
 	}
 	
 	@PutMapping("/homes/{id}")
@@ -41,7 +41,7 @@ public class HomesController {
 		Homes homeSelected = new Homes();
 		Homes homeUpdated = new Homes();
 		
-		homeSelected = homesServiceImpl.searchHome(id);
+		homeSelected = homesServiceImpl.getHome(id);
 		
 		homeSelected.setUser(home.getUser());
 		homeSelected.setUrlPhotos(home.getUrlPhotos());

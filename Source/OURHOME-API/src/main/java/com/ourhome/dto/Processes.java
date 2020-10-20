@@ -15,12 +15,12 @@ public class Processes {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="user_id_1")
-	Users user1;
+	@JoinColumn(name="home_id")
+	Homes home;
 	
 	@ManyToOne
-	@JoinColumn(name="user_id_2")
-	Users user2;
+	@JoinColumn(name="user_id")
+	Users user;
 	
 	@Column(name="state")
 	private String state;
@@ -37,17 +37,17 @@ public class Processes {
 
 	/**
 	 * @param id
-	 * @param user1
-	 * @param user2
+	 * @param home
+	 * @param user
 	 * @param state
 	 * @param createdAt
 	 * @param updatedAt
 	 */
-	public Processes(int id, Users user1, Users user2, String state, Date createdAt, Date updatedAt) {
+	public Processes(int id, Homes home, Users user, String state, Date createdAt, Date updatedAt) {
 		super();
 		this.id = id;
-		this.user1 = user1;
-		this.user2 = user2;
+		this.home = home;
+		this.user = user;
 		this.state = state;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
@@ -68,31 +68,31 @@ public class Processes {
 	}
 
 	/**
-	 * @return the user1
+	 * @return the home
 	 */
-	public Users getUser1() {
-		return user1;
+	public Homes getHome() {
+		return home;
 	}
 
 	/**
-	 * @param user1 the user1 to set
+	 * @param home the user1 to set
 	 */
-	public void setUser1(Users user1) {
-		this.user1 = user1;
+	public void setHome(Homes home) {
+		this.home = home;
 	}
 
 	/**
 	 * @return the user2
 	 */
-	public Users getUser2() {
-		return user2;
+	public Users getUser() {
+		return user;
 	}
 
 	/**
-	 * @param user2 the user2 to set
+	 * @param user the user2 to set
 	 */
-	public void setUser2(Users user2) {
-		this.user2 = user2;
+	public void setUser(Users user) {
+		this.user = user;
 	}
 
 	/**
@@ -139,7 +139,7 @@ public class Processes {
 
 	@Override
 	public String toString() {
-		return "Procesos [id=" + id + ", user1=" + user1 + ", user2=" + user2 + ", state=" + state + ", createdAt="
+		return "Procesos [id=" + id + ", home=" + home + ", user=" + user + ", state=" + state + ", createdAt="
 				+ createdAt + ", updatedAt=" + updatedAt + "]";
 	}
 	

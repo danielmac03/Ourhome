@@ -23,8 +23,18 @@ public class ProcessesServiceImpl implements IProcessesService {
 	}
 
 	@Override
-	public Processes searchProcess(int id) {
+	public Processes getProcess(int id) {
 		return iProcessesDAO.findById(id).get();
+	}
+
+	@Override
+	public List<Processes>  listProcessByHome(int homeId){
+		return iProcessesDAO.findByHome_id(homeId);
+	}
+
+	@Override
+	public List<Processes>  listProcessByUser(int userId){
+		return iProcessesDAO.findByUser_id(userId);
 	}
 
 	@Override
