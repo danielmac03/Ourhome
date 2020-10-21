@@ -58,6 +58,8 @@ public class UsersController {
 		
 		userSelected.setName(user.getName());
 		userSelected.setSurnames(user.getSurnames());
+		userSelected.setUrlPhoto(user.getUrlPhoto());
+		userSelected.setDescription(user.getDescription());
 		userSelected.setAge(user.getAge());
 		userSelected.setPhone(user.getPhone());
 		userSelected.setEmail(user.getEmail());

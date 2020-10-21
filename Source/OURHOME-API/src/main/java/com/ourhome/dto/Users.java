@@ -21,6 +21,12 @@ public class Users {
 	
 	@Column(name="surnames")
 	private String surnames;
+
+	@Column(name="url_photo")
+	private String urlPhoto;
+
+	@Column(name="description")
+	private String description;
 	
 	@Column(name="age")
 	private int age;
@@ -92,7 +98,7 @@ public class Users {
 	 * @param customTest
 	 * @param customTestsResponses
 	 */
-	public Users(int id, String name, String surnames, int age, int phone, String mail, String password, String role,
+	public Users(int id, String name, String surnames, String urlPhoto, String description, int age, int phone, String mail, String password, String role,
 			String defaultTestResponses, boolean showPhone, Date createdAt, Date updatedAt, List<Homes> homes,
 			List<Processes> process_1, List<Processes> process_2, List<CustomTests> customTest,
 			List<CustomTestsResponses> customTestsResponses) {
@@ -100,6 +106,8 @@ public class Users {
 		this.id = id;
 		this.name = name;
 		this.surnames = surnames;
+		this.urlPhoto = urlPhoto;
+		this.description = description;
 		this.age = age;
 		this.phone = phone;
 		this.email = mail;
@@ -156,6 +164,34 @@ public class Users {
 	 */
 	public void setSurnames(String surnames) {
 		this.surnames = surnames;
+	}
+
+	/**
+	 * @return the urlPhoto
+	 */
+	public String getUrlPhoto() {
+		return urlPhoto;
+	}
+
+	/**
+	 * @param urlPhoto the surnames to set
+	 */
+	public void setUrlPhoto(String urlPhoto) {
+		this.urlPhoto = urlPhoto;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the surnames to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	/**
@@ -364,13 +400,4 @@ public class Users {
 		this.customTestsResponses = customTestsResponses;
 	}
 
-	@Override
-	public String toString() {
-		return "Users [id=" + id + ", name=" + name + ", surnames=" + surnames + ", age=" + age + ", phone=" + phone
-				+ ", email=" + email + ", password=" + password + ", role=" + role + ", defaultTestResponses="
-				+ defaultTestResponses + ", showPhone=" + showPhone + ", createdAt=" + createdAt + ", updatedAt="
-				+ updatedAt + ", homes=" + homes + ", process_1=" + process_1 + ", process_2=" + process_2
-				+ ", customTest=" + customTest + ", customTestsResponses=" + customTestsResponses + "]";
-	}
-	
 }

@@ -20,38 +20,47 @@ export class RegisterComponent {
 
   name: string;
   surnames: string;
+  urlPhoto: string;
+  description: string;
   age: number;
   email: string;
   phone: number;
   password: string;
   role: number;
   showPhone: number;
+  acceptPolicy: boolean;
 
   register() {
-    const user = {
-      name: this.name,
-      surnames: this.surnames,
-      age: this.age,
-      email: this.email,
-      password: this.password,
-      role: (this.role === 1) ? 'tengo_casa' : 'busco_casa',
-      showPhone: this.showPhone
-    };
+    if (this.acceptPolicy === true) {
+      const user = {
+        name: this.name,
+        surnames: this.surnames,
+        urlPhotos: this.urlPhoto,
+        description: this.description,
+        age: this.age,
+        email: this.email,
+        password: this.password,
+        role: (this.role === 1) ? 'tengo_casa' : 'busco_casa',
+        showPhone: this.showPhone,
+      };
 
-    this.authService.login({email: 'admin@ourhome.com', password: 'password'}).subscribe(resp => {
-      this.tokenStorageService.saveToken(resp.headers.get('Authorization'));
+      this.authService.login({email: 'admin@ourhome.com', password: 'password'}).subscribe(resp => {
+        this.tokenStorageService.saveToken(resp.headers.get('Authorization'));
 
-      this.usersService.getUserByEmail(this.email).subscribe(resp1 => {
-          if (resp1 == null){
-            this.tokenStorageService.saveUser(user);
+        this.usersService.getUserByEmail(this.email).subscribe(resp1 => {
+            if (resp1 == null) {
+              this.tokenStorageService.saveUser(user);
 
-            this.router.navigate(['initialTest']);
-          }else{
-            alert('El email ya se ha registrado');
+              this.router.navigate(['initialTest']);
+            } else {
+              alert('El email ya se ha registrado');
+            }
           }
-        }
-      );
-    });
+        );
+      });
+    }else {
+      //Put error
+      console.log('Error...');
+    }
   }
-
 }
