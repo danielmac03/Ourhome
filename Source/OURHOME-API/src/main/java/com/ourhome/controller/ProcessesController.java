@@ -33,7 +33,7 @@ public class ProcessesController {
 
 	@GetMapping("/processes/home/{home_id}")
 	public List<Processes> listProcessByHome(@PathVariable(name = "home_id") int home_id){
-		return processesServiceImpl.listProcessByUser(home_id);
+		return processesServiceImpl.listProcessByHome(home_id);
 	}
 
 	@GetMapping("/processes/user/{user_id}")

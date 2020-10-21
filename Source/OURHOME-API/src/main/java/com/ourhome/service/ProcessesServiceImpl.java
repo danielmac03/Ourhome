@@ -28,7 +28,7 @@ public class ProcessesServiceImpl implements IProcessesService {
 	}
 
 	@Override
-	public List<Processes>  listProcessByHome(int homeId){
+	public List<Processes> listProcessByHome(int homeId){
 		return iProcessesDAO.findByHome_id(homeId);
 	}
 

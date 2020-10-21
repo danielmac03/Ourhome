@@ -16,6 +16,10 @@ export class HomesService {
     return this.http.get(`${this.baseUrl}`);
   }
 
+  getHomesByUser(user_id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user/${user_id}`);
+  }
+
   getHomesById(home_id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${home_id}`);
   }

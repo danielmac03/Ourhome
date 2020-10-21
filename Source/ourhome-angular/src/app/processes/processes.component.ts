@@ -15,8 +15,8 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 })
 export class ProcessesComponent implements OnInit {
 
-  processes: Observable<ProcessesModel[]>;
-  home: Observable <HomesModel[]>;
+  user = this.tokenStorageService.getUser();
+  processes;
 
   constructor(
     private processesService: ProcessesService,
@@ -26,20 +26,23 @@ export class ProcessesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const user = this.tokenStorageService.getUser();
-
-    if (user.role === 'busco_casa'){
-      this.processes = this.processesService.listProcessByUser(user.id);
-    }else{
-      console.log('In progress...');
+    if (this.user.role === 'tengo_casa'){
+      this.homesService.getHomesByUser(this.user.id).subscribe(
+        (data) => {
+          this.processes = this.processesService.listProcessByHome(data.user.id);
+        },
+        (error) => {
+          this.router.navigate(['home']);
+        }
+      );
+    }else if (this.user.role === 'busco_casa'){
+      this.processes = this.processesService.listProcessByUser(this.user.id);
     }
   }
 
   existeComprobarCompatibilidad(defaultTestResponses: string): boolean{
-    const user = this.tokenStorageService.getUser();
-
-    if (user != null){
-      const userDefaultTestResponses = user.defaultTestResponses;
+    if (this.user != null){
+      const userDefaultTestResponses = this.user.defaultTestResponses;
       const defaultTestResponsesString = defaultTestResponses;
 
       let contador = 0;
