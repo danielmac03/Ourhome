@@ -2,19 +2,40 @@
 
   <h2 class="text-center">PROCESOS</h2>
 
-  <div class="add d-inline-block" *ngFor="let process of processes | async">
-    <div class="card m-3">
-      <img class="card-img-top" src="{{ process.home.urlPhotos }}" alt="Card image">
-      <div class="card-body">
-        <p class="card-text">
-          {{ process.home.description }}
-        </p>
-        <label class="card-text">
-          {{ process.home.price }} €
-        </label>
-        <a href="/seeAdvertisement/{{ process.home.id }}" class="btn btn-custom d-block">Ver anuncio
-          <label *ngIf="(existeComprobarCompatibilidad(process.home.user.defaultTestResponses))" class="m-0">🟢</label>
-        </a>
+  <div *ngIf="(user.role == 'tengo_casa')">
+    <div class="add d-inline-block" *ngFor="let process of processes | async">
+      <div class="card m-3">
+        <img class="card-img-top" *ngIf="(process.user.description != undefined)" src="{{ process.user.urlPhotos }}" alt="Card image">
+        <div class="card-body">
+          <p class="card-text" *ngIf="(process.user.name != undefined)">
+            {{ process.user.name }}  {{ process.user.surnames }}
+          </p>
+          <p class="card-text" *ngIf="(process.user.description != undefined)">
+            {{ process.user.description }}
+          </p>
+          <a href="/seeProfile/{{ process.home.id }}" class="btn btn-custom d-block">Ver perfil
+            <label *ngIf="(existeComprobarCompatibilidad(process.user.defaultTestResponses))" class="m-0">🟢</label>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="(user.role == 'busco_casa')">
+    <div class="add d-inline-block" *ngFor="let process of processes | async">
+      <div class="card m-3">
+        <img class="card-img-top" src="{{ process.home.urlPhotos }}" alt="Card image">
+        <div class="card-body">
+          <p class="card-text">
+            {{ process.home.description }}
+          </p>
+          <label class="card-text">
+            {{ process.home.price }} €
+          </label>
+          <a href="/seeAdvertisement/{{ process.home.id }}" class="btn btn-custom d-block">Ver anuncio
+            <label *ngIf="(existeComprobarCompatibilidad(process.home.user.defaultTestResponses))" class="m-0">🟢</label>
+          </a>
+        </div>
       </div>
     </div>
   </div>
