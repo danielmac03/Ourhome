@@ -1,0 +1,17 @@
+.navbar-custom{
+  background-color: #1C3144;
+}
+
+.navbar-custom .title{
+  color: white;
+  font-size: 30px;
+}
+
+.navbar-custom .nav-link{
+  color: white;
+}
+
+.navbar-custom input[type="search"] {
+  border-radius: 5px;
+  height: 38px;
+}
