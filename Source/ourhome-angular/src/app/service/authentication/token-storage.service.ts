@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -8,9 +9,15 @@ const USER_KEY = 'auth-user';
 })
 export class TokenStorageService {
 
+  private statusSaveUser: Subject<boolean> = new Subject();
+
   constructor() { }
 
-  signOut() {
+  public getStatusSaveUser(): Subject<boolean> {
+    return this.statusSaveUser;
+  }
+
+  public signOut() {
     window.sessionStorage.clear();
   }
 
@@ -24,6 +31,7 @@ export class TokenStorageService {
 
   public saveUser(user) {
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    this.statusSaveUser.next(true);
   }
 
   public getUser() {

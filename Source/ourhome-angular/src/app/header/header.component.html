@@ -15,7 +15,10 @@
       </li>
 
       <!-- Usuario Invitado -->
-      <div *ngIf="(role == '')" class="d-inline-flex">
+      <div *ngIf="(role == undefined)" class="d-inline-flex">
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
@@ -48,7 +51,7 @@
             Usuario
           </a>
           <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown3">
-            <a class="dropdown-item" href="/profile/{{this.id}}">Mi Perfil</a>
+            <a class="dropdown-item" href="/profile/{{ this.id }}">Mi Perfil</a>
             <a class="dropdown-item" href="/processes">Procesos</a>
             <a class="dropdown-item" href="/customTest">Cuestionario</a>
           </div>

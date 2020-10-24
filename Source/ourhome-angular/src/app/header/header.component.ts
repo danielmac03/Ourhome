@@ -9,18 +9,26 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private tokenStorageService: TokenStorageService, private router: Router) {}
+  constructor(private tokenStorageService: TokenStorageService, private router: Router) {
+    this.tokenStorageService.getStatusSaveUser().subscribe(status => {
+      this.user = this.tokenStorageService.getUser();
 
-  id = '';
-  role = '';
+      this.role = this.user.role;
+      this.id = this.user.id;
+    });
+  }
+
+  id: number;
+  role: string;
+  user;
   city: string;
 
   ngOnInit(): void {
-    const user = this.tokenStorageService.getUser();
+    this.user = this.tokenStorageService.getUser();
 
-    if (user != null){
-      this.role = user.role;
-      this.id = user.id;
+    if (this.user != null){
+      this.role = this.user.role;
+      this.id = this.user.id;
     }
   }
 
