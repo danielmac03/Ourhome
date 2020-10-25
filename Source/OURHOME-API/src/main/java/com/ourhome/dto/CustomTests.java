@@ -139,12 +139,5 @@ public class CustomTests {
 	public void setRespuestasTestsPersonalizados(List<CustomTestsResponses> customTestsResponses) {
 		this.customTestsResponses = customTestsResponses;
 	}
-
-	@Override
-	public String toString() {
-		return "CustomTests [id=" + id + ", user=" + user + ", correctAnswers=" + correctAnswers
-				+ ", minimumCorrectResponses=" + minimumCorrectResponses + ", createdAt=" + createdAt
-				+ ", respuestasTestsPersonalizados=" + customTestsResponses + "]";
-	}
 	
 }

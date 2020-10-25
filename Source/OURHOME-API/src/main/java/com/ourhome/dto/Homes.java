@@ -288,4 +288,5 @@ public class Homes {
 	public void setProcess(List<Processes> process) {
 		this.process = process;
 	}
+
 }

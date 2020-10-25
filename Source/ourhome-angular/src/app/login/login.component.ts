@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from "@angular/router"
-import { UsersService } from "../service/users.service";
-import { AuthService } from "../service/authentication/auth.service";
+import { Router } from '@angular/router';
+import { UsersService } from '../service/users.service';
+import { AuthService } from '../service/authentication/auth.service';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
 
 @Component({
@@ -14,14 +14,19 @@ export class LoginComponent {
   email: string;
   password: string;
 
-  constructor(private usersService: UsersService, private authService: AuthService, private tokenStorageService: TokenStorageService, private router: Router) {}
+  constructor(
+    private usersService: UsersService,
+    private authService: AuthService,
+    private tokenStorageService: TokenStorageService,
+    private router: Router
+  ) {}
 
-  login() {
-    let user = {email: this.email, password: this.password};
+  login(): void {
+    const user = {email: this.email, password: this.password};
 
     this.authService.login(user).subscribe(
       resp => {
-        this.tokenStorageService.saveToken(resp.headers.get("Authorization"));
+        this.tokenStorageService.saveToken(resp.headers.get('Authorization'));
 
         this.usersService.getUserByEmail(this.email).subscribe(resp => {
           this.tokenStorageService.saveUser(resp);
@@ -30,7 +35,7 @@ export class LoginComponent {
         this.router.navigate(['home']);
       },
       error => {
-        alert("El email o la contraseña no coincide");
+        alert('El email o la contraseña no coincide');
       }
     );
   }

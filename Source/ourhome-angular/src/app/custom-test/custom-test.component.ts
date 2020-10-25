@@ -11,20 +11,21 @@ import { CustomTestsService } from '../service/custom-tests.service';
 })
 export class CustomTestComponent implements OnInit {
 
+  /*
   custom_tests: custom_tests = new custom_tests();
   submitted = false;
+  */
 
-  constructor(private customTestsService: CustomTestsService, private router: Router) { }
+  constructor(
+    private router: Router,
+    private customTestsService: CustomTestsService
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  newUser() :  void {
-    this.submitted  = false;
-    this.custom_tests = new custom_tests();
-  }
-
-  save() {
+  /*
+  save(): void {
     this.customTestsService
     .createCustomTests(this.custom_tests).subscribe(data => {
       console.log(data)
@@ -38,5 +39,6 @@ export class CustomTestComponent implements OnInit {
     this.submitted = true;
     this.save();
   }
+   */
 
 }

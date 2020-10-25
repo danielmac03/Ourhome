@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { HomesModel } from '../model/homes';
 import { HomesService } from '../service/homes.service';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
 
@@ -12,11 +10,16 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 })
 export class HomeComponent implements OnInit {
 
-  homes: Observable<HomesModel[]>;
+  homes;
 
-  constructor(private homesService: HomesService, private router: Router, private route: ActivatedRoute, private tokenStorageService: TokenStorageService) { }
+  constructor(
+    private homesService: HomesService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private tokenStorageService: TokenStorageService
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.route.snapshot.params.city){
       this.homes = this.homesService.getHomesByCity(this.route.snapshot.params.city);
     }else{
@@ -24,7 +27,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  existeComprobarCompatibilidad(defaultTestResponses: string){
+  existeComprobarCompatibilidad(defaultTestResponses: string): boolean {
     const user = this.tokenStorageService.getUser();
 
     if (user != null){

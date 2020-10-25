@@ -10,10 +10,8 @@ import com.ourhome.service.CustomTestsResponsesServiceImpl;
 @RequestMapping("/api")
 public class CustomTestsResponsesController {
 
-
 	@Autowired
 	CustomTestsResponsesServiceImpl customTestsResponsesServiceImpl;
-	
 
 	@GetMapping("/customTestResponses")
 	public List<CustomTestsResponses> listCustomTestsResponses(){

@@ -8,7 +8,7 @@
       <div class="form-group question p-2">
         <div class="form-group mt-3 field">
           <input type="text" id="questionInput1" placeholder=" " class="form-control" required>
-          <label class="lab" for="nombre">Escribe tu pregunta</label>
+          <label class="lab" for="questionInput1">Escribe tu pregunta</label>
         </div>
 
         <div class="form-check">
@@ -16,6 +16,7 @@
             <input type="radio" class="form-check-input" name="questionRadio1" value="1" required>Si
           </label>
         </div>
+
         <div class="form-check">
           <label class="form-check-label">
             <input type="radio" class="form-check-input" name="questionRadio1" value="0">No
@@ -29,7 +30,7 @@
         <button href="" type="button" class="btn btn-custom btn-block w-75 mx-auto" (click)="add()">Añadir pregunta</button>
       </div>
       <div class="col-md-6">
-        <button type="submit" class="btn btn-custom btn-block w-75 mx-auto">Guardar</button>
+        <button type="submit" class="btn btn-custom btn-block w-75 mx-auto">Guardar</button> <!--(click)="save()"-->
       </div>
     </div>
   </form>

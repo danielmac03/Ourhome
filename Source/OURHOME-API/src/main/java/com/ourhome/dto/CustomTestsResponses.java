@@ -136,10 +136,4 @@ public class CustomTestsResponses {
 		this.createdAt = createdAt;
 	}
 
-	@Override
-	public String toString() {
-		return "CustomTestsResponses [id=" + id + ", user=" + user + ", custom_test=" + customTest + ", answers="
-				+ answers + ", compatibility=" + compatibility + ", createdAt=" + createdAt + "]";
-	}
-	
 }

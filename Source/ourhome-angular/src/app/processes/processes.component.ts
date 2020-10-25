@@ -62,10 +62,4 @@ export class ProcessesComponent implements OnInit {
     return true;
   }
 
-  /*
-  processesDetail(id: number){
-    this.router.navigate(['details', id]);
-  }
-   */
-
 }

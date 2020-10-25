@@ -12,19 +12,17 @@ export class CreateTestComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    window.sessionStorage.setItem("counter", "1");
+    window.sessionStorage.setItem('counter', '1');
   }
 
-  add() {
-    var counter: number = parseInt(sessionStorage.getItem("counter"));
+  add(): void {
+    let counter: number = parseInt(sessionStorage.getItem('counter'));
 
-    console.log(counter)
-
-    if(($("#questionInput"+counter).val() != "") && $("input[name='" + ("questionRadio"+counter) +"']:checked").val()){
+    if (($('#questionInput' + counter).val() !== '') && $('input[name=\'' + ('questionRadio' + counter) + '\']:checked').val()){
       counter += 1;
-      $("#counter").val(counter);
+      $('#counter').val(counter);
 
-        var question =
+      const question =
         `<div class="form-group question p-2">
           <div class="form-group mt-3 field">
               <input type="text" id="questionInput` + counter + `" placeholder=" " class="form-control" required>
@@ -43,12 +41,30 @@ export class CreateTestComponent implements OnInit {
           </div>
         </div>`;
 
-        $("#content_questions").append(question);
+      $('#content_questions').append(question);
 
-        window.sessionStorage.setItem("counter", counter.toString());
+      window.sessionStorage.setItem('counter', counter.toString());
     }else{
-        alert("Aún no has acabado la pregunta anterior")
+        alert('Aún no has acabado la pregunta anterior');
     }
   }
+
+  /*
+  save(): void{
+    const user = this.tokenStorageService.getUser();
+    const counter: number = parseInt(sessionStorage.getItem('counter'));
+
+    let test = {
+      user: user,
+      questions,
+      correctAnswers,
+      minimumCorrectResponses,
+    };
+
+    for (let i of counter){
+
+    }
+  }
+   */
 
 }

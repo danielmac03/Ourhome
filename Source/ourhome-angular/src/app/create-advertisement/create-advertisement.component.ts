@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { HomesService } from '../service/homes.service';
 import { TokenStorageService } from '../service/authentication/token-storage.service'
 
@@ -25,11 +25,15 @@ export class CreateAdvertisementComponent implements OnInit{
   updatedAt: Date;
   user: Object;
 
-  constructor(private homesService: HomesService, private router: Router, private tokenStorage: TokenStorageService) { }
+  constructor(
+    private homesService: HomesService,
+    private router: Router,
+    private tokenStorage: TokenStorageService
+  ) { }
 
-  ngOnInit() { }
+  ngOnInit(): void {}
 
-  save() {
+  save(): void {
     this.user = this.tokenStorage.getUser();
 
     const homes = {
@@ -47,7 +51,7 @@ export class CreateAdvertisementComponent implements OnInit{
     };
 
     this.homesService.createHomes(homes).subscribe((data: any) => {
-      this.router.navigate(['/seeAdvertisement/', data.id]);
+      this.router.navigate(['createTest']);
     },
     error => console.log(error));
   }
