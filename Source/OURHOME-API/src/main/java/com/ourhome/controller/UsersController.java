@@ -70,8 +70,7 @@ public class UsersController {
 		userSelected.setCreatedAt(user.getCreatedAt());
 		userSelected.setUpdatedAt(user.getUpdatedAt());
 		userSelected.setHomes(user.getHomes());
-		userSelected.setProcesos_1(user.getProcesos_1());
-		userSelected.setProcesos_2(user.getProcesos_2());
+		userSelected.setProcess(user.getProcess());
 		userSelected.setCustomTest(user.getCustomTest());
 		userSelected.setCustomTestsResponses(user.getCustomTestsResponses());
 		

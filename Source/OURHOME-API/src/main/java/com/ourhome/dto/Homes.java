@@ -1,7 +1,10 @@
 package com.ourhome.dto;
 
 import java.sql.Date;
+import java.util.List;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -55,29 +58,14 @@ public class Homes {
 	@UpdateTimestamp
 	@Column(name="updated_at")
 	private Date updatedAt;
+
+	@OneToMany
+	@JoinColumn(name="home_id")
+	private List<Processes> process;
 	
 	public Homes() {}
 
-	/**
-	 * @param id
-	 * @param user
-	 * @param urlPhotos
-	 * @param description
-	 * @param price
-	 * @param numBedrooms
-	 * @param numBathroom
-	 * @param city
-	 * @param direction
-	 * @param meters
-	 * @param floors
-	 * @param additional
-	 * @param createdAt
-	 * @param updatedAt
-	 */
-	public Homes(int id, Users user, String urlPhotos, String description, double price, int numBedrooms,
-			int numBathroom, String city, String direction, double meters, int floors, String additional, Date createdAt,
-			Date updatedAt) {
-		super();
+	public Homes(int id, Users user, String urlPhotos, String description, double price, int numBedrooms, int numBathroom, String city, String direction, double meters, int floors, String additional, Date createdAt, Date updatedAt, List<Processes> process) {
 		this.id = id;
 		this.user = user;
 		this.urlPhotos = urlPhotos;
@@ -92,6 +80,7 @@ public class Homes {
 		this.additional = additional;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+		this.process = process;
 	}
 
 	/**
@@ -290,12 +279,13 @@ public class Homes {
 		this.updatedAt = updatedAt;
 	}
 
-	@Override
-	public String toString() {
-		return "Homes [id=" + id + ", user=" + user + ", urlPhotos=" + urlPhotos + ", description=" + description
-				+ ", price=" + price + ", numBedrooms=" + numBedrooms + ", numBathroom=" + numBathroom + ", city=" 
-				+ city + ", direction="	+ direction + ", meters=" + meters + ", floors=" + floors + ", additional=" 
-				+ additional + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "processes")
+	public List<Processes> getProcess() {
+		return process;
 	}
 
+	public void setProcess(List<Processes> process) {
+		this.process = process;
+	}
 }

@@ -63,11 +63,7 @@ public class Users {
 	
 	@OneToMany
 	@JoinColumn(name="user_id")
-	private List<Processes> process_1;
-	
-	@OneToMany
-	@JoinColumn(name="user_id")
-	private List<Processes> process_2;
+	private List<Processes> process;
 	
 	@OneToMany
 	@JoinColumn(name="user_id")
@@ -93,14 +89,13 @@ public class Users {
 	 * @param createdAt
 	 * @param updatedAt
 	 * @param homes
-	 * @param process_1
-	 * @param process_2
+	 * @param process
 	 * @param customTest
 	 * @param customTestsResponses
 	 */
 	public Users(int id, String name, String surnames, String urlPhoto, String description, int age, int phone, String mail, String password, String role,
 			String defaultTestResponses, boolean showPhone, Date createdAt, Date updatedAt, List<Homes> homes,
-			List<Processes> process_1, List<Processes> process_2, List<CustomTests> customTest,
+			List<Processes> process, List<CustomTests> customTest,
 			List<CustomTestsResponses> customTestsResponses) {
 		super();
 		this.id = id;
@@ -118,8 +113,7 @@ public class Users {
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 		this.homes = homes;
-		this.process_1 = process_1;
-		this.process_2 = process_2;
+		this.process = process;
 		this.customTest = customTest;
 		this.customTestsResponses = customTestsResponses;
 	}
@@ -324,7 +318,7 @@ public class Users {
 	 * @return the homes
 	 */
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "casas")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "homes")
 	public List<Homes> getHomes() {
 		return homes;
 	}
@@ -337,35 +331,19 @@ public class Users {
 	}
 
 	/**
-	 * @return the process_1
+	 * @return the process
 	 */
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "procesos")
-	public List<Processes> getProcesos_1() {
-		return process_1;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "processes")
+	public List<Processes> getProcess() {
+		return process;
 	}
 
 	/**
-	 * @param procesos_1 the process_1 to set
+	 * @param process the process to set
 	 */
-	public void setProcesos_1(List<Processes> procesos_1) {
-		this.process_1 = procesos_1;
-	}
-
-	/**
-	 * @return the process_2
-	 */
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "procesos")
-	public List<Processes> getProcesos_2() {
-		return process_2;
-	}
-
-	/**
-	 * @param procesos_2 the process_2 to set
-	 */
-	public void setProcesos_2(List<Processes> procesos_2) {
-		this.process_2 = procesos_2;
+	public void setProcess(List<Processes> process) {
+		this.process = process;
 	}
 
 	/**

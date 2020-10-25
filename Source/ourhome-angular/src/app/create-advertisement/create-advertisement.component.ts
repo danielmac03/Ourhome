@@ -32,7 +32,8 @@ export class CreateAdvertisementComponent implements OnInit{
   save() {
     this.user = this.tokenStorage.getUser();
 
-    const homes = {description: this.description,
+    const homes = {
+      description: this.description,
       price: this.price,
       urlPhotos: this.urlPhotos,
       numBedrooms: this.numBedrooms,

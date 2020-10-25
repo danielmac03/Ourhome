@@ -16,28 +16,28 @@ export class ProcessesService {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  listProcessByHome(home_id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/home/${home_id}`);
+  listProcessByHome(homeId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/home/${homeId}`);
   }
 
-  listProcessByUser(user_id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/user/${user_id}`);
+  listProcessByUser(userId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user/${userId}`);
   }
 
-  getProcess(process_id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${process_id}`);
+  getProcess(processId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${processId}`);
   }
 
-  createProcesses(processes: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, processes);
+  createProcess(process: object): Observable<object> {
+    return this.http.post(`${this.baseUrl}`, process);
   }
 
-  updateProcesses(process_id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${process_id}`, value);
+  updateProcesses(processId: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${processId}`, value);
   }
 
-  deleteProcesses(process_id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${process_id}`, { responseType: 'text' });
+  deleteProcesses(processId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${processId}`, { responseType: 'text' });
   }
 
 }

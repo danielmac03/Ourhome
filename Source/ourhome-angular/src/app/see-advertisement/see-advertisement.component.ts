@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HomesModel } from '../model/homes';
 import { HomesService } from '../service/homes.service';
+import { TokenStorageService } from '../service/authentication/token-storage.service';
+import { ProcessesService } from '../service/processes.service';
 
 @Component({
   selector: 'app-see-advertisement',
@@ -10,23 +11,45 @@ import { HomesService } from '../service/homes.service';
 })
 export class SeeAdvertisementComponent implements OnInit {
 
-  homes: HomesModel;
+  home;
 
   constructor(
-      private route: ActivatedRoute,
       private router: Router,
-      private homesService: HomesService
+      private route: ActivatedRoute,
+      private homesService: HomesService,
+      private tokenStorageService: TokenStorageService,
+      private processesService: ProcessesService
   ) {}
 
-  ngOnInit() {
-    this.homes = new HomesModel();
+  ngOnInit(): void {
+    const paramId = 'id';
 
-    this.homesService.getHomesById(this.route.snapshot.params['id']).subscribe(
+    this.homesService.getHomesById(this.route.snapshot.params[paramId]).subscribe(
       (data) => {
-        this.homes = data;
+        this.home = data;
       },
       (error) => {
+        console.log('Error...');
         this.router.navigate(['home']);
+      }
+    );
+  }
+
+  contact(): void{
+    const user = this.tokenStorageService.getUser();
+
+    const process = {
+      home: this.home,
+      user: user,
+      state: 1
+    };
+
+    this.processesService.createProcess(process).subscribe(
+      (resp) => {
+        console.log('Exito...');
+      },
+      (error) => {
+        console.log('Error...');
       }
     );
   }

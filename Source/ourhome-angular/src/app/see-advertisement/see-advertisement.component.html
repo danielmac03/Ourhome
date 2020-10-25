@@ -33,7 +33,7 @@
     <div class="row mt-5 mb-3">
       <div class="col-md-12">
         <p>Descripción</p>
-      <textarea id="descripcion" placeholder="‎‎ " class="form-control" disabled style="resize: none;">{{homes.description}}</textarea>
+      <textarea id="descripcion" placeholder="‎‎ " class="form-control" disabled style="resize: none;">{{ home.description }}</textarea>
       </div>
     </div>
 
@@ -41,14 +41,14 @@
         <div class="col-md-6">
             <p>Precio</p>
             <div class="form-group field">
-                <input type="number" id="decimal" class="form-control" value="{{homes.price}}" disabled>
+                <input type="number" id="decimal" class="form-control" value="{{ home.price }}" disabled>
             </div>
         </div>
 
         <div class="col-md-6">
             <p> Numero Habitaciones</p>
             <div class="form-group field">
-                <input type="number" id="num_habitaciones" placeholder=" " class="form-control" value="{{homes.numBedrooms}}" disabled>
+                <input type="number" id="num_habitaciones" placeholder=" " class="form-control" value="{{ home.numBedrooms }}" disabled>
             </div>
         </div>
     </div>
@@ -57,14 +57,14 @@
         <div class="col-md-6">
             <p>Numero Baños</p>
             <div class="form-group field">
-                <input type="number" id="num_baños" placeholder=" " class="form-control" value="{{homes.numBathroom}}" disabled>
+                <input type="number" id="num_baños" placeholder=" " class="form-control" value="{{ home.numBathroom }}" disabled>
             </div>
         </div>
 
         <div class="col-md-6">
           <p>Numero Plantas</p>
           <div class="form-group field">
-              <input type="number" id="num_plantas" placeholder=" " class="form-control" value="{{homes.floors}}" disabled>
+              <input type="number" id="num_plantas" placeholder=" " class="form-control" value="{{ home.floors }}" disabled>
           </div>
       </div>
     </div>
@@ -73,14 +73,14 @@
         <div class="col-md-6">
             <p>Metros cuadrados</p>
             <div class="form-group field">
-                <input type="decimal" id="metros2" placeholder=" " class="form-control" value="{{homes.meters}}" disabled>
+                <input type="decimal" id="metros2" placeholder=" " class="form-control" value="{{ home.meters }}" disabled>
             </div>
         </div>
 
         <div class="col-md-6">
           <p>Ciudad</p>
           <div class="form-group field">
-              <input type="text" id="ciudad" placeholder=" " class="form-control" value="{{homes.city}}" disabled>
+              <input type="text" id="ciudad" placeholder=" " class="form-control" value="{{ home.city }}" disabled>
           </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
       <div class="col-md-12">
         <p>Dirección</p>
         <div class="form-group field">
-            <input type="text" id="direccion" placeholder=" " class="form-control" value="{{homes.direction}}" disabled>
+            <input type="text" id="direccion" placeholder=" " class="form-control" value="{{ home.direction }}" disabled>
         </div>
       </div>
     </div>
@@ -97,11 +97,11 @@
     <div class="row mt-5 mb-5">
       <div class="col-md-12">
         <p>Extras</p>
-        <textarea id="extras" placeholder=" " class="form-control" disabled style="resize: none;">{{homes.additional}}</textarea>
+        <textarea id="extras" placeholder=" " class="form-control" disabled style="resize: none;">{{ home.additional }}</textarea>
       </div>
     </div>
   </div>
 
-    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Contacta</button>
+    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" (click)="contact()">Contacta</button>
 </div>
 

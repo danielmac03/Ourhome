@@ -44,7 +44,6 @@ public class Processes {
 	 * @param updatedAt
 	 */
 	public Processes(int id, Homes home, Users user, String state, Date createdAt, Date updatedAt) {
-		super();
 		this.id = id;
 		this.home = home;
 		this.user = user;
@@ -137,10 +136,4 @@ public class Processes {
 		this.updatedAt = updatedAt;
 	}
 
-	@Override
-	public String toString() {
-		return "Procesos [id=" + id + ", home=" + home + ", user=" + user + ", state=" + state + ", createdAt="
-				+ createdAt + ", updatedAt=" + updatedAt + "]";
-	}
-	
 }

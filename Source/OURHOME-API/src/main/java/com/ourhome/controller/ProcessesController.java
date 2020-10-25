@@ -42,7 +42,7 @@ public class ProcessesController {
 	}
 
 	@PutMapping("/processes/{id}")
-	public Processes actualizarProcess(@PathVariable(name = "id") int id, @RequestBody Processes process) {
+	public Processes updateProcess(@PathVariable(name = "id") int id, @RequestBody Processes process) {
 		Processes processSelected = new Processes();
 		Processes processUpdated = new Processes();
 		
@@ -53,6 +53,8 @@ public class ProcessesController {
 		processSelected.setState(process.getState());
 		processSelected.setCreatedAt(process.getCreatedAt());
 		processSelected.setUpdatedAt(process.getUpdatedAt());
+
+		processUpdated = this.processesServiceImpl.updateProcess(processSelected);
 		
 		return processUpdated;
 	}

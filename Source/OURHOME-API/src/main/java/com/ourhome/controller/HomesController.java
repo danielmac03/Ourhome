@@ -63,7 +63,9 @@ public class HomesController {
 		homeSelected.setFloors(home.getFloors());
 		homeSelected.setAdditional(home.getAdditional());
 		homeSelected.setCreatedAt(home.getCreatedAt());
-		homeSelected.setUpdatedAt(home.getUpdatedAt());		
+		homeSelected.setUpdatedAt(home.getUpdatedAt());
+
+		homeUpdated = this.homesServiceImpl.updateHome(homeSelected);
 		
 		return homeUpdated;
 	}
