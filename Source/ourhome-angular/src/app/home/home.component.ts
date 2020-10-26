@@ -6,7 +6,7 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css', '../app.component.css']
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 

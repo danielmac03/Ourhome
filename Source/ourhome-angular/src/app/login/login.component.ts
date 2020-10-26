@@ -7,7 +7,7 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css', '../app.component.css']
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
@@ -25,11 +25,11 @@ export class LoginComponent {
     const user = {email: this.email, password: this.password};
 
     this.authService.login(user).subscribe(
-      resp => {
-        this.tokenStorageService.saveToken(resp.headers.get('Authorization'));
+      respHeader => {
+        this.tokenStorageService.saveToken(respHeader.headers.get('Authorization'));
 
-        this.usersService.getUserByEmail(this.email).subscribe(resp => {
-          this.tokenStorageService.saveUser(resp);
+        this.usersService.getUserByEmail(this.email).subscribe(respUser => {
+          this.tokenStorageService.saveUser(respUser);
         });
 
         this.router.navigate(['home']);

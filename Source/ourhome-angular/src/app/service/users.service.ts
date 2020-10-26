@@ -11,27 +11,28 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  getUserById(user_id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${user_id}`);
+  getUserById(userId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${userId}`);
   }
 
-  getUserByEmail(user_email: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/email/${user_email}`);
+  getUserByEmail(userEmail: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/email/${userEmail}`);
   }
 
-  createUsers(user: Object): Observable<Object> {
+  createUsers(user: object): Observable<object> {
     return this.http.post(`${this.baseUrl}`, user);
   }
 
-  updateUsers(user_id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${user_id}`, value);
+  updateUsers(userId: number, value: any): Observable<object> {
+    return this.http.put(`${this.baseUrl}/${userId}`, value);
   }
 
-  deleteUsers(user_id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${user_id}`, { responseType: 'text' });
+  deleteUsers(userId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${userId}`, { responseType: 'text' });
   }
 
   getUsersList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
 }

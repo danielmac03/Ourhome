@@ -16,28 +16,28 @@ export class HomesService {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  getHomesByUser(user_id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/user/${user_id}`);
+  getHomesByUser(userId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user/${userId}`);
   }
 
-  getHomesById(home_id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${home_id}`);
+  getHomesById(homeId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${homeId}`);
   }
 
   getHomesByCity(city: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/city/${city}`);
   }
 
-  createHomes(homes: Object): Observable<Object> {
+  createHomes(homes: object): Observable<object> {
     return this.http.post(`${this.baseUrl}`, homes);
   }
 
-  updateHomes(home_id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${home_id}`, value);
+  updateHomes(homeId: number, value: any): Observable<object> {
+    return this.http.put(`${this.baseUrl}/${homeId}`, value);
   }
 
-  deleteHomes(home_id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${home_id}`, { responseType: 'text' });
+  deleteHomes(homeId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${homeId}`, { responseType: 'text' });
   }
 
 }

@@ -7,7 +7,7 @@ import { AuthService } from '../service/authentication/auth.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css', '../app.component.css']
+  styleUrls: ['./profile.component.css']
 })
 
 export class ProfileComponent implements OnInit {
@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
   role: number;
   showPhone: number;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
   }
 /*

@@ -3,7 +3,6 @@
   <div class="my-5"></div>
 
   <form>
-
       <div class="row mb-4">
 
           <div class="col-md-4">
@@ -16,7 +15,7 @@
 
               <div class="row">
                   <div class="col-md-4">
-                      <img src="./assets/img/b.png" class="rounded-circle" width="150px" height="150px">
+                      <img src="./assets/img/b.png" class="rounded-circle" width="150" height="150" alt="Profile picture">
                   </div>
                   <div class="col-md-8 mt-auto">
                       <div class="form-group">
@@ -42,30 +41,29 @@
 
           <div class="col-md-8 mb-4">
               <div class="form-group field">
-                  <input type="text" id="name" name="name" placeholder=" " class="form-control" value="{{ user.name }}" required [(ngModel)]="name">
+                  <input type="text" id="name" name="name" placeholder=" " class="form-control" value="{{ user['name'] }}" required [(ngModel)]="name">
                   <label class="lab" for="name">Nombre</label>
               </div>
 
               <div class="form-group field">
-                  <input type="text" id="surnames" name="surnames" placeholder=" " class="form-control" value="{{ user.surnames }}" required [(ngModel)]="surnames">
+                  <input type="text" id="surnames" name="surnames" placeholder=" " class="form-control" value="{{ user['surnames'] }}" required [(ngModel)]="surnames">
                   <label class="lab" for="surnames">Apellidos</label>
               </div>
 
               <div class="form-group field">
-                  <input type="number" name="age" placeholder=" " class="form-control" value="{{ user.age }}" required [(ngModel)]="age">
+                  <input type="number" id="age" name="age" placeholder=" " class="form-control" value="{{ user['age'] }}" required [(ngModel)]="age">
                   <label class="lab" for="age">Edad</label>
               </div>
 
               <div class="form-group field">
-                  <input type="email" name="email" placeholder=" " class="form-control" value="{{ user.email }}" required [(ngModel)]="email">
+                  <input type="email" id="email" name="email" placeholder=" " class="form-control" value="{{ user['email'] }}" required [(ngModel)]="email">
                   <label class="lab" for="email">Correo</label>
               </div>
 
               <div class="form-group field">
-                  <input type="tel" name="phone" placeholder=" " class="form-control" maxlength="9" value="{{ user.phone }}" [(ngModel)]="phone">
+                  <input type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9" value="{{ user['phone'] }}" [(ngModel)]="phone">
                   <label class="lab" for="phone">Teléfono</label>
               </div>
-
           </div>
       </div>
 
@@ -81,9 +79,9 @@
 
           <div class="col-md-8 mb-4">
 
-            <div class="row mt-2" *ngIf="(user.role == 'tengo_casa')">
+            <div class="row mt-2" *ngIf="(user['role'] == 'tengo_casa')">
               <div class="col">
-                  <input type="radio" name="role" [value]="0" required [(ngModel)]="role" checked>
+                  <input type="radio" id="role" name="role" [value]="0" required [(ngModel)]="role" checked>
                   <label for="role">&nbsp; Tengo Casa</label>
               </div>
 
@@ -93,7 +91,7 @@
               </div>
           </div>
 
-          <div class="row mt-2" *ngIf="(user.role == 'busco_casa')">
+          <div class="row mt-2" *ngIf="(user['role'] == 'busco_casa')">
             <div class="col">
               <input type="radio" name="role" [value]="0" required [(ngModel)]="role">
               <label for="role">&nbsp; Tengo Casa</label>
@@ -104,7 +102,6 @@
               <label for="role">&nbsp; Busco Casa</label>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -122,15 +119,15 @@
 
             <div class="form-check">
 
-              <div *ngIf="(user.showPhone == true)">
-                  <input class="form-check-input" type="checkbox" value="" name="showPhone" checked [(ngModel)]="showPhone">
+              <div *ngIf="(user['showPhone'] == true)">
+                  <input id="showPhone" name="showPhone" type="checkbox" class="form-check-input" checked [value]="1" [(ngModel)]="showPhone">
               </div>
 
-              <div *ngIf="(user.showPhone == false)">
-                <input class="form-check-input" type="checkbox" value="" name="showPhone" [(ngModel)]="showPhone">
+              <div *ngIf="(user['showPhone'] == false)">
+                <input name="showPhone" type="checkbox" class="form-check-input" [value]="0" [(ngModel)]="showPhone">
               </div>
 
-              <label class="form-check-label" for="phone">
+              <label class="form-check-label" for="showPhone">
                 Mostrar teléfono para contactar
               </label>
 
@@ -140,7 +137,6 @@
 
       </div>
 
-      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" href="#">Actualizar</button>
-
+      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Actualizar</button>
   </form>
 </div>

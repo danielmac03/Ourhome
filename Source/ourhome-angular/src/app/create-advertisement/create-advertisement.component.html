@@ -1,72 +1,69 @@
 <div class="container div-form my-5 p-5">
 
-  <img src="../../../assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block">
+  <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
 
   <div class="my-3"></div>
 
-  <form action="#" method="POST">
-
+  <form>
     <div class="form-group mt-5 field">
-        <input type="text" placeholder=" " class="form-control" name="urlPhotos" required [(ngModel)]="urlPhotos">
+        <input type="text" id="urlPhotos" name="urlPhotos" placeholder=" " class="form-control" required [(ngModel)]="urlPhotos">
         <label for="urlPhotos">Url fotos</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <textarea name="description" placeholder="‎‎ " class="form-control" required [(ngModel)]="description"></textarea>
+        <textarea id="description" name="description" placeholder=" " class="form-control" required [(ngModel)]="description"></textarea>
         <label for="description">Descripción*</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <input type="number" name="price" placeholder=" " class="form-control" required [(ngModel)]="price">
+        <input type="number" id="price" name="price" placeholder=" " class="form-control" required [(ngModel)]="price">
         <label for="price">Precio*</label>
     </div>
 
     <div class="form-group mt-5 field">
-        <input type="number" name="numBedrooms" placeholder=" " class="form-control" [(ngModel)]="numBedrooms">
+        <input type="number" id="numBedrooms" name="numBedrooms" placeholder=" " class="form-control" [(ngModel)]="numBedrooms">
         <label for="numBedrooms">Numero Habitaciones</label>
     </div>
-
-
 
     <div class="row">
       <div class="col-md-6">
         <div class="form-group mt-5 field">
-          <input type="number" name="numBathroom" placeholder=" " class="form-control" [(ngModel)]="numBathroom">
+          <input type="number" id="numBathroom" name="numBathroom" placeholder=" " class="form-control" [(ngModel)]="numBathroom">
           <label for="numBathroom">Numero Baños</label>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group mt-5 field">
-          <input type="text" name="city" placeholder=" " class="form-control" [(ngModel)]="city">
+          <input type="text" id="city" name="city" placeholder=" " class="form-control" [(ngModel)]="city">
           <label for="city">Ciudad</label>
        </div>
       </div>
    </div>
 
     <div class="form-group mt-5 field">
-        <input type="text" name="direction" placeholder=" " class="form-control" [(ngModel)]="direction">
+        <input type="text" id="direction" name="direction" placeholder=" " class="form-control" [(ngModel)]="direction">
         <label for="direction">Dirección*</label>
     </div>
 
     <div class="row mt-5">
         <div class="col-md-6">
             <div class="form-group field">
-                <input type="decimal" name="meters" placeholder=" " class="form-control" [(ngModel)]="meters">
+                <input type="number" id="meters" name="meters" placeholder=" " class="form-control" [(ngModel)]="meters">
                 <label for="meters">Metros cuadrados</label>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group field">
-                <input type="number" name="floors" placeholder=" " class="form-control" [(ngModel)]="floors">
+                <input type="number" id="floors" name="floors" placeholder=" " class="form-control" [(ngModel)]="floors">
                 <label for="floors">Numero Plantas</label>
             </div>
         </div>
     </div>
 
     <div class="form-group my-5 field">
-        <textarea name="extras" placeholder=" " class="form-control" required [(ngModel)]="additional"></textarea>
+        <textarea id="extras" name="extras" placeholder=" " class="form-control" required [(ngModel)]="additional"></textarea>
         <label for="extras">Extras*</label>
     </div>
 

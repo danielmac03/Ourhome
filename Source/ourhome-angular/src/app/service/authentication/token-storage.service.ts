@@ -17,11 +17,11 @@ export class TokenStorageService {
     return this.statusSaveUser;
   }
 
-  public signOut() {
+  public signOut(): void {
     window.sessionStorage.clear();
   }
 
-  public saveToken(token: string) {
+  public saveToken(token: string): void {
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
@@ -29,7 +29,7 @@ export class TokenStorageService {
     return sessionStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(user) {
+  public saveUser(user): void {
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
     this.statusSaveUser.next(true);
   }

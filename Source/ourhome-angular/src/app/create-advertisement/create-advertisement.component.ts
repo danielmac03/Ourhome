@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomesService } from '../service/homes.service';
-import { TokenStorageService } from '../service/authentication/token-storage.service'
+import { TokenStorageService } from '../service/authentication/token-storage.service';
 
 @Component({
   selector: 'app-create-advertisement',
   templateUrl: './create-advertisement.component.html',
-  styleUrls: ['./create-advertisement.component.css', '../app.component.css']
+  styleUrls: ['./create-advertisement.component.css']
 })
 export class CreateAdvertisementComponent implements OnInit{
 
@@ -23,7 +23,7 @@ export class CreateAdvertisementComponent implements OnInit{
   additional: string;
   createdAt: Date;
   updatedAt: Date;
-  user: Object;
+  user;
 
   constructor(
     private homesService: HomesService,

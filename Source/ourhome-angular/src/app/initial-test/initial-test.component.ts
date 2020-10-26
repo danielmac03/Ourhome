@@ -7,7 +7,7 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 @Component({
   selector: 'app-initial-test',
   templateUrl: './initial-test.component.html',
-  styleUrls: ['./initial-test.component.css', '../app.component.css']
+  styleUrls: ['./initial-test.component.css']
 })
 export class InitialTestComponent {
 

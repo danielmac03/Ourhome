@@ -7,7 +7,7 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css', '../app.component.css']
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
 
@@ -30,7 +30,7 @@ export class RegisterComponent {
   showPhone: number;
   acceptPolicy: boolean;
 
-  register() {
+  register(): void {
     if (this.acceptPolicy === true) {
       const user = {
         name: this.name,
@@ -59,7 +59,7 @@ export class RegisterComponent {
         );
       });
     }else {
-      //Put error
+      // Put error
       console.log('Error...');
     }
   }

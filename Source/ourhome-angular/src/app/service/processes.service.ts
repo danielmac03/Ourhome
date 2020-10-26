@@ -32,7 +32,7 @@ export class ProcessesService {
     return this.http.post(`${this.baseUrl}`, process);
   }
 
-  updateProcesses(processId: number, value: any): Observable<Object> {
+  updateProcesses(processId: number, value: any): Observable<object> {
     return this.http.put(`${this.baseUrl}/${processId}`, value);
   }
 

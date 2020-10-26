@@ -12,20 +12,20 @@ export class CustomTestsService {
 
   constructor(private http: HttpClient) { }
 
-  getCustomTests(custom_test_id : number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${custom_test_id }`);
+  getCustomTests(customTestId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${customTestId}`);
   }
 
-  createCustomTests(customTests: Object): Observable<Object> {
+  createCustomTests(customTests: object): Observable<object> {
     return this.http.post(`${this.baseUrl}`, customTests);
   }
 
-  updateCustomTests(custom_test_id : number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${custom_test_id }`, value);
+  updateCustomTests(customTestId: number, value: any): Observable<object> {
+    return this.http.put(`${this.baseUrl}/${customTestId}`, value);
   }
 
-  deleteCustomTests(custom_test_id : number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${custom_test_id }`, { responseType: 'text' });
+  deleteCustomTests(customTestId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${customTestId}`, { responseType: 'text' });
   }
 
   getCustomTestsList(): Observable<any> {

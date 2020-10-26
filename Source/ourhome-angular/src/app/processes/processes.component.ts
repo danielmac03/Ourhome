@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { ProcessesModel } from '../model/processes';
-import { HomesModel } from '../model/homes';
-
 import { ProcessesService } from '../service/processes.service';
 import { HomesService } from '../service/homes.service';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
@@ -11,7 +7,7 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 @Component({
   selector: 'app-processes',
   templateUrl: './processes.component.html',
-  styleUrls: ['./processes.component.css', '../app.component.css']
+  styleUrls: ['./processes.component.css']
 })
 export class ProcessesComponent implements OnInit {
 

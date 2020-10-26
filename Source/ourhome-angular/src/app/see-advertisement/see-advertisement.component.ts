@@ -7,7 +7,7 @@ import { ProcessesService } from '../service/processes.service';
 @Component({
   selector: 'app-see-advertisement',
   templateUrl: './see-advertisement.component.html',
-  styleUrls: ['./see-advertisement.component.css', '../app.component.css'],
+  styleUrls: ['./see-advertisement.component.css'],
 })
 export class SeeAdvertisementComponent implements OnInit {
 
@@ -36,11 +36,11 @@ export class SeeAdvertisementComponent implements OnInit {
   }
 
   contact(): void{
-    const user = this.tokenStorageService.getUser();
+    const getUser = this.tokenStorageService.getUser();
 
     const process = {
       home: this.home,
-      user: user,
+      user: getUser,
       state: 1
     };
 

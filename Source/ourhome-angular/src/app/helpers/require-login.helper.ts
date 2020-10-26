@@ -7,7 +7,7 @@ export class RequireLoginHelper implements CanActivate {
 
   constructor(private router: Router, private tokenStorageService: TokenStorageService) {}
 
-  canActivate() {
+  canActivate(): boolean {
     const user = this.tokenStorageService.getUser();
 
     if (user == null){

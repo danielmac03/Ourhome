@@ -6,7 +6,7 @@ import { CustomTestsService } from '../service/custom-tests.service';
 @Component({
   selector: 'app-custom-test',
   templateUrl: './custom-test.component.html',
-  styleUrls: ['./custom-test.component.css', '../app.component.css'],
+  styleUrls: ['./custom-test.component.css'],
 
 })
 export class CustomTestComponent implements OnInit {
