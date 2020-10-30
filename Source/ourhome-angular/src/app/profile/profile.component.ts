@@ -9,8 +9,16 @@ import { AuthService } from '../service/authentication/auth.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-
 export class ProfileComponent implements OnInit {
+
+  user = {} as any;
+  name: string;
+  surnames: string;
+  age: number;
+  email: string;
+  phone: number;
+  role: string;
+  showPhone: number;
 
   constructor(
     private tokenStorageService: TokenStorageService,
@@ -18,22 +26,19 @@ export class ProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private usersService: UsersService
-  ) {}
-
-  user = {} as any;
-
-  name: string;
-  surnames: string;
-  age: number;
-  email: string;
-  phone: number;
-  password: string;
-  role: number;
-  showPhone: number;
-
-  ngOnInit(): void {
+  ) {
     this.user = this.tokenStorageService.getUser();
+    this.name = this.user.name;
+    this.surnames = this.user.surnames;
+    this.age = this.user.age;
+    this.email = this.user.email;
+    this.phone = this.user.phone;
+    this.role = this.user.role;
+    this.showPhone = this.user.showPhone;
   }
+
+  ngOnInit(): void { }
+
 /*
   updateUser() {
     const user = {
