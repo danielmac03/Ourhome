@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
+import {TokenStorageService} from '../service/authentication/token-storage.service';
 import * as $ from 'jQuery';
 
 @Component({
@@ -9,62 +10,52 @@ import * as $ from 'jQuery';
 })
 export class CreateTestComponent implements OnInit {
 
-  constructor() { }
+  counter: number;
+
+  constructor(
+    private tokenStorageService: TokenStorageService
+  ) { }
 
   ngOnInit(): void {
-    window.sessionStorage.setItem('counter', '1');
+    this.counter = 1;
   }
 
   add(): void {
-    let counter: number = parseInt(sessionStorage.getItem('counter'));
+    const currentCounter = this.counter;
 
-    if (($('#questionInput' + counter).val() !== '') && $('input[name=\'' + ('questionRadio' + counter) + '\']:checked').val()){
-      counter += 1;
-      $('#counter').val(counter);
+    if (($('#questionInput' + currentCounter).val() !== '') &&
+        ($('#questionRadioTrue' + currentCounter).is(':checked') || $('#questionRadioFalse' + currentCounter).is(':checked'))){
+      this.counter += 1;
 
-      const question =
-        `<div class="form-group question p-2">
-          <div class="form-group mt-3 field">
-              <input type="text" id="questionInput` + counter + `" placeholder=" " class="form-control" required>
-              <label class="lab" for="questionInput` + counter + `">Escribe tu pregunta</label>
-          </div>
+      $('#container_questions').append($('#question' + currentCounter).clone());
 
-          <div class="form-check">
-              <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="questionRadio` + counter + `" value="1" required>Si
-              </label>
-          </div>
-          <div class="form-check">
-              <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="questionRadio` + counter + `" value="0">No
-              </label>
-          </div>
-        </div>`;
-
-      $('#content_questions').append(question);
-
-      window.sessionStorage.setItem('counter', counter.toString());
+      $('#question' + this.counter).find('input').val('');
     }else{
         alert('Aún no has acabado la pregunta anterior');
     }
   }
 
-  /*
-  save(): void{
-    const user = this.tokenStorageService.getUser();
-    const counter: number = parseInt(sessionStorage.getItem('counter'));
+  save(data): void{
+    const getUser = this.tokenStorageService.getUser();
+    const getQuestions = [];
 
+    console.log(data.value);
+    /*  for (let i = 0; i < this.counter; i++){
+      const questionInput = 'questionInput' + i;
+      getQuestions.push(data.questionInput);
+    }*/
+
+    console.log(data.questionInput1);
+
+    /*
     let test = {
-      user: user,
+      user: getUser,
       questions,
       correctAnswers,
-      minimumCorrectResponses,
+      minimumCorrectResponses: 5,
     };
+     */
 
-    for (let i of counter){
-
-    }
   }
-   */
 
 }

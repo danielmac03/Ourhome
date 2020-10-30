@@ -3,23 +3,24 @@
 
   <div class="my-3"></div>
 
-  <form>
-    <div id="content_questions">
-      <div class="form-group question p-2">
+  <!--#data="ngForm" (ngSubmit)="save(data)"-->
+  <form #data="ngForm" (ngSubmit)="save(data)" ngNativeValidate>
+    <div id="container_questions">
+      <div class="form-group question p-2" id="question{{ counter }}">
         <div class="form-group mt-3 field">
-          <input type="text" id="questionInput1" placeholder=" " class="form-control" required>
-          <label class="lab" for="questionInput1">Escribe tu pregunta</label>
+          <input type="text" id="questionInput{{ counter }}" name="questionInput{{ counter }}" placeholder=" " class="form-control" ngModel required>
+          <label class="lab" for="questionInput{{ counter }}">Escribe tu pregunta</label>
         </div>
 
         <div class="form-check">
           <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="questionRadio1" value="1" required>Si
+            <input type="radio" class="form-check-input" id="questionRadioTrue{{ counter }}" name="questionRadio{{ counter }}" [value]="1" required ngModel>Si
           </label>
         </div>
 
         <div class="form-check">
           <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="questionRadio1" value="0">No
+            <input type="radio" class="form-check-input" id="questionRadioFalse{{ counter }}" name="questionRadio{{ counter }}" [value]="0" ngModel>No
           </label>
         </div>
       </div>
