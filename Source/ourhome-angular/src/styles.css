@@ -43,6 +43,10 @@ input:focus, textarea:hover {
   background-color: #477185;
 }
 
+.d-grid{
+  display: grid;
+}
+
 /* Animacion para el label https://css-tricks.com/float-labels-css/ */
 /* Proyecto de codepen https://codepen.io/team/css-tricks/pen/XVBLRM */
 
@@ -50,6 +54,12 @@ input:focus, textarea:hover {
   display: flex;
   flex-flow: column-reverse;
   margin-bottom: 1em;
+}
+
+.small-text-animation label, input, textarea {
+  transition: all 0.2s;
+  touch-action: manipulation;
+  font-size: 10.5px;
 }
 
 label, input, textarea {

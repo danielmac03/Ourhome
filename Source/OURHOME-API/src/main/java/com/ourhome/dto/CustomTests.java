@@ -24,6 +24,12 @@ public class CustomTests {
 	
 	@Column(name="answers")
 	private String answers;
+
+	@Column(name="options1")
+	private String options1;
+
+	@Column(name="options2")
+	private String options2;
 	
 	@CreationTimestamp
 	@Column(name="created_at")
@@ -35,109 +41,80 @@ public class CustomTests {
 	
 	public CustomTests() {}
 
-	/**
-	 * @param id
-	 * @param user
-	 * @param questions
-	 * @param answers
-	 * @param createdAt
-	 * @param customTestsResponses
-	 */
-	public CustomTests(int id, Users user, String questions, String answers, Date createdAt,
-					   List<CustomTestsResponses> customTestsResponses) {
-		super();
+	public CustomTests(int id, Users user, String questions, String answers, String options1, String options2, Date createdAt, List<CustomTestsResponses> customTestsResponses) {
 		this.id = id;
 		this.user = user;
 		this.questions = questions;
 		this.answers = answers;
+		this.options1 = options1;
+		this.options2 = options2;
 		this.createdAt = createdAt;
 		this.customTestsResponses = customTestsResponses;
 	}
 
-	/**
-	 * @return the id
-	 */
 	public int getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the user
-	 */
 	public Users getUser() {
 		return user;
 	}
 
-	/**
-	 * @param user the user to set
-	 */
 	public void setUser(Users user) {
 		this.user = user;
 	}
 
-	/**
-	 * @return the correctAnswers
-	 */
 	public String getQuestions() {
 		return questions;
 	}
 
-	/**
-	 * @param correctAnswers the correctAnswers to set
-	 */
-	public void setQuestions(String correctAnswers) {
-		this.questions = correctAnswers;
+	public void setQuestions(String questions) {
+		this.questions = questions;
 	}
 
-	/**
-	 * @return the minimumCorrectResponses
-	 */
 	public String getAnswers() {
 		return answers;
 	}
 
-	/**
-	 * @param minimumCorrectResponses the minimumCorrectResponses to set
-	 */
-	public void setAnswers(String minimumCorrectResponses) {
-		this.answers = minimumCorrectResponses;
+	public void setAnswers(String answers) {
+		this.answers = answers;
 	}
 
-	/**
-	 * @return the createdAt
-	 */
+	public String getOptions1() {
+		return options1;
+	}
+
+	public void setOptions1(String options1) {
+		this.options1 = options1;
+	}
+
+	public String getOptions2() {
+		return options2;
+	}
+
+	public void setOptions2(String options2) {
+		this.options2 = options2;
+	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	/**
-	 * @param createdAt the createdAt to set
-	 */
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	/**
-	 * @return the respuestasTestsPersonalizados
-	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "custom_tests_responses")
-	public List<CustomTestsResponses> getRespuestasTestsPersonalizados() {
+	public List<CustomTestsResponses> getCustomTestsResponses() {
 		return customTestsResponses;
 	}
 
-	/**
-	 * @param customTestsResponses the respuestasTestsPersonalizados to set
-	 */
-	public void setRespuestasTestsPersonalizados(List<CustomTestsResponses> customTestsResponses) {
+	public void setCustomTestsResponses(List<CustomTestsResponses> customTestsResponses) {
 		this.customTestsResponses = customTestsResponses;
 	}
-	
 }

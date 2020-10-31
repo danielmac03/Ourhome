@@ -26,8 +26,10 @@ export class CreateTestComponent implements OnInit {
 
   createQuestion(): FormGroup {
     return this.formBuilder.group({
-      questionInput: [''],
-      questionRadio: ['']
+      question: [''],
+      correctOption: [''],
+      option1: [''],
+      option2: ['']
     });
   }
 
@@ -39,22 +41,28 @@ export class CreateTestComponent implements OnInit {
     const user = this.tokenStorageService.getUser();
 
     const questions: string[] = [];
-    const answers: string[] = [];
+    const correctOptions: string[] = [];
+    const options1: string[] = [];
+    const options2: string[] = [];
 
-    if (this.form.value.questions[0].questionInput !== ''){
+    if (this.form.value.questions[0].question !== '' || this.form.value.questions[0].correctOption !== '' || this.form.value.questions[0].option1 !== '' || this.form.value.questions[0].option2 !== ''){
       for (const question of this.form.value.questions){
-        if (question.questionInput === '' || question.questionRadio === ''){
+        if (question.question === '' || question.correctOption === '' || question.option1 === '' || question.option2 === ''){
           continue;
         }
 
-        questions.push(question.questionInput);
-        answers.push(question.questionRadio);
+        questions.push(question.question);
+        correctOptions.push(question.correctOption);
+        options1.push(question.option1);
+        options2.push(question.option2);
       }
 
       const customTest = {
         user,
         questions: questions.toString(),
-        answers: answers.toString()
+        answers: correctOptions.toString(),
+        options1: options1.toString(),
+        options2: options2.toString()
       };
 
       this.customTestsService.createCustomTests(customTest).subscribe(resp => {

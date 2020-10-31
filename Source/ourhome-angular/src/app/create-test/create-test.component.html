@@ -6,23 +6,28 @@
   <form [formGroup]="form" (ngSubmit)="save()">
     <div formArrayName="questions" *ngFor="let question of form.controls['questions']['controls']; let i = index">
       <div class="form-group question p-2" [formGroupName]="i">
-        <div class="form-group mt-3 field">
-          <input type="text" formControlName="questionInput" placeholder=" " class="form-control" required>
-          <label class="lab">Escribe tu pregunta</label>
+        <div class="field mt-3">
+          <input type="text" formControlName="question" placeholder=" " class="form-control" required>
+          <label class="lab">Pregunta</label>
         </div>
 
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" formControlName="questionRadio" [value]="1" required>Si
-          </label>
+        <div class="form-check d-grid small-text-animation">
+            <input type="radio" formControlName="correctOption" [value]="1" class="form-check-input align-checkbox ml-0" required>
+          <div class="field">
+            <input type="text" formControlName="option1" placeholder=" " class="form-control" required>
+            <label class="lab">Respuesta A</label>
+          </div>
         </div>
 
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" formControlName="questionRadio" [value]="0">No
-          </label>
+        <div class="form-check d-grid small-text-animation">
+          <input type="radio" formControlName="correctOption" [value]="0" class="form-check-input align-checkbox ml-0">
+          <div class="field">
+            <input type="text" formControlName="option2" placeholder=" " class="form-control" required>
+            <label class="lab">Respuesta B</label>
+          </div>
         </div>
       </div>
+      <hr>
     </div>
 
     <div class="row my-4">

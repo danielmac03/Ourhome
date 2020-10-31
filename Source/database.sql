@@ -90,21 +90,23 @@ CREATE TABLE custom_tests(
     user_id INT NOT NULL,
     questions MEDIUMTEXT NOT NULL,
     answers MEDIUMTEXT NOT NULL,
+    options1 MEDIUMTEXT NOT NULL,
+    options2 MEDIUMTEXT NOT NULL,
 	created_at DATE DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO custom_tests (user_id, questions, answers, created_at) VALUES
-(2, 'qwe, ert', '1,2', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE()),
-(4, 'a', 'a', CURRENT_DATE()),
-(5, 'a', 'a', CURRENT_DATE()),
-(6, 'a', 'a', CURRENT_DATE()),
-(7, 'a', 'a', CURRENT_DATE()),
-(8, 'a', 'a', CURRENT_DATE()),
-(9, 'a', 'a', CURRENT_DATE()),
-(10, 'a', 'a', CURRENT_DATE()),
-(11, 'a', 'a', CURRENT_DATE());
+INSERT INTO custom_tests (user_id, questions, answers, options1, options2, created_at) VALUES
+(2, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
+(3, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
+(4, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
+(5, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
+(6, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
+(7, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
+(8, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
+(9, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
+(10, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
+(11, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE());
 
 CREATE TABLE custom_tests_responses(
 	custom_test_response_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
