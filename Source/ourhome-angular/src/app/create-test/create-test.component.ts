@@ -1,25 +1,65 @@
-import {Component, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
-import {TokenStorageService} from '../service/authentication/token-storage.service';
-import * as $ from 'jQuery';
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { CustomTestsService } from '../service/custom-tests.service';
+import { TokenStorageService } from '../service/authentication/token-storage.service';
 
 @Component({
   selector: 'app-create-test',
   templateUrl: './create-test.component.html',
   styleUrls: ['./create-test.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class CreateTestComponent implements OnInit {
 
-  counter: number;
+  form: FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
+    private customTestsService: CustomTestsService,
     private tokenStorageService: TokenStorageService
   ) { }
 
   ngOnInit(): void {
-    this.counter = 1;
+    this.form = this.formBuilder.group({
+      questions: this.formBuilder.array([this.createQuestion()])
+    });
   }
 
+  createQuestion(): FormGroup {
+    return this.formBuilder.group({
+      questionInput: [''],
+      questionRadio: ['']
+    });
+  }
+
+  add(): void{
+    (this.form.controls.questions as FormArray).push(this.createQuestion());
+  }
+
+  save(): void{
+    const user = this.tokenStorageService.getUser();
+
+    const questions: string[] = [];
+    const answers: string[] = [];
+
+    for (const question of this.form.value.questions){
+      questions.push(question.questionInput);
+      answers.push(question.questionRadio);
+    }
+
+    const customTest = {
+      user,
+      questions: questions.toString(),
+      answers: answers.toString()
+    };
+
+    this.customTestsService.createCustomTests(customTest).subscribe(resp => {
+      console.log('Complete...');
+    }, error => {
+      console.log('Error...');
+    });
+  }
+
+  /*
   add(): void {
     const currentCounter = this.counter;
 
@@ -33,29 +73,7 @@ export class CreateTestComponent implements OnInit {
     }else{
         alert('Aún no has acabado la pregunta anterior');
     }
-  }
+  }*/
 
-  save(data): void{
-    const getUser = this.tokenStorageService.getUser();
-    const getQuestions = [];
-
-    console.log(data.value);
-    /*  for (let i = 0; i < this.counter; i++){
-      const questionInput = 'questionInput' + i;
-      getQuestions.push(data.questionInput);
-    }*/
-
-    console.log(data.questionInput1);
-
-    /*
-    let test = {
-      user: getUser,
-      questions,
-      correctAnswers,
-      minimumCorrectResponses: 5,
-    };
-     */
-
-  }
 
 }

@@ -19,11 +19,11 @@ public class CustomTests {
 	@JoinColumn(name="user_id")
 	Users user;
 	
-	@Column(name="correct_answers")
-	private String correctAnswers;
+	@Column(name="questions")
+	private String questions;
 	
-	@Column(name="minimum_correct_responses")
-	private int minimumCorrectResponses;
+	@Column(name="answers")
+	private String answers;
 	
 	@CreationTimestamp
 	@Column(name="created_at")
@@ -38,18 +38,18 @@ public class CustomTests {
 	/**
 	 * @param id
 	 * @param user
-	 * @param correctAnswers
-	 * @param minimumCorrectResponses
+	 * @param questions
+	 * @param answers
 	 * @param createdAt
 	 * @param customTestsResponses
 	 */
-	public CustomTests(int id, Users user, String correctAnswers, int minimumCorrectResponses, Date createdAt,
-			List<CustomTestsResponses> customTestsResponses) {
+	public CustomTests(int id, Users user, String questions, String answers, Date createdAt,
+					   List<CustomTestsResponses> customTestsResponses) {
 		super();
 		this.id = id;
 		this.user = user;
-		this.correctAnswers = correctAnswers;
-		this.minimumCorrectResponses = minimumCorrectResponses;
+		this.questions = questions;
+		this.answers = answers;
 		this.createdAt = createdAt;
 		this.customTestsResponses = customTestsResponses;
 	}
@@ -85,29 +85,29 @@ public class CustomTests {
 	/**
 	 * @return the correctAnswers
 	 */
-	public String getCorrectAnswers() {
-		return correctAnswers;
+	public String getQuestions() {
+		return questions;
 	}
 
 	/**
 	 * @param correctAnswers the correctAnswers to set
 	 */
-	public void setCorrectAnswers(String correctAnswers) {
-		this.correctAnswers = correctAnswers;
+	public void setQuestions(String correctAnswers) {
+		this.questions = correctAnswers;
 	}
 
 	/**
 	 * @return the minimumCorrectResponses
 	 */
-	public int getMinimumCorrectResponses() {
-		return minimumCorrectResponses;
+	public String getAnswers() {
+		return answers;
 	}
 
 	/**
 	 * @param minimumCorrectResponses the minimumCorrectResponses to set
 	 */
-	public void setMinimumCorrectResponses(int minimumCorrectResponses) {
-		this.minimumCorrectResponses = minimumCorrectResponses;
+	public void setAnswers(String minimumCorrectResponses) {
+		this.answers = minimumCorrectResponses;
 	}
 
 	/**

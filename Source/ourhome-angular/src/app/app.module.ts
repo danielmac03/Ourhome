@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorHelper } from './helpers/auth-interceptor.helper';
 import { RequireLoginHelper } from './helpers/require-login.helper';
@@ -41,7 +41,8 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [authInterceptorHelper, RequireLoginHelper, RequireGuestHelper],
   bootstrap: [AppComponent]

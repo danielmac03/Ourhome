@@ -39,8 +39,8 @@ public class CustomTestsController {
 		customTestsSelected = customTestsServiceImpl.searchCustomTest(id);
 		
 		customTestsSelected.setUser(customTest.getUser());
-		customTestsSelected.setCorrectAnswers(customTest.getCorrectAnswers());
-		customTestsSelected.setMinimumCorrectResponses(customTest.getMinimumCorrectResponses());
+		customTestsSelected.setQuestions(customTest.getQuestions());
+		customTestsSelected.setAnswers(customTest.getAnswers());
 		customTestsSelected.setCreatedAt(customTest.getCreatedAt());
 		customTestsSelected.setRespuestasTestsPersonalizados(customTest.getRespuestasTestsPersonalizados());
 

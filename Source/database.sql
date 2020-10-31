@@ -89,23 +89,22 @@ CREATE TABLE custom_tests(
 	custom_test_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     questions MEDIUMTEXT NOT NULL,
-    correct_answers MEDIUMTEXT NOT NULL,
-    minimum_correct_responses INT NOT NULL,
+    answers MEDIUMTEXT NOT NULL,
 	created_at DATE DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO custom_tests (user_id, questions, correct_answers, minimum_correct_responses, created_at) VALUES
-(3, 'a', 'a', 1, CURRENT_DATE()),
-(3, 'a', 'a', 5, CURRENT_DATE()),
-(3, 'a', 'a', 6, CURRENT_DATE()),
-(3, 'a', 'a', 4, CURRENT_DATE()),
-(3, 'a', 'a', 7, CURRENT_DATE()),
-(3, 'a', 'a', 2, CURRENT_DATE()),
-(3, 'a', 'a', 10, CURRENT_DATE()),
-(3, 'a', 'a', 8, CURRENT_DATE()),
-(3, 'a', 'a', 3, CURRENT_DATE()),
-(3, 'a', 'a', 9, CURRENT_DATE());
+INSERT INTO custom_tests (user_id, questions, answers, created_at) VALUES
+(3, 'a', 'a', CURRENT_DATE()),
+(3, 'a', 'a', CURRENT_DATE()),
+(3, 'a', 'a', CURRENT_DATE()),
+(3, 'a', 'a', CURRENT_DATE()),
+(3, 'a', 'a', CURRENT_DATE()),
+(3, 'a', 'a', CURRENT_DATE()),
+(3, 'a', 'a', CURRENT_DATE()),
+(3, 'a', 'a', CURRENT_DATE()),
+(3, 'a', 'a', CURRENT_DATE()),
+(3, 'a', 'a', CURRENT_DATE());
 
 CREATE TABLE custom_tests_responses(
 	custom_test_response_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
