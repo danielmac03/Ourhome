@@ -16,6 +16,10 @@ export class CustomTestsService {
     return this.http.get(`${this.baseUrl}/${customTestId}`);
   }
 
+  getCustomTestsByUser(userId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user/${userId}`);
+  }
+
   createCustomTests(customTests: object): Observable<object> {
     return this.http.post(`${this.baseUrl}`, customTests);
   }

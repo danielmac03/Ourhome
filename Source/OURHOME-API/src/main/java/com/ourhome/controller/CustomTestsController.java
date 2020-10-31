@@ -30,6 +30,14 @@ public class CustomTestsController {
 		
 		return customTest;
 	}
+
+	@GetMapping("/customTests/user/{user_id}")
+	public CustomTests searchCustomTestByUser(@PathVariable(name="user_id") int user_id) {
+		CustomTests customTest = new CustomTests();
+		customTest = customTestsServiceImpl.searchCustomTestByUser(user_id);
+
+		return customTest;
+	}
 		
 	@PutMapping("/customTests/{id}")
 	public CustomTests updateCustomTest(@PathVariable(name="id") int id, @RequestBody CustomTests customTest) {

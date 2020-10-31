@@ -10,7 +10,9 @@ public interface ICustomTestsService {
 	public CustomTests saveCustomTest(CustomTests customTest);	
 	
 	public CustomTests searchCustomTest(int id);
-	
+
+	public CustomTests searchCustomTestByUser(int user_id);
+
 	public CustomTests updateCustomTest(CustomTests customTest); 
 	
 	public void deleteCustomTest(int id);

@@ -95,16 +95,16 @@ CREATE TABLE custom_tests(
 );
 
 INSERT INTO custom_tests (user_id, questions, answers, created_at) VALUES
+(2, 'qwe, ert', '1,2', CURRENT_DATE()),
 (3, 'a', 'a', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE()),
-(3, 'a', 'a', CURRENT_DATE());
+(4, 'a', 'a', CURRENT_DATE()),
+(5, 'a', 'a', CURRENT_DATE()),
+(6, 'a', 'a', CURRENT_DATE()),
+(7, 'a', 'a', CURRENT_DATE()),
+(8, 'a', 'a', CURRENT_DATE()),
+(9, 'a', 'a', CURRENT_DATE()),
+(10, 'a', 'a', CURRENT_DATE()),
+(11, 'a', 'a', CURRENT_DATE());
 
 CREATE TABLE custom_tests_responses(
 	custom_test_response_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

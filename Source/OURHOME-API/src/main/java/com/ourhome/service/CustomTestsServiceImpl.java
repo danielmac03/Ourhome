@@ -28,6 +28,11 @@ public class CustomTestsServiceImpl implements ICustomTestsService{
 	}
 
 	@Override
+	public CustomTests searchCustomTestByUser(int user_id) {
+		return iCustomTestsDAO.findByUser_id(user_id);
+	}
+
+	@Override
 	public CustomTests updateCustomTest(CustomTests customTest) {
 		return iCustomTestsDAO.save(customTest);
 	}
