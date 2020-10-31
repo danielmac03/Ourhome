@@ -41,39 +41,28 @@ export class CreateTestComponent implements OnInit {
     const questions: string[] = [];
     const answers: string[] = [];
 
-    for (const question of this.form.value.questions){
-      questions.push(question.questionInput);
-      answers.push(question.questionRadio);
+    if (this.form.value.questions[0].questionInput !== ''){
+      for (const question of this.form.value.questions){
+        if (question.questionInput === '' || question.questionRadio === ''){
+          continue;
+        }
+
+        questions.push(question.questionInput);
+        answers.push(question.questionRadio);
+      }
+
+      const customTest = {
+        user,
+        questions: questions.toString(),
+        answers: answers.toString()
+      };
+
+      this.customTestsService.createCustomTests(customTest).subscribe(resp => {
+        console.log('Complete...');
+      }, error => {
+        console.log('Error...');
+      });
     }
-
-    const customTest = {
-      user,
-      questions: questions.toString(),
-      answers: answers.toString()
-    };
-
-    this.customTestsService.createCustomTests(customTest).subscribe(resp => {
-      console.log('Complete...');
-    }, error => {
-      console.log('Error...');
-    });
   }
-
-  /*
-  add(): void {
-    const currentCounter = this.counter;
-
-    if (($('#questionInput' + currentCounter).val() !== '') &&
-        ($('#questionRadioTrue' + currentCounter).is(':checked') || $('#questionRadioFalse' + currentCounter).is(':checked'))){
-      this.counter += 1;
-
-      $('#container_questions').append($('#question' + currentCounter).clone());
-
-      $('#question' + this.counter).find('input').val('');
-    }else{
-        alert('Aún no has acabado la pregunta anterior');
-    }
-  }*/
-
 
 }
