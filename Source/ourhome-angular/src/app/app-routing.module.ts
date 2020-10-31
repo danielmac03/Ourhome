@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'seeAdvertisement/:id', component: SeeAdvertisementComponent},
   {path: 'createTest', component: CreateTestComponent, canActivate: [RequireLoginHelper]},
   {path: 'initialTest', component: InitialTestComponent},
-  {path: 'customTest', component: CustomTestComponent, canActivate: [RequireLoginHelper]},
+  {path: 'customTest/:home', component: CustomTestComponent, canActivate: [RequireLoginHelper]},
   {path: 'login', component: LoginComponent, canActivate: [RequireGuestHelper]},
   {path: 'register', component: RegisterComponent, canActivate: [RequireGuestHelper]},
   {path: '404', component: NotFoundComponent},
