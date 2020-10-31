@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f5b3e810-7267-49fe-b4a9-b602cdff5995" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f9bcd193-4b05-44cb-94ea-e3dcf83d6a82.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/custom-test/custom-test.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/custom-test/custom-test.component.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1jcBtaroOHmfaf1Cl3Ak8FVablC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/ourhome-angular/node_modules/protractor" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="C:\Users\dani-\git\ourhome\Source\ourhome-angular\node_modules\typescript\lib" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.ourhome-backend">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2E Tests (ourhome-angular)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/ourhome-angular/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/ourhome-angular/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application (ourhome-angular)" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="ourhome-backend" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="OURHOME-API" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ourhome.OurhomeApiApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ourhome-angular" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/ourhome-angular/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Angular Application (ourhome-angular)" />
+      <item itemvalue="npm.ourhome-angular" />
+      <item itemvalue="Protractor.E2E Tests (ourhome-angular)" />
+      <item itemvalue="Spring Boot.ourhome-backend" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f5b3e810-7267-49fe-b4a9-b602cdff5995" name="Default Changelist" comment="" />
+      <changelist id="" name="No commit" comment="" />
+      <created>1604093715059</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604093715059</updated>
+      <workItem from="1604093716248" duration="73000" />
+      <workItem from="1604093807627" duration="5297000" />
+      <workItem from="1604155315617" duration="20341000" />
+    </task>
+    <task id="LOCAL-00001" summary="Subir custom test">
+      <created>1604164555860</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604164555860</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Mejora seguridad custom test">
+      <created>1604166805137</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604166805137</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Nueva ruta backend getCustomTestsByUser">
+      <created>1604168008183</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604168008183</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Personalizar respuestas custom test">
+      <created>1604173213822</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604173213822</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Obtener preguntas custom test">
+      <created>1604175620757</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1604175620757</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Custom test acabado">
+      <created>1604183448968</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604183448968</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Subir custom test" />
+    <MESSAGE value="Mejora seguridad custom test" />
+    <MESSAGE value="Nueva ruta backend getCustomTestsByUser" />
+    <MESSAGE value="Personalizar respuestas custom test" />
+    <MESSAGE value="Obtener preguntas custom test" />
+    <MESSAGE value="Custom test acabado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Custom test acabado" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="180" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604163573607">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604163573607" />
+    <state x="2334" y="180" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604094400251" />
+    <state x="765" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1604170159365">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="765" y="231" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604170159365" />
+    <state x="2609" y="327" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1604093926377">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2609" y="327" key="#com.intellij.ide.util.TreeClassChooserDialog/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604093926377" />
+    <state x="478" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604163819377">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="478" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604163819377" />
+    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog" timestamp="1604183587021">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604183587021" />
+    <state x="2660" y="280" key="FileChooserDialogImpl" timestamp="1604093787325">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2660" y="280" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604093787325" />
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1604182928483">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604182928483" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
+    <state width="1877" height="284" key="GridCell.Tab.0.center" timestamp="1604182928483">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604182928483" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
+    <state width="1877" height="284" key="GridCell.Tab.0.left" timestamp="1604182928483">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604182928483" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
+    <state width="1877" height="284" key="GridCell.Tab.0.right" timestamp="1604182928483">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604182928483" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
+    <state width="1877" height="284" key="GridCell.Tab.1.bottom" timestamp="1604182927953">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604182927953" />
+    <state width="1877" height="285" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419445" />
+    <state width="1877" height="284" key="GridCell.Tab.1.center" timestamp="1604182927953">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604182927953" />
+    <state width="1877" height="285" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419445" />
+    <state width="1877" height="284" key="GridCell.Tab.1.left" timestamp="1604182927953">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604182927953" />
+    <state width="1877" height="285" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
+    <state width="1877" height="284" key="GridCell.Tab.1.right" timestamp="1604182927953">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604182927953" />
+    <state width="1877" height="285" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419445" />
+    <state x="692" y="227" key="RollbackChangesDialog" timestamp="1604173270426">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="692" y="227" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604173270426" />
+    <state x="2612" y="227" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604098232924" />
+    <state x="2381" y="170" key="SettingsEditor" timestamp="1604093890890">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2381" y="170" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604093890890" />
+    <state x="2710" y="394" key="VCS.EditChangelistDialog" timestamp="1604097407914">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2710" y="394" key="VCS.EditChangelistDialog/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604097407914" />
+    <state x="552" y="265" key="Vcs.Push.Dialog.v2" timestamp="1604183450373">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="265" key="Vcs.Push.Dialog.v2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604183450373" />
+    <state x="540" y="180" key="com.intellij.database.dbimport.ImportDialog" timestamp="1604165651307">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="540" y="180" key="com.intellij.database.dbimport.ImportDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604165651307" />
+    <state x="690" y="330" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1604165649360">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="330" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604165649360" />
+    <state x="2697" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604155327499">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2697" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155327499" />
+    <state x="667" y="124" width="585" height="801" key="find.popup" timestamp="1604167229906">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="667" y="124" width="585" height="801" key="find.popup/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604167229906" />
+    <state x="789" y="424" key="git4idea.ui.GitStashDialog" timestamp="1604168162675">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="789" y="424" key="git4idea.ui.GitStashDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604168162675" />
+    <state x="750" y="371" key="git4idea.ui.GitUnstashDialog" timestamp="1604173279564">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="750" y="371" key="git4idea.ui.GitUnstashDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604173279564" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1604182706111">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604182706111" />
+    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604097419938" />
+  </component>
+</project>

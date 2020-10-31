@@ -52,26 +52,30 @@ export class CustomTestComponent implements OnInit {
       userAnswers.push(data.value[('question' + i)]);
     }
 
-    for (let i = 0; i < this.answers.length; i++){
-      if (this.answers[i] === userAnswers[i].toString()){
-        common++;
+    if (!userAnswers.includes('')) {
+      for (let i = 0; i < this.answers.length; i++) {
+        if (this.answers[i] === userAnswers[i].toString()) {
+          common++;
+        }
       }
-    }
 
-    const customTestResponses = {
-      user,
-      customTest: this.customTest,
-      answers: userAnswers.toString(),
-      compatibility: (common / this.questions.length) * 10
-    };
+      const customTestResponses = {
+        user,
+        customTest: this.customTest,
+        answers: userAnswers.toString(),
+        compatibility: (common / this.questions.length) * 10
+      };
 
-    this.customTestsResponsesService.createCustomTestsResponses(customTestResponses).subscribe(resp => {
-      console.log('Complete...');
-    }, error => {
+      this.customTestsResponsesService.createCustomTestsResponses(customTestResponses).subscribe(resp => {
+        console.log('Complete...');
+        this.router.navigate(['processes']);
+
+      }, error => {
+        console.log('Error....');
+      });
+    }else{
       console.log('Error....');
-    });
-
-    this.router.navigate(['processes']);
+    }
   }
 
 }
