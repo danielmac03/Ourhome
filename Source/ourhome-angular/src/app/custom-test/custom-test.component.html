@@ -3,20 +3,20 @@
 
   <div class="my-3"></div>
 
-  <form>
+  <form #data="ngForm" (ngSubmit)="save(data)">
       <div class="form-group question p-2" *ngFor="let question of questions let i = index">
           <p>{{ question.question }}</p>
 
           <div class="form-check">
               <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="question{{ i }}" [value]="1" required>
+                  <input type="radio" class="form-check-input" name="question{{ i }}" [value]="1" required ngModel>
                   {{ question.option1 }}
               </label>
           </div>
 
           <div class="form-check">
               <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="question{{ i }}" [value]="0">
+                  <input type="radio" class="form-check-input" name="question{{ i }}" [value]="0" ngModel>
                 {{ question.option2 }}
               </label>
           </div>
