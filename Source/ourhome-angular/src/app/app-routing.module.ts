@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'profile/:id', component: ProfileComponent, canActivate: [RequireLoginHelper]},
   {path: 'processes', component: ProcessesComponent, canActivate: [RequireLoginHelper]},
   {path: 'createAdvertisement', component: CreateAdvertisementComponent, canActivate: [RequireLoginHelper]},
-  {path: 'seeAdvertisement/:id', component: SeeAdvertisementComponent},
+  {path: 'seeAdvertisement/:home', component: SeeAdvertisementComponent},
   {path: 'createTest', component: CreateTestComponent, canActivate: [RequireLoginHelper]},
   {path: 'initialTest', component: InitialTestComponent},
   {path: 'customTest/:home', component: CustomTestComponent, canActivate: [RequireLoginHelper]},

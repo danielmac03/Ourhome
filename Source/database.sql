@@ -66,6 +66,8 @@ CREATE TABLE processes(
     process_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     home_id INT NOT NULL,
     user_id INT NOT NULL,
+    answers MEDIUMTEXT NOT NULL,
+    compatibility DECIMAL NOT NULL,
     state ENUM('En Contacto', 'Cancelado', 'Finalizado') NOT NULL,
     created_at DATE DEFAULT NULL,
     updated_at DATE DEFAULT NULL,
@@ -73,17 +75,18 @@ CREATE TABLE processes(
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO processes (home_id , user_id, state, created_at , updated_at) VALUES
-(3, 2, 1, CURRENT_DATE(), CURRENT_DATE()),
-(7, 1, 2, CURRENT_DATE(), CURRENT_DATE()),
-(8, 8, 1, CURRENT_DATE(), CURRENT_DATE()),
-(7, 2, 3, CURRENT_DATE(), CURRENT_DATE()),
-(2, 6, 2, CURRENT_DATE(), CURRENT_DATE()),
-(10, 5, 1, CURRENT_DATE(), CURRENT_DATE()),
-(7, 9, 2, CURRENT_DATE(), CURRENT_DATE()),
-(5, 4, 3, CURRENT_DATE(), CURRENT_DATE()),
-(4, 2, 3, CURRENT_DATE(), CURRENT_DATE()),
-(1, 10, 1, CURRENT_DATE(), CURRENT_DATE());
+
+INSERT INTO processes (home_id, user_id, answers, compatibility, state, created_at , updated_at) VALUES
+(3, 2, '0,1', 80, 3, CURRENT_DATE(), CURRENT_DATE()),
+(7, 1, '0,1', 60, 1, CURRENT_DATE(), CURRENT_DATE()),
+(8, 8, '0,1', 40, 3, CURRENT_DATE(), CURRENT_DATE()),
+(7, 2, '0,1', 30, 2, CURRENT_DATE(), CURRENT_DATE()),
+(2, 6, '0,1', 50, 1, CURRENT_DATE(), CURRENT_DATE()),
+(10, 5, '0,1', 90, 2, CURRENT_DATE(), CURRENT_DATE()),
+(7, 9, '0,1', 20, 1, CURRENT_DATE(), CURRENT_DATE()),
+(5, 4, '0,1', 100, 2, CURRENT_DATE(), CURRENT_DATE()),
+(4, 2, '0,1', 40, 3, CURRENT_DATE(), CURRENT_DATE()),
+(1, 10, '0,1', 20, 2, CURRENT_DATE(), CURRENT_DATE());
 
 CREATE TABLE custom_tests(
 	custom_test_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -96,37 +99,13 @@ CREATE TABLE custom_tests(
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO custom_tests (user_id, questions, answers, options1, options2, created_at) VALUES
-(2, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
-(3, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
-(4, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
-(5, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
-(6, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
-(7, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
-(8, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
-(9, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
-(10, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE()),
-(11, 'qwe, ert', '1,2', 'awd', 'awd', CURRENT_DATE());
-
-CREATE TABLE custom_tests_responses(
-	custom_test_response_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    custom_test_id INT NOT NULL,
-    answers MEDIUMTEXT NOT NULL,
-    compatibility DECIMAL NOT NULL,
-	created_at DATE DEFAULT NULL,
-	FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (custom_test_id) REFERENCES custom_tests(custom_test_id)
-);
-
-INSERT INTO custom_tests_responses (user_id, custom_test_id, answers, compatibility, created_at) VALUES 
-(1, 10, 'a', 90, CURRENT_DATE()),
-(2, 9, 'a', 30, CURRENT_DATE()),
-(3, 8, 'a', 60, CURRENT_DATE()),
-(4, 7, 'a', 70, CURRENT_DATE()),
-(5, 6, 'a', 85, CURRENT_DATE()),
-(6, 5, 'a', 44, CURRENT_DATE()),
-(7, 4, 'a', 23, CURRENT_DATE()),
-(8, 3, 'a', 95, CURRENT_DATE()),
-(9, 2, 'a', 34, CURRENT_DATE()),
-(10, 1, 'a', 77, CURRENT_DATE());
+INSERT INTO custom_tests (user_id, questions, answers, options1, options2, created_at)
+VALUES (2, 'qwe, ert', '1,2', 'awd, awew', 'awd, awew', CURRENT_DATE()),
+       (3, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
+       (4, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
+       (5, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
+       (6, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
+       (7, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
+       (8, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
+       (9, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
+       (10, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE());

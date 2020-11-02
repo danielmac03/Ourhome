@@ -69,10 +69,6 @@ public class Users {
 	@JoinColumn(name="user_id")
 	private List<CustomTests> customTest;
 	
-	@OneToMany
-	@JoinColumn(name="user_id")
-	private List<CustomTestsResponses> customTestsResponses;
-	
 	public Users() {}
 	
 	/**
@@ -91,12 +87,10 @@ public class Users {
 	 * @param homes
 	 * @param process
 	 * @param customTest
-	 * @param customTestsResponses
 	 */
 	public Users(int id, String name, String surnames, String urlPhoto, String description, int age, int phone, String mail, String password, String role,
 			String defaultTestResponses, boolean showPhone, Date createdAt, Date updatedAt, List<Homes> homes,
-			List<Processes> process, List<CustomTests> customTest,
-			List<CustomTestsResponses> customTestsResponses) {
+			List<Processes> process, List<CustomTests> customTest) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -115,7 +109,6 @@ public class Users {
 		this.homes = homes;
 		this.process = process;
 		this.customTest = customTest;
-		this.customTestsResponses = customTestsResponses;
 	}
 
 	/**
@@ -360,22 +353,6 @@ public class Users {
 	 */
 	public void setCustomTest(List<CustomTests> customTest) {
 		this.customTest = customTest;
-	}
-
-	/**
-	 * @return the customTestsResponses
-	 */
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "custom_tests_responses")
-	public List<CustomTestsResponses> getCustomTestsResponses() {
-		return customTestsResponses;
-	}
-
-	/**
-	 * @param customTestsResponses the customTestsResponses to set
-	 */
-	public void setCustomTestsResponses(List<CustomTestsResponses> customTestsResponses) {
-		this.customTestsResponses = customTestsResponses;
 	}
 
 }

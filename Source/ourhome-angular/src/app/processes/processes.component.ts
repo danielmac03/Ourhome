@@ -24,10 +24,10 @@ export class ProcessesComponent implements OnInit {
   ngOnInit(): void {
     if (this.user.role === 'tengo_casa'){
       this.homesService.getHomesByUser(this.user.id).subscribe(
-        (data) => {
-          this.processes = this.processesService.listProcessByHome(data.user.id);
+        data => {
+          this.processes = this.processesService.listProcessByHome(data[0].id);
         },
-        (error) => {
+        error => {
           this.router.navigate(['home']);
         }
       );

@@ -50,7 +50,8 @@ public class ProcessesController {
 		
 		processSelected.setHome(process.getHome());
 		processSelected.setUser(process.getUser());
-		processSelected.setState(process.getState());
+		processSelected.setAnswers(process.getAnswers());
+		processSelected.setCompatibility(process.getCompatibility());
 		processSelected.setCreatedAt(process.getCreatedAt());
 		processSelected.setUpdatedAt(process.getUpdatedAt());
 

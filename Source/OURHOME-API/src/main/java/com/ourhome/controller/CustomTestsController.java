@@ -52,7 +52,6 @@ public class CustomTestsController {
 		customTestsSelected.setOptions1(customTest.getOptions1());
 		customTestsSelected.setOptions2(customTest.getOptions2());
 		customTestsSelected.setCreatedAt(customTest.getCreatedAt());
-		customTestsSelected.setCustomTestsResponses(customTest.getCustomTestsResponses());
 
 		customTestsUpdated = customTestsServiceImpl.updateCustomTest(customTestsSelected);
 		

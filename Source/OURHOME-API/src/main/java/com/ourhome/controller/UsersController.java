@@ -72,8 +72,7 @@ public class UsersController {
 		userSelected.setHomes(user.getHomes());
 		userSelected.setProcess(user.getProcess());
 		userSelected.setCustomTest(user.getCustomTest());
-		userSelected.setCustomTestsResponses(user.getCustomTestsResponses());
-		
+
 		userUpdated = usersServiceImpl.updateUser(userSelected);
 		
 		return userUpdated;	

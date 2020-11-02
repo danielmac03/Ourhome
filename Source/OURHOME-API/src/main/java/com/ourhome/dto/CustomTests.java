@@ -1,10 +1,8 @@
 package com.ourhome.dto;
 
-import java.util.List;
 import java.sql.Date;
 import javax.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="custom_tests")
@@ -34,14 +32,10 @@ public class CustomTests {
 	@CreationTimestamp
 	@Column(name="created_at")
 	private Date createdAt;
-	
-	@OneToMany
-	@JoinColumn(name="custom_test_id")
-	private List<CustomTestsResponses> customTestsResponses;
-	
+
 	public CustomTests() {}
 
-	public CustomTests(int id, Users user, String questions, String answers, String options1, String options2, Date createdAt, List<CustomTestsResponses> customTestsResponses) {
+	public CustomTests(int id, Users user, String questions, String answers, String options1, String options2, Date createdAt) {
 		this.id = id;
 		this.user = user;
 		this.questions = questions;
@@ -49,7 +43,6 @@ public class CustomTests {
 		this.options1 = options1;
 		this.options2 = options2;
 		this.createdAt = createdAt;
-		this.customTestsResponses = customTestsResponses;
 	}
 
 	public int getId() {
@@ -108,13 +101,4 @@ public class CustomTests {
 		this.createdAt = createdAt;
 	}
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "custom_tests_responses")
-	public List<CustomTestsResponses> getCustomTestsResponses() {
-		return customTestsResponses;
-	}
-
-	public void setCustomTestsResponses(List<CustomTestsResponses> customTestsResponses) {
-		this.customTestsResponses = customTestsResponses;
-	}
 }

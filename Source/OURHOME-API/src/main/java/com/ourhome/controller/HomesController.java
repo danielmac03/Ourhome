@@ -32,11 +32,8 @@ public class HomesController {
 	}
 
 	@GetMapping("/homes/user/{user_id}")
-	public Homes getHomeByUser(@PathVariable(name="user_id") int userId) {
-		Homes home = new Homes();
-		home = homesServiceImpl.getHomeByUser(userId);
-
-		return home;
+	public List<Homes> getHomesByUser(@PathVariable(name="user_id") int user_id) {
+		return homesServiceImpl.getHomesByUser(user_id);
 	}
 
 	@GetMapping("/homes/city/{city}")

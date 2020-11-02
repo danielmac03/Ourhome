@@ -28,7 +28,7 @@ public class HomesServiceImpl implements IHomesService{
 	}
 
 	@Override
-	public Homes getHomeByUser(int userId) {
+	public List<Homes> getHomesByUser(int userId) {
 		return iHomesDAO.findByUser_id(userId);
 	}
 

@@ -11,7 +11,7 @@ public interface IHomesService {
 	
 	public Homes getHome(int id);
 
-	public Homes getHomeByUser(int userId);
+	public List<Homes> getHomesByUser(int userId);
 
 	public List<Homes> getHomesByCity(String city);
 	

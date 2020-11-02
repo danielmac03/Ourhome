@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HomesService } from '../service/homes.service';
+import { ProcessesService } from '../service/processes.service';
 import { CustomTestsService } from '../service/custom-tests.service';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
-import { CustomTestsResponsesService } from '../service/custom-tests-responses.service';
 
 @Component({
   selector: 'app-custom-test',
@@ -13,34 +14,45 @@ import { CustomTestsResponsesService } from '../service/custom-tests-responses.s
 })
 export class CustomTestComponent implements OnInit {
 
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private homesService: HomesService,
+    private processesService: ProcessesService,
+    private customTestsService: CustomTestsService,
+    private tokenStorageService: TokenStorageService
+  ) { }
+
+  home;
   customTest;
   questions = [];
   answers: number[] = [];
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private customTestsService: CustomTestsService,
-    private tokenStorageService: TokenStorageService,
-    private customTestsResponsesService: CustomTestsResponsesService
-  ) { }
-
   ngOnInit(): void{
-    this.customTestsService.getCustomTestsByUser(this.route.snapshot.params.home).subscribe(resp => {
-      this.customTest = resp;
+    this.homesService.getHomesById(this.route.snapshot.params.home).subscribe(
+      resp1 => {
+        this.home = resp1;
 
-      for (let i = 0; i < resp.questions.split(',').length; i++){
-        this.questions.push({
-          question: resp.questions.split(',')[i],
-          option1: resp.options1.split(',')[i],
-          option2: resp.options2.split(',')[i]
+        this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(resp2 => {
+          this.customTest = resp2;
+
+          for (let i = 0; i < resp2.questions.split(',').length; i++){
+            this.questions.push({
+              question: resp2.questions.split(',')[i],
+              option1: resp2.options1.split(',')[i],
+              option2: resp2.options2.split(',')[i]
+            });
+          }
+
+          this.answers = resp2.answers.split(',');
+        }, error => {
+          console.log('Error...');
         });
+      }, error => {
+        console.log('Error...');
+        this.router.navigate(['home']);
       }
-
-      this.answers = resp.answers.split(',');
-    }, error => {
-      console.log('Error...');
-    });
+    );
   }
 
   save(data: NgForm): void{
@@ -59,17 +71,17 @@ export class CustomTestComponent implements OnInit {
         }
       }
 
-      const customTestResponses = {
+      const process = {
+        home: this.home,
         user,
-        customTest: this.customTest,
         answers: userAnswers.toString(),
-        compatibility: (common / this.questions.length) * 10
+        compatibility: (common / this.questions.length) * 10,
+        state: 1
       };
 
-      this.customTestsResponsesService.createCustomTestsResponses(customTestResponses).subscribe(resp => {
+      this.processesService.createProcess(process).subscribe(resp => {
         console.log('Complete...');
         this.router.navigate(['processes']);
-
       }, error => {
         console.log('Error....');
       });
