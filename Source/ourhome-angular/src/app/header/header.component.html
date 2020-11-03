@@ -15,7 +15,7 @@
       </li>
 
       <!-- Usuario Invitado -->
-      <div *ngIf="(role == undefined)" class="d-inline-flex">
+      <div *ngIf="(user.role == undefined)" class="d-inline-flex">
         <li class="nav-item">
           <a class="nav-link" href="/register">Register</a>
         </li>
@@ -25,7 +25,7 @@
       </div>
 
       <!-- Usuario Busco Casa -->
-      <div *ngIf="(role == 'search')" class="d-inline-flex">
+      <div *ngIf="(user.role == 'search')" class="d-inline-flex">
         <li class="nav-item dropleft">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
@@ -44,7 +44,7 @@
       </div>
 
       <!-- Usuario Tengo Casa -->
-      <div *ngIf="(role == 'have')" class="d-inline-flex">
+      <div *ngIf="(user.role == 'have')" class="d-inline-flex">
         <li class="nav-item dropleft">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
@@ -63,7 +63,7 @@
       </div>
 
       <!-- Usuario Tengo Casa -->
-      <div *ngIf="(role == 'business')" class="d-inline-flex">
+      <div *ngIf="(user.role == 'business')" class="d-inline-flex">
         <li class="nav-item dropleft">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
@@ -82,7 +82,7 @@
       </div>
 
       <!-- Usuario Admin -->
-      <div *ngIf="(role == 'admin')" class="d-inline-flex">
+      <div *ngIf="(user.role == 'admin')" class="d-inline-flex">
         <li class="nav-item dropleft">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown5" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">

@@ -9,7 +9,6 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 })
 export class HeaderComponent implements OnInit {
 
-  role: string;
   user;
   city: string;
 
@@ -19,16 +18,11 @@ export class HeaderComponent implements OnInit {
   ) {
     this.tokenStorageService.getStatusSaveUser().subscribe(status => {
       this.user = this.tokenStorageService.getUser();
-      this.role = this.user.role;
     });
   }
 
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
-
-    if (this.user != null){
-      this.role = this.user.role;
-    }
   }
 
   searchByCity(): void {

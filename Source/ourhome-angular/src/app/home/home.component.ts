@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   existeComprobarCompatibilidad(defaultTestResponses: string): boolean {
     const user = this.tokenStorageService.getUser();
 
-    if (user != null){
+    if (user !== ''){
       const userDefaultTestResponses = user.defaultTestResponses;
       const defaultTestResponsesString = defaultTestResponses;
 

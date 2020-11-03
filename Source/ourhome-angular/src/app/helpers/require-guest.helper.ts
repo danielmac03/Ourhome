@@ -10,7 +10,7 @@ export class RequireGuestHelper implements CanActivate {
   canActivate(): boolean {
     const user = this.tokenStorageService.getUser();
 
-    if (user != null){
+    if (user !== ''){
       this.router.navigate(['home']);
       return false;
     }

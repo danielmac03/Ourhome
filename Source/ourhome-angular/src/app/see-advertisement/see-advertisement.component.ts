@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HomesService } from '../service/homes.service';
+import { TokenStorageService } from '../service/authentication/token-storage.service';
 
 @Component({
   selector: 'app-see-advertisement',
@@ -10,11 +11,13 @@ import { HomesService } from '../service/homes.service';
 export class SeeAdvertisementComponent implements OnInit {
 
   home;
+  user;
 
   constructor(
       private router: Router,
       private route: ActivatedRoute,
-      private homesService: HomesService
+      private homesService: HomesService,
+      private tokenStorageService: TokenStorageService
   ) {}
 
   ngOnInit(): void {
@@ -27,6 +30,8 @@ export class SeeAdvertisementComponent implements OnInit {
         this.router.navigate(['home']);
       }
     );
+
+    this.user = this.tokenStorageService.getUser();
   }
 
   contact(): void{

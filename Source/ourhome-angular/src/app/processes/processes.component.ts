@@ -52,21 +52,17 @@ export class ProcessesComponent implements OnInit {
   }
 
   existeComprobarCompatibilidad(defaultTestResponses: string): boolean{
-    if (this.user != null){
-      const userDefaultTestResponses = this.user.defaultTestResponses;
-      const defaultTestResponsesString = defaultTestResponses;
+    const userDefaultTestResponses = this.user.defaultTestResponses;
+    const defaultTestResponsesString = defaultTestResponses;
 
-      let contador = 0;
-      for (let i = 0; i < userDefaultTestResponses.length; i++){
-        if (defaultTestResponsesString.charAt(i) === userDefaultTestResponses.charAt(i)){
-          contador++;
-        }
+    let contador = 0;
+    for (let i = 0; i < userDefaultTestResponses.length; i++){
+      if (defaultTestResponsesString.charAt(i) === userDefaultTestResponses.charAt(i)){
+        contador++;
       }
+    }
 
-      if (contador < userDefaultTestResponses.length / 2){
-        return false;
-      }
-    }else{
+    if (contador < userDefaultTestResponses.length / 2){
       return false;
     }
 

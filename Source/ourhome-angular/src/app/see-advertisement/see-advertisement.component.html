@@ -24,7 +24,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div>
+  </div>
 
   <div class="my-3"></div>
 
@@ -102,6 +102,6 @@
     </div>
   </div>
 
-    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" (click)="contact()">Contacta</button>
+    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" (click)="contact()" *ngIf="(user.role == 'search')">Contacta</button>
 </div>
 
