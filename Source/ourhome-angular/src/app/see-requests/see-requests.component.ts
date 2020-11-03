@@ -23,11 +23,11 @@ export class SeeRequestsComponent implements OnInit {
 
   ngOnInit(): void {
     this.homesService.getHomesById(this.route.snapshot.params.home).subscribe(
-      resp => {
-        this.home = resp;
-      }, error => {
-        console.log('Error...');
-      });
+    resp => {
+      this.home = resp;
+    }, error => {
+      console.log('Error...');
+    });
 
     this.processesService.listProcessByHome(this.route.snapshot.params.home).subscribe(
       resp => {

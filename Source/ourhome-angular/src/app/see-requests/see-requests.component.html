@@ -2,21 +2,20 @@
 
   <h2 class="text-center">{{ home['direction']}}</h2>
 
-  <div class="media border p-3 m-3" *ngFor="let user of users">
+  <div class="media border p-3 m-3" *ngFor="let user of users; let i = index">
     <img src="assets/img/a.jpg" alt="{{ user['user']['name'] }} {{ user['user']['surnames'] }}" class="mr-3 rounded-circle" style="width:60px;">
     <div class="media-body mt-2">
       <h3>
         {{ user['user']['name'] }} {{ user['user']['surnames'] }}
         -
-        <i>
-          {{ user['user']['email'] }}
-          <span *ngIf="user['user']['phone'] !== null"> - {{ user['user']['phone'] }} </span>
-        </i>
-        -
         {{ user['compatibility'] }}%
         <label *ngIf="(existeComprobarCompatibilidad(user['user']['defaultTestResponses']))" class="m-0">🟢</label>
       </h3>
-      <p>{{ user['answers'] }}</p>
+
+      <h4>
+          {{ user['user']['email'] }}
+          <span *ngIf="user['user']['phone'] !== null"> - {{ user['user']['phone'] }} </span>
+      </h4>
     </div>
   </div>
 

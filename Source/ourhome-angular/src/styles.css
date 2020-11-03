@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+h3{
+  font-size: 20px;
+  font-weight: normal;
+}
+
+h4{
+  font-size: 17px;
+  font-weight: normal;
+}
+
 .div-form .title{
   color: black;
   font-size: 25px;
