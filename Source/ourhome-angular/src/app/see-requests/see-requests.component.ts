@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HomesService } from '../service/homes.service';
 import { ProcessesService } from '../service/processes.service';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
 
@@ -15,15 +16,22 @@ export class SeeRequestsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private homesService: HomesService,
     private processesService: ProcessesService,
     private tokenStorageService: TokenStorageService
   ) { }
 
   ngOnInit(): void {
+    this.homesService.getHomesById(this.route.snapshot.params.home).subscribe(
+      resp => {
+        this.home = resp;
+      }, error => {
+        console.log('Error...');
+      });
+
     this.processesService.listProcessByHome(this.route.snapshot.params.home).subscribe(
       resp => {
           this.users = resp;
-          this.home = resp[0].home;
       }, error => {
         console.log('Error...');
       });

@@ -85,7 +85,7 @@ INSERT INTO processes (home_id, user_id, answers, compatibility, state, created_
 (3, 5, '0,1', 90, 2, CURRENT_DATE(), CURRENT_DATE()),
 (7, 9, '0,1', 20, 1, CURRENT_DATE(), CURRENT_DATE()),
 (5, 4, '0,1', 100, 2, CURRENT_DATE(), CURRENT_DATE()),
-(8, 2, '0,1', 40, 3, CURRENT_DATE(), CURRENT_DATE()),
+(6, 2, '0,1', 40, 3, CURRENT_DATE(), CURRENT_DATE()),
 (3, 10, '0,1', 20, 2, CURRENT_DATE(), CURRENT_DATE());
 
 CREATE TABLE custom_tests(

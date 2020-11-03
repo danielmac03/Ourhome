@@ -33,8 +33,7 @@ export class ProcessesComponent implements OnInit {
               this.processes = resp2;
             }, error => {
               console.log('Error...');
-          }
-          );
+          });
         },
         error => {
           this.router.navigate(['home']);
@@ -44,7 +43,6 @@ export class ProcessesComponent implements OnInit {
       this.homesService.getHomesByUser(this.user.id).subscribe(
         resp => {
           this.homes = resp;
-          console.log(this.homes);
         },
         error => {
           this.router.navigate(['home']);

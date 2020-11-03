@@ -22,21 +22,21 @@
   </div>
 
   <div *ngIf="(user['role'] == 'have')">
-    <div class="media border p-3 m-3" *ngFor="let user of processes">
-      <img src="assets/img/a.jpg" alt="{{ user['user']['name'] }} {{ user['user']['surnames'] }}" class="mr-3 rounded-circle" style="width:60px;">
+    <div class="media border p-3 m-3" *ngFor="let process of processes">
+      <img src="assets/img/a.jpg" alt="{{ process['user']['name'] }} {{ process['user']['surnames'] }}" class="mr-3 rounded-circle" style="width:60px;">
       <div class="media-body mt-2">
         <h3>
-          {{ user['user']['name'] }} {{ user['user']['surnames'] }}
+          {{ process['user']['name'] }} {{ process['user']['surnames'] }}
           -
           <i>
-            {{ user['user']['email'] }}
-            <span *ngIf="user['user']['phone'] !== null"> - {{ user['user']['phone'] }} </span>
+            {{ process['user']['email'] }}
+            <span *ngIf="process['user']['phone'] !== null"> - {{ process['user']['phone'] }} </span>
           </i>
           -
-          {{ user['compatibility'] }}%
-          <label *ngIf="(existeComprobarCompatibilidad(user['user']['defaultTestResponses']))" class="m-0">🟢</label>
+          {{ process['compatibility'] }}%
+          <label *ngIf="(existeComprobarCompatibilidad(process['user']['defaultTestResponses']))" class="m-0">🟢</label>
         </h3>
-        <p>{{ user['answers'] }}</p>
+        <p>{{ process['answers'] }}</p>
       </div>
     </div>
   </div>
