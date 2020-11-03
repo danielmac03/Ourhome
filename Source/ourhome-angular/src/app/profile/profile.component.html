@@ -78,7 +78,7 @@
           </div>
 
           <div class="col-md-8 mb-4">
-            <div class="row mt-2" *ngIf="(role == 'tengo_casa' || role == '0')">
+            <div class="row mt-2" *ngIf="(role == 'have' || role == '0')">
               <div class="col">
                   <input type="radio" id="role" name="role" [value]="0" checked [(ngModel)]="role">
                   <label for="role">&nbsp; Tengo Casa</label>
@@ -90,7 +90,7 @@
               </div>
           </div>
 
-          <div class="row mt-2" *ngIf="(user['role'] == 'busco_casa'|| role == '1')">
+          <div class="row mt-2" *ngIf="(user['role'] == 'search'|| role == '1')">
             <div class="col">
               <input type="radio" name="role" [value]="0" required [(ngModel)]="role">
               <label for="role">&nbsp; Tengo Casa</label>

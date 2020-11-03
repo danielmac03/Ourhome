@@ -13,6 +13,7 @@ export class ProcessesComponent implements OnInit {
 
   user = this.tokenStorageService.getUser();
   processes;
+  homes;
 
   constructor(
     private processesService: ProcessesService,
@@ -22,17 +23,33 @@ export class ProcessesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.user.role === 'tengo_casa'){
+    if (this.user.role === 'search'){
+      this.processes = this.processesService.listProcessByUser(this.user.id);
+    }else if (this.user.role === 'have') {
       this.homesService.getHomesByUser(this.user.id).subscribe(
-        data => {
-          this.processes = this.processesService.listProcessByHome(data[0].id);
+        resp1 => {
+          this.processesService.listProcessByHome(resp1[0].id).subscribe(
+            resp2 => {
+              this.processes = resp2;
+            }, error => {
+              console.log('Error...');
+          }
+          );
         },
         error => {
           this.router.navigate(['home']);
         }
       );
-    }else if (this.user.role === 'busco_casa'){
-      this.processes = this.processesService.listProcessByUser(this.user.id);
+    } else if (this.user.role === 'business'){
+      this.homesService.getHomesByUser(this.user.id).subscribe(
+        resp => {
+          this.homes = resp;
+          console.log(this.homes);
+        },
+        error => {
+          this.router.navigate(['home']);
+        }
+      );
     }
   }
 

@@ -4776,7 +4776,7 @@ SELECT|sys.sys_config:null
     </column>
     <column id="1147" parent="367" name="role">
       <Position>10</Position>
-      <DataType>enum(&apos;busco_casa&apos;, &apos;tengo_casa&apos;, &apos;admin&apos;)|0e</DataType>
+      <DataType>enum(&apos;search&apos;, &apos;have&apos;, &apos;business&apos;, &apos;admin&apos;)|0e</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="1148" parent="367" name="default_test_responses">

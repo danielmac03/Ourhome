@@ -32,7 +32,7 @@ public class Users {
 	private int age;
 	
 	@Column(name="phone")
-	private int phone;
+	private Integer phone;
 	
 	@Column(name="email")
 	private String email;
@@ -70,7 +70,7 @@ public class Users {
 	private List<CustomTests> customTest;
 	
 	public Users() {}
-	
+
 	/**
 	 * @param id
 	 * @param name
@@ -91,7 +91,6 @@ public class Users {
 	public Users(int id, String name, String surnames, String urlPhoto, String description, int age, int phone, String mail, String password, String role,
 			String defaultTestResponses, boolean showPhone, Date createdAt, Date updatedAt, List<Homes> homes,
 			List<Processes> process, List<CustomTests> customTest) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.surnames = surnames;
@@ -198,14 +197,14 @@ public class Users {
 	/**
 	 * @return the phone
 	 */
-	public int getPhone() {
+	public Integer getPhone() {
 		return phone;
 	}
 
 	/**
 	 * @param phone the phone to set
 	 */
-	public void setPhone(int phone) {
+	public void setPhone(Integer phone) {
 		this.phone = phone;
 	}
 

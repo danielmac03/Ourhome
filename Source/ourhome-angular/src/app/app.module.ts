@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorHelper } from './helpers/auth-interceptor.helper';
 import { RequireLoginHelper } from './helpers/require-login.helper';
 import { RequireGuestHelper } from './helpers/require-guest.helper';
+import { RequireRoleBusinessHelper } from './helpers/require-role-business.helper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HeaderComponent } from './header/header.component';
+import { SeeRequestsComponent } from './see-requests/see-requests.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { HeaderComponent } from './header/header.component';
     CreateTestComponent,
     InitialTestComponent,
     CustomTestComponent,
-    HeaderComponent
+    HeaderComponent,
+    SeeRequestsComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [authInterceptorHelper, RequireLoginHelper, RequireGuestHelper],
+  providers: [authInterceptorHelper, RequireGuestHelper, RequireLoginHelper, RequireRoleBusinessHelper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

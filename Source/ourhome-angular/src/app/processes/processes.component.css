@@ -17,3 +17,8 @@
 .add .card-img, .add .card-img-top{
   height: 250px;
 }
+
+h3{
+  font-size: 20px;
+  font-weight: normal;
+}

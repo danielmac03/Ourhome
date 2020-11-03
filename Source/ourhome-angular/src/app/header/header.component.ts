@@ -9,7 +9,6 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 })
 export class HeaderComponent implements OnInit {
 
-  id: number;
   role: string;
   user;
   city: string;
@@ -20,9 +19,7 @@ export class HeaderComponent implements OnInit {
   ) {
     this.tokenStorageService.getStatusSaveUser().subscribe(status => {
       this.user = this.tokenStorageService.getUser();
-
       this.role = this.user.role;
-      this.id = this.user.id;
     });
   }
 
@@ -31,7 +28,6 @@ export class HeaderComponent implements OnInit {
 
     if (this.user != null){
       this.role = this.user.role;
-      this.id = this.user.id;
     }
   }
 

@@ -40,7 +40,7 @@ export class RegisterComponent {
         age: this.age,
         email: this.email,
         password: this.password,
-        role: (this.role === 1) ? 'tengo_casa' : 'busco_casa',
+        role: (this.role === 1) ? 'have' : 'search',
         showPhone: this.showPhone,
       };
 
