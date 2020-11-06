@@ -2,7 +2,7 @@
 
   <div class="my-5"></div>
 
-  <form>
+  <form #form=ngForm (ngSubmit)="onSubmit(form)">
       <div class="row mb-4">
 
           <div class="col-md-4">
@@ -41,27 +41,27 @@
 
           <div class="col-md-8 mb-4">
               <div class="form-group field">
-                  <input type="text" id="name" name="name" placeholder=" " class="form-control" required [(ngModel)]="name">
+                  <input type="text" id="name" name="name" placeholder=" " class="form-control" required [(ngModel)]="user.name">
                   <label class="lab" for="name">Nombre</label>
               </div>
 
               <div class="form-group field">
-                  <input type="text" id="surnames" name="surnames" placeholder=" " class="form-control" required [(ngModel)]="surnames">
+                  <input type="text" id="surnames" name="surnames" placeholder=" " class="form-control" required [(ngModel)]="user.surnames">
                   <label class="lab" for="surnames">Apellidos</label>
               </div>
 
               <div class="form-group field">
-                  <input type="number" id="age" name="age" placeholder=" " class="form-control" required [(ngModel)]="age">
+                  <input type="number" id="age" name="age" placeholder=" " class="form-control" required [(ngModel)]="user.age">
                   <label class="lab" for="age">Edad</label>
               </div>
 
               <div class="form-group field">
-                  <input type="email" id="email" name="email" placeholder=" " class="form-control" required [(ngModel)]="email">
+                  <input type="email" id="email" name="email" placeholder=" " class="form-control" required [(ngModel)]="user.email">
                   <label class="lab" for="email">Correo</label>
               </div>
 
               <div class="form-group field">
-                  <input type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9" [(ngModel)]="phone">
+                  <input type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9" [(ngModel)]="user.phone">
                   <label class="lab" for="phone">Teléfono</label>
               </div>
           </div>
@@ -78,26 +78,26 @@
           </div>
 
           <div class="col-md-8 mb-4">
-            <div class="row mt-2" *ngIf="(role == 'have' || role == '0')">
+            <div class="row mt-2" *ngIf="(user['role'] == 'have' || user['role'] == '0')">
               <div class="col">
-                  <input type="radio" id="role" name="role" [value]="0" checked [(ngModel)]="role">
+                  <input type="radio" id="role" name="role" [value]="0" checked [(ngModel)]="user.role">
                   <label for="role">&nbsp; Tengo Casa</label>
               </div>
 
               <div class="col">
-                  <input type="radio" name="role" [value]="1" [(ngModel)]="role">
+                  <input type="radio" name="role" [value]="1" [(ngModel)]="user.role">
                   <label for="role">&nbsp; Busco Casa</label>
               </div>
           </div>
 
-          <div class="row mt-2" *ngIf="(user['role'] == 'search'|| role == '1')">
+          <div class="row mt-2" *ngIf="(user['role'] == 'search'|| user['role'] == '1')">
             <div class="col">
-              <input type="radio" name="role" [value]="0" required [(ngModel)]="role">
+              <input type="radio" name="role" [value]="0" required [(ngModel)]="user.role">
               <label for="role">&nbsp; Tengo Casa</label>
             </div>
 
             <div class="col">
-              <input type="radio" name="role" [value]="1" required [(ngModel)]="role" checked>
+              <input type="radio" name="role" [value]="1" required [(ngModel)]="user.role" checked>
               <label for="role">&nbsp; Busco Casa</label>
             </div>
           </div>
@@ -119,11 +119,11 @@
             <div class="form-check">
 
               <div *ngIf="(user['showPhone'] == true)">
-                  <input id="showPhone" name="showPhone" type="checkbox" class="form-check-input" checked [value]="1" [(ngModel)]="showPhone">
+                  <input id="showPhone" name="showPhone" type="checkbox" class="form-check-input" checked [value]="1" [(ngModel)]="user.showPhone">
               </div>
 
               <div *ngIf="(user['showPhone'] == false)">
-                <input name="showPhone" type="checkbox" class="form-check-input" [value]="0" [(ngModel)]="showPhone">
+                <input name="showPhone" type="checkbox" class="form-check-input" [value]="0" [(ngModel)]="user.showPhone">
               </div>
 
               <label class="form-check-label" for="showPhone">

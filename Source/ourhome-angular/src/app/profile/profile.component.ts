@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
 import { UsersService } from '../service/users.service';
 import { AuthService } from '../service/authentication/auth.service';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-profile',
@@ -11,14 +12,7 @@ import { AuthService } from '../service/authentication/auth.service';
 })
 export class ProfileComponent implements OnInit {
 
-  user = {} as any;
-  name: string;
-  surnames: string;
-  age: number;
-  email: string;
-  phone: number;
-  role: string;
-  showPhone: number;
+  user;
 
   constructor(
     private tokenStorageService: TokenStorageService,
@@ -26,18 +20,15 @@ export class ProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private usersService: UsersService
-  ) {
+  ) { }
+
+  ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
-    this.name = this.user.name;
-    this.surnames = this.user.surnames;
-    this.age = this.user.age;
-    this.email = this.user.email;
-    this.phone = this.user.phone;
-    this.role = this.user.role;
-    this.showPhone = this.user.showPhone;
   }
 
-  ngOnInit(): void { }
+  onSubmit(form: NgForm): void{
+    console.log(form.value);
+  }
 
 /*
   updateUser() {

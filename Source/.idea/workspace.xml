@@ -24,15 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f5b3e810-7267-49fe-b4a9-b602cdff5995" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/helpers/require-guest.helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/helpers/require-guest.helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/helpers/require-login.helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/helpers/require-login.helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/processes/processes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/processes/processes.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/see-advertisement/see-advertisement.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/see-advertisement/see-advertisement.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/see-advertisement/see-advertisement.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/see-advertisement/see-advertisement.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/service/authentication/token-storage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/service/authentication/token-storage.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OURHOME-API/src/main/java/com/ourhome/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OURHOME-API/src/main/java/com/ourhome/controller/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/profile/profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ourhome-angular/src/app/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ourhome-angular/src/app/profile/profile.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,19 +94,6 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.ourhome-angular">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="E2E Tests (ourhome-angular)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/ourhome-angular/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -166,6 +147,8 @@
       <workItem from="1604349795146" duration="7667000" />
       <workItem from="1604385668378" duration="13369000" />
       <workItem from="1604439795076" duration="3024000" />
+      <workItem from="1604694453775" duration="14000" />
+      <workItem from="1604694479485" duration="744000" />
     </task>
     <task id="LOCAL-00001" summary="Subir custom test">
       <created>1604164555860</created>
@@ -327,45 +310,45 @@
     </state>
     <state x="740" y="280" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604386118623" />
     <state x="2660" y="280" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604093787325" />
-    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1604440066227">
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1604694572303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604440066227" />
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694572303" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
-    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1604440066227">
+    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1604694572303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604440066227" />
+    <state width="1877" height="287" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694572303" />
     <state width="1877" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
-    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1604440066227">
+    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1604694572303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604440066227" />
+    <state width="1877" height="287" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694572303" />
     <state width="1877" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
-    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1604440066227">
+    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1604694572303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604440066227" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694572303" />
     <state width="1877" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
-    <state width="1877" height="287" key="GridCell.Tab.1.bottom" timestamp="1604439817131">
+    <state width="1877" height="287" key="GridCell.Tab.1.bottom" timestamp="1604694572303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604439817131" />
+    <state width="1877" height="287" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694572303" />
     <state width="1877" height="285" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419445" />
-    <state width="1877" height="287" key="GridCell.Tab.1.center" timestamp="1604439817131">
+    <state width="1877" height="287" key="GridCell.Tab.1.center" timestamp="1604694572303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604439817131" />
+    <state width="1877" height="287" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694572303" />
     <state width="1877" height="285" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419445" />
-    <state width="1877" height="287" key="GridCell.Tab.1.left" timestamp="1604439817131">
+    <state width="1877" height="287" key="GridCell.Tab.1.left" timestamp="1604694572303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604439817131" />
+    <state width="1877" height="287" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694572303" />
     <state width="1877" height="285" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419444" />
-    <state width="1877" height="287" key="GridCell.Tab.1.right" timestamp="1604439817131">
+    <state width="1877" height="287" key="GridCell.Tab.1.right" timestamp="1604694572303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604439817131" />
+    <state width="1877" height="287" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694572303" />
     <state width="1877" height="285" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155419445" />
     <state x="692" y="227" key="RollbackChangesDialog" timestamp="1604173270426">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -400,14 +383,14 @@
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state x="2697" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1604155327499" />
-    <state x="2038" y="-15" width="1569" height="722" maximized="true" key="dock-window-1" timestamp="1604440095942">
+    <state x="2038" y="-15" width="1569" height="722" maximized="true" key="dock-window-1" timestamp="1604694787428">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="2038" y="-15" width="1569" height="722" maximized="true" key="dock-window-1/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604440095942" />
-    <state x="667" y="124" width="838" height="801" key="find.popup" timestamp="1604442814652">
+    <state x="2038" y="-15" width="1569" height="722" maximized="true" key="dock-window-1/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694787428" />
+    <state x="667" y="124" width="838" height="801" key="find.popup" timestamp="1604694711883">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="667" y="124" width="838" height="801" key="find.popup/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604442814652" />
+    <state x="667" y="124" width="838" height="801" key="find.popup/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1604694711883" />
     <state x="789" y="424" key="git4idea.ui.GitStashDialog" timestamp="1604168162675">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

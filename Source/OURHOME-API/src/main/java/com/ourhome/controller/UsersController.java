@@ -49,13 +49,13 @@ public class UsersController {
 		return user;
 	}
 	
-	@PutMapping("/users/{id}")
-	public Users updateUser(@PathVariable(name="id") int id, @RequestBody Users user) {
+	@PutMapping("/users")
+	public Users updateUser(@RequestBody Users user) {
 		Users userSelected = new Users();
 		Users userUpdated = new Users();
 		
-		userSelected = usersServiceImpl.searchUser(id);
-		
+		userSelected = usersServiceImpl.searchUser(user.getId());
+
 		userSelected.setName(user.getName());
 		userSelected.setSurnames(user.getSurnames());
 		userSelected.setUrlPhoto(user.getUrlPhoto());
