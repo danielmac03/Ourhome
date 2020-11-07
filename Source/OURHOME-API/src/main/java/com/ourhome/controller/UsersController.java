@@ -10,7 +10,6 @@ import com.ourhome.service.UsersServiceImpl;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class UsersController {
 
 	@Autowired
@@ -63,15 +62,10 @@ public class UsersController {
 		userSelected.setAge(user.getAge());
 		userSelected.setPhone(user.getPhone());
 		userSelected.setEmail(user.getEmail());
-		userSelected.setPassword(user.getPassword());
+		userSelected.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userSelected.setRole(user.getRole());
 		userSelected.setDefaultTestResponses(user.getDefaultTestResponses());
 		userSelected.setShowPhone(user.isShowPhone());		
-		userSelected.setCreatedAt(user.getCreatedAt());
-		userSelected.setUpdatedAt(user.getUpdatedAt());
-		userSelected.setHomes(user.getHomes());
-		userSelected.setProcess(user.getProcess());
-		userSelected.setCustomTest(user.getCustomTest());
 
 		userUpdated = usersServiceImpl.updateUser(userSelected);
 		

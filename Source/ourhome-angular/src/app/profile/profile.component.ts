@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
 import { UsersService } from '../service/users.service';
 import { AuthService } from '../service/authentication/auth.service';
-import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-profile',
@@ -16,8 +15,6 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private tokenStorageService: TokenStorageService,
-    private authService: AuthService,
-    private route: ActivatedRoute,
     private router: Router,
     private usersService: UsersService
   ) { }
@@ -26,24 +23,14 @@ export class ProfileComponent implements OnInit {
     this.user = this.tokenStorageService.getUser();
   }
 
-  onSubmit(form: NgForm): void{
-    console.log(form.value);
+  onSubmit(form): void{
+    this.user = Object.assign(this.user, form.value);
+
+    this.usersService.updateUser(this.user).subscribe(resp => {
+      console.log(resp);
+    }, error => {
+      console.log('Error...');
+    });
   }
 
-/*
-  updateUser() {
-    const user = {
-      name: this.name,
-      surnames: this.surnames,
-      age: this.age,
-      email: this.email,
-      password: this.password,
-      role: this.role,
-      showPhone: this.showPhone
-    };
-
-    this.tokenStorageService.saveUser(user);
-    this.router.navigate(['initialTest']);
-  }
-*/
 }
