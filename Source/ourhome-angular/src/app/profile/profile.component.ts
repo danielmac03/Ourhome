@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
 import { UsersService } from '../service/users.service';
-import { AuthService } from '../service/authentication/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +13,6 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private tokenStorageService: TokenStorageService,
-    private router: Router,
     private usersService: UsersService
   ) { }
 
@@ -27,7 +24,7 @@ export class ProfileComponent implements OnInit {
     this.user = Object.assign(this.user, form.value);
 
     this.usersService.updateUser(this.user).subscribe(resp => {
-      console.log(resp);
+      this.tokenStorageService.saveUser(resp);
     }, error => {
       console.log('Error...');
     });
