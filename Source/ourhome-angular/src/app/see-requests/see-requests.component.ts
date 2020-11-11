@@ -12,6 +12,7 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 export class SeeRequestsComponent implements OnInit {
 
   home;
+  user;
   users;
 
   constructor(
@@ -22,25 +23,39 @@ export class SeeRequestsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.homesService.getHomesById(this.route.snapshot.params.home).subscribe(
-    resp => {
-      this.home = resp;
-    }, error => {
-      console.log('Error...');
-    });
+    this.user = this.tokenStorageService.getUser();
 
-    this.processesService.listProcessByHome(this.route.snapshot.params.home).subscribe(
+    if (this.route.snapshot.params.home) {
+      this.homesService.getHomesById(this.route.snapshot.params.home).subscribe(
       resp => {
-          this.users = resp;
+        this.home = resp;
+        this.listProcesses();
       }, error => {
         console.log('Error...');
       });
+    } else {
+      this.homesService.getHomesByUser(this.user.id).subscribe(
+      resp => {
+        this.home = resp[0];
+        this.listProcesses();
+      }, error => {
+        console.log('Error...');
+      });
+    }
   }
 
-  existeComprobarCompatibilidad(defaultTestResponses: string): boolean{
-    const user = this.tokenStorageService.getUser();
+  listProcesses(): void{
+    this.processesService.listProcessByHome(this.home.id).subscribe(
+    resp => {
+      this.users = resp;
+    }, error => {
+      console.log('Error...');
+    });
+  }
 
-    const userDefaultTestResponses = user.defaultTestResponses;
+
+  existeComprobarCompatibilidad(defaultTestResponses: string): boolean{
+    const userDefaultTestResponses = this.user.defaultTestResponses;
     const defaultTestResponsesString = defaultTestResponses;
 
     let contador = 0;

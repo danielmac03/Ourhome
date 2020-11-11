@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ProcessesComponent } from './processes/processes.component';
+import { ListProcessesComponent } from './list-processes/list-processes.component';
 import { CreateAdvertisementComponent } from './create-advertisement/create-advertisement.component';
 import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
 import { CreateTestComponent } from './create-test/create-test.component';
@@ -29,7 +29,7 @@ import { SeeRequestsComponent } from './see-requests/see-requests.component';
     RegisterComponent,
     NotFoundComponent,
     ProfileComponent,
-    ProcessesComponent,
+    ListProcessesComponent,
     SeeAdvertisementComponent,
     CreateAdvertisementComponent,
     CreateTestComponent,

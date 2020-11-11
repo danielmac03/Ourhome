@@ -21,25 +21,6 @@
     </div>
   </div>
 
-  <div *ngIf="(user['role'] == 'have')">
-    <div class="media border p-3 m-3" *ngFor="let process of processes; let i = index">
-      <img src="assets/img/a.jpg" alt="{{ process['user']['name'] }} {{ process['user']['surnames'] }}" class="mr-3 rounded-circle" style="width:60px;">
-      <div class="media-body mt-2">
-        <h3>
-          {{ process['user']['name'] }} {{ process['user']['surnames'] }}
-          -
-          {{ process['compatibility'] }}%
-          <label *ngIf="(existeComprobarCompatibilidad(process['user']['defaultTestResponses']))" class="m-0">🟢</label>
-        </h3>
-
-        <h4>
-          {{ process['user']['email'] }}
-          <span *ngIf="process['user']['phone'] !== null"> - {{ process['user']['phone'] }} </span>
-        </h4>
-      </div>
-    </div>
-  </div>
-
   <div class="text-center" *ngIf="(user['role'] == 'business')">
     <div class="add d-inline-block" *ngFor="let home of homes">
       <div class="card m-3">

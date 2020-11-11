@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ProcessesComponent } from './processes/processes.component';
+import { ListProcessesComponent } from './list-processes/list-processes.component';
 import { CustomTestComponent } from './custom-test/custom-test.component';
 import { CreateTestComponent } from './create-test/create-test.component';
 import { SeeRequestsComponent } from './see-requests/see-requests.component';
@@ -61,7 +61,7 @@ const routes: Routes = [
   },
   {
     path: 'list-processes',
-    component: ProcessesComponent,
+    component: ListProcessesComponent,
     canActivate: [RequireRolesHelper],
     data: {
       allowedRoles: ['search', 'business']

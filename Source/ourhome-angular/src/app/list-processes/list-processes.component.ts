@@ -6,10 +6,10 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 
 @Component({
   selector: 'app-processes',
-  templateUrl: './processes.component.html',
-  styleUrls: ['./processes.component.css']
+  templateUrl: './list-processes.component.html',
+  styleUrls: ['./list-processes.component.css']
 })
-export class ProcessesComponent implements OnInit {
+export class ListProcessesComponent implements OnInit {
 
   user = this.tokenStorageService.getUser();
   processes;
@@ -25,20 +25,6 @@ export class ProcessesComponent implements OnInit {
   ngOnInit(): void {
     if (this.user.role === 'search'){
       this.processes = this.processesService.listProcessByUser(this.user.id);
-    }else if (this.user.role === 'have') {
-      this.homesService.getHomesByUser(this.user.id).subscribe(
-        resp1 => {
-          this.processesService.listProcessByHome(resp1[0].id).subscribe(
-            resp2 => {
-              this.processes = resp2;
-            }, error => {
-              console.log('Error...');
-          });
-        },
-        error => {
-          this.router.navigate(['home']);
-        }
-      );
     } else if (this.user.role === 'business'){
       this.homesService.getHomesByUser(this.user.id).subscribe(
         resp => {
