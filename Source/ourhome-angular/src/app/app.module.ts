@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorHelper } from './helpers/auth-interceptor.helper';
-import { RequireLoginHelper } from './helpers/require-login.helper';
-import { RequireGuestHelper } from './helpers/require-guest.helper';
-import { RequireRoleBusinessHelper } from './helpers/require-role-business.helper';
+import { RequireRolesHelper } from './helpers/require-roles.helper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,7 +45,7 @@ import { SeeRequestsComponent } from './see-requests/see-requests.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [authInterceptorHelper, RequireGuestHelper, RequireLoginHelper, RequireRoleBusinessHelper],
+  providers: [authInterceptorHelper, RequireRolesHelper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
