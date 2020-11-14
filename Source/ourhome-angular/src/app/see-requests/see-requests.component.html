@@ -16,6 +16,18 @@
           {{ user['user']['email'] }}
           <span *ngIf="user['user']['phone'] !== null"> - {{ user['user']['phone'] }} </span>
       </h4>
+
+      <button data-toggle="collapse" [attr.data-target]="'#answers' + i" class="btn btn-custom">Mostrar respuestas</button>
+
+      <div id="answers{{i}}" class="collapse mt-2" *ngFor="let question of questions; let x = index">
+        <div *ngIf="(user['answers'].split(',')[x] == 0)">
+          {{ question['question'] }}: {{ question['option1'] }}
+        </div>
+
+        <div *ngIf="(user['answers'].split(',')[x] == 1)">
+          {{ question['question'] }}: {{ question['option2'] }}
+        </div>
+      </div>
     </div>
   </div>
 
