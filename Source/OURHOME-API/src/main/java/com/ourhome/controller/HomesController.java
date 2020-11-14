@@ -7,41 +7,41 @@ import com.ourhome.dto.Homes;
 import com.ourhome.service.HomesServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/homes")
 public class HomesController {
 
 	@Autowired
 	HomesServiceImpl homesServiceImpl;
 	
-	@GetMapping("/homes")
+	@GetMapping("/public")
 	public List<Homes> listHomes(){
 		return homesServiceImpl.listHomes();
 	}
-	
-	@PostMapping("/homes")
-	public Homes saveHomes(@RequestBody Homes home) {
-		return homesServiceImpl.saveHomes(home);
-	}
-		
-	@GetMapping("/homes/{id}")
+
+	@GetMapping("/public/{id}")
 	public Homes getHome(@PathVariable(name="id") int id) {
-		Homes home = new Homes();		
+		Homes home = new Homes();
 		home = homesServiceImpl.getHome(id);
-		
+
 		return home;
 	}
 
-	@GetMapping("/homes/user/{user_id}")
+	@GetMapping("/user/{user_id}")
 	public List<Homes> getHomesByUser(@PathVariable(name="user_id") int user_id) {
 		return homesServiceImpl.getHomesByUser(user_id);
 	}
 
-	@GetMapping("/homes/city/{city}")
+	@GetMapping("/city/{city}")
 	public List<Homes> getHomesByCity(@PathVariable(name="city") String city){
 		return homesServiceImpl.getHomesByCity(city);
 	}
-	
-	@PutMapping("/homes/{id}")
+
+	@PostMapping()
+	public Homes saveHomes(@RequestBody Homes home) {
+		return homesServiceImpl.saveHomes(home);
+	}
+
+	@PutMapping("/{id}")
 	public Homes updateHome(@PathVariable(name="id") int id, @RequestBody Homes home) {
 		Homes homeSelected = new Homes();
 		Homes homeUpdated = new Homes();
@@ -67,7 +67,7 @@ public class HomesController {
 		return homeUpdated;
 	}
 	
-	@DeleteMapping("/homes/{id}")
+	@DeleteMapping("/{id}")
 	public void deleteHome(@PathVariable(name="id") int id) {
 		homesServiceImpl.deleteHome(id);
 	}

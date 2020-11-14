@@ -7,23 +7,18 @@ import com.ourhome.dto.CustomTests;
 import com.ourhome.service.CustomTestsServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/customTests")
 public class CustomTestsController {
 	
 	@Autowired
 	CustomTestsServiceImpl customTestsServiceImpl;
 	
-	@GetMapping("/customTests")
+	@GetMapping()
 	public List<CustomTests> listCustomTests(){
 		return customTestsServiceImpl.listCustomTests();
 	}
-	
-	@PostMapping("/customTests")
-	public CustomTests saveCustomTest(@RequestBody CustomTests customTest) {
-		return customTestsServiceImpl.saveCustomTest(customTest);
-	}
 		
-	@GetMapping("/customTests/{id}")
+	@GetMapping("/{id}")
 	public CustomTests searchCustomTest(@PathVariable(name="id") int id) {
 		CustomTests customTest = new CustomTests();		
 		customTest = customTestsServiceImpl.searchCustomTest(id);
@@ -31,15 +26,20 @@ public class CustomTestsController {
 		return customTest;
 	}
 
-	@GetMapping("/customTests/user/{user_id}")
+	@GetMapping("/user/{user_id}")
 	public CustomTests searchCustomTestByUser(@PathVariable(name="user_id") int user_id) {
 		CustomTests customTest = new CustomTests();
 		customTest = customTestsServiceImpl.searchCustomTestByUser(user_id);
 
 		return customTest;
 	}
+
+	@PostMapping()
+	public CustomTests saveCustomTest(@RequestBody CustomTests customTest) {
+		return customTestsServiceImpl.saveCustomTest(customTest);
+	}
 		
-	@PutMapping("/customTests/{id}")
+	@PutMapping("/{id}")
 	public CustomTests updateCustomTest(@PathVariable(name="id") int id, @RequestBody CustomTests customTest) {
 		CustomTests customTestsSelected = new CustomTests();
 		CustomTests customTestsUpdated = new CustomTests();
@@ -58,7 +58,7 @@ public class CustomTestsController {
 		return customTestsUpdated;
 	}
 	
-	@DeleteMapping("/customTests/{id}")
+	@DeleteMapping("/{id}")
 	public void deleteCustomTest(@PathVariable(name="id") int id) {
 		customTestsServiceImpl.deleteCustomTest(id);
 	}

@@ -7,23 +7,18 @@ import com.ourhome.dto.Processes;
 import com.ourhome.service.ProcessesServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/processes")
 public class ProcessesController {
 
 	@Autowired
 	ProcessesServiceImpl processesServiceImpl;
 	
-	@GetMapping("/processes")
+	@GetMapping()
 	public List<Processes> listProcesses(){
 		return processesServiceImpl.listProcesses();
 	}
-	
-	@PostMapping("/processes")
-	public Processes saveProcess(@RequestBody Processes process) {
-		return processesServiceImpl.saveProcess(process);
-	}
-	
-	@GetMapping("/processes/{id}")
+
+	@GetMapping("/{id}")
 	public Processes searchProcess(@PathVariable(name = "id") int id) {
 		Processes process = new Processes();		
 		process = processesServiceImpl.getProcess(id);
@@ -31,17 +26,22 @@ public class ProcessesController {
 		return process;
 	}
 
-	@GetMapping("/processes/home/{home_id}")
+	@GetMapping("/home/{home_id}")
 	public List<Processes> listProcessByHome(@PathVariable(name = "home_id") int home_id){
 		return processesServiceImpl.listProcessByHome(home_id);
 	}
 
-	@GetMapping("/processes/user/{user_id}")
+	@GetMapping("/user/{user_id}")
 	public List<Processes> listProcessByUser(@PathVariable(name = "user_id") int user_id){
 		return processesServiceImpl.listProcessByUser(user_id);
 	}
 
-	@PutMapping("/processes/{id}")
+	@PostMapping()
+	public Processes saveProcess(@RequestBody Processes process) {
+		return processesServiceImpl.saveProcess(process);
+	}
+
+	@PutMapping("/{id}")
 	public Processes updateProcess(@PathVariable(name = "id") int id, @RequestBody Processes process) {
 		Processes processSelected = new Processes();
 		Processes processUpdated = new Processes();
@@ -60,8 +60,8 @@ public class ProcessesController {
 		return processUpdated;
 	}
 	
-	@DeleteMapping("/processes/{id}")
-	public void eliminarProcess(@PathVariable(name="id") int id) {
+	@DeleteMapping("{id}")
+	public void deleteProcess(@PathVariable(name="id") int id) {
 		processesServiceImpl.deleteProcess(id);
 	}
 	

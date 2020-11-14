@@ -9,30 +9,24 @@ import com.ourhome.dto.Users;
 import com.ourhome.service.UsersServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UsersController {
+
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Autowired
 	UsersServiceImpl usersServiceImpl;
-	
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
 	public UsersController(BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 
-	@GetMapping("/users")
+	@GetMapping()
 	public List<Users> listUsers(){
 		return usersServiceImpl.listUsers();
 	}
-	
-	@PostMapping("/users")
-	public Users saveUser(@RequestBody Users user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		return usersServiceImpl.saveUser(user);
-	}
-	
-	@GetMapping("/users/{id}")
+
+	@GetMapping("/{id}")
 	public Users searchUser(@PathVariable(name="id") int id) {
 		Users user = new Users();		
 		user = usersServiceImpl.searchUser(id);
@@ -40,15 +34,21 @@ public class UsersController {
 		return user;
 	}
 	
-	@GetMapping("/users/email/{email}")
+	@GetMapping("/email/{email}")
 	public Users searchUserByEmail(@PathVariable(name="email") String email) {
 		Users user = new Users();		
 		user = usersServiceImpl.searchUserByEmail(email);
 		
 		return user;
 	}
+
+	@PostMapping()
+	public Users saveUser(@RequestBody Users user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		return usersServiceImpl.saveUser(user);
+	}
 	
-	@PutMapping("/users")
+	@PutMapping()
 	public Users updateUser(@RequestBody Users user) {
 		Users userSelected = new Users();
 		Users userUpdated = new Users();
@@ -72,7 +72,7 @@ public class UsersController {
 		return userUpdated;	
 	}
 	
-	@DeleteMapping("/users/{id}")
+	@DeleteMapping("/{id}")
 	public void deleteUser(@PathVariable(name="id") int id) {
 		usersServiceImpl.deleteUser(id);
 	}

@@ -13,15 +13,15 @@ export class HomesService {
   constructor(private http: HttpClient) { }
 
   getHomes(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}/public`);
+  }
+
+  getHomesById(homeId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/public/${homeId}`);
   }
 
   getHomesByUser(userId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/user/${userId}`);
-  }
-
-  getHomesById(homeId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${homeId}`);
   }
 
   getHomesByCity(city: string): Observable<any> {
