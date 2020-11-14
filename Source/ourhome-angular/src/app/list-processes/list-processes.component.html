@@ -14,7 +14,7 @@
             {{ process['home']['price'] }} €
           </label>
           <a href="/seeAdvertisement/{{ process['home']['id'] }}" class="btn btn-custom d-block">Ver anuncio
-            <label *ngIf="(existeComprobarCompatibilidad(process['home']['user']['defaultTestResponses']))" class="m-0">🟢</label>
+            <label *ngIf="(checkCompatibility(process['home']['user']['defaultTestResponses']))" class="m-0">🟢</label>
           </a>
         </div>
       </div>

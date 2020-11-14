@@ -4,6 +4,7 @@ import { HomesService } from '../service/homes.service';
 import { ProcessesService } from '../service/processes.service';
 import { CustomTestsService } from '../service/custom-tests.service';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
+import { CheckCompatibilityHelper } from '../helpers/check-compatibility.helper';
 
 @Component({
   selector: 'app-see-requests',
@@ -23,6 +24,7 @@ export class SeeRequestsComponent implements OnInit {
     private processesService: ProcessesService,
     private customTestsService: CustomTestsService,
     private tokenStorageService: TokenStorageService,
+    private checkCompatibilityHelper: CheckCompatibilityHelper
   ) { }
 
   ngOnInit(): void {
@@ -74,22 +76,8 @@ export class SeeRequestsComponent implements OnInit {
   }
 
 
-  existeComprobarCompatibilidad(defaultTestResponses: string): boolean{
-    const userDefaultTestResponses = this.user.defaultTestResponses;
-    const defaultTestResponsesString = defaultTestResponses;
-
-    let contador = 0;
-    for (let i = 0; i < userDefaultTestResponses.length; i++){
-      if (defaultTestResponsesString.charAt(i) === userDefaultTestResponses.charAt(i)){
-        contador++;
-      }
-    }
-
-    if (contador < userDefaultTestResponses.length / 2){
-      return false;
-    }
-
-    return true;
+  checkCompatibility(defaultTestResponses: string): boolean {
+    return this.checkCompatibilityHelper.check(defaultTestResponses);
   }
 
 }

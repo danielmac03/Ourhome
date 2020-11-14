@@ -11,7 +11,7 @@
             {{ home['price'] }} €
           </label>
           <a href="/seeAdvertisement/{{ home['id'] }}" class="btn btn-custom d-block">Ver anuncio
-            <label *ngIf="(existeComprobarCompatibilidad(home.user['defaultTestResponses']))" class="m-0">🟢</label>
+            <label *ngIf="(checkCompatibility(home.user['defaultTestResponses']))" class="m-0">🟢</label>
           </a>
         </div>
       </div>

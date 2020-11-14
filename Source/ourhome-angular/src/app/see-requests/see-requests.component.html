@@ -9,7 +9,7 @@
         {{ user['user']['name'] }} {{ user['user']['surnames'] }}
         -
         {{ user['compatibility'] }}%
-        <label *ngIf="(existeComprobarCompatibilidad(user['user']['defaultTestResponses']))" class="m-0">🟢</label>
+        <label *ngIf="(checkCompatibility(user['user']['defaultTestResponses']))" class="m-0">🟢</label>
       </h3>
 
       <h4>

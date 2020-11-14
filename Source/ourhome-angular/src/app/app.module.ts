@@ -20,6 +20,7 @@ import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HeaderComponent } from './header/header.component';
 import { SeeRequestsComponent } from './see-requests/see-requests.component';
+import { CheckCompatibilityHelper } from './helpers/check-compatibility.helper';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { SeeRequestsComponent } from './see-requests/see-requests.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [authInterceptorHelper, RequireRolesHelper],
+  providers: [authInterceptorHelper, RequireRolesHelper, CheckCompatibilityHelper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
