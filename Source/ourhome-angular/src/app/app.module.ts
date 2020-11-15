@@ -37,7 +37,7 @@ import { CheckCompatibilityHelper } from './helpers/check-compatibility.helper';
     InitialTestComponent,
     CustomTestComponent,
     HeaderComponent,
-    SeeRequestsComponent,
+    SeeRequestsComponent
   ],
   imports: [
     BrowserModule,

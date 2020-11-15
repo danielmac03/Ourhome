@@ -3,32 +3,46 @@
   <h2 class="text-center">{{ home['direction']}}</h2>
 
   <div class="media border p-3 m-3" *ngFor="let user of users; let i = index">
-    <img src="assets/img/a.jpg" alt="{{ user['user']['name'] }} {{ user['user']['surnames'] }}" class="mr-3 rounded-circle" style="width:60px;">
-    <div class="media-body mt-2">
-      <h3>
-        {{ user['user']['name'] }} {{ user['user']['surnames'] }}
-        -
-        {{ user['compatibility'] }}%
-        <label *ngIf="(checkCompatibility(user['user']['defaultTestResponses']))" class="m-0">🟢</label>
-      </h3>
-
-      <h4>
-          {{ user['user']['email'] }}
-          <span *ngIf="user['user']['phone'] !== null"> - {{ user['user']['phone'] }} </span>
-      </h4>
-
-      <button data-toggle="collapse" [attr.data-target]="'#answers' + i" class="btn btn-custom">Mostrar respuestas</button>
-
-      <div id="answers{{i}}" class="collapse mt-2" *ngFor="let question of questions; let x = index">
-        <div *ngIf="(user['answers'].split(',')[x] == 0)">
-          {{ question['question'] }}: {{ question['option1'] }}
+    <div class="col-md-5">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="assets/img/a.jpg" alt="{{ user['user']['name'] }} {{ user['user']['surnames'] }}" class="mr-3 rounded-circle" style="width:100px;">
         </div>
+        <div class="col-md-8">
+          <div class="media-body mt-2">
+            <h3>
+              {{ user['user']['name'] }} {{ user['user']['surnames'] }}
+              -
+              {{ user['compatibility'] }}%
+              <label *ngIf="(checkCompatibility(user['user']['defaultTestResponses']))" class="m-0">🟢</label>
+            </h3>
 
-        <div *ngIf="(user['answers'].split(',')[x] == 1)">
-          {{ question['question'] }}: {{ question['option2'] }}
+            <h4>
+              ✉  {{ user['user']['email'] }}
+              <br>
+              <span *ngIf="user['user']['phone'] !== null"> 📞 {{ user['user']['phone'] }} </span>
+            </h4>
+
+          </div>
+          <button data-toggle="collapse" [attr.data-target]="'#answers' + i" class="btn btn-custom">Mostrar respuestas</button>
         </div>
       </div>
-    </div>
-  </div>
 
+
+    </div>
+
+      <div class="col-md-7">
+
+
+        <div id="answers{{i}}" class="collapse mt-2" *ngFor="let question of questions; let x = index">
+          <div *ngIf="(user['answers'].split(',')[x] == 0)">
+            {{ question['question'] }}: {{ question['option1'] }}
+          </div>
+
+          <div *ngIf="(user['answers'].split(',')[x] == 1)">
+            {{ question['question'] }}: {{ question['option2'] }}
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
