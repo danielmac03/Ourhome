@@ -68,6 +68,10 @@ public class Users {
 	@OneToMany
 	@JoinColumn(name="user_id")
 	private List<CustomTests> customTest;
+
+	@OneToMany
+	@JoinColumn(name="user_id")
+	private List<Notifications> notifications;
 	
 	public Users() {}
 

@@ -99,8 +99,8 @@ CREATE TABLE custom_tests(
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO custom_tests (user_id, questions, answers, options1, options2, created_at)
-VALUES (2, 'qwe, ert', '1,2', 'awd, awew', 'awd, awew', CURRENT_DATE()),
+INSERT INTO custom_tests (user_id, questions, answers, options1, options2, created_at) VALUES
+       (2, 'qwe, ert', '1,2', 'awd, awew', 'awd, awew', CURRENT_DATE()),
        (3, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
        (4, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
        (5, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
@@ -109,3 +109,23 @@ VALUES (2, 'qwe, ert', '1,2', 'awd, awew', 'awd, awew', CURRENT_DATE()),
        (8, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
        (9, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE()),
        (10, 'qwe, ert', '1,2', 'awd, cvb', 'awd, awew', CURRENT_DATE());
+
+CREATE TABLE notifications(
+     notification_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     user_id INT NOT NULL,
+     content MEDIUMTEXT NOT NULL,
+     created_at DATE DEFAULT NULL,
+     FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+
+INSERT INTO notifications (user_id, content, created_at) VALUES
+(2, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(3, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(4, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(5, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(6, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(7, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(8, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(9, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(10, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE());
