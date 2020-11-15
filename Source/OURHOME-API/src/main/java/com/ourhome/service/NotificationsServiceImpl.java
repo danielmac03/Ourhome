@@ -12,11 +12,6 @@ public class NotificationsServiceImpl implements INotificationsService {
 
 	@Autowired
 	INotificationsDAO iNotificationsDAO;
-	
-	@Override
-	public List<Notifications> listNotifications() {
-		return iNotificationsDAO.findAll();
-	}
 
 	@Override
 	public Notifications saveNotification(Notifications notification) {
@@ -31,11 +26,6 @@ public class NotificationsServiceImpl implements INotificationsService {
 	@Override
 	public List<Notifications>  listNotificationByUser(int userId){
 		return iNotificationsDAO.findByUser_id(userId);
-	}
-
-	@Override
-	public Notifications updateNotification(Notifications notification) {
-		return iNotificationsDAO.save(notification);
 	}
 
 	@Override

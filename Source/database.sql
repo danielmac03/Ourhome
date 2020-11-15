@@ -123,9 +123,9 @@ INSERT INTO notifications (user_id, content, created_at) VALUES
 (2, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
 (3, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
 (4, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
-(5, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(2, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
 (6, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
 (7, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
-(8, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
+(2, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
 (9, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
 (10, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE());

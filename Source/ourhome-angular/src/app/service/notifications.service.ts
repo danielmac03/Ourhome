@@ -11,14 +11,6 @@ export class NotificationsService {
 
   constructor(private http: HttpClient) { }
 
-  listNotifications(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
-  }
-
-  listNotificationByHome(homeId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/home/${homeId}`);
-  }
-
   listNotificationByUser(userId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/user/${userId}`);
   }
@@ -29,10 +21,6 @@ export class NotificationsService {
 
   createNotification(notification: object): Observable<object> {
     return this.http.post(`${this.baseUrl}`, notification);
-  }
-
-  updateNotifications(notificationId: number, value: any): Observable<object> {
-    return this.http.put(`${this.baseUrl}/${notificationId}`, value);
   }
 
   deleteNotifications(notificationId: number): Observable<any> {

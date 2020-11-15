@@ -13,11 +13,6 @@ public class NotificationsController {
 
 	@Autowired
 	NotificationsServiceImpl NotificationsServiceImpl;
-	
-	@GetMapping()
-	public List<Notifications> listNotifications(){
-		return NotificationsServiceImpl.listNotifications();
-	}
 
 	@GetMapping("/{id}")
 	public Notifications searchNotification(@PathVariable(name = "id") int id) {
@@ -35,22 +30,6 @@ public class NotificationsController {
 	@PostMapping()
 	public Notifications saveNotification(@RequestBody Notifications notification) {
 		return NotificationsServiceImpl.saveNotification(notification);
-	}
-
-	@PutMapping("/{id}")
-	public Notifications updateNotification(@PathVariable(name = "id") int id, @RequestBody Notifications notification) {
-		Notifications NotificationSelected = new Notifications();
-		Notifications NotificationUpdated = new Notifications();
-		
-		NotificationSelected = NotificationsServiceImpl.getNotification(id);
-		
-		NotificationSelected.setUser(notification.getUser());
-		NotificationSelected.setContent(notification.getContent());
-		NotificationSelected.setCreatedAt(notification.getCreatedAt());
-
-		NotificationUpdated = this.NotificationsServiceImpl.updateNotification(NotificationSelected);
-		
-		return NotificationUpdated;
 	}
 	
 	@DeleteMapping("{id}")
