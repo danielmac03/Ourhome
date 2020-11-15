@@ -18,8 +18,16 @@ public class Notifications {
     @JoinColumn(name="user_id")
     Users user;
 
-    @Column(name = "content")
-    private String content;
+    @Column(name = "content_text")
+    private String content_text;
+
+
+    @Column(name = "content_img")
+    private String content_img;
+
+
+    @Column(name = "content_url")
+    private String content_url;
 
     @CreationTimestamp
     @Column(name="created_at")
@@ -27,10 +35,12 @@ public class Notifications {
 
     public Notifications() {}
 
-    public Notifications(int id, Users user, String content, Date createdAt) {
+    public Notifications(int id, Users user, String content_text, String content_img, String content_url, Date createdAt) {
         this.id = id;
         this.user = user;
-        this.content = content;
+        this.content_text = content_text;
+        this.content_img = content_img;
+        this.content_url = content_url;
         this.createdAt = createdAt;
     }
 
@@ -50,12 +60,28 @@ public class Notifications {
         this.user = user;
     }
 
-    public String getContent() {
-        return content;
+    public String getContent_text() {
+        return content_text;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContent_text(String content_text) {
+        this.content_text = content_text;
+    }
+
+    public String getContent_img() {
+        return content_img;
+    }
+
+    public void setContent_img(String content_img) {
+        this.content_img = content_img;
+    }
+
+    public String getContent_url() {
+        return content_url;
+    }
+
+    public void setContent_url(String content_url) {
+        this.content_url = content_url;
     }
 
     public Date getCreatedAt() {

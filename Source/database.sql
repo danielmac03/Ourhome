@@ -113,13 +113,15 @@ INSERT INTO custom_tests (user_id, questions, answers, options1, options2, creat
 CREATE TABLE notifications(
      notification_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
      user_id INT NOT NULL,
-     content MEDIUMTEXT NOT NULL,
+     content_text MEDIUMTEXT NOT NULL,
+     content_img MEDIUMTEXT NULL,
+     content_url MEDIUMTEXT NULL,
      created_at DATE DEFAULT NULL,
      FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 
-INSERT INTO notifications (user_id, content, created_at) VALUES
+INSERT INTO notifications (user_id, content_text, created_at) VALUES
 (2, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
 (3, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),
 (4, 'Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.', CURRENT_DATE()),

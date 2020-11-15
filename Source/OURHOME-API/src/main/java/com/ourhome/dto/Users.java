@@ -114,248 +114,156 @@ public class Users {
 		this.customTest = customTest;
 	}
 
-	/**
-	 * @return the id
-	 */
 	public int getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the name
-	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * @param name the name to set
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/**
-	 * @return the surnames
-	 */
 	public String getSurnames() {
 		return surnames;
 	}
 
-	/**
-	 * @param surnames the surnames to set
-	 */
 	public void setSurnames(String surnames) {
 		this.surnames = surnames;
 	}
 
-	/**
-	 * @return the urlPhoto
-	 */
 	public String getUrlPhoto() {
 		return urlPhoto;
 	}
 
-	/**
-	 * @param urlPhoto the surnames to set
-	 */
 	public void setUrlPhoto(String urlPhoto) {
 		this.urlPhoto = urlPhoto;
 	}
 
-	/**
-	 * @return the description
-	 */
 	public String getDescription() {
 		return description;
 	}
 
-	/**
-	 * @param description the surnames to set
-	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	/**
-	 * @return the age
-	 */
 	public int getAge() {
 		return age;
 	}
 
-	/**
-	 * @param age the age to set
-	 */
 	public void setAge(int age) {
 		this.age = age;
 	}
 
-	/**
-	 * @return the phone
-	 */
 	public Integer getPhone() {
 		return phone;
 	}
 
-	/**
-	 * @param phone the phone to set
-	 */
 	public void setPhone(Integer phone) {
 		this.phone = phone;
 	}
 
-	/**
-	 * @return the email
-	 */
 	public String getEmail() {
 		return email;
 	}
 
-	/**
-	 * @param email the email to set
-	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	/**
-	 * @return the password
-	 */
 	public String getPassword() {
 		return password;
 	}
 
-	/**
-	 * @param password the password to set
-	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	/**
-	 * @return the role
-	 */
 	public String getRole() {
 		return role;
 	}
 
-	/**
-	 * @param role the role to set
-	 */
 	public void setRole(String role) {
 		this.role = role;
 	}
 
-	/**
-	 * @return the defaultTestResponses
-	 */
 	public String getDefaultTestResponses() {
 		return defaultTestResponses;
 	}
 
-	/**
-	 * @param defaultTestResponses the defaultTestResponses to set
-	 */
 	public void setDefaultTestResponses(String defaultTestResponses) {
 		this.defaultTestResponses = defaultTestResponses;
 	}
 
-	/**
-	 * @return the showPhone
-	 */
 	public boolean isShowPhone() {
 		return showPhone;
 	}
 
-	/**
-	 * @param showPhone the showPhone to set
-	 */
 	public void setShowPhone(boolean showPhone) {
 		this.showPhone = showPhone;
 	}
 
-	/**
-	 * @return the createdAt
-	 */
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	/**
-	 * @param createdAt the createdAt to set
-	 */
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	/**
-	 * @return the updatedAt
-	 */
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-	/**
-	 * @param updatedAt the updatedAt to set
-	 */
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
-	/**
-	 * @return the homes
-	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "homes")
 	public List<Homes> getHomes() {
 		return homes;
 	}
 
-	/**
-	 * @param homes the homes to set
-	 */
 	public void setHomes(List<Homes> homes) {
 		this.homes = homes;
 	}
 
-	/**
-	 * @return the process
-	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "processes")
 	public List<Processes> getProcess() {
 		return process;
 	}
 
-	/**
-	 * @param process the process to set
-	 */
 	public void setProcess(List<Processes> process) {
 		this.process = process;
 	}
 
-	/**
-	 * @return the customTest
-	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "custom_test")
 	public List<CustomTests> getCustomTest() {
 		return customTest;
 	}
 
-	/**
-	 * @param customTest the customTest to set
-	 */
 	public void setCustomTest(List<CustomTests> customTest) {
 		this.customTest = customTest;
+	}
+
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "notifications")
+	public List<Notifications> getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(List<Notifications> notifications) {
+		this.notifications = notifications;
 	}
 
 }

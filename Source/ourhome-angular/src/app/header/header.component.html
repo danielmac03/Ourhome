@@ -26,7 +26,7 @@
                 <button type="button" class="close" aria-label="Close" (click)="deleteNotification(notification['id'], '#notification' + i)">
                   <span aria-hidden="true">&times;</span>
                 </button>
-                <p class="m-2">{{ notification['content'] }}</p>
+                <p class="m-2">{{ notification['content_text'] }}</p>
                 <hr class="m-0">
               </div>
               <div *ngIf="(notifications.length == 0)">
