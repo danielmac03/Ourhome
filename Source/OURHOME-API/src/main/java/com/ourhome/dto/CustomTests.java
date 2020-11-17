@@ -3,8 +3,10 @@ package com.ourhome.dto;
 import java.sql.Date;
 import javax.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Audited
 @Table(name="custom_tests")
 public class CustomTests {
 	

@@ -1,11 +1,13 @@
 package com.ourhome.dto;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
+@Audited
 @Table(name = "notifications")
 public class Notifications {
 
@@ -21,10 +23,8 @@ public class Notifications {
     @Column(name = "content_text")
     private String content_text;
 
-
     @Column(name = "content_img")
     private String content_img;
-
 
     @Column(name = "content_url")
     private String content_url;
