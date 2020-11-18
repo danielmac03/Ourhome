@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "5d2713bd-416b-43b5-a7a9-8b109c7d5902",
+		"name": "OURHOME",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@ourhome.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear casa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2MDUzNjk3ODUsImlzcyI6ImFkbWluIiwic3ViIjoiYWRtaW5Ab3VyaG9tZS5jb20iLCJleHAiOjE2MDYyMzM3ODV9.kWOql6_BwbnlsyRQ4CqrXR5z14du9vksXf_yzAaFAGFooaRnXibMjWo31Y6dQoHL_1U8G5xFHj-hnWOW9UMuFg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"id\": 1,\r\n        \"name\": \"Marco\",\r\n        \"surnames\": \"Polo\",\r\n        \"urlPhoto\": \"https://i.imgur.com/I50hiEl.jpg\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.\",\r\n        \"age\": 20,\r\n        \"phone\": 633254182,\r\n        \"email\": \"marcololo@hotmail.com\",\r\n        \"password\": \"$2a$10$oVt3PFw1LjFyiHgJ2.OTAOllFO8SNbCkPr8gPHg312Gn2vDUTfRFy\",\r\n        \"role\": \"search\",\r\n        \"defaultTestResponses\": \"01001\",\r\n        \"showPhone\": true,\r\n        \"createdAt\": \"2020-11-18\",\r\n        \"updatedAt\": \"2020-11-18\"\r\n    },\r\n    \"urlPhotos\": \"\",\r\n    \"description\": \"\",\r\n    \"price\": \"\",\r\n    \"numBedrooms\": 2,\r\n    \"numBathrooms\": 1,\r\n    \"city\": \"Reus\",\r\n    \"directions\": \"C/ Mare Molas\",\r\n    \"meters\": 90,\r\n    \"floors\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/api/homes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"homes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2MDUzNjk3ODUsImlzcyI6ImFkbWluIiwic3ViIjoiYWRtaW5Ab3VyaG9tZS5jb20iLCJleHAiOjE2MDYyMzM3ODV9.kWOql6_BwbnlsyRQ4CqrXR5z14du9vksXf_yzAaFAGFooaRnXibMjWo31Y6dQoHL_1U8G5xFHj-hnWOW9UMuFg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Marco\",\r\n    \"surnames\": \"Polo\",\r\n    \"urlPhoto\": \"\",\r\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.\",\r\n    \"age\": 20,\r\n    \"phone\": 633254182,\r\n    \"email\": \"marcololo@hotmail.com\",\r\n    \"password\": \"password\",\r\n    \"role\": \"search\",\r\n    \"defaultTestResponses\": \"01001\",\r\n    \"showPhone\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear procesos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2MDUzNjk3ODUsImlzcyI6ImFkbWluIiwic3ViIjoiYWRtaW5Ab3VyaG9tZS5jb20iLCJleHAiOjE2MDYyMzM3ODV9.kWOql6_BwbnlsyRQ4CqrXR5z14du9vksXf_yzAaFAGFooaRnXibMjWo31Y6dQoHL_1U8G5xFHj-hnWOW9UMuFg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"home\": {\r\n        \"id\": 1,\r\n        \"user\": {\r\n            \"id\": 1,\r\n            \"name\": \"Marco\",\r\n            \"surnames\": \"Polo\",\r\n            \"urlPhoto\": null,\r\n            \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.\",\r\n            \"age\": 20,\r\n            \"phone\": 633254182,\r\n            \"email\": \"marcololo@hotmail.com\",\r\n            \"password\": \"$2a$10$oVt3PFw1LjFyiHgJ2.OTAOllFO8SNbCkPr8gPHg312Gn2vDUTfRFy\",\r\n            \"role\": \"search\",\r\n            \"defaultTestResponses\": \"01001\",\r\n            \"showPhone\": true,\r\n            \"createdAt\": \"2020-11-18\",\r\n            \"updatedAt\": \"2020-11-18\"\r\n        },\r\n        \"urlPhotos\": \"\",\r\n        \"description\": \"\",\r\n        \"price\": 0.0,\r\n        \"numBedrooms\": 2,\r\n        \"numBathroom\": 0,\r\n        \"city\": \"Reus\",\r\n        \"direction\": null,\r\n        \"meters\": 90.0,\r\n        \"floors\": 1,\r\n        \"additional\": null,\r\n        \"createdAt\": \"2020-11-18\",\r\n        \"updatedAt\": \"2020-11-18\"\r\n    },\r\n    \"user\": {\r\n        \"id\": 6,\r\n        \"name\": \"Fernando\",\r\n        \"surnames\": \"Lopez\",\r\n        \"urlPhoto\": \"\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.\",\r\n        \"age\": 20,\r\n        \"phone\": 633254182,\r\n        \"email\": \"fernandolopez@hotmail.com\",\r\n        \"password\": \"$2a$10$U.T6useZDdxR0WTkvgYB5eTBqZs.JAotzNbcWJxqQ0NjRb/BFfaPa\",\r\n        \"role\": \"search\",\r\n        \"defaultTestResponses\": \"01001\",\r\n        \"showPhone\": true,\r\n        \"createdAt\": \"2020-11-18\",\r\n        \"updatedAt\": \"2020-11-18\"\r\n    },\r\n    \"answers\": \"1,0\",\r\n    \"compatibility\": 50,\r\n    \"state\": \"En Contacto\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/api/processes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"processes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear notificación",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2MDUzNjk3ODUsImlzcyI6ImFkbWluIiwic3ViIjoiYWRtaW5Ab3VyaG9tZS5jb20iLCJleHAiOjE2MDYyMzM3ODV9.kWOql6_BwbnlsyRQ4CqrXR5z14du9vksXf_yzAaFAGFooaRnXibMjWo31Y6dQoHL_1U8G5xFHj-hnWOW9UMuFg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"id\": 1,\r\n        \"name\": \"Marco\",\r\n        \"surnames\": \"Polo\",\r\n        \"urlPhoto\": null,\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.\",\r\n        \"age\": 20,\r\n        \"phone\": 633254182,\r\n        \"email\": \"marcololo@hotmail.com\",\r\n        \"password\": \"$2a$10$oVt3PFw1LjFyiHgJ2.OTAOllFO8SNbCkPr8gPHg312Gn2vDUTfRFy\",\r\n        \"role\": \"search\",\r\n        \"defaultTestResponses\": \"01001\",\r\n        \"showPhone\": true,\r\n        \"createdAt\": \"2020-11-18\",\r\n        \"updatedAt\": \"2020-11-18\"\r\n    },\r\n    \"content_text\": \"Lorem Ipsum es simplemente texto de relleno de la industria de la impresión y la composición tipográfica.\",\r\n    \"content_img\": null,\r\n    \"content_url\": null,\r\n    \"createdAt\": \"2020-11-17\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/api/notifications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"notifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear tests personalizado",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2MDUzNjk3ODUsImlzcyI6ImFkbWluIiwic3ViIjoiYWRtaW5Ab3VyaG9tZS5jb20iLCJleHAiOjE2MDYyMzM3ODV9.kWOql6_BwbnlsyRQ4CqrXR5z14du9vksXf_yzAaFAGFooaRnXibMjWo31Y6dQoHL_1U8G5xFHj-hnWOW9UMuFg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"id\": 1,\r\n        \"name\": \"Marco\",\r\n        \"surnames\": \"Polo\",\r\n        \"urlPhoto\": null,\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.\",\r\n        \"age\": 20,\r\n        \"phone\": 633254182,\r\n        \"email\": \"marcololo@hotmail.com\",\r\n        \"password\": \"$2a$10$oVt3PFw1LjFyiHgJ2.OTAOllFO8SNbCkPr8gPHg312Gn2vDUTfRFy\",\r\n        \"role\": \"search\",\r\n        \"defaultTestResponses\": \"01001\",\r\n        \"showPhone\": true,\r\n        \"createdAt\": \"2020-11-18\",\r\n        \"updatedAt\": \"2020-11-18\"\r\n    },\r\n    \"questions\": \"1?,2?\",\r\n    \"answers\": \"1,0\",\r\n    \"options1\": \"a,b\",\r\n    \"options2\": \"a,b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/api/customTests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"customTests"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
