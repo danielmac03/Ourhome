@@ -23,9 +23,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.route.snapshot.params.city){
-      this.homes = this.homesService.getHomesByCity(this.route.snapshot.params.city);
+      this.homesService.getHomesByCity(this.route.snapshot.params.city).subscribe(resp => {
+        this.homes = resp;
+      });
     }else{
-      this.homes = this.homesService.getHomes();
+      this.homesService.getHomes().subscribe(resp => {
+        this.homes = resp;
+      });
     }
   }
 
