@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomTestComponent } from './custom-test.component';
 
-describe('CustomTestComponent', () => {
+describe('custom-testComponent', () => {
   let component: CustomTestComponent;
   let fixture: ComponentFixture<CustomTestComponent>;
 

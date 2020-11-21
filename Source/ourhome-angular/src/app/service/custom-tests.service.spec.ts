@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { CustomTestsService } from './custom-tests.service';
 
-describe('CustomTestsService', () => {
+describe('custom-testsService', () => {
   let service: CustomTestsService;
 
   beforeEach(() => {

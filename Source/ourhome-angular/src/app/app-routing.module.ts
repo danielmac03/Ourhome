@@ -29,10 +29,10 @@ const routes: Routes = [
     path: 'home/:city',
     component: HomeComponent
   },
-  {path: 'initialTest',
+  {path: 'initial-test',
     component: InitialTestComponent
   },
-  {path: 'seeAdvertisement/:home',
+  {path: 'see-advertisement/:home',
     component: SeeAdvertisementComponent
   },
   {
@@ -68,7 +68,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'createTest',
+    path: 'custom-test',
     component: CreateTestComponent,
     canActivate: [RequireRolesHelper],
     data: {
@@ -76,7 +76,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'customTest/:home',
+    path: 'custom-test/:home',
     component: CustomTestComponent,
     canActivate: [RequireRolesHelper],
     data: {
@@ -84,7 +84,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'seeRequests',
+    path: 'see-requests',
     component: SeeRequestsComponent,
     canActivate: [RequireRolesHelper],
     data: {
@@ -92,7 +92,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'seeRequests/:home',
+    path: 'see-requests/:home',
     component: SeeRequestsComponent,
     canActivate: [RequireRolesHelper],
     data: {
@@ -100,7 +100,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'createAdvertisement',
+    path: 'create-advertisement',
     component: CreateAdvertisementComponent,
     canActivate: [RequireRolesHelper],
     data: {

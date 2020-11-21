@@ -51,7 +51,7 @@ export class RegisterComponent {
             if (resp1 == null) {
               this.tokenStorageService.saveUser(user);
 
-              this.router.navigate(['initialTest']);
+              this.router.navigate(['initial-test']);
             } else {
               alert('El email ya se ha registrado');
             }

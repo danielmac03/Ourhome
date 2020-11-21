@@ -5,9 +5,9 @@
   <div class="text-center" *ngIf="(user['role'] == 'search')">
     <div class="add d-inline-block" *ngFor="let process of processes | async">
       <div class="card m-3">
-        <img class="card-img-top" src="{{ process['home']['urlPhotos'] }}" alt="Card image">
+        <img class="card-img-top" *ngIf="(process['home']['urlPhotos'] != '')" src="{{ process['home']['urlPhotos'] }}" alt="Card image">
         <div class="card-body">
-          <p class="card-text">
+          <p class="card-text" *ngIf="(process['home']['description'] != '')">
             {{ process['home']['description'] }}
           </p>
           <label class="card-text">

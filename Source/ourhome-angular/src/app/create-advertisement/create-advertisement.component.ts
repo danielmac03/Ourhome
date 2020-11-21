@@ -51,7 +51,7 @@ export class CreateAdvertisementComponent implements OnInit{
     };
 
     this.homesService.createHomes(homes).subscribe((data: any) => {
-      this.router.navigate(['createTest']);
+      this.router.navigate(['custom-test']);
     },
     error => console.log(error));
   }

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SeeAdvertisementComponent } from './see-advertisement.component';
 
-describe('SeeAdvertisementComponent', () => {
+describe('see-advertisementComponent', () => {
   let component: SeeAdvertisementComponent;
   let fixture: ComponentFixture<SeeAdvertisementComponent>;
 

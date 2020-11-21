@@ -35,6 +35,6 @@ export class SeeAdvertisementComponent implements OnInit {
   }
 
   contact(): void{
-    this.router.navigate(['customTest', this.home.id]);
+    this.router.navigate(['custom-test', this.home.id]);
   }
 }
