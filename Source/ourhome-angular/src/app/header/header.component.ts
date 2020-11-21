@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from '../service/notifications.service';
 import { TokenStorageService } from '../service/authentication/token-storage.service';
-import * as $ from 'jQuery';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-header',
