@@ -10,7 +10,7 @@
           <label class="card-text">
             {{ home['price'] }} €
           </label>
-          <a href="/seeAdvertisement/{{ home['id'] }}" class="btn btn-custom d-block">Ver anuncio
+          <a href="/see-advertisement/{{ home['id'] }}" class="btn btn-custom d-block">Ver anuncio
             <label *ngIf="(checkCompatibility(home.user['defaultTestResponses']))" class="m-0">🟢</label>
           </a>
         </div>

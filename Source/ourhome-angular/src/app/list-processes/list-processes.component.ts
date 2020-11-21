@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProcessesService } from '../service/processes.service';
-import { HomesService } from '../service/homes.service';
-import { TokenStorageService } from '../service/authentication/token-storage.service';
-import { CheckCompatibilityHelper } from '../helpers/check-compatibility.helper';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {ProcessesService} from '../service/processes.service';
+import {HomesService} from '../service/homes.service';
+import {TokenStorageService} from '../service/authentication/token-storage.service';
+import {CheckCompatibilityHelper} from '../helpers/check-compatibility.helper';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-processes',
@@ -22,12 +23,13 @@ export class ListProcessesComponent implements OnInit {
     private processesService: ProcessesService,
     private tokenStorageService: TokenStorageService,
     private checkCompatibilityHelper: CheckCompatibilityHelper
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    if (this.user.role === 'search'){
+    if (this.user.role === 'search') {
       this.processes = this.processesService.listProcessByUser(this.user.id);
-    } else if (this.user.role === 'business'){
+    } else if (this.user.role === 'business') {
       this.homesService.getHomesByUser(this.user.id).subscribe(
         resp => {
           this.homes = resp;
@@ -41,6 +43,15 @@ export class ListProcessesComponent implements OnInit {
 
   checkCompatibility(defaultTestResponses: string): boolean {
     return this.checkCompatibilityHelper.check(defaultTestResponses);
+  }
+
+  deleteProcess(idProcess: number, divId: string): void {
+    this.processesService.deleteProcesses(idProcess).subscribe(resp => {
+      $('#' + divId).remove();
+      console.log('Completed....');
+    }, error => {
+      console.log('Error...');
+    });
   }
 
 }

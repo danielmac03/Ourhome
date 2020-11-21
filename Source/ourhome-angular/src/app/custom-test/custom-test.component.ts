@@ -81,7 +81,7 @@ export class CustomTestComponent implements OnInit {
 
       this.processesService.createProcess(process).subscribe(resp => {
         console.log('Complete...');
-        this.router.navigate(['processes']);
+        this.router.navigate(['list-processes']);
       }, error => {
         console.log('Error....');
       });

@@ -3,8 +3,8 @@
   <h2 class="text-center">PROCESOS</h2>
 
   <div class="text-center" *ngIf="(user['role'] == 'search')">
-    <div class="add d-inline-block" *ngFor="let process of processes | async">
-      <div class="card m-3">
+    <div class="add d-inline-block" *ngFor="let process of processes | async; let i = index">
+      <div class="card m-3" id="process{{i}}">
         <img class="card-img-top" *ngIf="(process['home']['urlPhotos'] != '')" src="{{ process['home']['urlPhotos'] }}" alt="Card image">
         <div class="card-body">
           <p class="card-text" *ngIf="(process['home']['description'] != '')">
@@ -13,9 +13,17 @@
           <label class="card-text">
             {{ process['home']['price'] }} €
           </label>
-          <a href="/seeAdvertisement/{{ process['home']['id'] }}" class="btn btn-custom d-block">Ver anuncio
-            <label *ngIf="(checkCompatibility(process['home']['user']['defaultTestResponses']))" class="m-0">🟢</label>
-          </a>
+          <div class="row">
+            <div class="col-md-8">
+              <a href="/see-advertisement/{{ process['home']['id'] }}" class="btn btn-custom m-auto d-block">Ver anuncio
+                <label *ngIf="(checkCompatibility(process['home']['user']['defaultTestResponses']))" class="m-0">🟢</label>
+              </a>
+            </div>
+
+            <div class="col-md-4">
+              <button class="btn btn-custom m-auto d-block" (click)="deleteProcess(process['id'], 'process' + i)">Eliminar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,7 +40,7 @@
           <label class="card-text">
             {{ home['price'] }} €
           </label>
-          <a href="/seeRequests/{{ home['id'] }}" class="btn btn-custom d-block">Ver solicitudes</a>
+          <a href="/see-requests/{{ home['id'] }}" class="btn btn-custom d-block">Ver solicitudes</a>
         </div>
       </div>
     </div>
