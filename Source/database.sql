@@ -16,26 +16,26 @@ CREATE TABLE users
     role                   ENUM ('search', 'have', 'business', 'admin') NOT NULL,
     default_test_responses MEDIUMTEXT                                   NULL,
     show_phone             bit          DEFAULT NULL,
-    created_at             DATE                                         NOT NULL,
-    updated_at             DATE                                         NULL
+    created_at             DATETIME                                     NOT NULL,
+    updated_at             DATETIME                                     NULL
 );
 
 CREATE TABLE homes
 (
     home_id      INT AUTO_INCREMENT PRIMARY KEY,
-    user_id      INT    NOT NULL,
+    user_id      INT      NOT NULL,
     url_photos   MEDIUMTEXT   DEFAULT NULL,
     description  MEDIUMTEXT   DEFAULT NULL,
-    price        DOUBLE NOT NULL,
-    num_bedrooms INT    NOT NULL,
-    num_bathroom INT    NOT NULL,
+    price        DOUBLE   NOT NULL,
+    num_bedrooms INT      NOT NULL,
+    num_bathroom INT      NOT NULL,
     city         VARCHAR(100) DEFAULT NULL,
     direction    VARCHAR(100) DEFAULT NULL,
     meters       DECIMAL      DEFAULT NULL,
-    floors       INT    NOT NULL,
+    floors       INT      NOT NULL,
     additional   MEDIUMTEXT   DEFAULT NULL,
-    created_at   DATE   NOT NULL,
-    updated_at   DATE         DEFAULT NULL,
+    created_at   DATETIME NOT NULL,
+    updated_at   DATETIME     DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
@@ -47,8 +47,8 @@ CREATE TABLE processes
     answers       MEDIUMTEXT                                      NOT NULL,
     compatibility DECIMAL                                         NOT NULL,
     state         ENUM ('En Contacto', 'Cancelado', 'Finalizado') NOT NULL,
-    created_at    DATE DEFAULT NULL,
-    updated_at    DATE DEFAULT NULL,
+    created_at    DATETIME DEFAULT NULL,
+    updated_at    DATETIME DEFAULT NULL,
     FOREIGN KEY (home_id) REFERENCES homes (home_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
@@ -61,7 +61,8 @@ CREATE TABLE custom_tests
     answers        MEDIUMTEXT NOT NULL,
     options1       MEDIUMTEXT NOT NULL,
     options2       MEDIUMTEXT NOT NULL,
-    created_at     DATE DEFAULT NULL,
+    created_at     DATETIME   NULL,
+    updated_at     DATETIME   NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
@@ -72,7 +73,7 @@ CREATE TABLE notifications
     content_text    MEDIUMTEXT NOT NULL,
     content_img     MEDIUMTEXT NULL,
     content_url     MEDIUMTEXT NULL,
-    created_at      DATE DEFAULT NULL,
+    created_at      DATETIME DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
@@ -97,8 +98,8 @@ CREATE TABLE users_aud
     role                   ENUM ('search', 'have', 'business', 'admin') NULL,
     default_test_responses MEDIUMTEXT                                   NULL,
     show_phone             bit          DEFAULT NULL,
-    created_at             DATE                                         NULL,
-    updated_at             DATE                                         NULL,
+    created_at             DATETIME                                     NULL,
+    updated_at             DATETIME                                     NULL,
     rev                    INT                                          NOT NULL,
     revtype                TINYINT                                      NOT NULL,
     PRIMARY KEY (user_id, rev),
@@ -107,22 +108,22 @@ CREATE TABLE users_aud
 
 CREATE TABLE homes_aud
 (
-    home_id      INT     NOT NULL AUTO_INCREMENT,
-    user_id      INT     NULL,
+    home_id      INT      NOT NULL AUTO_INCREMENT,
+    user_id      INT      NULL,
     url_photos   MEDIUMTEXT   DEFAULT NULL,
     description  MEDIUMTEXT   DEFAULT NULL,
-    price        DOUBLE  NULL,
-    num_bedrooms INT     NULL,
-    num_bathroom INT     NULL,
+    price        DOUBLE   NULL,
+    num_bedrooms INT      NULL,
+    num_bathroom INT      NULL,
     city         VARCHAR(100) DEFAULT NULL,
     direction    VARCHAR(100) DEFAULT NULL,
     meters       DECIMAL      DEFAULT NULL,
-    floors       INT     NULL,
+    floors       INT      NULL,
     additional   MEDIUMTEXT   DEFAULT NULL,
-    created_at   DATE    NULL,
-    updated_at   DATE         DEFAULT NULL,
-    rev          INT     NOT NULL,
-    revtype      TINYINT NOT NULL,
+    created_at   DATETIME NULL,
+    updated_at   DATETIME     DEFAULT NULL,
+    rev          INT      NOT NULL,
+    revtype      TINYINT  NOT NULL,
     PRIMARY KEY (home_id, rev),
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     FOREIGN KEY (rev) REFERENCES revinfo (rev)
@@ -136,8 +137,8 @@ CREATE TABLE processes_aud
     answers       MEDIUMTEXT                                      NULL,
     compatibility DECIMAL                                         NULL,
     state         ENUM ('En Contacto', 'Cancelado', 'Finalizado') NULL,
-    created_at    DATE DEFAULT NULL,
-    updated_at    DATE DEFAULT NULL,
+    created_at    DATETIME DEFAULT NULL,
+    updated_at    DATETIME DEFAULT NULL,
     rev           INT                                             NOT NULL,
     revtype       TINYINT                                         NOT NULL,
     PRIMARY KEY (process_id, rev),
@@ -154,7 +155,8 @@ CREATE TABLE custom_tests_aud
     answers        MEDIUMTEXT NULL,
     options1       MEDIUMTEXT NULL,
     options2       MEDIUMTEXT NULL,
-    created_at     DATE DEFAULT NULL,
+    created_at     DATETIME   NULL,
+    updated_at     DATETIME   NULL,
     rev            INT        NOT NULL,
     revtype        TINYINT    NOT NULL,
     PRIMARY KEY (custom_test_id, rev),
@@ -169,7 +171,7 @@ CREATE TABLE notifications_aud
     content_text    MEDIUMTEXT NOT NULL,
     content_img     MEDIUMTEXT NULL,
     content_url     MEDIUMTEXT NULL,
-    created_at      DATE DEFAULT NULL,
+    created_at      DATETIME DEFAULT NULL,
     rev             INT        NOT NULL,
     revtype         TINYINT    NOT NULL,
     PRIMARY KEY (notification_id, rev),
@@ -333,62 +335,62 @@ VALUES (1, 'admin', '', '', '', 0, NULL, 'admin@ourhome.es',
         '01100', _binary '\0', '2020-11-20', '2020-11-20', 14, 0);
 
 INSERT INTO `custom_tests`
-VALUES (1, 2, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20'),
-       (2, 3, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20'),
-       (3, 6, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20'),
-       (4, 7, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20'),
-       (5, 9, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20'),
-       (6, 12, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20'),
-       (7, 14, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20');
+VALUES (1, 2, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20'),
+       (2, 3, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20'),
+       (3, 6, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20'),
+       (4, 7, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20'),
+       (5, 9, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20'),
+       (6, 12, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20'),
+       (7, 14, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20');
 
 INSERT INTO `custom_tests_aud`
-VALUES (1, 2, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', 34, 0),
-       (2, 3, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', 35, 0),
-       (3, 6, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', 36, 0),
-       (4, 7, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', 37, 0),
-       (5, 9, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', 38, 0),
-       (6, 12, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', 39, 0),
-       (7, 14, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', 40, 0);
+VALUES (1, 2, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20', 34, 0),
+       (2, 3, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20', 35, 0),
+       (3, 6, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20', 36, 0),
+       (4, 7, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20', 37, 0),
+       (5, 9, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20', 38, 0),
+       (6, 12, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20', 39, 0),
+       (7, 14, 'qwe, ert', '1, 2', 'a, b', 'a, b', '2020-11-20', '2020-11-20', 40, 0);
 
 INSERT INTO `homes`
 VALUES (1, 3, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        350, 3, 1, 'Reus', 'C/ Sant Joan', 160, 1, NULL, '2020-11-20', '2020-11-20'),
+        350, 3, 1, 'Reus', 'C/ Sant Joan', 160, 1, null, '2020-11-20', '2020-11-20'),
        (2, 6, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        150, 2, 1, 'Reus', 'C/ Botarell', 200, 1, NULL, '2020-11-20', '2020-11-20'),
+        150, 2, 1, 'Reus', 'C/ Botarell', 200, 1, null, '2020-11-20', '2020-11-20'),
        (3, 7, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        380, 5, 2, 'Reus', 'C/ Tarragona', 350, 2, NULL, '2020-11-20', '2020-11-20'),
+        380, 5, 2, 'Reus', 'C/ Tarragona', 350, 2, null, '2020-11-20', '2020-11-20'),
        (4, 9, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        220, 3, 2, 'Reus', 'C/ Barcelona', 100, 1, NULL, '2020-11-20', '2020-11-20'),
+        220, 3, 2, 'Reus', 'C/ Barcelona', 100, 1, null, '2020-11-20', '2020-11-20'),
        (5, 12, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        210, 3, 1, 'Reus', 'C/ Girona', 120, 1, NULL, '2020-11-20', '2020-11-20'),
+        210, 3, 1, 'Reus', 'C/ Girona', 120, 1, null, '2020-11-20', '2020-11-20'),
        (6, 14, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        200, 4, 1, 'Reus', 'C/ Lleida', 130, 1, NULL, '2020-11-20', '2020-11-20');
+        200, 4, 1, 'Reus', 'C/ Lleida', 130, 1, null, '2020-11-20', '2020-11-20');
 
 INSERT INTO `homes_aud`
 VALUES (1, 3, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        350, 3, 1, 'Reus', 'C/ Sant Joan', 160, 1, NULL, '2020-11-20', '2020-11-20', 15, 0),
+        350, 3, 1, 'Reus', 'C/ Sant Joan', 160, 1, null, '2020-11-20', '2020-11-20', 15, 0),
        (2, 6, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        150, 2, 1, 'Reus', 'C/ Botarell', 200, 1, NULL, '2020-11-20', '2020-11-20', 16, 0),
+        150, 2, 1, 'Reus', 'C/ Botarell', 200, 1, null, '2020-11-20', '2020-11-20', 16, 0),
        (3, 7, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        380, 5, 2, 'Reus', 'C/ Tarragona', 350, 2, NULL, '2020-11-20', '2020-11-20', 17, 0),
+        380, 5, 2, 'Reus', 'C/ Tarragona', 350, 2, null, '2020-11-20', '2020-11-20', 17, 0),
        (4, 9, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        220, 3, 2, 'Reus', 'C/ Barcelona', 100, 1, NULL, '2020-11-20', '2020-11-20', 18, 0),
+        220, 3, 2, 'Reus', 'C/ Barcelona', 100, 1, null, '2020-11-20', '2020-11-20', 18, 0),
        (5, 12, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        210, 3, 1, 'Reus', 'C/ Girona', 120, 1, NULL, '2020-11-20', '2020-11-20', 19, 0),
+        210, 3, 1, 'Reus', 'C/ Girona', 120, 1, null, '2020-11-20', '2020-11-20', 19, 0),
        (6, 14, '',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis sapien sit amet ipsum aliquet ultrices. Suspendisse lectus purus, aliquam sit amet augue non, pellentesque malesuada erat.',
-        200, 4, 1, 'Reus', 'C/ Lleida', 130, 1, NULL, '2020-11-20', '2020-11-20', 20, 0);
+        200, 4, 1, 'Reus', 'C/ Lleida', 130, 1, null, '2020-11-20', '2020-11-20', 20, 0);
 
 INSERT INTO `processes`
 VALUES (3, 1, 2, '1,0', 50, 'En Contacto', '2020-11-20', '2020-11-20'),

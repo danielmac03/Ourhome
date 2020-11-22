@@ -1,8 +1,9 @@
 package com.ourhome.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import javax.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.envers.Audited;
 
 @Entity
@@ -33,11 +34,15 @@ public class CustomTests {
 	
 	@CreationTimestamp
 	@Column(name="created_at")
-	private Date createdAt;
+	private Timestamp createdAt;
+
+	@UpdateTimestamp
+	@Column(name="updated_at")
+	private Timestamp updatedAt;
 
 	public CustomTests() {}
 
-	public CustomTests(int id, Users user, String questions, String answers, String options1, String options2, Date createdAt) {
+	public CustomTests(int id, Users user, String questions, String answers, String options1, String options2, Timestamp createdAt, Timestamp updatedAt) {
 		this.id = id;
 		this.user = user;
 		this.questions = questions;
@@ -45,6 +50,7 @@ public class CustomTests {
 		this.options1 = options1;
 		this.options2 = options2;
 		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
 
 	public int getId() {
@@ -95,12 +101,19 @@ public class CustomTests {
 		this.options2 = options2;
 	}
 
-	public Date getCreatedAt() {
+	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
+	public Timestamp getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Timestamp updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 }

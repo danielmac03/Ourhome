@@ -1,6 +1,6 @@
 package com.ourhome.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import javax.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -53,11 +53,11 @@ public class Users {
 	
 	@CreationTimestamp
 	@Column(name="created_at")
-	private Date createdAt;
+	private Timestamp createdAt;
 	
 	@UpdateTimestamp
 	@Column(name="updated_at")
-	private Date updatedAt;
+	private Timestamp updatedAt;
 	
 	@OneToMany
 	@JoinColumn(name="user_id")
@@ -95,8 +95,8 @@ public class Users {
 	 * @param customTest
 	 */
 	public Users(int id, String name, String surnames, String urlPhoto, String description, int age, int phone, String mail, String password, String role,
-			String defaultTestResponses, boolean showPhone, Date createdAt, Date updatedAt, List<Homes> homes,
-			List<Processes> process, List<CustomTests> customTest) {
+				 String defaultTestResponses, boolean showPhone, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes,
+				 List<Processes> process, List<CustomTests> customTest) {
 		this.id = id;
 		this.name = name;
 		this.surnames = surnames;
@@ -212,19 +212,19 @@ public class Users {
 		this.showPhone = showPhone;
 	}
 
-	public Date getCreatedAt() {
+	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public Date getUpdatedAt() {
+	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(Date updatedAt) {
+	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 

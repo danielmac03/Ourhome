@@ -4,7 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Audited
@@ -31,11 +31,11 @@ public class Notifications {
 
     @CreationTimestamp
     @Column(name="created_at")
-    private Date createdAt;
+    private Timestamp createdAt;
 
     public Notifications() {}
 
-    public Notifications(int id, Users user, String content_text, String content_img, String content_url, Date createdAt) {
+    public Notifications(int id, Users user, String content_text, String content_img, String content_url, Timestamp createdAt) {
         this.id = id;
         this.user = user;
         this.content_text = content_text;
@@ -84,11 +84,11 @@ public class Notifications {
         this.content_url = content_url;
     }
 
-    public Date getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 }

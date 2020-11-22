@@ -1,6 +1,6 @@
 package com.ourhome.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import javax.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -35,15 +35,15 @@ public class Processes {
 	
 	@CreationTimestamp
 	@Column(name="created_at")
-	private Date createdAt;
+	private Timestamp createdAt;
 	
 	@UpdateTimestamp
 	@Column(name="updated_at")
-	private Date updatedAt;
+	private Timestamp updatedAt;
 	
 	public Processes() {}
 
-	public Processes(int id, Homes home, Users user, String answers, int compatibility, String state, Date createdAt, Date updatedAt) {
+	public Processes(int id, Homes home, Users user, String answers, int compatibility, String state, Timestamp createdAt, Timestamp updatedAt) {
 		this.id = id;
 		this.home = home;
 		this.user = user;
@@ -102,19 +102,19 @@ public class Processes {
 		this.state = state;
 	}
 
-	public Date getCreatedAt() {
+	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public Date getUpdatedAt() {
+	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(Date updatedAt) {
+	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 }

@@ -1,6 +1,6 @@
 package com.ourhome.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import javax.persistence.*;
 
@@ -55,11 +55,11 @@ public class Homes {
 	
 	@CreationTimestamp
 	@Column(name="created_at")
-	private Date createdAt;
+	private Timestamp createdAt;
 	
 	@UpdateTimestamp
 	@Column(name="updated_at")
-	private Date updatedAt;
+	private Timestamp updatedAt;
 
 	@OneToMany
 	@JoinColumn(name="home_id")
@@ -67,7 +67,7 @@ public class Homes {
 	
 	public Homes() {}
 
-	public Homes(int id, Users user, String urlPhotos, String description, double price, int numBedrooms, int numBathroom, String city, String direction, double meters, int floors, String additional, Date createdAt, Date updatedAt, List<Processes> process) {
+	public Homes(int id, Users user, String urlPhotos, String description, double price, int numBedrooms, int numBathroom, String city, String direction, double meters, int floors, String additional, Timestamp createdAt, Timestamp updatedAt, List<Processes> process) {
 		this.id = id;
 		this.user = user;
 		this.urlPhotos = urlPhotos;
@@ -256,28 +256,28 @@ public class Homes {
 	/**
 	 * @return the createdAt
 	 */
-	public Date getCreatedAt() {
+	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
 	/**
 	 * @param createdAt the createdAt to set
 	 */
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
 	/**
 	 * @return the updatedAt
 	 */
-	public Date getUpdatedAt() {
+	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
 	/**
 	 * @param updatedAt the updatedAt to set
 	 */
-	public void setUpdatedAt(Date updatedAt) {
+	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
