@@ -19,7 +19,7 @@ public class CustomTestsController {
 	}
 		
 	@GetMapping("/{id}")
-	public CustomTests searchCustomTest(@PathVariable(name="id") int id) {
+	public CustomTests searchCustomTest(@PathVariable(name = "id") int id) {
 		CustomTests customTest = new CustomTests();		
 		customTest = customTestsServiceImpl.searchCustomTest(id);
 		
@@ -27,7 +27,7 @@ public class CustomTestsController {
 	}
 
 	@GetMapping("/user/{user_id}")
-	public CustomTests searchCustomTestByUser(@PathVariable(name="user_id") int user_id) {
+	public CustomTests searchCustomTestByUser(@PathVariable(name = "user_id") int user_id) {
 		CustomTests customTest = new CustomTests();
 		customTest = customTestsServiceImpl.searchCustomTestByUser(user_id);
 
@@ -40,7 +40,7 @@ public class CustomTestsController {
 	}
 		
 	@PutMapping("/{id}")
-	public CustomTests updateCustomTest(@PathVariable(name="id") int id, @RequestBody CustomTests customTest) {
+	public CustomTests updateCustomTest(@PathVariable(name = "id") int id, @RequestBody CustomTests customTest) {
 		CustomTests customTestsSelected = new CustomTests();
 		CustomTests customTestsUpdated = new CustomTests();
 		
@@ -59,7 +59,7 @@ public class CustomTestsController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteCustomTest(@PathVariable(name="id") int id) {
+	public void deleteCustomTest(@PathVariable(name = "id") int id) {
 		customTestsServiceImpl.deleteCustomTest(id);
 	}
 

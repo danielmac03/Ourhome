@@ -8,36 +8,36 @@ import org.hibernate.envers.Audited;
 
 @Entity
 @Audited
-@Table(name="custom_tests")
+@Table(name = "custom_tests")
 public class CustomTests {
 	
 	@Id
-	@Column(name="custom_test_id")
+	@Column(name = "custom_test_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	Users user;
 	
-	@Column(name="questions")
+	@Column(name = "questions")
 	private String questions;
 	
-	@Column(name="answers")
+	@Column(name = "answers")
 	private String answers;
 
-	@Column(name="options1")
+	@Column(name = "options1")
 	private String options1;
 
-	@Column(name="options2")
+	@Column(name = "options2")
 	private String options2;
 	
 	@CreationTimestamp
-	@Column(name="created_at")
+	@Column(name = "created_at")
 	private Timestamp createdAt;
 
 	@UpdateTimestamp
-	@Column(name="updated_at")
+	@Column(name = "updated_at")
 	private Timestamp updatedAt;
 
 	public CustomTests() {}

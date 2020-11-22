@@ -11,58 +11,58 @@ import org.hibernate.envers.Audited;
 
 @Entity
 @Audited
-@Table(name="homes")
+@Table(name = "homes")
 public class Homes {
 
 	@Id
-	@Column(name="home_id")
+	@Column(name = "home_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	Users user;
 	
-	@Column(name="url_photos")
+	@Column(name = "url_photos")
 	private String urlPhotos;
 
-	@Column(name="description")
+	@Column(name = "description")
 	private String description;
 	
-	@Column(name="price")
+	@Column(name = "price")
 	private double price;
 		
-	@Column(name="num_bedrooms")
+	@Column(name = "num_bedrooms")
 	private int numBedrooms;
 	
-	@Column(name="num_bathroom")
+	@Column(name = "num_bathroom")
 	private int numBathroom;
 	
-	@Column(name="city")
+	@Column(name = "city")
 	private String city;
 	
-	@Column(name="direction")
+	@Column(name = "direction")
 	private String direction;
 	
-	@Column(name="meters")
+	@Column(name = "meters")
 	private double meters;
 	
-	@Column(name="floors")
+	@Column(name = "floors")
 	private int floors;
 	
-	@Column(name="additional")
+	@Column(name = "additional")
 	private String additional;
 	
 	@CreationTimestamp
-	@Column(name="created_at")
+	@Column(name = "created_at")
 	private Timestamp createdAt;
 	
 	@UpdateTimestamp
-	@Column(name="updated_at")
+	@Column(name = "updated_at")
 	private Timestamp updatedAt;
 
 	@OneToMany
-	@JoinColumn(name="home_id")
+	@JoinColumn(name = "home_id")
 	private List<Processes> process;
 	
 	public Homes() {}

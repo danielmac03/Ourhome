@@ -19,7 +19,7 @@ public class HomesController {
 	}
 
 	@GetMapping("/public/{id}")
-	public Homes getHome(@PathVariable(name="id") int id) {
+	public Homes getHome(@PathVariable(name = "id") int id) {
 		Homes home = new Homes();
 		home = homesServiceImpl.getHome(id);
 
@@ -27,12 +27,12 @@ public class HomesController {
 	}
 
 	@GetMapping("/user/{user_id}")
-	public List<Homes> getHomesByUser(@PathVariable(name="user_id") int user_id) {
+	public List<Homes> getHomesByUser(@PathVariable(name = "user_id") int user_id) {
 		return homesServiceImpl.getHomesByUser(user_id);
 	}
 
 	@GetMapping("/city/{city}")
-	public List<Homes> getHomesByCity(@PathVariable(name="city") String city){
+	public List<Homes> getHomesByCity(@PathVariable(name = "city") String city){
 		return homesServiceImpl.getHomesByCity(city);
 	}
 
@@ -42,7 +42,7 @@ public class HomesController {
 	}
 
 	@PutMapping("/{id}")
-	public Homes updateHome(@PathVariable(name="id") int id, @RequestBody Homes home) {
+	public Homes updateHome(@PathVariable(name = "id") int id, @RequestBody Homes home) {
 		Homes homeSelected = new Homes();
 		Homes homeUpdated = new Homes();
 		
@@ -68,7 +68,7 @@ public class HomesController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteHome(@PathVariable(name="id") int id) {
+	public void deleteHome(@PathVariable(name = "id") int id) {
 		homesServiceImpl.deleteHome(id);
 	}
 	

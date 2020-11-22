@@ -61,7 +61,7 @@ public class ProcessesController {
 	}
 	
 	@DeleteMapping("{id}")
-	public void deleteProcess(@PathVariable(name="id") int id) {
+	public void deleteProcess(@PathVariable(name = "id") int id) {
 		processesServiceImpl.deleteProcess(id);
 	}
 	

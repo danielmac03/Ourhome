@@ -10,69 +10,69 @@ import org.hibernate.envers.Audited;
 
 @Entity
 @Audited
-@Table(name="users")
+@Table(name = "users")
 public class Users {
 
 	@Id
-	@Column(name="user_id")
+	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="name")
+	@Column(name = "name")
 	private String name;
 	
-	@Column(name="surnames")
+	@Column(name = "surnames")
 	private String surnames;
 
-	@Column(name="url_photo")
+	@Column(name = "url_photo")
 	private String urlPhoto;
 
-	@Column(name="description")
+	@Column(name = "description")
 	private String description;
 	
-	@Column(name="age")
+	@Column(name = "age")
 	private int age;
 	
-	@Column(name="phone")
+	@Column(name = "phone")
 	private Integer phone;
 	
-	@Column(name="email")
+	@Column(name = "email")
 	private String email;
 	
-	@Column(name="password")
+	@Column(name = "password")
 	private String password;
 	
-	@Column(name="role")
+	@Column(name = "role")
 	private String role;
 	
-	@Column(name="default_test_responses")
+	@Column(name = "default_test_responses")
 	private String defaultTestResponses;
 	
-	@Column(name="show_phone")
+	@Column(name = "show_phone")
 	private boolean showPhone;
 	
 	@CreationTimestamp
-	@Column(name="created_at")
+	@Column(name = "created_at")
 	private Timestamp createdAt;
 	
 	@UpdateTimestamp
-	@Column(name="updated_at")
+	@Column(name = "updated_at")
 	private Timestamp updatedAt;
 	
 	@OneToMany
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private List<Homes> homes;
 	
 	@OneToMany
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private List<Processes> process;
 	
 	@OneToMany
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private List<CustomTests> customTest;
 
 	@OneToMany
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private List<Notifications> notifications;
 	
 	public Users() {}

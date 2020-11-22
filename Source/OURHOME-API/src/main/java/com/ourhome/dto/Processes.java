@@ -8,37 +8,37 @@ import org.hibernate.envers.Audited;
 
 @Entity
 @Audited
-@Table(name="processes")
+@Table(name = "processes")
 public class Processes {
 	
 	@Id
-	@Column(name="process_id")
+	@Column(name = "process_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="home_id")
+	@JoinColumn(name = "home_id")
 	Homes home;
 	
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	Users user;
 
-	@Column(name="answers")
+	@Column(name = "answers")
 	private String answers;
 
-	@Column(name="compatibility")
+	@Column(name = "compatibility")
 	private int compatibility;
 	
-	@Column(name="state")
+	@Column(name = "state")
 	private String state;
 	
 	@CreationTimestamp
-	@Column(name="created_at")
+	@Column(name = "created_at")
 	private Timestamp createdAt;
 	
 	@UpdateTimestamp
-	@Column(name="updated_at")
+	@Column(name = "updated_at")
 	private Timestamp updatedAt;
 	
 	public Processes() {}

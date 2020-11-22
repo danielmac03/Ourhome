@@ -33,7 +33,7 @@ public class NotificationsController {
 	}
 	
 	@DeleteMapping("{id}")
-	public void deleteNotification(@PathVariable(name="id") int id) {
+	public void deleteNotification(@PathVariable(name = "id") int id) {
 		NotificationsServiceImpl.deleteNotification(id);
 	}
 	

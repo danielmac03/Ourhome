@@ -17,7 +17,7 @@ public class Notifications {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     Users user;
 
     @Column(name = "content_text")
@@ -30,7 +30,7 @@ public class Notifications {
     private String content_url;
 
     @CreationTimestamp
-    @Column(name="created_at")
+    @Column(name = "created_at")
     private Timestamp createdAt;
 
     public Notifications() {}

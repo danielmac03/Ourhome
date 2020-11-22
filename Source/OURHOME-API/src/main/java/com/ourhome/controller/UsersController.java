@@ -27,7 +27,7 @@ public class UsersController {
 	}
 
 	@GetMapping("/{id}")
-	public Users searchUser(@PathVariable(name="id") int id) {
+	public Users searchUser(@PathVariable(name = "id") int id) {
 		Users user = new Users();		
 		user = usersServiceImpl.searchUser(id);
 		
@@ -35,7 +35,7 @@ public class UsersController {
 	}
 	
 	@GetMapping("/email/{email}")
-	public Users searchUserByEmail(@PathVariable(name="email") String email) {
+	public Users searchUserByEmail(@PathVariable(name = "email") String email) {
 		Users user = new Users();		
 		user = usersServiceImpl.searchUserByEmail(email);
 		
@@ -73,7 +73,7 @@ public class UsersController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteUser(@PathVariable(name="id") int id) {
+	public void deleteUser(@PathVariable(name = "id") int id) {
 		usersServiceImpl.deleteUser(id);
 	}
 	
