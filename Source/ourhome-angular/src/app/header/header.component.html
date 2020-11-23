@@ -29,7 +29,7 @@
                 <p class="m-2">{{ notification['content_text'] }}</p>
                 <hr class="m-0">
               </div>
-              <div *ngIf="(notifications.length == 0)">
+              <div *ngIf="(notifications == '')">
                 <p class="m-2">No tienes notificaciones</p>
               </div>
             </div>

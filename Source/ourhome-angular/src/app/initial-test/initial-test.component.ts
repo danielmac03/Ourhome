@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { UsersService } from '../service/users.service';
-import { AuthService } from '../service/authentication/auth.service';
-import { TokenStorageService } from '../service/authentication/token-storage.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {NgForm} from '@angular/forms';
+import {UsersService} from '../service/users.service';
+import {AuthService} from '../service/authentication/auth.service';
+import {TokenStorageService} from '../service/authentication/token-storage.service';
 
 @Component({
   selector: 'app-initial-test',
@@ -11,32 +12,27 @@ import { TokenStorageService } from '../service/authentication/token-storage.ser
 })
 export class InitialTestComponent {
 
-  p1: string;
-  p2: string;
-  p3: string;
-  p4: string;
-  p5: string;
-  p6: string;
-  p7: string;
-  p8: string;
-
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
     private router: Router,
     private tokenStorageService: TokenStorageService
-  ) {}
+  ) {
+  }
 
-  save(): void{
+  onSubmit(data: NgForm): void {
     const user = this.tokenStorageService.getUser();
 
-    user.defaultTestResponses = this.p1.toString() + this.p2.toString() + this.p3.toString() + this.p4.toString() + this.p5.toString();
+    user.defaultTestResponses = JSON.stringify(data.value);
 
     this.usersService.createUsers(user).subscribe(resp1 => {
-      this.tokenStorageService.saveUser(resp1);
+
+      this.tokenStorageService.saveUser(user);
 
       this.authService.login({email: user.email, password: user.password}).subscribe(resp2 => {
         this.tokenStorageService.saveToken(resp2.headers.get('Authorization'));
+      }, error => {
+        console.log('Error...');
       });
 
       this.router.navigate(['home']);

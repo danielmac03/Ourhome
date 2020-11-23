@@ -13,7 +13,7 @@ public class HomesController {
 	@Autowired
 	HomesServiceImpl homesServiceImpl;
 	
-	@GetMapping("/public")
+	@GetMapping("/public/")
 	public List<Homes> listHomes(){
 		return homesServiceImpl.listHomes();
 	}

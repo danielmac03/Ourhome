@@ -3,44 +3,44 @@
 
     <div class="my-3"></div>
 
-    <form ngNativeValidate>
+    <form #data="ngForm" (ngSubmit)="onSubmit(data)" ngNativeValidate>
         <div class="form-group mt-5 field">
-            <input type="text" id="name" name="name" placeholder=" " class="form-control" required [(ngModel)]="name">
+            <input type="text" id="name" name="name" placeholder=" " class="form-control" required ngModel>
             <label class="lab" for="name">Nombre*</label>
         </div>
 
         <div class="form-group mt-5 field">
-            <input type="text" id="surnames" name="surnames" placeholder=" " class="form-control" required [(ngModel)]="surnames">
+            <input type="text" id="surnames" name="surnames" placeholder=" " class="form-control" required ngModel>
             <label class="lab" for="surnames">Apellidos*</label>
         </div>
 
       <div class="form-group mt-5 field">
-        <input type="url" id="urlPhoto" name="urlPhoto" placeholder=" " class="form-control" required [(ngModel)]="urlPhoto">
+        <input type="url" id="urlPhoto" name="urlPhoto" placeholder=" " class="form-control" required ngModel>
         <label class="lab" for="urlPhoto">Url foto*</label>
       </div>
 
       <div class="form-group mt-5 field">
-        <input type="text" id="description" name="urlPhoto" placeholder=" " class="form-control" required [(ngModel)]="description">
+        <input type="text" id="description" name="urlPhoto" placeholder=" " class="form-control" required ngModel>
         <label class="lab" for="description">Description*</label>
       </div>
 
       <div class="form-group mt-5 field">
-          <input type="number" id="age" name="age" placeholder=" " class="form-control" required [(ngModel)]="age">
+          <input type="number" id="age" name="age" placeholder=" " class="form-control" required ngModel>
           <label class="lab" for="age">Edad*</label>
       </div>
 
       <div class="form-group mt-5 field">
-          <input type="email" id="email" name="email" placeholder=" " class="form-control" required [(ngModel)]="email">
+          <input type="email" id="email" name="email" placeholder=" " class="form-control" required ngModel>
           <label class="lab" for="email">Correo*</label>
       </div>
 
       <div class="form-group mt-5 field">
-          <input type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9" [(ngModel)]="phone">
+          <input type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9" ngModel>
           <label class="lab" for="phone">Telefono</label>
       </div>
 
       <div class="form-group mt-5 field">
-          <input type="password" id="password" name="password" placeholder=" " class="form-control" required [(ngModel)]="password">
+          <input type="password" id="password" name="password" placeholder=" " class="form-control" required ngModel>
           <label class="lab" for="password">Contraseña*</label>
       </div>
 
@@ -49,11 +49,11 @@
           <div class="container">
               <div class="row">
                   <div class="col">
-                      <input type="radio" id="role" name="role" required [value]="1" [(ngModel)]="role">
+                      <input type="radio" id="role" name="role" required [value]="1" ngModel>
                       <label for="role">&nbsp; Tengo Casa</label>
                   </div>
                   <div class="col">
-                      <input type="radio" name="role" required [value]="0" [(ngModel)]="role">
+                      <input type="radio" name="role" required [value]="0" ngModel>
                       <label for="role">&nbsp; Busco Casa</label>
                   </div>
               </div>
@@ -62,7 +62,7 @@
 
       <div class="form-group mt-5 text-left">
           <div class="form-check">
-              <input type="checkbox" id="showPhone" name="showPhone" class="form-check-input" [value]="1" [(ngModel)]="showPhone">
+              <input type="checkbox" id="showPhone" name="showPhone" class="form-check-input" [value]="1" ngModel>
               <label class="form-check-label" for="phone">
                   Mostrar teléfono para contactar
               </label>
@@ -71,18 +71,17 @@
 
       <div class="form-group text-left">
           <div class="form-check">
-              <input id="acceptPolicy" name="acceptPolicy" type="checkbox" class="form-check-input" required [value]="1" [(ngModel)]="acceptPolicy">
+              <input id="acceptPolicy" name="acceptPolicy" type="checkbox" class="form-check-input" required [value]="1">
               <label class="form-check-label" for="acceptPolicy">
                   Acepto las Condiciones del servicio y la Politica de privacnamead de OURHOME
               </label>
           </div>
       </div>
 
-      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" (click)="register()">Regístrate</button>
+      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Regístrate</button>
 
       <hr>
 
       <i>* Es obligatorio rellenar estos campos para completar el registro.</i>
-
   </form>
 </div>

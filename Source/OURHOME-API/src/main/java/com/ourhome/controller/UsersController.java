@@ -34,7 +34,7 @@ public class UsersController {
 		return user;
 	}
 	
-	@GetMapping("/email/{email}")
+	@GetMapping("/public/email/{email}")
 	public Users searchUserByEmail(@PathVariable(name = "email") String email) {
 		Users user = new Users();		
 		user = usersServiceImpl.searchUserByEmail(email);
@@ -42,7 +42,7 @@ public class UsersController {
 		return user;
 	}
 
-	@PostMapping()
+	@PostMapping("/public/")
 	public Users saveUser(@RequestBody Users user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		return usersServiceImpl.saveUser(user);

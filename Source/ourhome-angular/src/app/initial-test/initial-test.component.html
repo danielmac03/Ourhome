@@ -7,19 +7,19 @@
 
   <hr>
 
-  <form ngNativeValidate>
+  <form #data="ngForm" (ngSubmit)="onSubmit(data)" ngNativeValidate>
       <div class="form-group question p-2">
           <p>¿Te gusta pasar tiempo com los compañeros de piso?</p>
 
           <div class="form-check">
               <label class="form-check-label">
-                  <input type="radio" class="form-check-input" [(ngModel)]="p1" name="p1" [value]="1" required>Si
+                  <input type="radio" class="form-check-input" name="p1" [value]="1" required ngModel>Si
               </label>
           </div>
 
           <div class="form-check">
               <label class="form-check-label">
-                  <input type="radio" class="form-check-input" [(ngModel)]="p1" name="p1" [value]="0">No
+                  <input type="radio" class="form-check-input" name="p1" [value]="0" ngModel>No
               </label>
           </div>
       </div>
@@ -29,13 +29,13 @@
 
           <div class="form-check">
               <label class="form-check-label">
-                  <input type="radio" class="form-check-input" [(ngModel)]="p2" name="p2" [value]="1" required>Si
+                  <input type="radio" class="form-check-input" name="p2" [value]="1" required ngModel>Si
               </label>
           </div>
 
           <div class="form-check">
               <label class="form-check-label">
-                  <input type="radio" class="form-check-input" [(ngModel)]="p2" name="p2" [value]="0">No
+                  <input type="radio" class="form-check-input" name="p2" [value]="0" ngModel>No
               </label>
           </div>
       </div>
@@ -45,13 +45,13 @@
 
         <div class="form-check">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" [(ngModel)]="p3" name="p3" [value]="1" required>Si
+                <input type="radio" class="form-check-input" name="p3" [value]="1" required ngModel>Si
             </label>
         </div>
 
         <div class="form-check">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" [(ngModel)]="p3" name="p3" [value]="0">No
+                <input type="radio" class="form-check-input" name="p3" [value]="0" ngModel>No
             </label>
         </div>
     </div>
@@ -61,13 +61,13 @@
 
       <div class="form-check">
           <label class="form-check-label">
-              <input type="radio" class="form-check-input" [(ngModel)]="p4" name="p4" [value]="1" required>Si
+              <input type="radio" class="form-check-input" name="p4" [value]="1" required ngModel>Si
           </label>
       </div>
 
       <div class="form-check">
           <label class="form-check-label">
-              <input type="radio" class="form-check-input" [(ngModel)]="p4" name="p4" [value]="0">No
+              <input type="radio" class="form-check-input" name="p4" [value]="0" ngModel>No
           </label>
       </div>
   </div>
@@ -77,13 +77,13 @@
 
     <div class="form-check">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" [(ngModel)]="p5" name="p5" [value]="1" required>Si
+            <input type="radio" class="form-check-input" name="p5" [value]="1" required ngModel>Si
         </label>
     </div>
 
     <div class="form-check">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" [(ngModel)]="p5" name="p5" [value]="0">No
+            <input type="radio" class="form-check-input" name="p5" [value]="0" ngModel>No
         </label>
     </div>
   </div>
@@ -93,13 +93,13 @@
 
     <div class="form-check">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" [(ngModel)]="p6" name="p6" [value]="1" required>Si
+            <input type="radio" class="form-check-input" name="p6" [value]="1" required ngModel>Si
         </label>
     </div>
 
     <div class="form-check">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" [(ngModel)]="p6" name="p6" [value]="0">No
+            <input type="radio" class="form-check-input" name="p6" [value]="0" ngModel>No
         </label>
     </div>
   </div>
@@ -109,13 +109,13 @@
 
     <div class="form-check">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" [(ngModel)]="p7" name="p7" [value]="1" required>Si
+            <input type="radio" class="form-check-input" name="p7" [value]="1" required ngModel>Si
         </label>
     </div>
 
     <div class="form-check">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" [(ngModel)]="p7" name="p7" [value]="0">No
+            <input type="radio" class="form-check-input" name="p7" [value]="0" ngModel>No
         </label>
     </div>
   </div>
@@ -125,16 +125,16 @@
 
   <div class="form-check">
       <label class="form-check-label">
-          <input type="radio" class="form-check-input" [(ngModel)]="p8" name="p8" [value]="1" required>Si
+          <input type="radio" class="form-check-input" name="p8" [value]="1" required ngModel>Si
       </label>
   </div>
 
   <div class="form-check">
       <label class="form-check-label">
-          <input type="radio" class="form-check-input" [(ngModel)]="p8" name="p8" [value]="0">No
+          <input type="radio" class="form-check-input" name="p8" [value]="0" ngModel>No
       </label>
   </div>
 </div>
-      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" (click)="save()">Guardar</button>
+      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Guardar</button>
   </form>
 </div>

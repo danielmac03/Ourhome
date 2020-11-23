@@ -16,11 +16,11 @@ export class UsersService {
   }
 
   getUserByEmail(userEmail: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/email/${userEmail}`);
+    return this.http.get(`${this.baseUrl}/public/email/${userEmail}`);
   }
 
   createUsers(user: object): Observable<object> {
-    return this.http.post(`${this.baseUrl}`, user);
+    return this.http.post(`${this.baseUrl}/public/`, user);
   }
 
   updateUser(user: object): Observable<object> {
