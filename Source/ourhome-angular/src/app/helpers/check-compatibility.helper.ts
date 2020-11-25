@@ -10,17 +10,20 @@ export class CheckCompatibilityHelper {
     const user = this.tokenStorageService.getUser();
 
     if (user !== '') {
-      const userDefaultTestResponses = user.defaultTestResponses;
-      const defaultTestResponsesString = defaultTestResponses;
+      const userDefaultTestResponses = JSON.parse(user.defaultTestResponses);
+      defaultTestResponses = JSON.parse(defaultTestResponses);
+
+      console.log(userDefaultTestResponses, defaultTestResponses);
 
       let contador = 0;
-      for (let i = 0; i < userDefaultTestResponses.length; i++) {
-        if (defaultTestResponsesString.charAt(i) === userDefaultTestResponses.charAt(i)) {
+      for (let i = 1; i < Object.keys(userDefaultTestResponses).length + 1; i++) {
+        if (defaultTestResponses['p' + i] === userDefaultTestResponses['p' + i]) {
+          console.log(i, defaultTestResponses['p' + i], userDefaultTestResponses['p' + i]);
           contador++;
         }
       }
 
-      if (contador < userDefaultTestResponses.length / 2) {
+      if (contador > Object.keys(userDefaultTestResponses).length / 2) {
         return false;
       }
     } else {
