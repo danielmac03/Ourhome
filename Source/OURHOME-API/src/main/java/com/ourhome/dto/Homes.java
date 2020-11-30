@@ -52,6 +52,9 @@ public class Homes {
 	
 	@Column(name = "additional")
 	private String additional;
+
+	@Column(name = "active")
+	private boolean active;
 	
 	@CreationTimestamp
 	@Column(name = "created_at")
@@ -67,7 +70,7 @@ public class Homes {
 	
 	public Homes() {}
 
-	public Homes(int id, Users user, String urlPhotos, String description, double price, int numBedrooms, int numBathroom, String city, String direction, double meters, int floors, String additional, Timestamp createdAt, Timestamp updatedAt, List<Processes> process) {
+	public Homes(int id, Users user, String urlPhotos, String description, double price, int numBedrooms, int numBathroom, String city, String direction, double meters, int floors, String additional, boolean active, Timestamp createdAt, Timestamp updatedAt, List<Processes> process) {
 		this.id = id;
 		this.user = user;
 		this.urlPhotos = urlPhotos;
@@ -80,203 +83,128 @@ public class Homes {
 		this.meters = meters;
 		this.floors = floors;
 		this.additional = additional;
+		this.active = active;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 		this.process = process;
 	}
 
-	/**
-	 * @return the id
-	 */
 	public int getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the user
-	 */
 	public Users getUser() {
 		return user;
 	}
 
-	/**
-	 * @param user the user to set
-	 */
 	public void setUser(Users user) {
 		this.user = user;
 	}
 
-	/**
-	 * @return the urlPhotos
-	 */
 	public String getUrlPhotos() {
 		return urlPhotos;
 	}
 
-	/**
-	 * @param urlPhotos the urlPhotos to set
-	 */
 	public void setUrlPhotos(String urlPhotos) {
 		this.urlPhotos = urlPhotos;
 	}
 
-	/**
-	 * @return the description
-	 */
 	public String getDescription() {
 		return description;
 	}
 
-	/**
-	 * @param description the description to set
-	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	/**
-	 * @return the price
-	 */
 	public double getPrice() {
 		return price;
 	}
 
-	/**
-	 * @param price the price to set
-	 */
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	/**
-	 * @return the numBedrooms
-	 */
 	public int getNumBedrooms() {
 		return numBedrooms;
 	}
 
-	/**
-	 * @param numBedrooms the numBedrooms to set
-	 */
 	public void setNumBedrooms(int numBedrooms) {
 		this.numBedrooms = numBedrooms;
 	}
 
-	/**
-	 * @return the numBathroom
-	 */
 	public int getNumBathroom() {
 		return numBathroom;
 	}
 
-	/**
-	 * @param numBathroom the numBathroom to set
-	 */
 	public void setNumBathroom(int numBathroom) {
 		this.numBathroom = numBathroom;
 	}
-	
-	/**
-	 * @return the city
-	 */
+
 	public String getCity() {
 		return city;
 	}
 
-	/**
-	 * @param city the city to set
-	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 
-	/**
-	 * @return the direction
-	 */
 	public String getDirection() {
 		return direction;
 	}
 
-	/**
-	 * @param direction the direction to set
-	 */
 	public void setDirection(String direction) {
 		this.direction = direction;
 	}
 
-	/**
-	 * @return the meters
-	 */
 	public double getMeters() {
 		return meters;
 	}
 
-	/**
-	 * @param meters the meters to set
-	 */
 	public void setMeters(double meters) {
 		this.meters = meters;
 	}
 
-	/**
-	 * @return the floors
-	 */
 	public int getFloors() {
 		return floors;
 	}
 
-	/**
-	 * @param floors the floors to set
-	 */
 	public void setFloors(int floors) {
 		this.floors = floors;
 	}
 
-	/**
-	 * @return the additional
-	 */
 	public String getAdditional() {
 		return additional;
 	}
 
-	/**
-	 * @param additional the additional to set
-	 */
 	public void setAdditional(String additional) {
 		this.additional = additional;
 	}
 
-	/**
-	 * @return the createdAt
-	 */
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	/**
-	 * @param createdAt the createdAt to set
-	 */
 	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	/**
-	 * @return the updatedAt
-	 */
 	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
-	/**
-	 * @param updatedAt the updatedAt to set
-	 */
 	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}

@@ -18,6 +18,11 @@ public class HomesController {
 		return homesServiceImpl.listHomes();
 	}
 
+	@GetMapping("/public/active/")
+	public List<Homes> listActiveHomes(){
+		return homesServiceImpl.listActiveHomes();
+	}
+
 	@GetMapping("/public/{id}")
 	public Homes getHome(@PathVariable(name = "id") int id) {
 		Homes home = new Homes();

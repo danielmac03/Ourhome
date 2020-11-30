@@ -5,8 +5,10 @@ import com.ourhome.dto.Homes;
 
 public interface IHomesService {
 
-	public List<Homes> listHomes(); 
-	
+	public List<Homes> listHomes();
+
+	public List<Homes> listActiveHomes();
+
 	public Homes saveHomes(Homes home);	
 	
 	public Homes getHome(int id);

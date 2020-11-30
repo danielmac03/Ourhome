@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
         this.homes = resp;
       });
     }else{
-      this.homesService.getHomes().subscribe(resp => {
+      this.homesService.getActiveHomes().subscribe(resp => {
         this.homes = resp;
       });
     }

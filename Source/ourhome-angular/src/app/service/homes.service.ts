@@ -16,6 +16,10 @@ export class HomesService {
     return this.http.get(`${this.baseUrl}/public/`);
   }
 
+  getActiveHomes(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/public/active/`);
+  }
+
   getHomesById(homeId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/public/${homeId}`);
   }

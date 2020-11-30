@@ -18,6 +18,11 @@ public class HomesServiceImpl implements IHomesService{
 	}
 
 	@Override
+	public List<Homes> listActiveHomes() {
+		return iHomesDAO.findByActive(true);
+	}
+
+	@Override
 	public Homes saveHomes(Homes home) {
 		return iHomesDAO.save(home);
 	}
