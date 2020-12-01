@@ -36,7 +36,7 @@ export class HomesService {
     return this.http.post(`${this.baseUrl}`, homes);
   }
 
-  updateHomes(value: any): Observable<object> {
+  updateHome(value: any): Observable<object> {
     return this.http.put(`${this.baseUrl}`, value);
   }
 

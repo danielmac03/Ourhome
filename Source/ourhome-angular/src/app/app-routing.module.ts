@@ -118,11 +118,19 @@ const routes: Routes = [
     }
   },
   {
+    path: 'edit-advertisement',
+    component: EditAdvertisementComponent,
+    canActivate: [RequireRolesHelper],
+    data: {
+      allowedRoles: ['have'],
+    }
+  },
+  {
     path: 'edit-advertisement/:id',
     component: EditAdvertisementComponent,
     canActivate: [RequireRolesHelper],
     data: {
-      allowedRoles: ['have', 'business'],
+      allowedRoles: ['business'],
     }
   },
   {

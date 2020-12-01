@@ -12,6 +12,7 @@ import {TokenStorageService} from '../service/authentication/token-storage.servi
 export class EditAdvertisementComponent implements OnInit {
 
   home;
+  user;
 
   constructor(
     private homesService: HomesService,
@@ -22,23 +23,31 @@ export class EditAdvertisementComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.homesService.getHomeById(this.route.snapshot.params.id).subscribe(resp => {
-      this.home = resp;
-      console.log(this.home);
-    }, error => {
-      console.log('Error...');
-    });
+    this.user = this.tokenStorageService.getUser();
+
+    if (this.route.snapshot.params.id) {
+      this.homesService.getHomeById(this.route.snapshot.params.id).subscribe(resp => {
+        this.home = resp;
+      }, error => {
+        console.log('Error...');
+      });
+    } else {
+      this.homesService.getHomesByUser(this.user.id).subscribe(resp => {
+        this.home = resp[0];
+      }, error => {
+        console.log('Error...');
+      });
+    }
   }
 
   onSubmit(data: NgForm): void {
-    data.value.id = this.route.snapshot.params.id;
-    data.value.user = this.tokenStorageService.getUser();
+    data.value.id = this.home.id;
+    data.value.user = this.user;
 
-
-    this.homesService.updateHomes(data.value).subscribe(resp => {
-      this.router.navigate(['see-advertisement', this.route.snapshot.params.id]);
+    this.homesService.updateHome(data.value).subscribe(resp => {
+      this.router.navigate(['see-advertisement', this.home.id]);
     }, error => {
-      console.log(error);
+      console.log('Error...');
     });
   }
 
