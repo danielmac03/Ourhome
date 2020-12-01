@@ -22,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
 import { SeeRequestsComponent } from './see-requests/see-requests.component';
 import { CheckCompatibilityHelper } from './helpers/check-compatibility.helper';
 import { BusinessListHomesComponent } from './business-list-homes/business-list-homes.component';
+import { EditAdvertisementComponent } from './edit-advertisement/edit-advertisement.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { BusinessListHomesComponent } from './business-list-homes/business-list-
     CustomTestComponent,
     HeaderComponent,
     SeeRequestsComponent,
-    BusinessListHomesComponent
+    BusinessListHomesComponent,
+    EditAdvertisementComponent
   ],
   imports: [
     BrowserModule,
