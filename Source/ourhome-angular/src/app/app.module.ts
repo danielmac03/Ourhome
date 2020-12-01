@@ -21,6 +21,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HeaderComponent } from './header/header.component';
 import { SeeRequestsComponent } from './see-requests/see-requests.component';
 import { CheckCompatibilityHelper } from './helpers/check-compatibility.helper';
+import { BusinessListHomesComponent } from './business-list-homes/business-list-homes.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CheckCompatibilityHelper } from './helpers/check-compatibility.helper';
     InitialTestComponent,
     CustomTestComponent,
     HeaderComponent,
-    SeeRequestsComponent
+    SeeRequestsComponent,
+    BusinessListHomesComponent
   ],
   imports: [
     BrowserModule,

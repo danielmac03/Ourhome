@@ -14,6 +14,7 @@ import { InitialTestComponent } from './initial-test/initial-test.component';
 import { RequireRolesHelper } from './helpers/require-roles.helper';
 import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
 import { CreateAdvertisementComponent } from './create-advertisement/create-advertisement.component';
+import {BusinessListHomesComponent} from './business-list-homes/business-list-homes.component';
 
 const routes: Routes = [
   {
@@ -105,6 +106,14 @@ const routes: Routes = [
     canActivate: [RequireRolesHelper],
     data: {
       allowedRoles: ['have', 'business'],
+    }
+  },
+  {
+    path: 'list-homes',
+    component: BusinessListHomesComponent,
+    canActivate: [RequireRolesHelper],
+    data: {
+      allowedRoles: ['business']
     }
   },
   {
