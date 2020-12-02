@@ -21,7 +21,7 @@ export class SeeAdvertisementComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.homesService.getHomesById(this.route.snapshot.params.home).subscribe(
+    this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(
       (data) => {
         this.home = data;
       },

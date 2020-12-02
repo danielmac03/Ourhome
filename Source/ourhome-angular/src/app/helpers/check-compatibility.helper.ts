@@ -13,12 +13,9 @@ export class CheckCompatibilityHelper {
       const userDefaultTestResponses = JSON.parse(user.defaultTestResponses);
       defaultTestResponses = JSON.parse(defaultTestResponses);
 
-      console.log(userDefaultTestResponses, defaultTestResponses);
-
       let contador = 0;
       for (let i = 1; i < Object.keys(userDefaultTestResponses).length + 1; i++) {
         if (defaultTestResponses['p' + i] === userDefaultTestResponses['p' + i]) {
-          console.log(i, defaultTestResponses['p' + i], userDefaultTestResponses['p' + i]);
           contador++;
         }
       }

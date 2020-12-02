@@ -33,7 +33,7 @@ export class SeeRequestsComponent implements OnInit {
     this.user = this.tokenStorageService.getUser();
 
     if (this.route.snapshot.params.home) {
-      this.homesService.getHomesById(this.route.snapshot.params.home).subscribe(
+      this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(
         resp => {
           this.home = resp;
           this.listProcesses();

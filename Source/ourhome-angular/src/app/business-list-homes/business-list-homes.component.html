@@ -1,0 +1,28 @@
+<div class="container div-form text-center my-5 p-5">
+
+  <h2>HOGARES</h2>
+
+  <div class="add d-inline-block" *ngFor="let home of homes">
+    <div class="card m-3">
+      <img class="card-img-top" *ngIf="(home['urlPhotos'] != '')" src="{{ home['urlPhotos'] }}" alt="Card image">
+      <div class="card-body">
+        <p class="card-text" *ngIf="(home['description'] != '')">
+          {{ home['description'] }}
+        </p>
+        <label class="card-text">
+          {{ home['price'] }} €
+        </label>
+        <div class="row my-2">
+          <div class="col-md-6">
+            <a href="/see-requests/{{ home['id'] }}" class="btn btn-custom d-block">Ver solicitudes</a>
+          </div>
+          <div class="col-md-6">
+            <a href="/edit-advertisement/{{ home['id'] }}" class="btn btn-custom d-block">Editar anuncio</a>
+          </div>
+        </div>
+        <a href="/see-advertisement/{{ home['id'] }}" class="btn btn-custom d-block">Ver anuncio</a>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -20,7 +20,7 @@ export class HomesService {
     return this.http.get(`${this.baseUrl}/public/active/`);
   }
 
-  getHomesById(homeId: number): Observable<any> {
+  getHomeById(homeId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/public/${homeId}`);
   }
 
@@ -36,8 +36,8 @@ export class HomesService {
     return this.http.post(`${this.baseUrl}`, homes);
   }
 
-  updateHomes(homeId: number, value: any): Observable<object> {
-    return this.http.put(`${this.baseUrl}/${homeId}`, value);
+  updateHome(value: any): Observable<object> {
+    return this.http.put(`${this.baseUrl}`, value);
   }
 
   deleteHomes(homeId: number): Observable<any> {

@@ -1,0 +1,91 @@
+<div class="container div-form my-5 p-5">
+
+  <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
+
+  <div class="my-3"></div>
+
+  <form #data="ngForm" (ngSubmit)="onSubmit(data)" ngNativeValidate>
+    <div class="form-group mt-5 field">
+      <input type="text" id="urlPhotos" name="urlPhotos" placeholder=" " class="form-control" required
+             [(ngModel)]="home['urlPhotos']">
+      <label for="urlPhotos">Url fotos</label>
+    </div>
+
+    <div class="form-group mt-5 text-left">
+      <div class="form-check">
+        <input *ngIf="home['active'] == true" type="checkbox" id="active" name="active" class="form-check-input" checked [value]="true"  [(ngModel)]="home['active']">
+        <input *ngIf="home['active'] == false" type="checkbox" id="active" name="active" class="form-check-input" [value]="true" [(ngModel)]="home['active']">
+        <label class="form-check-label" for="active">
+          Mostrar teléfono para contactar
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group mt-5 field">
+      <textarea id="description" name="description" placeholder=" " class="form-control" required
+                [(ngModel)]="home['description']"></textarea>
+      <label for="description">Descripción*</label>
+    </div>
+
+    <div class="form-group mt-5 field">
+      <input type="number" id="price" name="price" placeholder=" " class="form-control" required
+             [(ngModel)]="home['price']">
+      <label for="price">Precio*</label>
+    </div>
+
+    <div class="form-group mt-5 field">
+      <input type="number" id="numBedrooms" name="numBedrooms" placeholder=" " class="form-control"
+             [(ngModel)]="home['numBedrooms']">
+      <label for="numBedrooms">Numero Habitaciones</label>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group mt-5 field">
+          <input type="number" id="numBathroom" name="numBathroom" placeholder=" " class="form-control"
+                 [(ngModel)]="home['numBathroom']">
+          <label for="numBathroom">Numero Baños</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group mt-5 field">
+          <input type="text" id="city" name="city" placeholder=" " class="form-control" [(ngModel)]="home['city']">
+          <label for="city">Ciudad</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mt-5 field">
+      <input type="text" id="direction" name="direction" placeholder=" " class="form-control"
+             [(ngModel)]="home['direction']">
+      <label for="direction">Dirección*</label>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="form-group field">
+          <input type="number" id="meters" name="meters" placeholder=" " class="form-control"
+                 [(ngModel)]="home['meters']">
+          <label for="meters">Metros cuadrados</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group field">
+          <input type="number" id="floors" name="floors" placeholder=" " class="form-control"
+                 [(ngModel)]="home['floors']">
+          <label for="floors">Numero Plantas</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group my-5 field">
+      <textarea id="additional" name="additional" placeholder=" " class="form-control" required
+                [(ngModel)]="home['additional']"></textarea>
+      <label for="additional">Extras*</label>
+    </div>
+
+    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Publicar</button>
+  </form>
+</div>

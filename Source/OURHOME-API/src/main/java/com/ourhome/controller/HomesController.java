@@ -46,12 +46,12 @@ public class HomesController {
 		return homesServiceImpl.saveHomes(home);
 	}
 
-	@PutMapping("/{id}")
-	public Homes updateHome(@PathVariable(name = "id") int id, @RequestBody Homes home) {
+	@PutMapping()
+	public Homes updateHome(@RequestBody Homes home) {
 		Homes homeSelected = new Homes();
 		Homes homeUpdated = new Homes();
 		
-		homeSelected = homesServiceImpl.getHome(id);
+		homeSelected = homesServiceImpl.getHome(home.getId());
 		
 		homeSelected.setUser(home.getUser());
 		homeSelected.setUrlPhotos(home.getUrlPhotos());
@@ -64,8 +64,7 @@ public class HomesController {
 		homeSelected.setMeters(home.getMeters());
 		homeSelected.setFloors(home.getFloors());
 		homeSelected.setAdditional(home.getAdditional());
-		homeSelected.setCreatedAt(home.getCreatedAt());
-		homeSelected.setUpdatedAt(home.getUpdatedAt());
+		homeSelected.setActive(home.isActive());
 
 		homeUpdated = this.homesServiceImpl.updateHome(homeSelected);
 		

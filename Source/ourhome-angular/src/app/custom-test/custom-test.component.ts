@@ -29,7 +29,7 @@ export class CustomTestComponent implements OnInit {
   answers: number[] = [];
 
   ngOnInit(): void{
-    this.homesService.getHomesById(this.route.snapshot.params.home).subscribe(
+    this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(
       resp1 => {
         this.home = resp1;
 
