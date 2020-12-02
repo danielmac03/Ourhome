@@ -40,4 +40,8 @@ export class ProcessesService {
     return this.http.delete(`${this.baseUrl}/${processId}`, { responseType: 'text' });
   }
 
+  deleteProcessesByHome(userId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/home/${userId}`, { responseType: 'text' });
+  }
+
 }

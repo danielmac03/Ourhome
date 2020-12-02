@@ -2,6 +2,7 @@ package com.ourhome.service;
 
 import java.util.List;
 import com.ourhome.dto.Processes;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface IProcessesService {
 
@@ -18,5 +19,7 @@ public interface IProcessesService {
 	public Processes updateProcess(Processes process); 
 	
 	public void deleteProcess(int id);
-		
+
+	public void deleteProcessesByHome(int id);
+
 }
