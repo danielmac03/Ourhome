@@ -2,6 +2,7 @@ package com.ourhome.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import com.ourhome.dto.Processes;
 import com.ourhome.service.ProcessesServiceImpl;
@@ -32,8 +33,8 @@ public class ProcessesController {
 	}
 
 	@GetMapping("/user/{user_id}")
-	public List<Processes> listProcessByUser(@PathVariable(name = "user_id") int user_id){
-		return processesServiceImpl.listProcessByUser(user_id);
+	public List<Processes> listProcessByUser(@PathVariable(name = "user_id") int userId){
+		return processesServiceImpl.listProcessByUser(userId);
 	}
 
 	@PostMapping()
@@ -59,10 +60,16 @@ public class ProcessesController {
 		
 		return processUpdated;
 	}
-	
+
 	@DeleteMapping("{id}")
 	public void deleteProcess(@PathVariable(name = "id") int id) {
 		processesServiceImpl.deleteProcess(id);
+	}
+
+	@Transactional
+	@DeleteMapping("/home/{home_id}")
+	public void deleteProcessesByHome(@PathVariable(name = "home_id") int homeId) {
+		processesServiceImpl.deleteProcessesByHome(homeId);
 	}
 	
 }

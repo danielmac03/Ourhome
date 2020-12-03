@@ -25,7 +25,7 @@
       </div>
 
       <div class="form-group question p-2">
-          <p>¿Tienes algún animal de compañia?</p>
+          <p>¿Traerías algún animal de compañía al piso?</p>
 
           <div class="form-check">
               <label class="form-check-label">
@@ -39,6 +39,22 @@
               </label>
           </div>
       </div>
+
+      <div class="form-group question p-2">
+        <p>¿Te molestaría tener una mascota al piso?</p>
+
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="p2" [value]="1" required ngModel>Si
+            </label>
+        </div>
+
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="p2" [value]="0" ngModel>No
+            </label>
+        </div>
+    </div>
 
       <div class="form-group question p-2">
         <p>¿Fumas en casa?</p>
@@ -55,6 +71,22 @@
             </label>
         </div>
     </div>
+
+    <div class="form-group question p-2">
+      <p>¿Te molestaría que un compañero fumara en casa?</p>
+
+      <div class="form-check">
+          <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="p3" [value]="1" required ngModel>Si
+          </label>
+      </div>
+
+      <div class="form-check">
+          <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="p3" [value]="0" ngModel>No
+          </label>
+      </div>
+  </div>
 
     <div class="form-group question p-2">
       <p>¿Limpias semanalmente?</p>
