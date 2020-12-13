@@ -10,13 +10,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import org.apache.commons.io.FilenameUtils;
 
 import static java.util.Collections.emptyList;
 
@@ -35,14 +32,8 @@ public class UsersServiceImpl implements IUsuariosService, UserDetailsService {
 
     @Override
     public Users saveUser(Users user, MultipartFile profilePicture) throws IOException {
-        Users userSaved = iUsersDAO.save(user);
-
-        if (!Files.exists(this.root)) {
-            new File(String.valueOf(this.root)).mkdirs();
-        }
-
-        Files.copy(profilePicture.getInputStream(), this.root.resolve(String.valueOf(userSaved.getId() + "." + FilenameUtils.getExtension(profilePicture.getOriginalFilename()))));
-        return userSaved;
+        user.setProfilePicture(profilePicture.getBytes());
+        return iUsersDAO.save(user);
     }
 
     @Override

@@ -24,8 +24,9 @@ public class Users {
 	@Column(name = "surnames")
 	private String surnames;
 
-	@Column(name = "url_photo")
-	private String urlPhoto;
+	@Lob
+	@Column(name = "profile_picture")
+	private byte[] profilePicture;
 
 	@Column(name = "description")
 	private String description;
@@ -77,34 +78,15 @@ public class Users {
 	
 	public Users() {}
 
-	/**
-	 * @param id
-	 * @param name
-	 * @param surnames
-	 * @param age
-	 * @param phone
-	 * @param mail
-	 * @param password
-	 * @param role
-	 * @param defaultTestResponses
-	 * @param showPhone
-	 * @param createdAt
-	 * @param updatedAt
-	 * @param homes
-	 * @param process
-	 * @param customTest
-	 */
-	public Users(int id, String name, String surnames, String urlPhoto, String description, int age, int phone, String mail, String password, String role,
-				 String defaultTestResponses, boolean showPhone, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes,
-				 List<Processes> process, List<CustomTests> customTest) {
+	public Users(int id, String name, String surnames, byte[] profilePicture, String description, int age, Integer phone, String email, String password, String role, String defaultTestResponses, boolean showPhone, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes, List<Processes> process, List<CustomTests> customTest, List<Notifications> notifications) {
 		this.id = id;
 		this.name = name;
 		this.surnames = surnames;
-		this.urlPhoto = urlPhoto;
+		this.profilePicture = profilePicture;
 		this.description = description;
 		this.age = age;
 		this.phone = phone;
-		this.email = mail;
+		this.email = email;
 		this.password = password;
 		this.role = role;
 		this.defaultTestResponses = defaultTestResponses;
@@ -114,6 +96,7 @@ public class Users {
 		this.homes = homes;
 		this.process = process;
 		this.customTest = customTest;
+		this.notifications = notifications;
 	}
 
 	public int getId() {
@@ -140,12 +123,12 @@ public class Users {
 		this.surnames = surnames;
 	}
 
-	public String getUrlPhoto() {
-		return urlPhoto;
+	public byte[] getProfilePicture() {
+		return profilePicture;
 	}
 
-	public void setUrlPhoto(String urlPhoto) {
-		this.urlPhoto = urlPhoto;
+	public void setProfilePicture(byte[] profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 
 	public String getDescription() {
