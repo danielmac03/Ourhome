@@ -11,15 +11,13 @@ public interface IUsuariosService {
 
 	public List<Users> listUsers(); 
 	
-	public Users saveUser(Users user, MultipartFile profilePicture) throws IOException;
+	public Users saveUser(Users user) throws IOException;
 
 	public Users searchUser(int id);
 	
 	public Users searchUserByEmail(String email);
 	
 	public Users updateUser(Users user);
-
-	public Users updateProfilePicture(Users user, MultipartFile profilePicture) throws IOException;
 
 	public void deleteUser(int id);
 

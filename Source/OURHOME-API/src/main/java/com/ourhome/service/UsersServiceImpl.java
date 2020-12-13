@@ -26,8 +26,7 @@ public class UsersServiceImpl implements IUsuariosService, UserDetailsService {
     IUsersDAO iUsersDAO;
 
     @Override
-    public Users saveUser(Users user, MultipartFile profilePicture) throws IOException {
-        user.setProfilePicture(profilePicture.getBytes());
+    public Users saveUser(Users user) throws IOException {
         return iUsersDAO.save(user);
     }
 
@@ -48,12 +47,6 @@ public class UsersServiceImpl implements IUsuariosService, UserDetailsService {
 
     @Override
     public Users updateUser(Users user) {
-        return iUsersDAO.save(user);
-    }
-
-    @Override
-    public Users updateProfilePicture(Users user, MultipartFile profilePicture) throws IOException {
-        user.setProfilePicture(profilePicture.getBytes());
         return iUsersDAO.save(user);
     }
 

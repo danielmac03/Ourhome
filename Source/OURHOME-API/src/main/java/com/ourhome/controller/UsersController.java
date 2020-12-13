@@ -43,8 +43,9 @@ public class UsersController {
 
     @PostMapping("/public/")
     public Users saveUser(@RequestPart(name = "profilePicture") MultipartFile profilePicture, @RequestPart(name = "user") Users user) throws IOException {
+        user.setProfilePicture(profilePicture.getBytes());
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        return usersServiceImpl.saveUser(user, profilePicture);
+        return usersServiceImpl.saveUser(user);
     }
 
     @PutMapping()
@@ -60,8 +61,8 @@ public class UsersController {
 
     @PutMapping("/profile-picture/")
     public Users updateProfilePicture(@RequestPart(name = "profilePicture") MultipartFile profilePicture, @RequestPart(name = "user") Users user) throws IOException {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        return usersServiceImpl.saveUser(user, profilePicture);
+        user.setProfilePicture(profilePicture.getBytes());
+        return usersServiceImpl.updateUser(user);
     }
 
     @DeleteMapping("/{id}")
