@@ -6,13 +6,8 @@
 
   <form #data="ngForm" (ngSubmit)="onSubmit(data)" ngNativeValidate>
     <div class="form-group mt-5 field">
-      <input type="text" id="urlPhotos" name="urlPhotos" placeholder=" " class="form-control" required ngModel>
-      <label for="urlPhotos">Url fotos</label>
-    </div>
-
-    <div class="form-group mt-5 field">
-      <input type="text" id="urlPhotos" name="urlPhotos" placeholder=" " class="form-control" required ngModel>
-      <label for="urlPhotos">Url fotos</label>
+      <input type="file" id="photos" name="photos" placeholder=" " class="form-control" multiple (change)="onFileChange($event)">
+      <label for="photos">Fotos:</label>
     </div>
 
     <div class="form-group mt-5 field">

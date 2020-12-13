@@ -1,79 +1,70 @@
 package com.ourhome.controller;
 
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import com.ourhome.dto.Homes;
 import com.ourhome.service.HomesServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/homes")
 public class HomesController {
 
-	@Autowired
-	HomesServiceImpl homesServiceImpl;
-	
-	@GetMapping("/public/")
-	public List<Homes> listHomes(){
-		return homesServiceImpl.listHomes();
-	}
+    @Autowired
+    HomesServiceImpl homesServiceImpl;
 
-	@GetMapping("/public/active/")
-	public List<Homes> listActiveHomes(){
-		return homesServiceImpl.listActiveHomes();
-	}
+    @GetMapping("/public/")
+    public List<Homes> listHomes() {
+        return homesServiceImpl.listHomes();
+    }
 
-	@GetMapping("/public/{id}")
-	public Homes getHome(@PathVariable(name = "id") int id) {
-		Homes home = new Homes();
-		home = homesServiceImpl.getHome(id);
+    @GetMapping("/public/active/")
+    public List<Homes> listActiveHomes() {
+        return homesServiceImpl.listActiveHomes();
+    }
 
-		return home;
-	}
+    @GetMapping("/public/{id}")
+    public Homes getHome(@PathVariable(name = "id") int id) {
+        Homes home = new Homes();
+        home = homesServiceImpl.getHome(id);
 
-	@GetMapping("/user/{user_id}")
-	public List<Homes> getHomesByUser(@PathVariable(name = "user_id") int user_id) {
-		return homesServiceImpl.getHomesByUser(user_id);
-	}
+        return home;
+    }
 
-	@GetMapping("/city/{city}")
-	public List<Homes> getHomesByCity(@PathVariable(name = "city") String city){
-		return homesServiceImpl.getHomesByCity(city);
-	}
+    @GetMapping("/user/{user_id}")
+    public List<Homes> getHomesByUser(@PathVariable(name = "user_id") int user_id) {
+        return homesServiceImpl.getHomesByUser(user_id);
+    }
 
-	@PostMapping()
-	public Homes saveHomes(@RequestBody Homes home) {
-		return homesServiceImpl.saveHomes(home);
-	}
+    @GetMapping("/city/{city}")
+    public List<Homes> getHomesByCity(@PathVariable(name = "city") String city) {
+        return homesServiceImpl.getHomesByCity(city);
+    }
 
-	@PutMapping()
-	public Homes updateHome(@RequestBody Homes home) {
-		Homes homeSelected = new Homes();
-		Homes homeUpdated = new Homes();
-		
-		homeSelected = homesServiceImpl.getHome(home.getId());
-		
-		homeSelected.setUser(home.getUser());
-		homeSelected.setUrlPhotos(home.getUrlPhotos());
-		homeSelected.setDescription(home.getDescription());
-		homeSelected.setPrice(home.getPrice());
-		homeSelected.setNumBedrooms(home.getNumBedrooms());
-		homeSelected.setNumBathroom(home.getNumBathroom());
-		homeSelected.setCity(home.getCity());
-		homeSelected.setDirection(home.getDirection());
-		homeSelected.setMeters(home.getMeters());
-		homeSelected.setFloors(home.getFloors());
-		homeSelected.setAdditional(home.getAdditional());
-		homeSelected.setActive(home.isActive());
+    @PutMapping()
+    public Homes updateHome(@RequestBody Homes home) {
+        return this.homesServiceImpl.updateHome(home);
+    }
 
-		homeUpdated = this.homesServiceImpl.updateHome(homeSelected);
-		
-		return homeUpdated;
-	}
-	
-	@DeleteMapping("/{id}")
-	public void deleteHome(@PathVariable(name = "id") int id) {
-		homesServiceImpl.deleteHome(id);
-	}
-	
+    @PostMapping()
+    public Homes saveHomes(@RequestPart(name = "photos", required = false) MultipartFile[] photos, @RequestPart(name = "home") Homes home) throws IOException {
+        byte[][] photosByte = new byte[photos.length][];
+
+        if (photos != null) {
+            for (int i = 0; i < photos.length; i++) {
+                photosByte[i] = photos[i].getBytes();
+            }
+        }
+
+        home.setPhotos(photosByte);
+        return homesServiceImpl.saveHomes(home);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteHome(@PathVariable(name = "id") int id) {
+        homesServiceImpl.deleteHome(id);
+    }
 }

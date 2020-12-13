@@ -68,7 +68,6 @@ export class SeeRequestsComponent implements OnInit {
             option2: resp.options2.split(',')[i]
           });
         }
-        console.log(this.questions);
       }, error => {
         console.log('Error...');
       });
