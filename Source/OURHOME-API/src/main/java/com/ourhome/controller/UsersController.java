@@ -52,26 +52,14 @@ public class UsersController {
 
     @PutMapping()
     public Users updateUser(@RequestBody Users user) {
-        Users userSelected = new Users();
-        Users userUpdated = new Users();
+        Users userSaved = new Users();
+        userSaved = usersServiceImpl.searchUserByEmail(user.getEmail());
 
-        userSelected = usersServiceImpl.searchUser(user.getId());
+        if(!user.getPassword().equals(userSaved.getPassword())){
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        }
 
-        userSelected.setName(user.getName());
-        userSelected.setSurnames(user.getSurnames());
-        userSelected.setProfilePicture(user.getProfilePicture());
-        userSelected.setDescription(user.getDescription());
-        userSelected.setAge(user.getAge());
-        userSelected.setPhone(user.getPhone());
-        userSelected.setEmail(user.getEmail());
-        userSelected.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userSelected.setRole(user.getRole());
-        userSelected.setDefaultTestResponses(user.getDefaultTestResponses());
-        userSelected.setShowPhone(user.isShowPhone());
-
-        userUpdated = usersServiceImpl.updateUser(userSelected);
-
-        return userUpdated;
+        return usersServiceImpl.updateUser(user);
     }
 
     @DeleteMapping("/{id}")

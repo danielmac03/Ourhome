@@ -30,7 +30,7 @@ export class RegisterComponent {
     this.usersService.getUserByEmail(data.value.email).subscribe(resp => {
       if (resp == null) {
         const formData = new FormData();
-        formData.append('profilePicture', this.file, this.file.name);
+        formData.append('profilePicture', this.file);
         formData.append('user', new Blob([JSON.stringify(data.value)], {type: 'application/json'}));
 
         this.usersService.createUsers(formData).subscribe(resp1 => {
