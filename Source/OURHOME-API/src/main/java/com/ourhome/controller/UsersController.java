@@ -38,10 +38,7 @@ public class UsersController {
 
     @GetMapping("/public/email/{email}")
     public Users searchUserByEmail(@PathVariable(name = "email") String email) {
-        Users user = new Users();
-        user = usersServiceImpl.searchUserByEmail(email);
-
-        return user;
+        return usersServiceImpl.searchUserByEmail(email);
     }
 
     @PostMapping("/public/")
@@ -52,14 +49,19 @@ public class UsersController {
 
     @PutMapping()
     public Users updateUser(@RequestBody Users user) {
-        Users userSaved = new Users();
-        userSaved = usersServiceImpl.searchUserByEmail(user.getEmail());
+        Users userSaved = usersServiceImpl.searchUser(user.getId());
 
         if(!user.getPassword().equals(userSaved.getPassword())){
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         }
 
         return usersServiceImpl.updateUser(user);
+    }
+
+    @PutMapping("/profile-picture/")
+    public Users updateProfilePicture(@RequestPart(name = "profilePicture") MultipartFile profilePicture, @RequestPart(name = "user") Users user) throws IOException {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        return usersServiceImpl.saveUser(user, profilePicture);
     }
 
     @DeleteMapping("/{id}")

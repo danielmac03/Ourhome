@@ -27,6 +27,10 @@ export class UsersService {
     return this.http.put(`${this.baseUrl}`, user);
   }
 
+  updateProfilePicture(user: object): Observable<object> {
+    return this.http.put(`${this.baseUrl}/profile-picture/`, user);
+  }
+
   deleteUsers(userId: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${userId}`, { responseType: 'text' });
   }

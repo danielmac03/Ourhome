@@ -26,14 +26,14 @@ public class UsersServiceImpl implements IUsuariosService, UserDetailsService {
     IUsersDAO iUsersDAO;
 
     @Override
-    public List<Users> listUsers() {
-        return iUsersDAO.findAll();
-    }
-
-    @Override
     public Users saveUser(Users user, MultipartFile profilePicture) throws IOException {
         user.setProfilePicture(profilePicture.getBytes());
         return iUsersDAO.save(user);
+    }
+
+    @Override
+    public List<Users> listUsers() {
+        return iUsersDAO.findAll();
     }
 
     @Override
@@ -48,6 +48,12 @@ public class UsersServiceImpl implements IUsuariosService, UserDetailsService {
 
     @Override
     public Users updateUser(Users user) {
+        return iUsersDAO.save(user);
+    }
+
+    @Override
+    public Users updateProfilePicture(Users user, MultipartFile profilePicture) throws IOException {
+        user.setProfilePicture(profilePicture.getBytes());
         return iUsersDAO.save(user);
     }
 

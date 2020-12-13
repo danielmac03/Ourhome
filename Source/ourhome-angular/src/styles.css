@@ -72,12 +72,6 @@ input:focus, textarea:hover {
   margin-bottom: 1em;
 }
 
-.small-text-animation label, input, textarea {
-  transition: all 0.2s;
-  touch-action: manipulation;
-  font-size: 10.5px;
-}
-
 label, input, textarea {
   transition: all 0.2s;
   touch-action: manipulation;
