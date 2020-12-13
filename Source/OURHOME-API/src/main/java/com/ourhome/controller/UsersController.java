@@ -42,9 +42,13 @@ public class UsersController {
     }
 
     @PostMapping("/public/")
-    public Users saveUser(@RequestPart(name = "profilePicture") MultipartFile profilePicture, @RequestPart(name = "user") Users user) throws IOException {
-        user.setProfilePicture(profilePicture.getBytes());
+    public Users saveUser(@RequestPart(name = "profilePicture", required = false) MultipartFile profilePicture, @RequestPart(name = "user") Users user) throws IOException {
+        if ((profilePicture != null)) {
+            user.setProfilePicture(profilePicture.getBytes());
+        }
+
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
         return usersServiceImpl.saveUser(user);
     }
 

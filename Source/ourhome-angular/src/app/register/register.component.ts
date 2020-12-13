@@ -29,9 +29,13 @@ export class RegisterComponent {
   onSubmit(data: NgForm): void {
     this.usersService.getUserByEmail(data.value.email).subscribe(resp => {
       if (resp == null) {
+
         const formData = new FormData();
-        formData.append('profilePicture', this.file);
+
         formData.append('user', new Blob([JSON.stringify(data.value)], {type: 'application/json'}));
+        if (this.file !== undefined) {
+          formData.append('profilePicture', this.file);
+        }
 
         this.usersService.createUsers(formData).subscribe(resp1 => {
           this.tokenStorageService.saveUser(resp1);
