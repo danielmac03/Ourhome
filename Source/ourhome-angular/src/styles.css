@@ -69,7 +69,7 @@ input:focus, textarea:hover {
 .field {
   display: flex;
   flex-flow: column-reverse;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 label, input, textarea {
@@ -111,3 +111,6 @@ input:not(:placeholder-shown) + label, input:focus + label,  textarea:not(:place
   transform: translate(0, 0) scale(1);
   cursor: pointer;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

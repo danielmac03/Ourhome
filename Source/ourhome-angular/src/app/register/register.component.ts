@@ -4,6 +4,7 @@ import {NgForm} from '@angular/forms';
 import {UsersService} from '../service/users.service';
 import {AuthService} from '../service/authentication/auth.service';
 import {TokenStorageService} from '../service/authentication/token-storage.service';
+import {MatStepper} from '@angular/material/stepper';
 
 @Component({
   selector: 'app-register',
@@ -20,21 +21,35 @@ export class RegisterComponent {
   ) {
   }
 
-  file;
+  profilePicture;
 
   onFileChange(event): void {
-    this.file = event.target.files[0];
+    this.profilePicture = event.target.files[0];
+  }
+
+  goForwardFirst(stepper: MatStepper, data: NgForm): void {
+    this.usersService.getUserByEmail(data.value.email).subscribe(resp => {
+      if (resp == null) {
+        stepper.next();
+      } else {
+        alert('El email ya se ha registrado');
+      }
+    }, error => {
+      console.log('Error...');
+    });
   }
 
   onSubmit(data: NgForm): void {
+    console.log(data.value);
+
     this.usersService.getUserByEmail(data.value.email).subscribe(resp => {
       if (resp == null) {
 
         const formData = new FormData();
 
         formData.append('user', new Blob([JSON.stringify(data.value)], {type: 'application/json'}));
-        if (this.file !== undefined) {
-          formData.append('profilePicture', this.file);
+        if (this.profilePicture !== undefined) {
+          formData.append('profilePicture', this.profilePicture);
         }
 
         this.usersService.createUsers(formData).subscribe(resp1 => {
