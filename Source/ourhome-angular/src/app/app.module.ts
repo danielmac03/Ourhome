@@ -25,10 +25,11 @@ import {BusinessListHomesComponent} from './business-list-homes/business-list-ho
 import {EditAdvertisementComponent} from './edit-advertisement/edit-advertisement.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatButtonModule} from "@angular/material/button";
-import {MatRippleModule} from "@angular/material/core";
-import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {DateAdapter, MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -60,9 +61,16 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatButtonModule,
     MatRippleModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [authInterceptorHelper, RequireRolesHelper, CheckCompatibilityHelper],
+  providers: [
+    authInterceptorHelper,
+    RequireRolesHelper,
+    CheckCompatibilityHelper,
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

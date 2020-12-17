@@ -6,9 +6,21 @@
       <mat-step>
         <ng-template matStepLabel>Cuenta</ng-template>
 
-        <div class="form-group field">
-          <input matInput type="text" id="name" name="name" placeholder=" " class="form-control" required ngModel>
-          <label class="lab" for="name">Nombre*</label>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input matInput type="text" id="name" name="name" placeholder=" " class="form-control" required ngModel>
+              <label class="lab" for="name">Nombre*</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input matInput type="text" id="surnames" name="surnames" placeholder=" " class="form-control" required
+                     ngModel>
+              <label class="lab" for="surnames">Apellidos*</label>
+            </div>
+          </div>
         </div>
 
         <div class="form-group field">
@@ -22,7 +34,7 @@
           <label class="lab" for="password">Contraseña*</label>
         </div>
 
-        <div class="mt-5 float-right">
+        <div class="mt-4 float-right">
           <button mat-button (click)="goForwardFirst(stepper, data)" type="button">Siguiente</button>
         </div>
       </mat-step>
@@ -31,28 +43,28 @@
         <ng-template matStepLabel>Datos Personales</ng-template>
 
         <div class="form-group field">
-          <input matInput type="text" id="surnames" name="surnames" placeholder=" " class="form-control" required
-                 ngModel>
-          <label class="lab" for="surnames">Apellidos*</label>
-        </div>
-
-        <div class="form-group field">
           <input matInput type="text" id="description" name="description" placeholder=" " class="form-control" required
                  ngModel>
           <label class="lab" for="description">Descripción*</label>
         </div>
 
-        <div class="form-group field">
-          <input matInput type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9" ngModel>
-          <label class="lab" for="phone">Telefono</label>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input matInput type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9" ngModel>
+              <label class="lab" for="phone">Telefono</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input matInput type="date" id="birthdate" name="birthdate" placeholder=" " class="form-control" required ngModel>
+              <label class="lab" for="birthdate">Fecha de nacimiento*</label>
+            </div>
+          </div>
         </div>
 
-        <div class="form-group field">
-          <input matInput type="number" id="age" name="age" placeholder=" " class="form-control" required ngModel>
-          <label class="lab" for="age">Edad*</label>
-        </div>
-
-        <div class="mt-5 float-right">
+        <div class="mt-4 float-right">
           <button mat-button matStepperPrevious type="button">Atrás</button>
           <button mat-button matStepperNext type="button">Siguiente</button>
         </div>
@@ -105,7 +117,7 @@
 
         <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Regístrate</button>
 
-        <div class="mt-5 float-right">
+        <div class="mt-4 float-right">
           <button mat-button matStepperPrevious type="button">Atrás</button>
         </div>
       </mat-step>

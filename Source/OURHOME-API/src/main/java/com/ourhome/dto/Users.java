@@ -1,5 +1,6 @@
 package com.ourhome.dto;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 import javax.persistence.*;
@@ -31,8 +32,8 @@ public class Users {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "age")
-	private int age;
+	@Column(name = "birthdate")
+	private Date birthdate;
 	
 	@Column(name = "phone")
 	private Integer phone;
@@ -78,13 +79,13 @@ public class Users {
 	
 	public Users() {}
 
-	public Users(int id, String name, String surnames, byte[] profilePicture, String description, int age, Integer phone, String email, String password, String role, String defaultTestResponses, boolean showPhone, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes, List<Processes> process, List<CustomTests> customTest, List<Notifications> notifications) {
+	public Users(int id, String name, String surnames, byte[] profilePicture, String description, Date birthdate, Integer phone, String email, String password, String role, String defaultTestResponses, boolean showPhone, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes, List<Processes> process, List<CustomTests> customTest, List<Notifications> notifications) {
 		this.id = id;
 		this.name = name;
 		this.surnames = surnames;
 		this.profilePicture = profilePicture;
 		this.description = description;
-		this.age = age;
+		this.birthdate = birthdate;
 		this.phone = phone;
 		this.email = email;
 		this.password = password;
@@ -139,12 +140,12 @@ public class Users {
 		this.description = description;
 	}
 
-	public int getAge() {
-		return age;
+	public Date getBirthdate() {
+		return birthdate;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
 	}
 
 	public Integer getPhone() {
