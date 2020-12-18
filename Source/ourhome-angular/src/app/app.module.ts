@@ -27,9 +27,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
-import {DateAdapter, MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -62,14 +61,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatButtonModule,
     MatRippleModule,
     MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule
   ],
   providers: [
     authInterceptorHelper,
     RequireRolesHelper,
-    CheckCompatibilityHelper,
-    MatDatepickerModule
+    CheckCompatibilityHelper
   ],
   bootstrap: [AppComponent]
 })

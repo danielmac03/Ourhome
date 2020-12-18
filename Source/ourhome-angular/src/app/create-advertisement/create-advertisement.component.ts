@@ -18,13 +18,28 @@ export class CreateAdvertisementComponent implements OnInit {
   ) {
   }
 
-  photos;
+  url;
+  photos = [];
+  photosPreview = [];
 
   ngOnInit(): void {
   }
 
   onFileChange(event): void {
-    this.photos = event.target.files;
+    this.photos = [];
+    this.photosPreview = [];
+
+    for (const photo of event.target.files) {
+      if (photo.type.match(/image\/*/) != null) {
+        this.photos.push(photo);
+
+        const reader = new FileReader();
+        reader.readAsDataURL(photo);
+        reader.onload = () => this.photosPreview.push(reader.result);
+      } else {
+        alert('Solo debe subir imagenes');
+      }
+    }
   }
 
   onSubmit(data: NgForm): void {

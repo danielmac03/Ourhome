@@ -5,68 +5,99 @@
   <div class="my-3"></div>
 
   <form #data="ngForm" (ngSubmit)="onSubmit(data)" ngNativeValidate>
-    <div class="form-group mt-5 field">
-      <input type="file" id="photos" name="photos" placeholder=" " class="form-control" multiple (change)="onFileChange($event)">
-      <label for="photos">Fotos:</label>
-    </div>
+    <mat-horizontal-stepper linear #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Información basicos</ng-template>
 
-    <div class="form-group mt-5 field">
-      <textarea id="description" name="description" placeholder=" " class="form-control" required ngModel></textarea>
-      <label for="description">Descripción*</label>
-    </div>
-
-    <div class="form-group mt-5 field">
-      <input type="number" id="price" name="price" placeholder=" " class="form-control" required ngModel>
-      <label for="price">Precio*</label>
-    </div>
-
-    <div class="form-group mt-5 field">
-      <input type="number" id="numBedrooms" name="numBedrooms" placeholder=" " class="form-control" ngModel>
-      <label for="numBedrooms">Numero Habitaciones</label>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group mt-5 field">
-          <input type="number" id="numBathroom" name="numBathroom" placeholder=" " class="form-control" ngModel>
-          <label for="numBathroom">Numero Baños</label>
+        <div class="form-group field">
+          <textarea id="description" name="description" placeholder=" " class="form-control" required
+                    ngModel></textarea>
+          <label for="description">Descripción*</label>
         </div>
-      </div>
 
-      <div class="col-md-6">
-        <div class="form-group mt-5 field">
+        <div class="form-group field">
+          <input type="number" id="price" name="price" placeholder=" " class="form-control" required ngModel>
+          <label for="price">Precio*</label>
+        </div>
+
+        <div class="mt-4 float-right">
+          <button mat-button matStepperNext type="button">Siguiente</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Información avanzados</ng-template>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input type="number" id="numBedrooms" name="numBedrooms" placeholder=" " class="form-control" ngModel>
+              <label for="numBedrooms">Numero Habitaciones</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input type="number" id="numBathroom" name="numBathroom" placeholder=" " class="form-control" ngModel>
+              <label for="numBathroom">Numero Baños</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input type="number" id="meters" name="meters" placeholder=" " class="form-control" ngModel>
+              <label for="meters">Metros cuadrados</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input type="number" id="floors" name="floors" placeholder=" " class="form-control" ngModel>
+              <label for="floors">Numero Plantas</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group field">
+          <input type="text" id="direction" name="direction" placeholder=" " class="form-control" ngModel>
+          <label for="direction">Dirección*</label>
+        </div>
+
+        <div class="form-group field">
           <input type="text" id="city" name="city" placeholder=" " class="form-control" ngModel>
           <label for="city">Ciudad</label>
         </div>
-      </div>
-    </div>
 
-    <div class="form-group mt-5 field">
-      <input type="text" id="direction" name="direction" placeholder=" " class="form-control" ngModel>
-      <label for="direction">Dirección*</label>
-    </div>
-
-    <div class="row mt-5">
-      <div class="col-md-6">
         <div class="form-group field">
-          <input type="number" id="meters" name="meters" placeholder=" " class="form-control" ngModel>
-          <label for="meters">Metros cuadrados</label>
+          <textarea id="additional" name="additional" placeholder=" " class="form-control" required ngModel></textarea>
+          <label for="additional">Extras*</label>
         </div>
-      </div>
 
-      <div class="col-md-6">
+        <div class="mt-4 float-right">
+          <button mat-button matStepperPrevious type="button">Atrás</button>
+          <button mat-button matStepperNext type="button">Siguiente</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Subir fotografías</ng-template>
+
+        <div *ngIf="photos != undefined">
+          <div class="d-inline-block" *ngFor="let photoPreview of photosPreview; let i = index;">
+            <img src="{{photoPreview}}" width="180">
+          </div>
+        </div>
+
         <div class="form-group field">
-          <input type="number" id="floors" name="floors" placeholder=" " class="form-control" ngModel>
-          <label for="floors">Numero Plantas</label>
+          <input type="file" id="photos" name="photos" placeholder=" " class="form-control" multiple
+                 (change)="onFileChange($event)">
+          <label for="photos">Fotos:</label>
         </div>
-      </div>
-    </div>
 
-    <div class="form-group my-5 field">
-      <textarea id="additional" name="additional" placeholder=" " class="form-control" required ngModel></textarea>
-      <label for="additional">Extras*</label>
-    </div>
-
-    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Publicar</button>
+        <button type="submit" class="btn btn-custom btn-block w-75 mx-auto my-5">Publicar</button>
+      </mat-step>
+    </mat-horizontal-stepper>
   </form>
 </div>
