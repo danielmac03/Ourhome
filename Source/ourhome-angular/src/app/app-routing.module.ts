@@ -1,21 +1,20 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RegisterComponent } from './register/register.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { ListProcessesComponent } from './list-processes/list-processes.component';
-import { CustomTestComponent } from './custom-test/custom-test.component';
-import { CreateTestComponent } from './create-test/create-test.component';
-import { SeeRequestsComponent } from './see-requests/see-requests.component';
-import { InitialTestComponent } from './initial-test/initial-test.component';
-import { RequireRolesHelper } from './helpers/require-roles.helper';
-import { SeeAdvertisementComponent } from './see-advertisement/see-advertisement.component';
-import { CreateAdvertisementComponent } from './create-advertisement/create-advertisement.component';
+import {HomeComponent} from './home/home.component';
+import {LoginComponent} from './login/login.component';
+import {ProfileComponent} from './profile/profile.component';
+import {RegisterComponent} from './register/register.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {ListProcessesComponent} from './list-processes/list-processes.component';
+import {CustomTestComponent} from './custom-test/custom-test.component';
+import {CreateTestComponent} from './create-test/create-test.component';
+import {SeeRequestsComponent} from './see-requests/see-requests.component';
+import {InitialTestComponent} from './initial-test/initial-test.component';
+import {RequireRolesHelper} from './helpers/require-roles.helper';
+import {SeeAdvertisementComponent} from './see-advertisement/see-advertisement.component';
+import {CreateAdvertisementComponent} from './create-advertisement/create-advertisement.component';
 import {BusinessListHomesComponent} from './business-list-homes/business-list-homes.component';
-import {EditAdvertisementComponent} from './edit-advertisement/edit-advertisement.component';
 
 const routes: Routes = [
   {
@@ -31,10 +30,12 @@ const routes: Routes = [
     path: 'home/:city',
     component: HomeComponent
   },
-  {path: 'initial-test',
+  {
+    path: 'initial-test',
     component: InitialTestComponent
   },
-  {path: 'see-advertisement/:home',
+  {
+    path: 'see-advertisement/:home',
     component: SeeAdvertisementComponent
   },
   {
@@ -119,7 +120,7 @@ const routes: Routes = [
   },
   {
     path: 'edit-advertisement',
-    component: EditAdvertisementComponent,
+    component: CreateAdvertisementComponent,
     canActivate: [RequireRolesHelper],
     data: {
       allowedRoles: ['have'],
@@ -127,7 +128,7 @@ const routes: Routes = [
   },
   {
     path: 'edit-advertisement/:id',
-    component: EditAdvertisementComponent,
+    component: CreateAdvertisementComponent,
     canActivate: [RequireRolesHelper],
     data: {
       allowedRoles: ['business'],
@@ -144,7 +145,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

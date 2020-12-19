@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {HomesService} from '../service/homes.service';
-import {TokenStorageService} from '../service/authentication/token-storage.service';
+import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import {HomesService} from '../service/homes.service';
+import {ProcessesService} from '../service/processes.service';
+import {TokenStorageService} from '../service/authentication/token-storage.service';
 
 @Component({
   selector: 'app-create-advertisement',
@@ -12,17 +13,43 @@ import {NgForm} from '@angular/forms';
 export class CreateAdvertisementComponent implements OnInit {
 
   constructor(
-    private homesService: HomesService,
+    private route: ActivatedRoute,
     private router: Router,
-    private tokenStorage: TokenStorageService
+    private homesService: HomesService,
+    private processesService: ProcessesService,
+    private tokenStorageService: TokenStorageService
   ) {
   }
 
-  url;
+  user;
+  home = {
+    id: undefined
+  };
+
+  create;
   photos = [];
   photosPreview = [];
 
   ngOnInit(): void {
+    this.user = this.tokenStorageService.getUser();
+
+    if (this.router.url === '/edit-advertisement') {
+      if (this.route.snapshot.params.id) {
+        this.homesService.getHomeById(this.route.snapshot.params.id).subscribe(resp => {
+          this.home = resp;
+        }, error => {
+          console.log('Error...');
+        });
+      } else {
+        this.homesService.getHomesByUser(this.user.id).subscribe(resp => {
+          this.home = resp[0];
+        }, error => {
+          console.log('Error...');
+        });
+      }
+
+      this.create = false;
+    }
   }
 
   onFileChange(event): void {
@@ -43,7 +70,17 @@ export class CreateAdvertisementComponent implements OnInit {
   }
 
   onSubmit(data: NgForm): void {
-    data.value.user = this.tokenStorage.getUser();
+    if (this.create) {
+      this.onSubmitCreate(data);
+    } else {
+      this.onSubmitUpdate(data);
+    }
+
+    console.log(data.value);
+  }
+
+  onSubmitCreate(data: NgForm): void {
+    data.value.user = this.user;
     data.value.active = true;
 
     const formData = new FormData();
@@ -59,6 +96,43 @@ export class CreateAdvertisementComponent implements OnInit {
       this.router.navigate(['home']);
     }, error => {
       console.log(error);
+    });
+  }
+
+  onSubmitUpdate(data: NgForm): void {
+    let check;
+
+    if (data.value.active === false) {
+      check = confirm('Si desactiva este anuncio se eliminaran los procesos iniciados, esta seguro?');
+
+      if (check === false) {
+        return;
+      }
+    }
+
+    const homeUpdated = Object.assign(this.home, data.value);
+
+    const formData = new FormData();
+    formData.append('home', new Blob([JSON.stringify(homeUpdated)], {type: 'application/json'}));
+
+    if (this.photos !== undefined) {
+      for (const photo of this.photos) {
+        formData.append('photos', photo);
+      }
+    }
+
+    this.homesService.updateHome(formData).subscribe(resp1 => {
+      if (check === true) {
+        this.processesService.deleteProcessesByHome(this.home.id).subscribe(resp2 => {
+          console.log('Completed...');
+        }, error => {
+          console.log('Error...');
+        });
+      }
+
+      this.router.navigate(['see-advertisement', this.home.id]);
+    }, error => {
+      console.log('Error...2');
     });
   }
 

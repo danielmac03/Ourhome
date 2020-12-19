@@ -22,7 +22,6 @@ import {HeaderComponent} from './header/header.component';
 import {SeeRequestsComponent} from './see-requests/see-requests.component';
 import {CheckCompatibilityHelper} from './helpers/check-compatibility.helper';
 import {BusinessListHomesComponent} from './business-list-homes/business-list-homes.component';
-import {EditAdvertisementComponent} from './edit-advertisement/edit-advertisement.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -47,7 +46,6 @@ import {MatInputModule} from '@angular/material/input';
     HeaderComponent,
     SeeRequestsComponent,
     BusinessListHomesComponent,
-    EditAdvertisementComponent
   ],
   imports: [
     BrowserModule,

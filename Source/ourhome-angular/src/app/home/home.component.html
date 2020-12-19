@@ -2,7 +2,7 @@
 
     <div class="add d-inline-block" *ngFor="let home of homes">
       <div class="card m-3">
-        <div *ngIf="(home['photos'] != null)">
+        <div *ngIf="home['photos'] != null">
           <img class="card-img-top" *ngIf="(home['photos'][0] != null)" src="data:image/png;base64,{{ home['photos'][0] }}" alt="Card image">
         </div>
 

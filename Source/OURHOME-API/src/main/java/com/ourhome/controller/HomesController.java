@@ -45,7 +45,16 @@ public class HomesController {
     }
 
     @PutMapping()
-    public Homes updateHome(@RequestBody Homes home) {
+    public Homes updateHome(@RequestPart(name = "photos", required = false) MultipartFile[] photos, @RequestPart(name = "home") Homes home) throws IOException {
+        byte[][] photosByte = new byte[photos.length][];
+
+        if (photos != null) {
+            for (int i = 0; i < photos.length; i++) {
+                photosByte[i] = photos[i].getBytes();
+            }
+        }
+
+        home.setPhotos(photosByte);
         return this.homesServiceImpl.updateHome(home);
     }
 
