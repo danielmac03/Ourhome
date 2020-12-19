@@ -55,7 +55,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'profile/:id',
+    path: 'profile',
     component: ProfileComponent,
     canActivate: [RequireRolesHelper],
     data: {

@@ -10,7 +10,8 @@ import {UsersService} from '../service/users.service';
 export class ProfileComponent implements OnInit {
 
   user;
-  file;
+  profilePicture;
+  profilePicturePreview;
 
   constructor(
     private tokenStorageService: TokenStorageService,
@@ -23,28 +24,30 @@ export class ProfileComponent implements OnInit {
   }
 
   onFileChange(event): void {
-    this.file = event.target.files[0];
-  }
+    this.profilePicture = null;
+    this.profilePicturePreview = null;
 
-  onSubmitProfilePicture(): void {
-    const formData = new FormData();
-    formData.append('profilePicture', this.file);
-    formData.append('user', new Blob([JSON.stringify(this.user)], {type: 'application/json'}));
+    if (event.target.files[0].type.match(/image\/*/) !== null) {
+      this.profilePicture = event.target.files[0];
 
-    this.usersService.updateProfilePicture(formData).subscribe(resp2 => {
-      this.tokenStorageService.saveUser(resp2);
-      this.user = resp2;
-    }, error => {
-      console.log('Error...');
-    });
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = () => this.profilePicturePreview = reader.result;
+    } else {
+      alert('Solo debe subir imagenes');
+    }
   }
 
   onSubmitUser(data): void {
-    this.user = Object.assign(this.user, data.value);
+    const userUpdated = Object.assign(this.user, data.value);
+
+    const formData = new FormData();
+    formData.append('user', new Blob([JSON.stringify(userUpdated)], {type: 'application/json'}));
 
     this.usersService.getUserByEmail(data.value.email).subscribe(resp1 => {
         if (resp1 == null || this.user.id === resp1.id) {
-          this.usersService.updateUser(this.user).subscribe(resp => {
+          this.usersService.updateUser(formData).subscribe(resp => {
+            this.user = userUpdated;
             this.tokenStorageService.saveUser(resp);
           }, error => {
             console.log('Error...');
@@ -56,5 +59,18 @@ export class ProfileComponent implements OnInit {
         console.log('Error...');
       }
     );
+  }
+
+  onSubmitProfilePicture(): void {
+    const formData = new FormData();
+    formData.append('profilePicture', this.profilePicture);
+    formData.append('user', new Blob([JSON.stringify(this.user)], {type: 'application/json'}));
+
+    this.usersService.updateUser(formData).subscribe(resp2 => {
+      this.user = resp2;
+      this.tokenStorageService.saveUser(resp2);
+    }, error => {
+      console.log('Error...');
+    });
   }
 }

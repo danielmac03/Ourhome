@@ -26,7 +26,7 @@ export class CreateAdvertisementComponent implements OnInit {
     id: undefined
   };
 
-  create;
+  create = true;
   photos = [];
   photosPreview = [];
 
@@ -75,8 +75,6 @@ export class CreateAdvertisementComponent implements OnInit {
     } else {
       this.onSubmitUpdate(data);
     }
-
-    console.log(data.value);
   }
 
   onSubmitCreate(data: NgForm): void {

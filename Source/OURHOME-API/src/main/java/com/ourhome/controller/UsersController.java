@@ -53,19 +53,17 @@ public class UsersController {
     }
 
     @PutMapping()
-    public Users updateUser(@RequestBody Users user) {
+    public Users updateUser(@RequestPart(name = "profilePicture", required = false) MultipartFile profilePicture, @RequestPart(name = "user") Users user) throws IOException {
         Users userSaved = usersServiceImpl.searchUser(user.getId());
+
+        if (profilePicture != null) {
+            user.setProfilePicture(profilePicture.getBytes());
+        }
 
         if(!user.getPassword().equals(userSaved.getPassword())){
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         }
 
-        return usersServiceImpl.updateUser(user);
-    }
-
-    @PutMapping("/profile-picture/")
-    public Users updateProfilePicture(@RequestPart(name = "profilePicture") MultipartFile profilePicture, @RequestPart(name = "user") Users user) throws IOException {
-        user.setProfilePicture(profilePicture.getBytes());
         return usersServiceImpl.updateUser(user);
     }
 

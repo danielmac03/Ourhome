@@ -14,15 +14,22 @@
       <div class="col-md-8 mb-4">
         <div class="row">
           <div class="col-md-4">
-            <img src="data:image/png;base64,{{ user['profilePicture'] }}" class="rounded-circle" width="150"
-                 height="150" alt="Profile picture">
+            <div *ngIf="profilePicture === undefined && user['profilePicture'] != null">
+              <img src="data:image/png;base64,{{ user['profilePicture'] }}" class="rounded-circle" width="150"
+                   height="150" alt="Profile picture">
+            </div>
+
+            <div *ngIf="profilePicture !== undefined">
+              <img src="{{ profilePicturePreview }}" class="rounded-circle" width="150"
+                   height="150" alt="Profile picture">
+            </div>
           </div>
 
           <div class="col-md-8 mt-auto">
             <div class="form-group">
               <label for="profilePicture">Seleccionar imagen de perfil:</label>
               <br>
-              <input type="file" class="form-control-file" id="profilePicture" (change)="onFileChange($event)">
+              <input type="file" class="form-control" id="profilePicture" (change)="onFileChange($event)">
             </div>
           </div>
         </div>
@@ -62,12 +69,6 @@
         </div>
 
         <div class="form-group field">
-          <input type="number" id="age" name="age" placeholder=" " class="form-control" required
-                 [(ngModel)]="user['age']">
-          <label class="lab" for="age">Edad</label>
-        </div>
-
-        <div class="form-group field">
           <input type="email" id="email" name="email" placeholder=" " class="form-control" required
                  [(ngModel)]="user['email']">
           <label class="lab" for="email">Correo</label>
@@ -79,11 +80,24 @@
           <label class="lab" for="password">Contraseña</label>
         </div>
 
-        <div class="form-group field">
-          <input type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9"
-                 [(ngModel)]="user['phone']">
-          <label class="lab" for="phone">Teléfono</label>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9"
+                     [(ngModel)]="user['phone']">
+              <label class="lab" for="phone">Teléfono</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group field">
+              <input matInput type="date" id="birthdate" name="birthdate" placeholder=" " class="form-control" required
+                     [(ngModel)]="user['birthday']">
+              <label class="lab" for="birthdate">Fecha de nacimiento*</label>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
 

@@ -24,7 +24,10 @@ export class InitialTestComponent {
     const user = this.tokenStorageService.getUser();
     user.defaultTestResponses = JSON.stringify(data.value);
 
-    this.usersService.updateUser(user).subscribe(resp => {
+    const formData = new FormData();
+    formData.append('user', new Blob([JSON.stringify(user)], {type: 'application/json'}));
+
+    this.usersService.updateUser(formData).subscribe(resp => {
       this.tokenStorageService.saveUser(resp);
 
       this.router.navigate(['home']);
