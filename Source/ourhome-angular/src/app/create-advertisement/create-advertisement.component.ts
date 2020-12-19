@@ -93,7 +93,7 @@ export class CreateAdvertisementComponent implements OnInit {
     this.homesService.createHomes(formData).subscribe(resp => {
       this.router.navigate(['home']);
     }, error => {
-      console.log(error);
+      console.log('Error...');
     });
   }
 
@@ -130,7 +130,7 @@ export class CreateAdvertisementComponent implements OnInit {
 
       this.router.navigate(['see-advertisement', this.home.id]);
     }, error => {
-      console.log('Error...2');
+      console.log('Error...');
     });
   }
 

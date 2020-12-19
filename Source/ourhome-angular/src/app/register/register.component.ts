@@ -40,8 +40,6 @@ export class RegisterComponent {
   }
 
   onSubmit(data: NgForm): void {
-    console.log(data.value);
-
     this.usersService.getUserByEmail(data.value.email).subscribe(resp => {
       if (resp == null) {
 

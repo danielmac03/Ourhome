@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {authInterceptorHelper} from './helpers/auth-interceptor.helper';
+import {httpErrorsInterceptorHelper} from './helpers/http-errors-interceptor.helper';
 import {RequireRolesHelper} from './helpers/require-roles.helper';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -62,6 +63,7 @@ import {MatInputModule} from '@angular/material/input';
   ],
   providers: [
     authInterceptorHelper,
+    httpErrorsInterceptorHelper,
     RequireRolesHelper,
     CheckCompatibilityHelper
   ],
