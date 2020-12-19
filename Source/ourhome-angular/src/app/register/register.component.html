@@ -1,7 +1,7 @@
 <div class="container div-form my-5 p-5">
   <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
 
-  <form #data="ngForm" (ngSubmit)="onSubmit(data)" class="mt-5">
+  <form #data="ngForm" (ngSubmit)="onSubmit(data)" (keydown.enter)="$event.preventDefault()" class="mt-5">
     <mat-horizontal-stepper linear #stepper>
       <mat-step>
         <ng-template matStepLabel>Cuenta</ng-template>
