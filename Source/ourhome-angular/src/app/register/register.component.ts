@@ -34,8 +34,6 @@ export class RegisterComponent {
       } else {
         alert('El email ya se ha registrado');
       }
-    }, error => {
-      console.log('Error...');
     });
   }
 
@@ -57,8 +55,6 @@ export class RegisterComponent {
             this.tokenStorageService.saveToken(resp2.headers.get('Authorization'));
 
             this.router.navigate(['initial-test']);
-          }, error => {
-            console.log('Error...');
           });
         });
       } else {

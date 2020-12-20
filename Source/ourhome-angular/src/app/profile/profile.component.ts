@@ -49,14 +49,10 @@ export class ProfileComponent implements OnInit {
           this.usersService.updateUser(formData).subscribe(resp => {
             this.user = userUpdated;
             this.tokenStorageService.saveUser(resp);
-          }, error => {
-            console.log('Error...');
           });
         } else {
           alert('El email ya se ha registrado');
         }
-      }, error => {
-        console.log('Error...');
       }
     );
   }
@@ -69,8 +65,6 @@ export class ProfileComponent implements OnInit {
     this.usersService.updateUser(formData).subscribe(resp2 => {
       this.user = resp2;
       this.tokenStorageService.saveUser(resp2);
-    }, error => {
-      console.log('Error...');
     });
   }
 }

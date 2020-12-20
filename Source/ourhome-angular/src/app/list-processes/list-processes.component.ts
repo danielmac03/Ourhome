@@ -48,9 +48,6 @@ export class ListProcessesComponent implements OnInit {
   deleteProcess(idProcess: number, divId: string): void {
     this.processesService.deleteProcesses(idProcess).subscribe(resp => {
       $('#' + divId).remove();
-      console.log('Completed....');
-    }, error => {
-      console.log('Error...');
     });
   }
 

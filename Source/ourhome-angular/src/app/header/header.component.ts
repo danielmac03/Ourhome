@@ -31,8 +31,6 @@ export class HeaderComponent implements OnInit {
     if (this.user.id !== undefined){
       this.notificationsService.listNotificationByUser(this.user.id).subscribe(resp => {
         this.notifications = resp;
-      }, error => {
-        console.log('Error...');
       });
     }
   }
@@ -46,8 +44,6 @@ export class HeaderComponent implements OnInit {
 
     this.notificationsService.deleteNotifications(notificationId).subscribe(resp => {
       console.log('Completed...');
-    }, error => {
-      console.log('Error...');
     });
   }
 

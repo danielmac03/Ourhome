@@ -37,14 +37,10 @@ export class CreateAdvertisementComponent implements OnInit {
       if (this.route.snapshot.params.id) {
         this.homesService.getHomeById(this.route.snapshot.params.id).subscribe(resp => {
           this.home = resp;
-        }, error => {
-          console.log('Error...');
         });
       } else {
         this.homesService.getHomesByUser(this.user.id).subscribe(resp => {
           this.home = resp[0];
-        }, error => {
-          console.log('Error...');
         });
       }
 
@@ -92,8 +88,6 @@ export class CreateAdvertisementComponent implements OnInit {
 
     this.homesService.createHomes(formData).subscribe(resp => {
       this.router.navigate(['home']);
-    }, error => {
-      console.log('Error...');
     });
   }
 
@@ -123,14 +117,10 @@ export class CreateAdvertisementComponent implements OnInit {
       if (check === true) {
         this.processesService.deleteProcessesByHome(this.home.id).subscribe(resp2 => {
           console.log('Completed...');
-        }, error => {
-          console.log('Error...');
         });
       }
 
       this.router.navigate(['see-advertisement', this.home.id]);
-    }, error => {
-      console.log('Error...');
     });
   }
 

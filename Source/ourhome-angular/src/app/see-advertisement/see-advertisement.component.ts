@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { HomesService } from '../service/homes.service';
-import { TokenStorageService } from '../service/authentication/token-storage.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HomesService} from '../service/homes.service';
+import {TokenStorageService} from '../service/authentication/token-storage.service';
 
 @Component({
   selector: 'app-see-advertisement',
@@ -14,27 +14,22 @@ export class SeeAdvertisementComponent implements OnInit {
   user;
 
   constructor(
-      private router: Router,
-      private route: ActivatedRoute,
-      private homesService: HomesService,
-      private tokenStorageService: TokenStorageService
-  ) {}
-
-  ngOnInit(): void {
-    this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(
-      (data) => {
-        this.home = data;
-      },
-      (error) => {
-        console.log('Error...');
-        this.router.navigate(['home']);
-      }
-    );
-
-    this.user = this.tokenStorageService.getUser();
+    private router: Router,
+    private route: ActivatedRoute,
+    private homesService: HomesService,
+    private tokenStorageService: TokenStorageService
+  ) {
   }
 
-  contact(): void{
+  ngOnInit(): void {
+    this.user = this.tokenStorageService.getUser();
+
+    this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(data => {
+      this.home = data;
+    });
+  }
+
+  contact(): void {
     this.router.navigate(['custom-test', this.home.id]);
   }
 }

@@ -5,7 +5,7 @@ import {ProcessesService} from '../service/processes.service';
 import {CustomTestsService} from '../service/custom-tests.service';
 import {TokenStorageService} from '../service/authentication/token-storage.service';
 import {CheckCompatibilityHelper} from '../helpers/check-compatibility.helper';
-import * as $ from "jquery";
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-see-requests',
@@ -37,16 +37,12 @@ export class SeeRequestsComponent implements OnInit {
         resp => {
           this.home = resp;
           this.listProcesses();
-        }, error => {
-          console.log('Error...');
         });
     } else {
       this.homesService.getHomesByUser(this.user.id).subscribe(
         resp => {
           this.home = resp[0];
           this.listProcesses();
-        }, error => {
-          console.log('Error...');
         });
     }
   }
@@ -55,8 +51,6 @@ export class SeeRequestsComponent implements OnInit {
     this.processesService.listProcessByHome(this.home.id).subscribe(
       resp => {
         this.users = resp;
-      }, error => {
-        console.log('Error...');
       });
 
     this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(
@@ -68,8 +62,6 @@ export class SeeRequestsComponent implements OnInit {
             option2: resp.options2.split(',')[i]
           });
         }
-      }, error => {
-        console.log('Error...');
       });
   }
 
@@ -80,9 +72,7 @@ export class SeeRequestsComponent implements OnInit {
   deleteProcess(idProcess: number, divId: string): void {
     this.processesService.deleteProcesses(idProcess).subscribe(resp => {
       $('#' + divId).remove();
-      console.log('Completed....');
-    }, error => {
-      console.log('Error...');
+
     });
   }
 

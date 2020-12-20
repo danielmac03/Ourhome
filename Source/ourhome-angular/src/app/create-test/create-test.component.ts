@@ -67,8 +67,6 @@ export class CreateTestComponent implements OnInit {
 
       this.customTestsService.createCustomTests(customTest).subscribe(resp => {
         console.log('Complete...');
-      }, error => {
-        console.log('Error...');
       });
     }
   }

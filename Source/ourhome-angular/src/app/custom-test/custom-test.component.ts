@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HomesService } from '../service/homes.service';
-import { ProcessesService } from '../service/processes.service';
-import { CustomTestsService } from '../service/custom-tests.service';
-import { TokenStorageService } from '../service/authentication/token-storage.service';
+import {Component, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HomesService} from '../service/homes.service';
+import {ProcessesService} from '../service/processes.service';
+import {CustomTestsService} from '../service/custom-tests.service';
+import {TokenStorageService} from '../service/authentication/token-storage.service';
 
 @Component({
   selector: 'app-custom-test',
@@ -21,46 +21,40 @@ export class CustomTestComponent implements OnInit {
     private processesService: ProcessesService,
     private customTestsService: CustomTestsService,
     private tokenStorageService: TokenStorageService
-  ) { }
+  ) {
+  }
 
   home;
   customTest;
   questions = [];
   answers: number[] = [];
 
-  ngOnInit(): void{
-    this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(
-      resp1 => {
-        this.home = resp1;
+  ngOnInit(): void {
+    this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(resp1 => {
+      this.home = resp1;
 
-        this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(resp2 => {
-          this.customTest = resp2;
+      this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(resp2 => {
+        this.customTest = resp2;
 
-          for (let i = 0; i < resp2.questions.split(',').length; i++){
-            this.questions.push({
-              question: resp2.questions.split(',')[i],
-              option1: resp2.options1.split(',')[i],
-              option2: resp2.options2.split(',')[i]
-            });
-          }
+        for (let i = 0; i < resp2.questions.split(',').length; i++) {
+          this.questions.push({
+            question: resp2.questions.split(',')[i],
+            option1: resp2.options1.split(',')[i],
+            option2: resp2.options2.split(',')[i]
+          });
+        }
 
-          this.answers = resp2.answers.split(',');
-        }, error => {
-          console.log('Error...');
-        });
-      }, error => {
-        console.log('Error...');
-        this.router.navigate(['home']);
-      }
-    );
+        this.answers = resp2.answers.split(',');
+      });
+    });
   }
 
-  save(data: NgForm): void{
+  save(data: NgForm): void {
     const user = this.tokenStorageService.getUser();
     const userAnswers = [];
     let common = 0;
 
-    for (let i = 0; i < this.questions.length; i++){
+    for (let i = 0; i < this.questions.length; i++) {
       userAnswers.push(data.value[('question' + i)]);
     }
 
@@ -80,13 +74,8 @@ export class CustomTestComponent implements OnInit {
       };
 
       this.processesService.createProcess(process).subscribe(resp => {
-        console.log('Complete...');
         this.router.navigate(['list-processes']);
-      }, error => {
-        console.log('Error....');
       });
-    }else{
-      console.log('Error....');
     }
   }
 

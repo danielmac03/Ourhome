@@ -31,8 +31,6 @@ export class InitialTestComponent {
       this.tokenStorageService.saveUser(resp);
 
       this.router.navigate(['home']);
-    }, error => {
-      console.log('Error...');
     });
   }
 }
