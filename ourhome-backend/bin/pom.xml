@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>OURHOME</groupId>
-	<artifactId>OURHOME-API</artifactId>
+	<artifactId>ourhome-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>OURHOME-API</name>
+	<name>ourhome-backend</name>
 	<description>Buscar compañeros de piso mediante filtros</description>
 
 	<properties>
