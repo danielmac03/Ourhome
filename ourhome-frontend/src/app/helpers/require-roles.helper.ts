@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Router, CanActivate, ActivatedRouteSnapshot} from '@angular/router';
-import { TokenStorageService } from '../service/authentication/token-storage.service';
+import { TokenStorageService } from '../service/token-storage.service';
 
 @Injectable()
 export class RequireRolesHelper implements CanActivate {

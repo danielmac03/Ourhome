@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {HomesService} from '../service/homes.service';
 import {ProcessesService} from '../service/processes.service';
 import {CustomTestsService} from '../service/custom-tests.service';
-import {TokenStorageService} from '../service/authentication/token-storage.service';
+import {TokenStorageService} from '../service/token-storage.service';
 import {CheckCompatibilityHelper} from '../helpers/check-compatibility.helper';
 import * as $ from 'jquery';
 

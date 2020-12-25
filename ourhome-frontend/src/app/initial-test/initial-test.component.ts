@@ -2,8 +2,7 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {UsersService} from '../service/users.service';
-import {AuthService} from '../service/authentication/auth.service';
-import {TokenStorageService} from '../service/authentication/token-storage.service';
+import {TokenStorageService} from '../service/token-storage.service';
 
 @Component({
   selector: 'app-initial-test',
@@ -13,9 +12,8 @@ import {TokenStorageService} from '../service/authentication/token-storage.servi
 export class InitialTestComponent {
 
   constructor(
-    private usersService: UsersService,
-    private authService: AuthService,
     private router: Router,
+    private usersService: UsersService,
     private tokenStorageService: TokenStorageService
   ) {
   }

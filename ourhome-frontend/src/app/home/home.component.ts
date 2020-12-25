@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HomesService } from '../service/homes.service';
-import { TokenStorageService } from '../service/authentication/token-storage.service';
+import { TokenStorageService } from '../service/token-storage.service';
 import { CheckCompatibilityHelper } from '../helpers/check-compatibility.helper';
 
 @Component({

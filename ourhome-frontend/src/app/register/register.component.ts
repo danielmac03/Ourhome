@@ -1,10 +1,9 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
-import {UsersService} from '../service/users.service';
-import {AuthService} from '../service/authentication/auth.service';
-import {TokenStorageService} from '../service/authentication/token-storage.service';
 import {MatStepper} from '@angular/material/stepper';
+import {UsersService} from '../service/users.service';
+import {TokenStorageService} from '../service/token-storage.service';
 
 @Component({
   selector: 'app-register',
@@ -14,10 +13,9 @@ import {MatStepper} from '@angular/material/stepper';
 export class RegisterComponent {
 
   constructor(
+    private router: Router,
     private usersService: UsersService,
-    private authService: AuthService,
-    private tokenStorageService: TokenStorageService,
-    private router: Router
+    private tokenStorageService: TokenStorageService
   ) {
   }
 
@@ -51,7 +49,7 @@ export class RegisterComponent {
         this.usersService.createUsers(formData).subscribe(resp1 => {
           this.tokenStorageService.saveUser(resp1);
 
-          this.authService.login({email: data.value.email, password: data.value.password}).subscribe(resp2 => {
+          this.usersService.getAuthorization({email: data.value.email, password: data.value.password}).subscribe(resp2 => {
             this.tokenStorageService.saveToken(resp2.headers.get('Authorization'));
 
             this.router.navigate(['initial-test']);

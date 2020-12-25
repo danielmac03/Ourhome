@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { CustomTestsService } from '../service/custom-tests.service';
-import { TokenStorageService } from '../service/authentication/token-storage.service';
+import { TokenStorageService } from '../service/token-storage.service';
 
 @Component({
   selector: 'app-create-test',
