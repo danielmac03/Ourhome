@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -18,7 +17,7 @@ import java.util.List;
 import static java.util.Collections.emptyList;
 
 @Service
-public class UsersServiceImpl implements IUsuariosService, UserDetailsService {
+public class UsersServiceImpl implements IUsersService, UserDetailsService {
 
     private final Path root = Paths.get("uploads/profile-pictures");
 
@@ -56,14 +55,14 @@ public class UsersServiceImpl implements IUsuariosService, UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String correo) throws UsernameNotFoundException {
-        Users usuario = iUsersDAO.findByEmail(correo);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Users user = iUsersDAO.findByEmail(email);
 
-        if (usuario == null) {
-            throw new UsernameNotFoundException(correo);
+        if (user == null) {
+            throw new UsernameNotFoundException(email);
         }
 
-        return new User(usuario.getEmail(), usuario.getPassword(), emptyList());
+        return new User(user.getEmail(), user.getPassword(), emptyList());
     }
 
 

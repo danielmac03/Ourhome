@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.ourhome.dto.Users;
 import org.springframework.web.multipart.MultipartFile;
 
-public interface IUsuariosService {
+public interface IUsersService {
 
 	public List<Users> listUsers(); 
 	
@@ -21,6 +21,4 @@ public interface IUsuariosService {
 
 	public void deleteUser(int id);
 
-	public UserDetails loadUserByUsername(String correo);
-	
 }
