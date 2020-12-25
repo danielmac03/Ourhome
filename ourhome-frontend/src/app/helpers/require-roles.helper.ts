@@ -23,6 +23,7 @@ export class RequireRolesHelper implements CanActivate {
     }
 
     if (!result){
+      alert('No puedes acceder a esta sección \nDisculpe las molestias');
       this.router.navigate([redirectTo]);
     }
 
