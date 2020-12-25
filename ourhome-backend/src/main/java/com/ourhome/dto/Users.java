@@ -1,255 +1,281 @@
 package com.ourhome.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.envers.Audited;
+
+import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
-import javax.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.envers.Audited;
 
 @Entity
 @Audited
 @Table(name = "users")
 public class Users {
 
-	@Id
-	@Column(name = "user_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	@Column(name = "name")
-	private String name;
-	
-	@Column(name = "surnames")
-	private String surnames;
+    @Id
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	@Lob
-	@Column(name = "profile_picture")
-	private byte[] profilePicture;
+    @Column(name = "name")
+    private String name;
 
-	@Column(name = "description")
-	private String description;
-	
-	@Column(name = "birthdate")
-	private Date birthdate;
-	
-	@Column(name = "phone")
-	private Integer phone;
-	
-	@Column(name = "email")
-	private String email;
-	
-	@Column(name = "password")
-	private String password;
-	
-	@Column(name = "role")
-	private String role;
-	
-	@Column(name = "default_test_responses")
-	private String defaultTestResponses;
-	
-	@Column(name = "show_phone")
-	private boolean showPhone;
-	
-	@CreationTimestamp
-	@Column(name = "created_at")
-	private Timestamp createdAt;
-	
-	@UpdateTimestamp
-	@Column(name = "updated_at")
-	private Timestamp updatedAt;
-	
-	@OneToMany
-	@JoinColumn(name = "user_id")
-	private List<Homes> homes;
-	
-	@OneToMany
-	@JoinColumn(name = "user_id")
-	private List<Processes> process;
-	
-	@OneToMany
-	@JoinColumn(name = "user_id")
-	private List<CustomTests> customTest;
+    @Column(name = "surnames")
+    private String surnames;
 
-	@OneToMany
-	@JoinColumn(name = "user_id")
-	private List<Notifications> notifications;
-	
-	public Users() {}
+    @Column(name = "company")
+    private String company;
 
-	public Users(int id, String name, String surnames, byte[] profilePicture, String description, Date birthdate, Integer phone, String email, String password, String role, String defaultTestResponses, boolean showPhone, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes, List<Processes> process, List<CustomTests> customTest, List<Notifications> notifications) {
-		this.id = id;
-		this.name = name;
-		this.surnames = surnames;
-		this.profilePicture = profilePicture;
-		this.description = description;
-		this.birthdate = birthdate;
-		this.phone = phone;
-		this.email = email;
-		this.password = password;
-		this.role = role;
-		this.defaultTestResponses = defaultTestResponses;
-		this.showPhone = showPhone;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-		this.homes = homes;
-		this.process = process;
-		this.customTest = customTest;
-		this.notifications = notifications;
-	}
+    @Column(name = "direction")
+    private String direction;
 
-	public int getId() {
-		return id;
-	}
+    @Lob
+    @Column(name = "profile_picture")
+    private byte[] profilePicture;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Column(name = "description")
+    private String description;
 
-	public String getName() {
-		return name;
-	}
+    @Column(name = "birthdate")
+    private Date birthdate;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @Column(name = "phone")
+    private Integer phone;
 
-	public String getSurnames() {
-		return surnames;
-	}
+    @Column(name = "email")
+    private String email;
 
-	public void setSurnames(String surnames) {
-		this.surnames = surnames;
-	}
+    @Column(name = "password")
+    private String password;
 
-	public byte[] getProfilePicture() {
-		return profilePicture;
-	}
+    @Column(name = "role")
+    private String role;
 
-	public void setProfilePicture(byte[] profilePicture) {
-		this.profilePicture = profilePicture;
-	}
+    @Column(name = "default_test_responses")
+    private String defaultTestResponses;
 
-	public String getDescription() {
-		return description;
-	}
+    @Column(name = "show_phone")
+    private boolean showPhone;
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private Timestamp createdAt;
 
-	public Date getBirthdate() {
-		return birthdate;
-	}
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private Timestamp updatedAt;
 
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
-	}
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Homes> homes;
 
-	public Integer getPhone() {
-		return phone;
-	}
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Processes> process;
 
-	public void setPhone(Integer phone) {
-		this.phone = phone;
-	}
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<CustomTests> customTest;
 
-	public String getEmail() {
-		return email;
-	}
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Notifications> notifications;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public Users() {
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public Users(int id, String name, String surnames, String company, String direction, byte[] profilePicture, String description, Date birthdate, Integer phone, String email, String password, String role, String defaultTestResponses, boolean showPhone, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes, List<Processes> process, List<CustomTests> customTest, List<Notifications> notifications) {
+        this.id = id;
+        this.name = name;
+        this.surnames = surnames;
+        this.company = company;
+        this.direction = direction;
+        this.profilePicture = profilePicture;
+        this.description = description;
+        this.birthdate = birthdate;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.defaultTestResponses = defaultTestResponses;
+        this.showPhone = showPhone;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.homes = homes;
+        this.process = process;
+        this.customTest = customTest;
+        this.notifications = notifications;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getRole() {
-		return role;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getDefaultTestResponses() {
-		return defaultTestResponses;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDefaultTestResponses(String defaultTestResponses) {
-		this.defaultTestResponses = defaultTestResponses;
-	}
+    public String getSurnames() {
+        return surnames;
+    }
 
-	public boolean isShowPhone() {
-		return showPhone;
-	}
+    public void setSurnames(String surnames) {
+        this.surnames = surnames;
+    }
 
-	public void setShowPhone(boolean showPhone) {
-		this.showPhone = showPhone;
-	}
+    public String getCompany() {
+        return company;
+    }
 
-	public Timestamp getCreatedAt() {
-		return createdAt;
-	}
+    public void setCompany(String company) {
+        this.company = company;
+    }
 
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
-	}
+    public String getDirection() {
+        return direction;
+    }
 
-	public Timestamp getUpdatedAt() {
-		return updatedAt;
-	}
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
 
-	public void setUpdatedAt(Timestamp updatedAt) {
-		this.updatedAt = updatedAt;
-	}
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "homes")
-	public List<Homes> getHomes() {
-		return homes;
-	}
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 
-	public void setHomes(List<Homes> homes) {
-		this.homes = homes;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "processes")
-	public List<Processes> getProcess() {
-		return process;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setProcess(List<Processes> process) {
-		this.process = process;
-	}
+    public Date getBirthdate() {
+        return birthdate;
+    }
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "custom_test")
-	public List<CustomTests> getCustomTest() {
-		return customTest;
-	}
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
+    }
 
-	public void setCustomTest(List<CustomTests> customTest) {
-		this.customTest = customTest;
-	}
+    public Integer getPhone() {
+        return phone;
+    }
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "notifications")
-	public List<Notifications> getNotifications() {
-		return notifications;
-	}
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
 
-	public void setNotifications(List<Notifications> notifications) {
-		this.notifications = notifications;
-	}
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getDefaultTestResponses() {
+        return defaultTestResponses;
+    }
+
+    public void setDefaultTestResponses(String defaultTestResponses) {
+        this.defaultTestResponses = defaultTestResponses;
+    }
+
+    public boolean isShowPhone() {
+        return showPhone;
+    }
+
+    public void setShowPhone(boolean showPhone) {
+        this.showPhone = showPhone;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "homes")
+    public List<Homes> getHomes() {
+        return homes;
+    }
+
+    public void setHomes(List<Homes> homes) {
+        this.homes = homes;
+    }
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "processes")
+    public List<Processes> getProcess() {
+        return process;
+    }
+
+    public void setProcess(List<Processes> process) {
+        this.process = process;
+    }
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "custom_test")
+    public List<CustomTests> getCustomTest() {
+        return customTest;
+    }
+
+    public void setCustomTest(List<CustomTests> customTest) {
+        this.customTest = customTest;
+    }
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "notifications")
+    public List<Notifications> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notifications> notifications) {
+        this.notifications = notifications;
+    }
 
 }

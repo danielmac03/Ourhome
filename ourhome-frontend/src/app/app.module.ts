@@ -17,7 +17,7 @@ import {CreateTestComponent} from './create-test/create-test.component';
 import {InitialTestComponent} from './initial-test/initial-test.component';
 import {CustomTestComponent} from './custom-test/custom-test.component';
 import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
+import {CreateAccountComponent} from './create-account/create-account.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {HeaderComponent} from './header/header.component';
 import {SeeRequestsComponent} from './see-requests/see-requests.component';
@@ -29,13 +29,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
+import {CreateAccountBusinessComponent} from './create-account-business/create-account-business.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
+    CreateAccountComponent,
     NotFoundComponent,
     ProfileComponent,
     ListProcessesComponent,
@@ -47,6 +49,7 @@ import {MatInputModule} from '@angular/material/input';
     HeaderComponent,
     SeeRequestsComponent,
     BusinessListHomesComponent,
+    CreateAccountBusinessComponent,
   ],
   imports: [
     BrowserModule,

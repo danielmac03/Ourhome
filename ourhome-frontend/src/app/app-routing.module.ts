@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
-import {RegisterComponent} from './register/register.component';
+import {CreateAccountComponent} from './create-account/create-account.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {ListProcessesComponent} from './list-processes/list-processes.component';
 import {CustomTestComponent} from './custom-test/custom-test.component';
@@ -15,6 +15,7 @@ import {RequireRolesHelper} from './helpers/require-roles.helper';
 import {SeeAdvertisementComponent} from './see-advertisement/see-advertisement.component';
 import {CreateAdvertisementComponent} from './create-advertisement/create-advertisement.component';
 import {BusinessListHomesComponent} from './business-list-homes/business-list-homes.component';
+import {CreateAccountBusinessComponent} from './create-account-business/create-account-business.component';
 
 const routes: Routes = [
   {
@@ -47,8 +48,16 @@ const routes: Routes = [
     }
   },
   {
-    path: 'register',
-    component: RegisterComponent,
+    path: 'create-account',
+    component: CreateAccountComponent,
+    canActivate: [RequireRolesHelper],
+    data: {
+      allowedRoles: [undefined],
+    }
+  },
+  {
+    path: 'create-account-business',
+    component: CreateAccountBusinessComponent,
     canActivate: [RequireRolesHelper],
     data: {
       allowedRoles: [undefined],

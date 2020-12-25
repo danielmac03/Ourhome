@@ -9,7 +9,7 @@ export class CheckCompatibilityHelper {
   check(defaultTestResponses: string): boolean {
     const user = this.tokenStorageService.getUser();
 
-    if (user !== '') {
+    if (user !== '' && (user.role === 'business' || user.defaultTestResponses !== null)) {
       const userDefaultTestResponses = JSON.parse(user.defaultTestResponses);
       defaultTestResponses = JSON.parse(defaultTestResponses);
 

@@ -6,11 +6,11 @@ import {UsersService} from '../service/users.service';
 import {TokenStorageService} from '../service/token-storage.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-register-business',
+  templateUrl: './create-account-business.component.html',
+  styleUrls: ['./create-account-business.component.css']
 })
-export class RegisterComponent {
+export class CreateAccountBusinessComponent {
 
   constructor(
     private router: Router,
@@ -39,7 +39,7 @@ export class RegisterComponent {
     this.usersService.getUserByEmail(data.value.email).subscribe(resp => {
       if (resp == null) {
 
-        data.value.role = (data.value.role === 0) ? 'search' : 'have';
+        data.value.role = 'business';
 
         const formData = new FormData();
 
