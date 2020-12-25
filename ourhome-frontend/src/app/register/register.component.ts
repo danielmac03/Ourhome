@@ -39,6 +39,8 @@ export class RegisterComponent {
     this.usersService.getUserByEmail(data.value.email).subscribe(resp => {
       if (resp == null) {
 
+        data.value.role = (data.value.role === 0) ? 'search' : 'have';
+
         const formData = new FormData();
 
         formData.append('user', new Blob([JSON.stringify(data.value)], {type: 'application/json'}));
@@ -49,7 +51,10 @@ export class RegisterComponent {
         this.usersService.createUsers(formData).subscribe(resp1 => {
           this.tokenStorageService.saveUser(resp1);
 
-          this.usersService.getAuthorization({email: data.value.email, password: data.value.password}).subscribe(resp2 => {
+          this.usersService.getAuthorization({
+            email: data.value.email,
+            password: data.value.password
+          }).subscribe(resp2 => {
             this.tokenStorageService.saveToken(resp2.headers.get('Authorization'));
 
             this.router.navigate(['initial-test']);
