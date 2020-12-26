@@ -15,7 +15,6 @@ import {RequireRolesHelper} from './helpers/require-roles.helper';
 import {SeeAdvertisementComponent} from './see-advertisement/see-advertisement.component';
 import {CreateAdvertisementComponent} from './create-advertisement/create-advertisement.component';
 import {BusinessListHomesComponent} from './business-list-homes/business-list-homes.component';
-import {CreateAccountBusinessComponent} from './create-account-business/create-account-business.component';
 
 const routes: Routes = [
   {
@@ -57,7 +56,7 @@ const routes: Routes = [
   },
   {
     path: 'create-account-business',
-    component: CreateAccountBusinessComponent,
+    component: CreateAccountComponent,
     canActivate: [RequireRolesHelper],
     data: {
       allowedRoles: [undefined],

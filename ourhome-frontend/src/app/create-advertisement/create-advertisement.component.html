@@ -3,14 +3,14 @@
   <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
 
   <form #data="ngForm" (ngSubmit)="onSubmit(data)" (keydown.enter)="$event.preventDefault()" class="mt-5">
-    <mat-horizontal-stepper linear #stepper>
+    <mat-horizontal-stepper linear>
       <mat-step>
         <ng-template matStepLabel>Subir fotografías</ng-template>
 
-        <div class="form-group">
-          <input type="file" id="photos" name="photos" placeholder=" " class="form-control" multiple
+        <div>
+          <label for="photos">Fotos:</label><br>
+          <input type="file" id="photos" name="photos" multiple
                  (change)="onFileChange($event)">
-          <label for="photos">Fotos:</label>
         </div>
 
         <!-- Show preview in creation mode -->
@@ -37,31 +37,40 @@
 
         <div class="form-group text-right" *ngIf="create === false">
           <div class="form-check">
-            <input *ngIf="home['active'] == true" type="checkbox" id="active" name="active" class="form-check-input"
+            <input *ngIf="home['active'] == true" type="checkbox" id="active" name="active"
+                   class="form-check-input matInput"
                    checked [value]="true" [(ngModel)]="home['active']">
-            <input *ngIf="home['active'] == false" type="checkbox" name="active" class="form-check-input"
+            <input *ngIf="home['active'] == false" type="checkbox" name="active"
+                   class="form-check-input matInput"
                    [value]="true" [(ngModel)]="home['active']">
-            <label class="form-check-label" for="active">
+            <mat-label class="form-check-mat-label" for="active">
               Activo
-            </label>
+            </mat-label>
           </div>
         </div>
 
-        <div class="form-group">
-          <textarea id="description" name="description" placeholder=" " class="form-control" required
+        <mat-form-field>
+          <textarea matInput id="description" name="description" required
                     [(ngModel)]="home['description']"></textarea>
-          <label for="description">Descripción*</label>
-        </div>
+          <mat-label for="description">Descripción</mat-label>
+        </mat-form-field>
 
-        <div class="form-group">
-          <input type="text" id="city" name="city" placeholder=" " class="form-control" [(ngModel)]="home['city']">
-          <label for="city">Ciudad</label>
-        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput type="text" id="city" name="city"
+                     [(ngModel)]="home['city']">
+              <mat-label for="city">Ciudad</mat-label>
+            </mat-form-field>
+          </div>
 
-        <div class="form-group">
-          <input type="number" id="price" name="price" placeholder=" " class="form-control" required
-                 [(ngModel)]="home['price']">
-          <label for="price">Precio*</label>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput type="number" id="price" name="price" required
+                     [(ngModel)]="home['price']">
+              <mat-label for="price">Precio</mat-label>
+            </mat-form-field>
+          </div>
         </div>
 
         <div class="mt-4 float-right">
@@ -75,58 +84,57 @@
 
         <div class="row">
           <div class="col-md-6">
-            <div class="form-group">
-              <input type="number" id="numBedrooms" name="numBedrooms" placeholder=" " class="form-control"
+            <mat-form-field>
+              <input matInput type="number" id="numBedrooms" name="numBedrooms"
                      [(ngModel)]="home['numBedrooms']">
-              <label for="numBedrooms">Numero Habitaciones</label>
-            </div>
+              <mat-label for="numBedrooms">Numero Habitaciones</mat-label>
+            </mat-form-field>
           </div>
 
           <div class="col-md-6">
-            <div class="form-group">
-              <input type="number" id="numBathroom" name="numBathroom" placeholder=" " class="form-control"
+            <mat-form-field>
+              <input matInput type="number" id="numBathroom" name="numBathroom"
                      [(ngModel)]="home['numBathroom']">
-              <label for="numBathroom">Numero Baños</label>
-            </div>
+              <mat-label for="numBathroom">Numero Baños</mat-label>
+            </mat-form-field>
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-6">
-            <div class="form-group">
-              <input type="number" id="meters" name="meters" placeholder=" " class="form-control"
+            <mat-form-field>
+              <input matInput type="number" id="meters" name="meters"
                      [(ngModel)]="home['meters']">
-              <label for="meters">Metros cuadrados</label>
-            </div>
+              <mat-label for="meters">Metros cuadrados</mat-label>
+            </mat-form-field>
           </div>
 
           <div class="col-md-6">
-            <div class="form-group">
-              <input type="number" id="floors" name="floors" placeholder=" " class="form-control"
+            <mat-form-field>
+              <input matInput type="number" id="floors" name="floors"
                      [(ngModel)]="home['floors']">
-              <label for="floors">Numero Plantas</label>
-            </div>
+              <mat-label for="floors">Numero Plantas</mat-label>
+            </mat-form-field>
           </div>
         </div>
 
-        <div class="form-group">
-          <input type="text" id="direction" name="direction" placeholder=" " class="form-control"
+        <mat-form-field>
+          <input matInput type="text" id="direction" name="direction"
                  [(ngModel)]="home['direction']">
-          <label for="direction">Dirección*</label>
-        </div>
+          <mat-label for="direction">Dirección</mat-label>
+        </mat-form-field>
 
-        <div class="form-group">
-          <mat-form-field class="w-100">
-            <mat-label>Extras</mat-label>
-            <mat-chip-list #extraList>
-              <mat-chip *ngFor="let additional of additionals" (removed)="remove(additional)">
-                {{additional}}
-                <mat-icon matChipRemove>cancel</mat-icon>
-              </mat-chip>
-              <input class="form-control" [matChipInputFor]="extraList" (matChipInputTokenEnd)="add($event)">
-            </mat-chip-list>
-          </mat-form-field>
-        </div>
+        <mat-form-field class="w-100">
+          <mat-label>Extras</mat-label>
+          <mat-chip-list #extraList>
+            <mat-chip *ngFor="let additional of additionals" (removed)="remove(additional)">
+              {{additional}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+
+            <input matInput [matChipInputFor]="extraList" (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field>
 
         <button type="submit" class="btn btn-custom btn-block w-75 mx-auto my-5">Publicar</button>
 

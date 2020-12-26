@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {MatStepper} from '@angular/material/stepper';
@@ -10,7 +10,7 @@ import {TokenStorageService} from '../service/token-storage.service';
   templateUrl: './create-account.component.html',
   styleUrls: ['./create-account.component.css']
 })
-export class CreateAccountComponent {
+export class CreateAccountComponent implements OnInit {
 
   constructor(
     private router: Router,
@@ -19,7 +19,14 @@ export class CreateAccountComponent {
   ) {
   }
 
+  createPersonalAccount = true;
   profilePicture;
+
+  ngOnInit(): void {
+    if (this.router.url === '/create-account-business') {
+      this.createPersonalAccount = false;
+    }
+  }
 
   onFileChange(event): void {
     this.profilePicture = event.target.files[0];
@@ -39,7 +46,11 @@ export class CreateAccountComponent {
     this.usersService.getUserByEmail(data.value.email).subscribe(resp => {
       if (resp == null) {
 
-        data.value.role = (data.value.role === 0) ? 'search' : 'have';
+        if (this.createPersonalAccount) {
+          data.value.role = (data.value.role === 0) ? 'search' : 'have';
+        } else {
+          data.value.role = 'business';
+        }
 
         const formData = new FormData();
 

@@ -4,21 +4,21 @@
   <div class="my-3"></div>
 
   <form #data="ngForm" (ngSubmit)="save(data)">
-      <div class="form-group question p-2" *ngFor="let question of questions let i = index">
+      <div class="form-group p-2" *ngFor="let question of questions let i = index">
           <p>{{ question.question }}</p>
 
           <div class="form-check">
-              <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="question{{ i }}" [value]="1" required ngModel>
+              <mat-label class="form-check-mat-label">
+                  <input matInput type="radio" class="form-check-input matInput" name="question{{ i }}" [value]="1" required ngModel>
                   {{ question.option1 }}
-              </label>
+              </mat-label>
           </div>
 
           <div class="form-check">
-              <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="question{{ i }}" [value]="0" ngModel>
+              <mat-label class="form-check-mat-label">
+                  <input matInput type="radio" class="form-check-input matInput" name="question{{ i }}" [value]="0" ngModel>
                 {{ question.option2 }}
-              </label>
+              </mat-label>
           </div>
       </div>
       <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Guardar</button>

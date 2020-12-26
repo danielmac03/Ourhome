@@ -5,26 +5,30 @@
 
   <form [formGroup]="form" (ngSubmit)="save()">
     <div formArrayName="questions" *ngFor="let question of form.controls['questions']['controls']; let i = index">
-      <div class="form-group question p-2" [formGroupName]="i">
-        <div class="field mt-3">
-          <input type="text" formControlName="question" placeholder=" " class="form-control" required>
-          <label class="lab">Pregunta</label>
+      <div class="form-group p-2" [formGroupName]="i">
+        <mat-form-field>
+          <input matInput type="text" formControlName="question" required>
+          <mat-label class="lab">Pregunta</mat-label>
+        </mat-form-field>
+
+        <div class="form-check d-grid small-text-animation">
+          <input type="radio" formControlName="correctOption" [value]="1"
+                 class="form-check-input matInput align-checkbox ml-0" required>
+
+          <mat-form-field>
+            <input matInput type="text" formControlName="option1" required>
+            <mat-label class="lab">Respuesta A</mat-label>
+          </mat-form-field>
         </div>
 
         <div class="form-check d-grid small-text-animation">
-            <input type="radio" formControlName="correctOption" [value]="1" class="form-check-input align-checkbox ml-0" required>
-          <div class="field">
-            <input type="text" formControlName="option1" placeholder=" " class="form-control" required>
-            <label class="lab">Respuesta A</label>
-          </div>
-        </div>
+          <input type="radio" formControlName="correctOption" [value]="0"
+                 class="form-check-input matInput align-checkbox ml-0">
 
-        <div class="form-check d-grid small-text-animation">
-          <input type="radio" formControlName="correctOption" [value]="0" class="form-check-input align-checkbox ml-0">
-          <div class="field">
-            <input type="text" formControlName="option2" placeholder=" " class="form-control" required>
-            <label class="lab">Respuesta B</label>
-          </div>
+          <mat-form-field>
+            <input matInput type="text" formControlName="option2" required>
+            <mat-label class="lab">Respuesta B</mat-label>
+          </mat-form-field>
         </div>
       </div>
       <hr>

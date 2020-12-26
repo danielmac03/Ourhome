@@ -29,9 +29,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
-import {CreateAccountBusinessComponent} from './create-account-business/create-account-business.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -50,8 +51,7 @@ import {MatIconModule} from '@angular/material/icon';
     CustomTestComponent,
     HeaderComponent,
     SeeRequestsComponent,
-    BusinessListHomesComponent,
-    CreateAccountBusinessComponent,
+    BusinessListHomesComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +67,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatChipsModule,
     MatIconModule,
+    MatRadioModule,
+    MatCheckboxModule
   ],
   providers: [
     authInterceptorHelper,

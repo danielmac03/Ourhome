@@ -6,33 +6,43 @@
       <mat-step>
         <ng-template matStepLabel>Cuenta</ng-template>
 
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group field">
-              <input matInput type="text" id="name" name="name" placeholder=" " class="form-control" required ngModel>
-              <label class="lab" for="name">Nombre*</label>
+        <div *ngIf="createPersonalAccount">
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field>
+                <input matInput type="text" id="name" name="name" required ngModel>
+                <mat-label for="name">Nombre</mat-label>
+              </mat-form-field>
             </div>
-          </div>
 
-          <div class="col-md-6">
-            <div class="form-group field">
-              <input matInput type="text" id="surnames" name="surnames" placeholder=" " class="form-control" required
-                     ngModel>
-              <label class="lab" for="surnames">Apellidos*</label>
+            <div class="col-md-6">
+              <mat-form-field>
+                <input matInput type="text" id="surnames" name="surnames" required
+                       ngModel>
+                <mat-label for="surnames">Apellidos</mat-label>
+              </mat-form-field>
             </div>
           </div>
         </div>
 
-        <div class="form-group field">
-          <input matInput type="email" id="email" name="email" placeholder=" " class="form-control" required ngModel>
-          <label class="lab" for="email">Correo*</label>
+        <div *ngIf="!createPersonalAccount">
+          <mat-form-field>
+            <input matInput type="text" id="company" name="company" required
+                   ngModel>
+            <mat-label for="company">Compañia</mat-label>
+          </mat-form-field>
         </div>
 
-        <div class="form-group field">
-          <input matInput type="password" id="password" name="password" placeholder=" " class="form-control" required
+        <mat-form-field>
+          <input matInput type="email" id="email" name="email" required ngModel>
+          <mat-label for="email">Correo</mat-label>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" id="password" name="password" required
                  ngModel>
-          <label class="lab" for="password">Contraseña*</label>
-        </div>
+          <mat-label for="password">Contraseña</mat-label>
+        </mat-form-field>
 
         <div class="mt-4 float-right">
           <button mat-button (click)="goForwardFirst(stepper, data)" type="button">Siguiente</button>
@@ -42,25 +52,27 @@
       <mat-step>
         <ng-template matStepLabel>Datos Personales</ng-template>
 
-        <div class="form-group field">
-          <input matInput type="text" id="description" name="description" placeholder=" " class="form-control" required
+        <mat-form-field>
+          <input matInput type="text" id="description" name="description" required
                  ngModel>
-          <label class="lab" for="description">Descripción*</label>
-        </div>
+          <mat-label for="description">Descripción</mat-label>
+        </mat-form-field>
 
         <div class="row">
           <div class="col-md-6">
-            <div class="form-group field">
-              <input matInput type="tel" id="phone" name="phone" placeholder=" " class="form-control" maxlength="9" ngModel>
-              <label class="lab" for="phone">Telefono</label>
-            </div>
+            <mat-form-field>
+              <input matInput type="tel" id="phone" name="phone" maxlength="9"
+                     ngModel>
+              <mat-label for="phone">Telefono</mat-label>
+            </mat-form-field>
           </div>
 
           <div class="col-md-6">
-            <div class="form-group field">
-              <input matInput type="date" id="birthdate" name="birthdate" placeholder=" " class="form-control" required ngModel>
-              <label class="lab" for="birthdate">Fecha de nacimiento*</label>
-            </div>
+            <mat-form-field>
+              <input matInput type="date" id="birthdate" name="birthdate" required
+                     ngModel>
+              <mat-label for="birthdate">Fecha de nacimiento</mat-label>
+            </mat-form-field>
           </div>
         </div>
 
@@ -73,49 +85,39 @@
       <mat-step>
         <ng-template matStepLabel>Ya hemos acabamos!</ng-template>
 
-        <div class="form-group field">
-          <input type="file" id="profilePicture" name="profilePicture" placeholder=" " class="form-control" required
+        <div>
+          <label for="profilePicture">Imagen de perfil:</label><br>
+          <input type="file" id="profilePicture" name="profilePicture"
+                 required
                  (change)="onFileChange($event)">
-          <label class="lab" for="profilePicture">Imagen de perfil</label>
         </div>
+        <br>
 
-        <div class="form-group mt-5 text-left">
-          <label>Tipo de usuario:*</label><br>
+        <mat-radio-group name="role" *ngIf="createPersonalAccount">
+          <label>Tipo de usuario: </label><br>
 
-          <div class="container">
+          <mat-radio-group>
             <div class="row">
               <div class="col-md-6">
-                <input type="radio" name="role" required [value]="0" ngModel>
-                <label for="role">&nbsp; Busco Casa</label>
+                <mat-radio-button name="role" value="0">Busco Casa</mat-radio-button>
               </div>
 
               <div class="col-md-6">
-                <input type="radio" id="role" name="role" required [value]="1" ngModel>
-                <label for="role">&nbsp; Tengo Casa</label>
+                <mat-radio-button name="role" value="1">Tengo Casa</mat-radio-button>
               </div>
             </div>
-          </div>
-        </div>
+          </mat-radio-group>
+        </mat-radio-group>
 
-        <div class="form-group mt-5 text-left">
-          <div class="form-check">
-            <input type="checkbox" id="showPhone" name="showPhone" class="form-check-input" [value]="1" ngModel>
-            <label class="form-check-label" for="showPhone">
-              Mostrar teléfono para contactar
-            </label>
-          </div>
-        </div>
+        <mat-checkbox name="showPhone" class="mt-4" ngModel required>
+          Mostrar teléfono para contactar
+        </mat-checkbox>
 
-        <div class="form-group text-left">
-          <div class="form-check">
-            <input id="acceptPolicy" name="acceptPolicy" type="checkbox" class="form-check-input" required [value]="1">
-            <label class="form-check-label" for="acceptPolicy">
-              Acepto las Condiciones del servicio y la Politica de privacnamead de OURHOME
-            </label>
-          </div>
-        </div>
+        <mat-checkbox name="acceptPolicy" required>
+          Acepto las Condiciones del servicio y la Politica de privacidad de OURHOME
+        </mat-checkbox>
 
-        <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Regístrate</button>
+        <button type="submit" class="btn btn-custom btn-block w-75 mx-auto my-4">Regístrate</button>
 
         <div class="mt-4 float-right">
           <button mat-button matStepperPrevious type="button">Atrás</button>
@@ -123,6 +125,8 @@
       </mat-step>
     </mat-horizontal-stepper>
 
-    <a class="text-center d-block" href="/create-account-business">Crear cuenta professional</a>
+    <a class="text-center d-block" href="/create-account-business" *ngIf="createPersonalAccount">Crear cuenta professional</a>
+
+    <a class="text-center d-block" href="/create-account" *ngIf="!createPersonalAccount">Crear cuenta personal</a>
   </form>
 </div>

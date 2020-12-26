@@ -3,170 +3,114 @@
 
   <div class="my-3"></div>
 
-  <p class="text-center">Se sincero en este cuestionario ya que las preguntas se usarán para encontrar a tu compañero ideal</p>
+  <p class="text-center">
+    Se sincero en este cuestionario ya que las preguntas se usarán para encontrar a tu compañero ideal
+  </p>
 
   <hr>
 
   <form #data="ngForm" (ngSubmit)="onSubmit(data)" ngNativeValidate>
-      <div class="form-group question p-2">
-          <p>¿Te gusta pasar tiempo com los compañeros de piso?</p>
+    <div class="p-2">
+      <p>¿Te gusta pasar tiempo com los compañeros de piso?</p>
 
-          <div class="form-check">
-              <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="p1" [value]="1" required ngModel>Si
-              </label>
-          </div>
 
-          <div class="form-check">
-              <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="p1" [value]="0" ngModel>No
-              </label>
-          </div>
-      </div>
-
-      <div class="form-group question p-2">
-          <p>¿Traerías algún animal de compañía al piso?</p>
-
-          <div class="form-check">
-              <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="p2" [value]="1" required ngModel>Si
-              </label>
-          </div>
-
-          <div class="form-check">
-              <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="p2" [value]="0" ngModel>No
-              </label>
-          </div>
-      </div>
-
-      <div class="form-group question p-2">
-        <p>¿Te molestaría tener una mascota al piso?</p>
-
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="p2" [value]="1" required ngModel>Si
-            </label>
-        </div>
-
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="p2" [value]="0" ngModel>No
-            </label>
-        </div>
+      <mat-radio-group name="p1" ngModel>
+        <mat-radio-button name="p1" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p1" value="0">No</mat-radio-button>
+      </mat-radio-group>
     </div>
 
-      <div class="form-group question p-2">
-        <p>¿Fumas en casa?</p>
+    <div class="p-2">
+      <p>¿Traerías algún animal de compañía al piso?</p>
 
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="p3" [value]="1" required ngModel>Si
-            </label>
-        </div>
-
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="p3" [value]="0" ngModel>No
-            </label>
-        </div>
+      <mat-radio-group name="p2" ngModel>
+        <mat-radio-button name="p2" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p2" value="0">No</mat-radio-button>
+      </mat-radio-group>
     </div>
 
-    <div class="form-group question p-2">
+    <div class="p-2">
+      <p>¿Te molestaría tener una mascota al piso?</p>
+
+      <mat-radio-group name="p3" ngModel>
+        <mat-radio-button name="p3" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p3" value="0">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="p-2">
+      <p>¿Fumas en casa?</p>
+
+      <mat-radio-group name="p4" ngModel>
+        <mat-radio-button name="p4" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p4" value="0">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="p-2">
       <p>¿Te molestaría que un compañero fumara en casa?</p>
 
-      <div class="form-check">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="p3" [value]="1" required ngModel>Si
-          </label>
-      </div>
+      <mat-radio-group name="p5" ngModel>
+        <mat-radio-button name="p5" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p5" value="0">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
 
-      <div class="form-check">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="p3" [value]="0" ngModel>No
-          </label>
-      </div>
-  </div>
-
-    <div class="form-group question p-2">
+    <div class="p-2">
       <p>¿Limpias semanalmente?</p>
 
-      <div class="form-check">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="p4" [value]="1" required ngModel>Si
-          </label>
-      </div>
-
-      <div class="form-check">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="p4" [value]="0" ngModel>No
-          </label>
-      </div>
-  </div>
-
-  <div class="form-group question p-2">
-    <p>¿Te gusta hacer fiestas en casa?</p>
-
-    <div class="form-check">
-        <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="p5" [value]="1" required ngModel>Si
-        </label>
+      <mat-radio-group name="p6" ngModel>
+        <mat-radio-button name="p6" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p6" value="0">No</mat-radio-button>
+      </mat-radio-group>
     </div>
 
-    <div class="form-check">
-        <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="p5" [value]="0" ngModel>No
-        </label>
-    </div>
-  </div>
+    <div class="p-2">
+      <p>¿Te gusta hacer fiestas en casa?</p>
 
-  <div class="form-group question p-2">
-    <p>¿Traes con frecuencia invitados en casa?</p>
-
-    <div class="form-check">
-        <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="p6" [value]="1" required ngModel>Si
-        </label>
+      <mat-radio-group name="p7" ngModel>
+        <mat-radio-button name="p7" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p7" value="0">No</mat-radio-button>
+      </mat-radio-group>
     </div>
 
-    <div class="form-check">
-        <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="p6" [value]="0" ngModel>No
-        </label>
-    </div>
-  </div>
+    <div class="p-2">
+      <p>¿Traes con frecuencia invitados en casa?</p>
 
- <div class="form-group question p-2">
-    <p>¿Te gusta tener invitados en casa?</p>
-
-    <div class="form-check">
-        <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="p7" [value]="1" required ngModel>Si
-        </label>
+      <mat-radio-group name="p8" ngModel>
+        <mat-radio-button name="p8" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p8" value="0">No</mat-radio-button>
+      </mat-radio-group>
     </div>
 
-    <div class="form-check">
-        <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="p7" [value]="0" ngModel>No
-        </label>
+    <div class="p-2">
+      <p>¿Te gusta tener invitados en casa?</p>
+
+      <mat-radio-group name="p9" ngModel>
+        <mat-radio-button name="p9" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p9" value="0">No</mat-radio-button>
+      </mat-radio-group>
     </div>
-  </div>
 
-<div class="form-group question p-2">
-  <p>¿Reciclas?</p>
+    <div class="p-2">
+      <p>¿Reciclas?</p>
 
-  <div class="form-check">
-      <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="p8" [value]="1" required ngModel>Si
-      </label>
-  </div>
+      <mat-radio-group name="p10" ngModel>
+        <mat-radio-button name="p10" value="1" required>Si</mat-radio-button>
+        <br>
+        <mat-radio-button name="p10" value="0">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
 
-  <div class="form-check">
-      <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="p8" [value]="0" ngModel>No
-      </label>
-  </div>
-</div>
-      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Guardar</button>
+    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Guardar</button>
   </form>
 </div>
