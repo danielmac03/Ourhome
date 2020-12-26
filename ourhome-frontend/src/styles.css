@@ -9,19 +9,30 @@ h4 {
   font-weight: normal;
 }
 
-.div-form .title {
-  color: black;
-  font-size: 25px;
-}
-
-.div-form {
+.layout-shadow {
   background-color: white;
   box-shadow: 0 0 10px 4px #cccccc;
   border-radius: 4px;
 }
 
-.div-form .logo_ourhome {
+.layout-700 {
+  max-width: 700px !important;
+}
+
+.layout-1000 {
+  max-width: 1000px !important;
+}
+
+.layout-1500 {
+  max-width: 1200px !important;
+}
+
+.logo_ourhome {
   width: 80%;
+}
+
+.question{
+  border-bottom: 1px #1C3144 solid;
 }
 
 input, textarea {
