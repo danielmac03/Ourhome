@@ -4,6 +4,7 @@ import {NgForm} from '@angular/forms';
 import {HomesService} from '../service/homes.service';
 import {ProcessesService} from '../service/processes.service';
 import {TokenStorageService} from '../service/token-storage.service';
+import {MatChipInputEvent} from '@angular/material/chips';
 
 @Component({
   selector: 'app-create-advertisement',
@@ -29,6 +30,8 @@ export class CreateAdvertisementComponent implements OnInit {
   create = true;
   photos = [];
   photosPreview = [];
+
+  additionals: string[] = [];
 
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
@@ -65,7 +68,30 @@ export class CreateAdvertisementComponent implements OnInit {
     }
   }
 
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    if ((value || '').trim()) {
+      this.additionals.push(value.trim());
+    }
+
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  remove(additional: string): void {
+    const index = this.additionals.indexOf(additional);
+
+    if (index >= 0) {
+      this.additionals.splice(index, 1);
+    }
+  }
+
   onSubmit(data: NgForm): void {
+    data.value.additionals = JSON.stringify(this.additionals);
+
     if (this.create) {
       this.onSubmitCreate(data);
     } else {

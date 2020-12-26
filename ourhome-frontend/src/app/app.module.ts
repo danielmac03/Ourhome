@@ -30,6 +30,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {CreateAccountBusinessComponent} from './create-account-business/create-account-business.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -63,6 +65,8 @@ import {CreateAccountBusinessComponent} from './create-account-business/create-a
     MatButtonModule,
     MatRippleModule,
     MatInputModule,
+    MatChipsModule,
+    MatIconModule,
   ],
   providers: [
     authInterceptorHelper,

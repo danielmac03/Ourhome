@@ -50,8 +50,8 @@ public class Homes {
     @Column(name = "floors")
     private int floors;
 
-    @Column(name = "additional")
-    private String additional;
+    @Column(name = "additionals")
+    private String additionals;
 
     @Column(name = "active")
     private boolean active;
@@ -71,7 +71,7 @@ public class Homes {
     public Homes() {
     }
 
-    public Homes(int id, Users user, byte[][] photos, String description, double price, int numBedrooms, int numBathroom, String city, String direction, double meters, int floors, String additional, boolean active, Timestamp createdAt, Timestamp updatedAt, List<Processes> process) {
+    public Homes(int id, Users user, byte[][] photos, String description, double price, int numBedrooms, int numBathroom, String city, String direction, double meters, int floors, String additionals, boolean active, Timestamp createdAt, Timestamp updatedAt, List<Processes> process) {
         this.id = id;
         this.user = user;
         this.photos = photos;
@@ -83,7 +83,7 @@ public class Homes {
         this.direction = direction;
         this.meters = meters;
         this.floors = floors;
-        this.additional = additional;
+        this.additionals = additionals;
         this.active = active;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -178,12 +178,12 @@ public class Homes {
         this.floors = floors;
     }
 
-    public String getAdditional() {
-        return additional;
+    public String getAdditionals() {
+        return additionals;
     }
 
-    public void setAdditional(String additional) {
-        this.additional = additional;
+    public void setAdditionals(String additionals) {
+        this.additionals = additionals;
     }
 
     public boolean isActive() {
