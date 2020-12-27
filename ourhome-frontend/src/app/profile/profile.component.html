@@ -44,17 +44,27 @@
       </div>
 
       <div class="col-md-8 mb-4">
-        <mat-form-field>
-          <input matInput type="text" id="name" name="name" required
-                 [(ngModel)]="user['name']">
-          <mat-label for="name">Nombre</mat-label>
-        </mat-form-field>
+        <div *ngIf="(user.role === 'search' || user.role === 'have')">
+          <mat-form-field>
+            <input matInput type="text" id="name" name="name" required
+                   [(ngModel)]="user['name']">
+            <mat-label for="name">Nombre</mat-label>
+          </mat-form-field>
 
-        <mat-form-field>
-          <input matInput type="text" id="surnames" name="surnames" required
-                 [(ngModel)]="user['surnames']">
-          <mat-label for="surnames">Apellidos</mat-label>
-        </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" id="surnames" name="surnames" required
+                   [(ngModel)]="user['surnames']">
+            <mat-label for="surnames">Apellidos</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div *ngIf="user.role === 'business'">
+          <mat-form-field>
+            <input matInput type="text" id="company" name="company" required
+                   [(ngModel)]="user['company']">
+            <mat-label for="company">Compañia</mat-label>
+          </mat-form-field>
+        </div>
 
         <mat-form-field>
           <input matInput type="text" id="description" name="description" required
