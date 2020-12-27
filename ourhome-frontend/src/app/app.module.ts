@@ -33,6 +33,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {PlansComponent} from './plans/plans.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     CustomTestComponent,
     HeaderComponent,
     SeeRequestsComponent,
-    BusinessListHomesComponent
+    BusinessListHomesComponent,
+    PlansComponent
   ],
   imports: [
     BrowserModule,

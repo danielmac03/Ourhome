@@ -15,3 +15,13 @@
   border-radius: 5px;
   height: 38px;
 }
+
+.remaining-publications{
+  padding: 5px 20px;
+  align-self: center;
+}
+
+.remaining-publications a{
+  color: white;
+  text-decoration: none !important;
+}

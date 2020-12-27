@@ -18,6 +18,7 @@ CREATE TABLE users
     role                   ENUM ('search', 'have', 'business', 'admin') NOT NULL,
     default_test_responses MEDIUMTEXT                                   NULL,
     show_phone             BIT                                          NULL,
+    remaining_publications INT                                          NULL,
     created_at             DATETIME                                     NOT NULL,
     updated_at             DATETIME                                     NULL
 );
@@ -103,6 +104,7 @@ CREATE TABLE users_aud
     role                   ENUM ('search', 'have', 'business', 'admin') NULL,
     default_test_responses MEDIUMTEXT                                   NULL,
     show_phone             BIT                                          NULL,
+    remaining_publications INT                                          NULL,
     created_at             DATETIME                                     NULL,
     updated_at             DATETIME                                     NULL,
     rev                    INT                                          NOT NULL,

@@ -60,6 +60,9 @@ public class Users {
     @Column(name = "show_phone")
     private boolean showPhone;
 
+    @Column(name = "remaining_publications")
+    private int remainingPublications;
+
     @CreationTimestamp
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -87,7 +90,7 @@ public class Users {
     public Users() {
     }
 
-    public Users(int id, String name, String surnames, String company, String direction, byte[] profilePicture, String description, Date birthdate, Integer phone, String email, String password, String role, String defaultTestResponses, boolean showPhone, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes, List<Processes> process, List<CustomTests> customTest, List<Notifications> notifications) {
+    public Users(int id, String name, String surnames, String company, String direction, byte[] profilePicture, String description, Date birthdate, Integer phone, String email, String password, String role, String defaultTestResponses, boolean showPhone, int remainingPublications, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes, List<Processes> process, List<CustomTests> customTest, List<Notifications> notifications) {
         this.id = id;
         this.name = name;
         this.surnames = surnames;
@@ -102,6 +105,7 @@ public class Users {
         this.role = role;
         this.defaultTestResponses = defaultTestResponses;
         this.showPhone = showPhone;
+        this.remainingPublications = remainingPublications;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.homes = homes;
@@ -220,6 +224,14 @@ public class Users {
 
     public void setShowPhone(boolean showPhone) {
         this.showPhone = showPhone;
+    }
+
+    public int getRemainingPublications() {
+        return remainingPublications;
+    }
+
+    public void setRemainingPublications(int remainingPublications) {
+        this.remainingPublications = remainingPublications;
     }
 
     public Timestamp getCreatedAt() {

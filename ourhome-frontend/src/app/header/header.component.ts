@@ -35,10 +35,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  searchByCity(): void {
-    this.router.navigate(['home', this.city]);
-  }
-
   deleteNotification(notificationId: number, divId: string): void{
     $(divId).remove();
 

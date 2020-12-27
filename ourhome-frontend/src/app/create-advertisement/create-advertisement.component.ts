@@ -24,7 +24,8 @@ export class CreateAdvertisementComponent implements OnInit {
 
   user;
   home = {
-    id: undefined
+    id: undefined,
+    user: undefined
   };
 
   create = true;
@@ -35,6 +36,16 @@ export class CreateAdvertisementComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
+
+    if (this.user.remainingPublications === 0) {
+      if (this.user.role === 'have') {
+        alert('Solo puedes tener un anuncio activo');
+      } else if (this.user.role === 'business') {
+        alert('No tienes publicaciones restantes');
+      }
+
+      this.router.navigate(['home']);
+    }
 
     if (this.router.url === '/edit-advertisement') {
       if (this.route.snapshot.params.id) {
@@ -91,6 +102,7 @@ export class CreateAdvertisementComponent implements OnInit {
 
   onSubmit(data: NgForm): void {
     data.value.additionals = JSON.stringify(this.additionals);
+    this.user.remainingPublications -= 1;
 
     if (this.create) {
       this.onSubmitCreate(data);
@@ -127,6 +139,8 @@ export class CreateAdvertisementComponent implements OnInit {
         return;
       }
     }
+
+    this.home.user = this.user;
 
     const homeUpdated = Object.assign(this.home, data.value);
 

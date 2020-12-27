@@ -47,9 +47,16 @@ export class CreateAccountComponent implements OnInit {
       if (resp == null) {
 
         if (this.createPersonalAccount) {
-          data.value.role = (data.value.role === 0) ? 'search' : 'have';
+          if (data.value.role === 0) {
+            data.value.role = 'search';
+            data.value.remainingPublications = 0;
+          } else {
+            data.value.role = 'have';
+            data.value.remainingPublications = 1;
+          }
         } else {
           data.value.role = 'business';
+          data.value.remainingPublications = 5;
         }
 
         const formData = new FormData();
