@@ -37,7 +37,7 @@ export class UsersService {
   }
 
   getAuthorization(user: any): Observable<any> {
-    return this.http.post('http://localhost:8181/login', user, {observe: 'response'});
+    return this.http.post('http://localhost:8181/login', user, {headers: {skip: 'true'}, observe: 'response'});
   }
 
 }

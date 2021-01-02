@@ -13,17 +13,21 @@ export class HttpErrorsInterceptorHelper implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(req).pipe(
-      catchError((error) => {
-        switch (error.status) {
-          default:
-            this.router.navigate(['404']);
-            break;
-        }
+    if (req.headers.get('skip')) {
+      return next.handle(req);
+    } else {
+      return next.handle(req).pipe(
+        catchError((error) => {
+          switch (error.status) {
+            default:
+              this.router.navigate(['404']);
+              break;
+          }
 
-        return of(error);
-      })
-    );
+          return of(error);
+        })
+      );
+    }
   }
 }
 
