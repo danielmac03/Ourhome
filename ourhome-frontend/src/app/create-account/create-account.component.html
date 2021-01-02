@@ -96,7 +96,7 @@
         <mat-radio-group name="role" *ngIf="createPersonalAccount">
           <label>Tipo de usuario: </label><br>
 
-          <mat-radio-group>
+          <mat-radio-group name="role" ngModel>
             <div class="row">
               <div class="col-md-6">
                 <mat-radio-button name="role" value="0">Busco Casa</mat-radio-button>
