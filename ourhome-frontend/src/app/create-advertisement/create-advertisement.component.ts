@@ -32,7 +32,7 @@ export class CreateAdvertisementComponent implements OnInit {
   photos = [];
   photosPreview = [];
 
-  additionals: string[] = [];
+  characteristics: string[] = [];
 
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
@@ -84,7 +84,7 @@ export class CreateAdvertisementComponent implements OnInit {
     const value = event.value;
 
     if ((value || '').trim()) {
-      this.additionals.push(value.trim());
+      this.characteristics.push(value.trim());
     }
 
     if (input) {
@@ -93,16 +93,15 @@ export class CreateAdvertisementComponent implements OnInit {
   }
 
   remove(additional: string): void {
-    const index = this.additionals.indexOf(additional);
+    const index = this.characteristics.indexOf(additional);
 
     if (index >= 0) {
-      this.additionals.splice(index, 1);
+      this.characteristics.splice(index, 1);
     }
   }
 
   onSubmit(data: NgForm): void {
-    data.value.additionals = JSON.stringify(this.additionals);
-    this.user.remainingPublications -= 1;
+    data.value.characteristics = JSON.stringify(this.characteristics);
 
     if (this.create) {
       this.onSubmitCreate(data);
@@ -112,6 +111,7 @@ export class CreateAdvertisementComponent implements OnInit {
   }
 
   onSubmitCreate(data: NgForm): void {
+    this.user.remainingPublications -= 1;
     data.value.user = this.user;
     data.value.active = true;
 

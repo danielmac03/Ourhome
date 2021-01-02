@@ -1,7 +1,5 @@
-<div class="container layout-shadow layout-700 p-5">
+<div class="container layout-shadow layout-700 p-5 my-5">
   <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
-
-  <div class="my-3"></div>
 
   <form [formGroup]="form" (ngSubmit)="save()">
     <div formArrayName="questions" *ngFor="let question of form.controls['questions']['controls']; let i = index">

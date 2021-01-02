@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NotificationsService } from '../service/notifications.service';
-import { TokenStorageService } from '../service/token-storage.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {NotificationsService} from '../service/notifications.service';
+import {TokenStorageService} from '../service/token-storage.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -13,7 +13,6 @@ export class HeaderComponent implements OnInit {
 
   user;
   notifications;
-  city: string;
 
   constructor(
     private router: Router,

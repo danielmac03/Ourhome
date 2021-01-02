@@ -1,11 +1,12 @@
-<div class="container layout-shadow layout-1000 p-5">
+<div class="container layout-shadow layout-1000 p-5 my-5">
 
   <h2 class="text-center">PROCESOS</h2>
 
   <div class="text-center" *ngIf="(user['role'] == 'search')">
     <div class="add d-inline-block" *ngFor="let process of processes | async; let i = index">
       <div class="card m-3" id="process{{i}}">
-        <img class="card-img-top" *ngIf="(process['home']['urlPhotos'] != '')" src="{{ process['home']['urlPhotos'] }}" alt="Card image">
+        <img *ngIf="(process['home']['urlPhotos'] != '')" alt="Card image" class="card-img-top"
+             src="{{ process['home']['urlPhotos'] }}">
         <div class="card-body">
           <p class="card-text" *ngIf="(process['home']['description'] != '')">
             {{ process['home']['description'] }}

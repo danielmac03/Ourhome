@@ -1,26 +1,25 @@
-<div class="container layout-shadow layout-700 p-5">
+<div class="container layout-shadow layout-700 p-5 my-5">
   <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
 
-  <div class="my-3"></div>
-
   <form #data="ngForm" (ngSubmit)="save(data)">
-      <div class="form-group p-2" *ngFor="let question of questions let i = index">
-          <p>{{ question.question }}</p>
+    <div *ngFor="let question of questions let i = index" class="form-group p-2">
+      <p>{{ question.question }}</p>
 
-          <div class="form-check">
-              <mat-label class="form-check-mat-label">
-                  <input matInput type="radio" class="form-check-input matInput" name="question{{ i }}" [value]="1" required ngModel>
-                  {{ question.option1 }}
-              </mat-label>
-          </div>
-
-          <div class="form-check">
-              <mat-label class="form-check-mat-label">
-                  <input matInput type="radio" class="form-check-input matInput" name="question{{ i }}" [value]="0" ngModel>
-                {{ question.option2 }}
-              </mat-label>
-          </div>
+      <div class="form-check">
+        <mat-label class="form-check-mat-label">
+          <input [value]="1" class="form-check-input matInput" matInput name="question{{ i }}" ngModel required
+                 type="radio">
+          {{ question.option1 }}
+        </mat-label>
       </div>
+
+      <div class="form-check">
+        <mat-label class="form-check-mat-label">
+          <input matInput type="radio" class="form-check-input matInput" name="question{{ i }}" [value]="0" ngModel>
+          {{ question.option2 }}
+        </mat-label>
+      </div>
+    </div>
       <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Guardar</button>
   </form>
 

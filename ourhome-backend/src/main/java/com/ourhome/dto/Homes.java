@@ -35,11 +35,8 @@ public class Homes {
     @Column(name = "num_bedrooms")
     private int numBedrooms;
 
-    @Column(name = "num_bathroom")
-    private int numBathroom;
-
-    @Column(name = "city")
-    private String city;
+    @Column(name = "num_bathrooms")
+    private int numBathrooms;
 
     @Column(name = "direction")
     private String direction;
@@ -50,8 +47,8 @@ public class Homes {
     @Column(name = "floors")
     private int floors;
 
-    @Column(name = "additionals")
-    private String additionals;
+    @Column(name = "characteristics")
+    private String characteristics;
 
     @Column(name = "active")
     private boolean active;
@@ -71,19 +68,18 @@ public class Homes {
     public Homes() {
     }
 
-    public Homes(int id, Users user, byte[][] photos, String description, double price, int numBedrooms, int numBathroom, String city, String direction, double meters, int floors, String additionals, boolean active, Timestamp createdAt, Timestamp updatedAt, List<Processes> process) {
+    public Homes(int id, Users user, byte[][] photos, String description, double price, int numBedrooms, int numBathrooms, String direction, double meters, int floors, String characteristics, boolean active, Timestamp createdAt, Timestamp updatedAt, List<Processes> process) {
         this.id = id;
         this.user = user;
         this.photos = photos;
         this.description = description;
         this.price = price;
         this.numBedrooms = numBedrooms;
-        this.numBathroom = numBathroom;
-        this.city = city;
+        this.numBathrooms = numBathrooms;
         this.direction = direction;
         this.meters = meters;
         this.floors = floors;
-        this.additionals = additionals;
+        this.characteristics = characteristics;
         this.active = active;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -138,20 +134,12 @@ public class Homes {
         this.numBedrooms = numBedrooms;
     }
 
-    public int getNumBathroom() {
-        return numBathroom;
+    public int getNumBathrooms() {
+        return numBathrooms;
     }
 
-    public void setNumBathroom(int numBathroom) {
-        this.numBathroom = numBathroom;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public void setNumBathrooms(int numBathrooms) {
+        this.numBathrooms = numBathrooms;
     }
 
     public String getDirection() {
@@ -178,12 +166,12 @@ public class Homes {
         this.floors = floors;
     }
 
-    public String getAdditionals() {
-        return additionals;
+    public String getCharacteristics() {
+        return characteristics;
     }
 
-    public void setAdditionals(String additionals) {
-        this.additionals = additionals;
+    public void setCharacteristics(String characteristics) {
+        this.characteristics = characteristics;
     }
 
     public boolean isActive() {

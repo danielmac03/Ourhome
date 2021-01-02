@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { HomesService } from '../service/homes.service';
-import { TokenStorageService } from '../service/token-storage.service';
-import { CheckCompatibilityHelper } from '../helpers/check-compatibility.helper';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HomesService} from '../service/homes.service';
+import {TokenStorageService} from '../service/token-storage.service';
+import {CheckCompatibilityHelper} from '../helpers/check-compatibility.helper';
 
 @Component({
   selector: 'app-home',
@@ -19,18 +19,13 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute,
     private tokenStorageService: TokenStorageService,
     private checkCompatibilityHelper: CheckCompatibilityHelper
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    if (this.route.snapshot.params.city){
-      this.homesService.getHomesByCity(this.route.snapshot.params.city).subscribe(resp => {
-        this.homes = resp;
-      });
-    }else{
-      this.homesService.getActiveHomes().subscribe(resp => {
-        this.homes = resp;
-      });
-    }
+    this.homesService.getActiveHomes().subscribe(resp => {
+      this.homes = resp;
+    });
   }
 
   checkCompatibility(defaultTestResponses: string): boolean {

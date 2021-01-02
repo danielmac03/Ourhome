@@ -28,10 +28,6 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'home/:city',
-    component: HomeComponent
-  },
-  {
     path: 'initial-test',
     component: InitialTestComponent
   },

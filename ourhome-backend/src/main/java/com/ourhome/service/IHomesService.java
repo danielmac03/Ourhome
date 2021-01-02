@@ -1,24 +1,23 @@
 package com.ourhome.service;
 
-import java.util.List;
 import com.ourhome.dto.Homes;
+
+import java.util.List;
 
 public interface IHomesService {
 
-	public List<Homes> listHomes();
+	List<Homes> listHomes();
 
-	public List<Homes> listActiveHomes();
+	List<Homes> listActiveHomes();
 
-	public Homes saveHomes(Homes home);	
-	
-	public Homes getHome(int id);
+	Homes saveHomes(Homes home);
 
-	public List<Homes> getHomesByUser(int userId);
+	Homes getHome(int id);
 
-	public List<Homes> getHomesByCity(String city);
-	
-	public Homes updateHome(Homes home); 
-	
-	public void deleteHome(int id);
-	
+	List<Homes> getHomesByUser(int userId);
+
+	Homes updateHome(Homes home);
+
+	void deleteHome(int id);
+
 }

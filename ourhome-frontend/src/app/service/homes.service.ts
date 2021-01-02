@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ export class HomesService {
 
   private baseUrl = 'http://localhost:8181/api/homes';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getHomes(): Observable<any> {
     return this.http.get(`${this.baseUrl}/public/`);
@@ -26,10 +27,6 @@ export class HomesService {
 
   getHomesByUser(userId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/user/${userId}`);
-  }
-
-  getHomesByCity(city: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/city/${city}`);
   }
 
   createHomes(homes: object): Observable<object> {

@@ -39,11 +39,6 @@ public class HomesController {
         return homesServiceImpl.getHomesByUser(user_id);
     }
 
-    @GetMapping("/city/{city}")
-    public List<Homes> getHomesByCity(@PathVariable(name = "city") String city) {
-        return homesServiceImpl.getHomesByCity(city);
-    }
-
     @PutMapping()
     public Homes updateHome(@RequestPart(name = "photos", required = false) MultipartFile[] photos, @RequestPart(name = "home") Homes home) throws IOException {
         byte[][] photosByte = new byte[photos.length][];

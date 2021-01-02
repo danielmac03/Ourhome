@@ -1,10 +1,11 @@
 package com.ourhome.service;
 
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.ourhome.dao.IHomesDAO;
 import com.ourhome.dto.Homes;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class HomesServiceImpl implements IHomesService{
@@ -35,11 +36,6 @@ public class HomesServiceImpl implements IHomesService{
 	@Override
 	public List<Homes> getHomesByUser(int userId) {
 		return iHomesDAO.findByUser_id(userId);
-	}
-
-	@Override
-	public List<Homes> getHomesByCity(String city){
-		return iHomesDAO.findByCity(city);
 	}
 
 	@Override

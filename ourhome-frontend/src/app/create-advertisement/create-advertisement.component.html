@@ -1,4 +1,4 @@
-<div class="container layout-shadow layout-700 p-5">
+<div class="container layout-shadow layout-700 p-5 my-5">
 
   <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
 
@@ -58,9 +58,9 @@
         <div class="row">
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="text" id="city" name="city"
-                     [(ngModel)]="home['city']">
-              <mat-label for="city">Ciudad</mat-label>
+              <input [(ngModel)]="home['direction']" id="direction" matInput name="direction"
+                     type="text">
+              <mat-label for="direction">Dirección</mat-label>
             </mat-form-field>
           </div>
 
@@ -93,9 +93,9 @@
 
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="number" id="numBathroom" name="numBathroom"
-                     [(ngModel)]="home['numBathroom']">
-              <mat-label for="numBathroom">Numero Baños</mat-label>
+              <input [(ngModel)]="home['numBathrooms']" id="numBathrooms" matInput name="numBathrooms"
+                     type="number">
+              <mat-label for="numBathrooms">Numero Baños</mat-label>
             </mat-form-field>
           </div>
         </div>
@@ -118,17 +118,11 @@
           </div>
         </div>
 
-        <mat-form-field>
-          <input matInput type="text" id="direction" name="direction"
-                 [(ngModel)]="home['direction']">
-          <mat-label for="direction">Dirección</mat-label>
-        </mat-form-field>
-
         <mat-form-field class="w-100">
-          <mat-label>Extras</mat-label>
+          <mat-label>Características</mat-label>
           <mat-chip-list #extraList>
-            <mat-chip *ngFor="let additional of additionals" (removed)="remove(additional)">
-              {{additional}}
+            <mat-chip (removed)="remove(characteristic)" *ngFor="let characteristic of characteristics">
+              {{characteristic}}
               <mat-icon matChipRemove>cancel</mat-icon>
             </mat-chip>
 
