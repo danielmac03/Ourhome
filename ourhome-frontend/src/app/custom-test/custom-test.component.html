@@ -1,26 +1,19 @@
 <div class="container layout-shadow layout-700 p-5 my-5">
+
   <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
 
   <form #data="ngForm" (ngSubmit)="save(data)">
     <div *ngFor="let question of questions let i = index" class="form-group p-2">
       <p>{{ question.question }}</p>
 
-      <div class="form-check">
-        <mat-label class="form-check-mat-label">
-          <input [value]="1" class="form-check-input matInput" matInput name="question{{ i }}" ngModel required
-                 type="radio">
-          {{ question.option1 }}
-        </mat-label>
-      </div>
-
-      <div class="form-check">
-        <mat-label class="form-check-mat-label">
-          <input matInput type="radio" class="form-check-input matInput" name="question{{ i }}" [value]="0" ngModel>
-          {{ question.option2 }}
-        </mat-label>
-      </div>
+      <mat-radio-group name="question{{ i }}" ngModel>
+        <mat-radio-button name="question{{ i }}" required value="1">{{ question.option1 }}</mat-radio-button>
+        <br>
+        <mat-radio-button name="question{{ i }}" value="0">{{ question.option2 }}</mat-radio-button>
+      </mat-radio-group>
+      <hr>
     </div>
-      <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Guardar</button>
+    <button class="btn btn-custom btn-block w-75 mx-auto mb-4" type="submit">Guardar</button>
   </form>
 
 </div>
