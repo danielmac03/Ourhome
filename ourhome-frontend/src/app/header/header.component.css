@@ -1,27 +1,17 @@
-.navbar-custom{
+.navbar-custom {
   background-color: #1C3144;
 }
 
-.navbar-custom .title{
+.navbar-custom .title {
   color: white;
   font-size: 30px;
 }
 
-.navbar-custom .nav-link{
+.navbar-custom .nav-link {
   color: white;
 }
 
 .navbar-custom input[type="search"] {
   border-radius: 5px;
   height: 38px;
-}
-
-.remaining-publications{
-  padding: 5px 20px;
-  align-self: center;
-}
-
-.remaining-publications a{
-  color: white;
-  text-decoration: none !important;
 }
