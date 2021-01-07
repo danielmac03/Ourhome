@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
-import { TokenStorageService } from '../service/token-storage.service';
+import {Injectable} from '@angular/core';
+import {TokenStorageService} from '../service/token-storage.service';
 
 @Injectable()
 export class CheckCompatibilityHelper {
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorageService: TokenStorageService) {
+  }
 
   check(defaultTestResponses: string): boolean {
     const user = this.tokenStorageService.getUser();
 
-    if (user !== '' && (user.role === 'business' || user.defaultTestResponses !== null)) {
+    if (user !== '' && user.role !== 'business' && defaultTestResponses !== null && user.defaultTestResponses !== null) {
       const userDefaultTestResponses = JSON.parse(user.defaultTestResponses);
       defaultTestResponses = JSON.parse(defaultTestResponses);
 
