@@ -23,15 +23,6 @@ public class CustomTests {
 	@Column(name = "questions")
 	private String questions;
 	
-	@Column(name = "answers")
-	private String answers;
-
-	@Column(name = "options1")
-	private String options1;
-
-	@Column(name = "options2")
-	private String options2;
-	
 	@CreationTimestamp
 	@Column(name = "created_at")
 	private Timestamp createdAt;
@@ -42,13 +33,10 @@ public class CustomTests {
 
 	public CustomTests() {}
 
-	public CustomTests(int id, Users user, String questions, String answers, String options1, String options2, Timestamp createdAt, Timestamp updatedAt) {
+	public CustomTests(int id, Users user, String questions, Timestamp createdAt, Timestamp updatedAt) {
 		this.id = id;
 		this.user = user;
 		this.questions = questions;
-		this.answers = answers;
-		this.options1 = options1;
-		this.options2 = options2;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 	}
@@ -75,30 +63,6 @@ public class CustomTests {
 
 	public void setQuestions(String questions) {
 		this.questions = questions;
-	}
-
-	public String getAnswers() {
-		return answers;
-	}
-
-	public void setAnswers(String answers) {
-		this.answers = answers;
-	}
-
-	public String getOptions1() {
-		return options1;
-	}
-
-	public void setOptions1(String options1) {
-		this.options1 = options1;
-	}
-
-	public String getOptions2() {
-		return options2;
-	}
-
-	public void setOptions2(String options2) {
-		this.options2 = options2;
 	}
 
 	public Timestamp getCreatedAt() {

@@ -55,13 +55,7 @@ export class SeeRequestsComponent implements OnInit {
 
     this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(
       resp => {
-        for (let i = 0; i < resp.questions.split(',').length; i++) {
-          this.questions.push({
-            question: resp.questions.split(',')[i],
-            option1: resp.options1.split(',')[i],
-            option2: resp.options2.split(',')[i]
-          });
-        }
+          this.questions = JSON.parse(resp.questions);
       });
   }
 

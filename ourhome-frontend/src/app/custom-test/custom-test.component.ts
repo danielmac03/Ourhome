@@ -14,6 +14,10 @@ import {TokenStorageService} from '../service/token-storage.service';
 })
 export class CustomTestComponent implements OnInit {
 
+  home;
+  customTest;
+  questions = [];
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -24,59 +28,37 @@ export class CustomTestComponent implements OnInit {
   ) {
   }
 
-  home;
-  customTest;
-  questions = [];
-  answers: number[] = [];
-
   ngOnInit(): void {
     this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(resp1 => {
       this.home = resp1;
 
       this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(resp2 => {
-        this.customTest = resp2;
-
-        for (let i = 0; i < resp2.questions.split(',').length; i++) {
-          this.questions.push({
-            question: resp2.questions.split(',')[i],
-            option1: resp2.options1.split(',')[i],
-            option2: resp2.options2.split(',')[i]
-          });
-        }
-
-        this.answers = resp2.answers.split(',');
+        this.questions = JSON.parse(resp2.questions);
       });
     });
   }
 
   save(data: NgForm): void {
     const user = this.tokenStorageService.getUser();
-    const userAnswers = [];
     let common = 0;
 
-    for (let i = 0; i < this.questions.length; i++) {
-      userAnswers.push(data.value[('question' + i)]);
-    }
-
-    if (!userAnswers.includes('')) {
-      for (let i = 0; i < this.answers.length; i++) {
-        if (this.answers[i] === userAnswers[i].toString()) {
-          common++;
-        }
+    for (let i = 0; i < Object.values(data.value).length; i++) {
+      if (Object.values(data.value)[i] === this.questions[i].correctOption.toString()) {
+        common++;
       }
-
-      const process = {
-        home: this.home,
-        user,
-        answers: userAnswers.toString(),
-        compatibility: (common / this.questions.length) * 10,
-        state: 1
-      };
-
-      this.processesService.createProcess(process).subscribe(resp => {
-        this.router.navigate(['list-processes']);
-      });
     }
+
+    const process = {
+      home: this.home,
+      user,
+      answers: Object.values(data.value).toString(),
+      compatibility: (common / this.questions.length) * 10,
+      state: 1
+    };
+
+    this.processesService.createProcess(process).subscribe(resp => {
+      this.router.navigate(['list-processes']);
+    });
   }
 
 }

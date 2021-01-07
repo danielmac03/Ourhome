@@ -76,7 +76,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'custom-test',
+    path: 'create-test',
     component: CreateTestComponent,
     canActivate: [RequireRolesHelper],
     data: {

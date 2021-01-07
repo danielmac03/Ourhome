@@ -7,7 +7,7 @@
       <div class="col-md-5">
         <div class="row">
           <div class="col-md-4">
-            <img src="assets/img/a.jpg" alt="{{ user['user']['name'] }} {{ user['user']['surnames'] }}"
+            <img src="" alt="{{ user['user']['name'] }} {{ user['user']['surnames'] }}"
                  class="mr-3 rounded-circle" style="width:100px;">
           </div>
 
@@ -44,7 +44,7 @@
       </div>
 
       <div class="col-md-7">
-        <div id="answers{{i}}" class="collapse m-2" *ngFor="let question of questions; let x = index">
+        <div class="collapse m-2" id="answers{{i}}" *ngFor="let question of questions; let x = index">
           <div *ngIf="(user['answers'].split(',')[x] == 0)">
             {{ question['question'] }}: {{ question['option1'] }}
           </div>
