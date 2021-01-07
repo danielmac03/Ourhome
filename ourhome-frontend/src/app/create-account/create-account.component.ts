@@ -12,15 +12,15 @@ import {TokenStorageService} from '../service/token-storage.service';
 })
 export class CreateAccountComponent implements OnInit {
 
+  createPersonalAccount = true;
+  profilePicture;
+
   constructor(
     private router: Router,
     private usersService: UsersService,
     private tokenStorageService: TokenStorageService
   ) {
   }
-
-  createPersonalAccount = true;
-  profilePicture;
 
   ngOnInit(): void {
     if (this.router.url === '/create-account-business') {
@@ -47,7 +47,7 @@ export class CreateAccountComponent implements OnInit {
       if (resp == null) {
 
         if (this.createPersonalAccount) {
-          if (data.value.role === 0) {
+          if (data.value.role === '0') {
             data.value.role = 'search';
             data.value.remainingPublications = 0;
           } else {
@@ -75,7 +75,11 @@ export class CreateAccountComponent implements OnInit {
           }).subscribe(resp2 => {
             this.tokenStorageService.saveToken(resp2.headers.get('Authorization'));
 
-            this.router.navigate(['initial-test']);
+            if (data.value.role === 'business') {
+              this.router.navigate(['home']);
+            } else {
+              this.router.navigate(['initial-test']);
+            }
           });
         });
       } else {
