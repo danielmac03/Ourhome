@@ -87,10 +87,14 @@ public class Users {
     @JoinColumn(name = "user_id")
     private List<Notifications> notifications;
 
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Tokens> tokens;
+
     public Users() {
     }
 
-    public Users(int id, String name, String surnames, String company, String direction, byte[] profilePicture, String description, Date birthdate, Integer phone, String email, String password, String role, String defaultTestResponses, boolean showPhone, int remainingPublications, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes, List<Processes> process, List<CustomTests> customTest, List<Notifications> notifications) {
+    public Users(int id, String name, String surnames, String company, String direction, byte[] profilePicture, String description, Date birthdate, Integer phone, String email, String password, String role, String defaultTestResponses, boolean showPhone, int remainingPublications, Timestamp createdAt, Timestamp updatedAt, List<Homes> homes, List<Processes> process, List<CustomTests> customTest, List<Notifications> notifications, List<Tokens> tokens) {
         this.id = id;
         this.name = name;
         this.surnames = surnames;
@@ -112,6 +116,7 @@ public class Users {
         this.process = process;
         this.customTest = customTest;
         this.notifications = notifications;
+        this.tokens = tokens;
     }
 
     public int getId() {
@@ -290,4 +295,13 @@ public class Users {
         this.notifications = notifications;
     }
 
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tokens")
+    public List<Tokens> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(List<Tokens> tokens) {
+        this.tokens = tokens;
+    }
 }

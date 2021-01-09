@@ -27,8 +27,9 @@ h4 {
   max-width: 1800px !important;
 }
 
-.logo_ourhome {
+.layout-700 .logo_ourhome {
   width: 80%;
+  margin-bottom: 40px;
 }
 
 button{

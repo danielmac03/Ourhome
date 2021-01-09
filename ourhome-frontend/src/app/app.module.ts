@@ -34,6 +34,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {PlansComponent} from './plans/plans.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import {PlansComponent} from './plans/plans.component';
     HeaderComponent,
     SeeRequestsComponent,
     BusinessListHomesComponent,
-    PlansComponent
+    PlansComponent,
+    ForgotPasswordComponent,
+    RecoveryPasswordComponent
   ],
   imports: [
     BrowserModule,

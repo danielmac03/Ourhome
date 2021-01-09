@@ -77,6 +77,15 @@ CREATE TABLE notifications
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
+CREATE TABLE tokens
+(
+    token_id   INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id    INT          NOT NULL,
+    token      VARCHAR(255) NOT NULL,
+    created_at DATETIME     NULL,
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
+);
+
 #Tables to envers
 CREATE TABLE revinfo
 (
@@ -175,6 +184,19 @@ CREATE TABLE notifications_aud
     rev             INT        NOT NULL,
     revtype         TINYINT    NOT NULL,
     PRIMARY KEY (notification_id, rev),
+    FOREIGN KEY (user_id) REFERENCES users (user_id),
+    FOREIGN KEY (rev) REFERENCES revinfo (rev)
+);
+
+CREATE TABLE tokens_aud
+(
+    token_id   INT          NOT NULL AUTO_INCREMENT,
+    user_id    INT          NULL,
+    token      VARCHAR(255) NULL,
+    created_at DATETIME     NULL,
+    rev        INT          NOT NULL,
+    revtype    TINYINT      NOT NULL,
+    PRIMARY KEY (token_id, rev),
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     FOREIGN KEY (rev) REFERENCES revinfo (rev)
 );
