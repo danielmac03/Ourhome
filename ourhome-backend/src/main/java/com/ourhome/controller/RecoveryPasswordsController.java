@@ -2,6 +2,7 @@ package com.ourhome.controller;
 
 import com.ourhome.dto.Tokens;
 import com.ourhome.dto.Users;
+import com.ourhome.service.EmailsServiceImpl;
 import com.ourhome.service.TokensServiceImpl;
 import com.ourhome.service.UsersServiceImpl;
 import io.jsonwebtoken.Jwts;
@@ -12,13 +13,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 import static com.ourhome.security.Constants.*;
 
 @RestController
 @RequestMapping("/api/recovery-passwords/public")
-public class TokensController {
+public class RecoveryPasswordsController {
 
     @Autowired
     TokensServiceImpl tokensServiceImpl;
@@ -26,15 +29,18 @@ public class TokensController {
     @Autowired
     UsersServiceImpl usersServiceImpl;
 
+    @Autowired
+    EmailsServiceImpl emailsServiceImpl;
+
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public TokensController(BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public RecoveryPasswordsController(BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @PostMapping("/forgot/")
     @ResponseStatus(value = HttpStatus.OK)
-    public void forgotPassword(@RequestBody String email) {
+    public void forgotPassword(@RequestBody String email) throws MessagingException, UnsupportedEncodingException {
         String generatedToken = Jwts.builder()
                 .signWith(SignatureAlgorithm.HS512, SUPER_SECRET_KEY)
                 .setIssuedAt(new Date())
@@ -46,8 +52,12 @@ public class TokensController {
         Tokens token = new Tokens();
         token.setUser(usersServiceImpl.searchUserByEmail(email));
         token.setToken(generatedToken);
-
         tokensServiceImpl.saveToken(token);
+
+        String message = "<h2>OURHOME - Recovery Password</h2>"
+                + "<p>Para recuperar su contraseña haga clic <a href='" + URL + "recovery-password/" + email + "/" + generatedToken + "'>aquí</a>.</p>";
+
+        emailsServiceImpl.sendEmail(email, "OURHOME - Recovery Password", message);
     }
 
     @PostMapping("/isValid/")
