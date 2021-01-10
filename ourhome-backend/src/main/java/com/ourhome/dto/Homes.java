@@ -32,11 +32,11 @@ public class Homes {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "num_bedrooms")
-    private int numBedrooms;
+    @Column(name = "bedrooms")
+    private int bedrooms;
 
-    @Column(name = "num_bathrooms")
-    private int numBathrooms;
+    @Column(name = "bathrooms")
+    private int bathrooms;
 
     @Column(name = "direction")
     private String direction;
@@ -68,14 +68,14 @@ public class Homes {
     public Homes() {
     }
 
-    public Homes(int id, Users user, byte[][] photos, String description, double price, int numBedrooms, int numBathrooms, String direction, double meters, int floors, String characteristics, boolean active, Timestamp createdAt, Timestamp updatedAt, List<Processes> process) {
+    public Homes(int id, Users user, byte[][] photos, String description, double price, int bedrooms, int bathrooms, String direction, double meters, int floors, String characteristics, boolean active, Timestamp createdAt, Timestamp updatedAt, List<Processes> process) {
         this.id = id;
         this.user = user;
         this.photos = photos;
         this.description = description;
         this.price = price;
-        this.numBedrooms = numBedrooms;
-        this.numBathrooms = numBathrooms;
+        this.bedrooms = bedrooms;
+        this.bathrooms = bathrooms;
         this.direction = direction;
         this.meters = meters;
         this.floors = floors;
@@ -126,20 +126,20 @@ public class Homes {
         this.price = price;
     }
 
-    public int getNumBedrooms() {
-        return numBedrooms;
+    public int getBedrooms() {
+        return bedrooms;
     }
 
-    public void setNumBedrooms(int numBedrooms) {
-        this.numBedrooms = numBedrooms;
+    public void setBedrooms(int bedrooms) {
+        this.bedrooms = bedrooms;
     }
 
-    public int getNumBathrooms() {
-        return numBathrooms;
+    public int getBathrooms() {
+        return bathrooms;
     }
 
-    public void setNumBathrooms(int numBathrooms) {
-        this.numBathrooms = numBathrooms;
+    public void setBathrooms(int bathrooms) {
+        this.bathrooms = bathrooms;
     }
 
     public String getDirection() {

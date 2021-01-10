@@ -4,7 +4,7 @@
 
   <div class="add d-inline-block" *ngFor="let home of homes">
     <div class="card m-3">
-      <img class="card-img-top" *ngIf="(home['urlPhotos'] != '')" src="{{ home['urlPhotos'] }}" alt="Card image">
+      <img class="card-img-top" *ngIf="(home['photos'][0] != null)" src="data:image/png;base64,{{ home['photos'][0] }}" alt="Card image">
       <div class="card-body">
         <p class="card-text" *ngIf="(home['description'] != '')">
           {{ home['description'] }}
