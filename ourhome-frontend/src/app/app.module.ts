@@ -22,7 +22,6 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {HeaderComponent} from './header/header.component';
 import {SeeRequestsComponent} from './see-requests/see-requests.component';
 import {CheckCompatibilityHelper} from './helpers/check-compatibility.helper';
-import {BusinessListHomesComponent} from './business-list-homes/business-list-homes.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -34,8 +33,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {PlansComponent} from './plans/plans.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
+import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
+import {RecoveryPasswordComponent} from './recovery-password/recovery-password.component';
 
 
 @NgModule({
@@ -54,7 +53,6 @@ import { RecoveryPasswordComponent } from './recovery-password/recovery-password
     CustomTestComponent,
     HeaderComponent,
     SeeRequestsComponent,
-    BusinessListHomesComponent,
     PlansComponent,
     ForgotPasswordComponent,
     RecoveryPasswordComponent

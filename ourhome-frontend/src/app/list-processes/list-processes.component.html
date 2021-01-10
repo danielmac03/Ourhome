@@ -33,7 +33,7 @@
   <div class="text-center" *ngIf="(user['role'] == 'business')">
     <div class="add d-inline-block" *ngFor="let home of homes">
       <div class="card m-3">
-        <img class="card-img-top" src="data:image/png;base64,{{ home['photos'][0] }}" alt="Card image">
+        <img class="card-img-top" *ngIf="(home['photos'][0] != null)" src="data:image/png;base64,{{ home['photos'][0] }}" alt="Card image">
         <div class="card-body">
           <p class="card-text">
             {{ home['description'] }}
@@ -41,7 +41,15 @@
           <label class="card-text">
             {{ home['price'] }} €
           </label>
-          <a href="/see-requests/{{ home['id'] }}" class="btn btn-custom d-block">Ver solicitudes</a>
+          <div class="row my-2">
+            <div class="col-md-6">
+              <a href="/see-requests/{{ home['id'] }}" class="btn btn-custom d-block">Ver solicitudes</a>
+            </div>
+            <div class="col-md-6">
+              <a href="/edit-advertisement/{{ home['id'] }}" class="btn btn-custom d-block">Editar anuncio</a>
+            </div>
+          </div>
+          <a href="/see-advertisement/{{ home['id'] }}" class="btn btn-custom d-block">Ver anuncio</a>
         </div>
       </div>
     </div>
