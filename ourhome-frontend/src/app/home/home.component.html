@@ -1,83 +1,28 @@
 <div class="container-fluid text-center p-4">
+  <app-filter-homes [homes]="homes" (filterEvent)="getFilteredHomes($event)"></app-filter-homes>
 
-  <div class="container layout-shadow p-3 mb-4">
-    <form #data="ngForm" (ngSubmit)="onSubmit(data)" class="row">
-      <div class="col-md-4">
-        <mat-form-field>
-          <input id="direction" matInput name="direction" type="text" ngModel>
-          <mat-label for="direction">Dirección</mat-label>
-        </mat-form-field>
-      </div>
+  <div *ngFor="let home of homes">
+    <div class="add {{(!home.show) ? 'd-inline-block' : 'd-none'}}">
+      <div class="card m-3">
+        <div *ngIf="home['photos'] != null">
+          <img *ngIf="(home['photos'][0] != null)" alt="Card image"
+               class="card-img-top" src="data:image/png;base64,{{ home['photos'][0] }}">
+        </div>
 
-      <div class="col-md-1">
-        <mat-form-field>
-          <input id="bedrooms" matInput name="bedrooms" type="number" ngModel>
-          <mat-label for="bedrooms">Habitaciones</mat-label>
-        </mat-form-field>
-      </div>
+        <div class="card-body">
+          <p *ngIf="(home['description'] != '')" class="card-text" ngModel>
+            {{ home['description'] }}
+          </p>
 
-      <div class="col-md-1">
-        <mat-form-field>
-          <input id="bathrooms" matInput name="bathrooms" type="number" ngModel>
-          <mat-label for="bathrooms">Baños</mat-label>
-        </mat-form-field>
-      </div>
+          <label class="card-text" ngModel>
+            {{ home['price'] }} €
+          </label>
 
-      <div class="col-md-1">
-        <mat-form-field>
-          <input id="floors" matInput name="floors" type="number" ngModel>
-          <mat-label for="floors">Plantas</mat-label>
-        </mat-form-field>
-      </div>
-
-      <div class="col-md-1">
-        <mat-form-field>
-          <input id="meters" matInput name="meters" type="number" ngModel>
-          <mat-label for="meters">Metros</mat-label>
-        </mat-form-field>
-      </div>
-
-      <div class="col-md-1">
-        <mat-form-field>
-          <input id="minprice" matInput name="minprice" type="number" ngModel>
-          <mat-label for="minprice">Min. Precio</mat-label>
-        </mat-form-field>
-      </div>
-
-      <div class="col-md-1">
-        <mat-form-field>
-          <input id="maxprice" matInput name="maxprice" type="number" ngModel>
-          <mat-label for="maxprice">Max. Precio</mat-label>
-        </mat-form-field>
-      </div>
-
-      <div class="col-md-2 align-self-center">
-        <button class="btn btn-custom btn-block">Filtrar</button>
-      </div>
-    </form>
-  </div>
-
-  <div *ngFor="let home of filterHomes" class="add d-inline-block">
-    <div class="card m-3">
-      <div *ngIf="home['photos'] != null">
-        <img *ngIf="(home['photos'][0] != null)" alt="Card image"
-             class="card-img-top" src="data:image/png;base64,{{ home['photos'][0] }}">
-      </div>
-
-      <div class="card-body">
-        <p *ngIf="(home['description'] != '')" class="card-text" ngModel>
-          {{ home['description'] }}
-        </p>
-
-        <label class="card-text" ngModel>
-          {{ home['price'] }} €
-        </label>
-
-        <a class="btn btn-custom d-block" href="/see-advertisement/{{ home['id'] }}">Ver anuncio
-          <label *ngIf="(checkCompatibility(home.user['defaultTestResponses']))" class="m-0">🟢</label>
-        </a>
+          <a class="btn btn-custom d-block" href="/see-advertisement/{{ home['id'] }}">Ver anuncio
+            <label *ngIf="(checkCompatibility(home.user['defaultTestResponses']))" class="m-0">🟢</label>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-
 </div>

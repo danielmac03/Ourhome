@@ -35,6 +35,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {PlansComponent} from './plans/plans.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {RecoveryPasswordComponent} from './recovery-password/recovery-password.component';
+import { FilterHomesComponent } from './filter-homes/filter-homes.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import {RecoveryPasswordComponent} from './recovery-password/recovery-password.c
     SeeRequestsComponent,
     PlansComponent,
     ForgotPasswordComponent,
-    RecoveryPasswordComponent
+    RecoveryPasswordComponent,
+    FilterHomesComponent
   ],
   imports: [
     BrowserModule,
