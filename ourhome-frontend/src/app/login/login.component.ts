@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { UsersService } from '../service/users.service';
-import { TokenStorageService } from '../service/token-storage.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {NgForm} from '@angular/forms';
+import {UsersService} from '../service/users.service';
+import {TokenStorageService} from '../service/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -10,23 +11,19 @@ import { TokenStorageService } from '../service/token-storage.service';
 })
 export class LoginComponent {
 
-  email: string;
-  password: string;
-
   constructor(
     private router: Router,
     private usersService: UsersService,
     private tokenStorageService: TokenStorageService
-  ) {}
+  ) {
+  }
 
-  login(): void {
-    const user = {email: this.email, password: this.password};
-
-    this.usersService.getAuthorization(user).subscribe(
+  onSubmit(data: NgForm): void {
+    this.usersService.getAuthorization(data.value).subscribe(
       respHeader => {
         this.tokenStorageService.saveToken(respHeader.headers.get('Authorization'));
 
-        this.usersService.getUserByEmail(this.email).subscribe(respUser => {
+        this.usersService.getUserByEmail(data.value.email).subscribe(respUser => {
           this.tokenStorageService.saveUser(respUser);
         });
 

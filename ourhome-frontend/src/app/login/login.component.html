@@ -2,20 +2,19 @@
 
   <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
 
-  <form>
+  <form #data="ngForm" (ngSubmit)="onSubmit(data)">
     <mat-form-field>
-      <input matInput type="email" id="email" name="email" placeholder="  " [(ngModel)]="email">
+      <input matInput type="email" id="email" name="email" ngModel>
       <mat-label for="email">Correo</mat-label>
     </mat-form-field>
     <br>
 
     <mat-form-field>
-      <input matInput type="password" id="password" name="password" placeholder="  "
-             [(ngModel)]="password">
+      <input matInput type="password" id="password" name="password" ngModel>
       <mat-label for="password">Contraseña</mat-label>
     </mat-form-field>
 
-    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4" (click)="login()">Login</button>
+    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Login</button>
 
     <hr>
 
