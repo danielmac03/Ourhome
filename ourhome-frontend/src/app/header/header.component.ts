@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NotificationsService} from '../service/notifications.service';
 import {TokenStorageService} from '../service/token-storage.service';
-import * as $ from 'jquery';
+
+declare var $ : any;
 
 @Component({
   selector: 'app-header',

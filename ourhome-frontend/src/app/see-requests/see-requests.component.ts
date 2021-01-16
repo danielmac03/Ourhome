@@ -5,7 +5,8 @@ import {ProcessesService} from '../service/processes.service';
 import {CustomTestsService} from '../service/custom-tests.service';
 import {TokenStorageService} from '../service/token-storage.service';
 import {CheckCompatibilityHelper} from '../helpers/check-compatibility.helper';
-import * as $ from 'jquery';
+
+declare var $: any;
 
 @Component({
   selector: 'app-see-requests',
@@ -14,8 +15,13 @@ import * as $ from 'jquery';
 })
 export class SeeRequestsComponent implements OnInit {
 
-  home;
+  home = {
+    id: undefined,
+    direction: undefined,
+    user: undefined
+  };
   user;
+
   users;
   questions = [];
 
@@ -48,26 +54,23 @@ export class SeeRequestsComponent implements OnInit {
   }
 
   listProcesses(): void {
-    this.processesService.listProcessByHome(this.home.id).subscribe(
-      resp => {
-        this.users = resp;
-      });
+    this.processesService.listProcessByHome(this.home.id).subscribe(resp => {
+      this.users = resp;
+      console.log(this.users);
+    });
 
-    this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(
-      resp => {
-          this.questions = JSON.parse(resp.questions);
-      });
+    this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(resp => {
+      this.questions = JSON.parse(resp.questions);
+    });
   }
 
   checkCompatibility(defaultTestResponses: string): boolean {
     return this.checkCompatibilityHelper.check(defaultTestResponses);
   }
 
-  deleteProcess(idProcess: number, divId: string): void {
+  deleteProcess(idProcess: number, divId: number): void {
     this.processesService.deleteProcesses(idProcess).subscribe(resp => {
-      $('#' + divId).remove();
-
+      $('#process' + divId).remove();
     });
   }
-
 }

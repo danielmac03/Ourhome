@@ -4,7 +4,8 @@ import {ProcessesService} from '../service/processes.service';
 import {HomesService} from '../service/homes.service';
 import {TokenStorageService} from '../service/token-storage.service';
 import {CheckCompatibilityHelper} from '../helpers/check-compatibility.helper';
-import * as $ from 'jquery';
+
+declare var $ : any;
 
 @Component({
   selector: 'app-processes',
