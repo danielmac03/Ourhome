@@ -25,7 +25,8 @@ export class CreateAdvertisementComponent implements OnInit {
   user;
   home = {
     id: undefined,
-    user: undefined
+    user: undefined,
+    characteristics: undefined
   };
 
   create = true;
@@ -47,14 +48,16 @@ export class CreateAdvertisementComponent implements OnInit {
       this.router.navigate(['home']);
     }
 
-    if (this.router.url === '/edit-advertisement') {
+    if (this.router.url.toString().includes('/edit-advertisement')) {
       if (this.route.snapshot.params.id) {
         this.homesService.getHomeById(this.route.snapshot.params.id).subscribe(resp => {
           this.home = resp;
+          this.characteristics = JSON.parse(this.home.characteristics);
         });
       } else {
         this.homesService.getHomesByUser(this.user.id).subscribe(resp => {
           this.home = resp[0];
+          this.characteristics = JSON.parse(this.home.characteristics);
         });
       }
 
@@ -147,7 +150,7 @@ export class CreateAdvertisementComponent implements OnInit {
     const formData = new FormData();
     formData.append('home', new Blob([JSON.stringify(homeUpdated)], {type: 'application/json'}));
 
-    if (this.photos !== undefined) {
+    if (this.photos.length !== 0) {
       for (const photo of this.photos) {
         formData.append('photos', photo);
       }

@@ -43,13 +43,14 @@ public class HomesController {
     public Homes updateHome(@RequestPart(name = "photos", required = false) MultipartFile[] photos, @RequestPart(name = "home") Homes home) throws IOException {
         byte[][] photosByte = new byte[photos.length][];
 
-        if (photos != null) {
+        if (photos.length != 0) {
             for (int i = 0; i < photos.length; i++) {
                 photosByte[i] = photos[i].getBytes();
             }
+
+            home.setPhotos(photosByte);
         }
 
-        home.setPhotos(photosByte);
         return this.homesServiceImpl.updateHome(home);
     }
 
