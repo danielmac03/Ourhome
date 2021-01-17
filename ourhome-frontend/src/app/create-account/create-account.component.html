@@ -58,7 +58,7 @@
           <mat-label for="description">Descripción</mat-label>
         </mat-form-field>
 
-        <div class="row">
+        <div class="row" *ngIf="createPersonalAccount">
           <div class="col-md-6">
             <mat-form-field>
               <input matInput type="tel" id="phone" name="phone" maxlength="9"
@@ -74,6 +74,14 @@
               <mat-label for="birthdate">Fecha de nacimiento</mat-label>
             </mat-form-field>
           </div>
+        </div>
+
+        <div *ngIf="!createPersonalAccount">
+          <mat-form-field>
+            <input matInput type="tel" id="phone" name="phone" maxlength="9"
+                   ngModel>
+            <mat-label for="phone">Telefono</mat-label>
+          </mat-form-field>
         </div>
 
         <div class="mt-4 float-right">
