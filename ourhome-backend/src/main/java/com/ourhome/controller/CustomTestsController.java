@@ -21,18 +21,12 @@ public class CustomTestsController {
 
     @GetMapping("/{id}")
     public CustomTests searchCustomTest(@PathVariable(name = "id") int id) {
-        CustomTests customTest = new CustomTests();
-        customTest = customTestsServiceImpl.searchCustomTest(id);
-
-        return customTest;
+        return customTestsServiceImpl.searchCustomTest(id);
     }
 
     @GetMapping("/user/{user_id}")
     public CustomTests searchCustomTestByUser(@PathVariable(name = "user_id") int user_id) {
-        CustomTests customTest = new CustomTests();
-        customTest = customTestsServiceImpl.searchCustomTestByUser(user_id);
-
-        return customTest;
+        return customTestsServiceImpl.searchCustomTestByUser(user_id);
     }
 
     @PostMapping()

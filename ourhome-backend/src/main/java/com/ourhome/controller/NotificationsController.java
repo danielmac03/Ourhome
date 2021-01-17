@@ -12,29 +12,26 @@ import java.util.List;
 public class NotificationsController {
 
 	@Autowired
-	NotificationsServiceImpl NotificationsServiceImpl;
+	NotificationsServiceImpl notificationsServiceImpl;
 
 	@GetMapping("/{id}")
 	public Notifications searchNotification(@PathVariable(name = "id") int id) {
-		Notifications Notification = new Notifications();		
-		Notification = NotificationsServiceImpl.getNotification(id);
-		
-		return Notification;
+		return notificationsServiceImpl.getNotification(id);
 	}
 
 	@GetMapping("/user/{user_id}")
 	public List<Notifications> listNotificationByUser(@PathVariable(name = "user_id") int user_id){
-		return NotificationsServiceImpl.listNotificationByUser(user_id);
+		return notificationsServiceImpl.listNotificationByUser(user_id);
 	}
 
 	@PostMapping()
 	public Notifications saveNotification(@RequestBody Notifications notification) {
-		return NotificationsServiceImpl.saveNotification(notification);
+		return notificationsServiceImpl.saveNotification(notification);
 	}
 	
 	@DeleteMapping("{id}")
 	public void deleteNotification(@PathVariable(name = "id") int id) {
-		NotificationsServiceImpl.deleteNotification(id);
+		notificationsServiceImpl.deleteNotification(id);
 	}
 	
 }

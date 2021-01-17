@@ -14,10 +14,9 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UsersController {
 
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
     @Autowired
     UsersServiceImpl usersServiceImpl;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public UsersController(BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -30,10 +29,7 @@ public class UsersController {
 
     @GetMapping("/{id}")
     public Users searchUser(@PathVariable(name = "id") int id) {
-        Users user = new Users();
-        user = usersServiceImpl.searchUser(id);
-
-        return user;
+        return usersServiceImpl.searchUser(id);
     }
 
     @GetMapping("/public/email/{email}")
@@ -60,9 +56,15 @@ public class UsersController {
             user.setProfilePicture(profilePicture.getBytes());
         }
 
-        if(!user.getPassword().equals(userSaved.getPassword())){
+        if (!user.getPassword().equals(userSaved.getPassword())) {
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         }
+
+        user.setHomes(userSaved.getHomes());
+        user.setProcess(userSaved.getProcess());
+        user.setCustomTest(userSaved.getCustomTest());
+        user.setNotifications(userSaved.getNotifications());
+        user.setTokens(userSaved.getTokens());
 
         return usersServiceImpl.updateUser(user);
     }

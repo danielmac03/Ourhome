@@ -21,10 +21,7 @@ public class ProcessesController {
 
 	@GetMapping("/{id}")
 	public Processes searchProcess(@PathVariable(name = "id") int id) {
-		Processes process = new Processes();		
-		process = processesServiceImpl.getProcess(id);
-		
-		return process;
+		return processesServiceImpl.getProcess(id);
 	}
 
 	@GetMapping("/home/{home_id}")
@@ -44,21 +41,7 @@ public class ProcessesController {
 
 	@PutMapping("/{id}")
 	public Processes updateProcess(@PathVariable(name = "id") int id, @RequestBody Processes process) {
-		Processes processSelected = new Processes();
-		Processes processUpdated = new Processes();
-		
-		processSelected = processesServiceImpl.getProcess(id);
-		
-		processSelected.setHome(process.getHome());
-		processSelected.setUser(process.getUser());
-		processSelected.setAnswers(process.getAnswers());
-		processSelected.setCompatibility(process.getCompatibility());
-		processSelected.setCreatedAt(process.getCreatedAt());
-		processSelected.setUpdatedAt(process.getUpdatedAt());
-
-		processUpdated = this.processesServiceImpl.updateProcess(processSelected);
-		
-		return processUpdated;
+		return this.processesServiceImpl.updateProcess(process);
 	}
 
 	@DeleteMapping("{id}")
