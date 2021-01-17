@@ -1,7 +1,7 @@
 package com.ourhome.controller;
 
 import com.ourhome.dto.Users;
-import com.ourhome.service.UsersServiceImpl;
+import com.ourhome.implemention.UsersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;

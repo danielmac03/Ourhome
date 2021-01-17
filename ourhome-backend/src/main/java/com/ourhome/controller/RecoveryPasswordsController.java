@@ -2,9 +2,9 @@ package com.ourhome.controller;
 
 import com.ourhome.dto.Tokens;
 import com.ourhome.dto.Users;
-import com.ourhome.service.EmailsServiceImpl;
-import com.ourhome.service.TokensServiceImpl;
-import com.ourhome.service.UsersServiceImpl;
+import com.ourhome.implemention.EmailsServiceImpl;
+import com.ourhome.implemention.TokensServiceImpl;
+import com.ourhome.implemention.UsersServiceImpl;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;

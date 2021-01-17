@@ -1,7 +1,8 @@
-package com.ourhome.service;
+package com.ourhome.implemention;
 
 import com.ourhome.dao.INotificationsDAO;
 import com.ourhome.dto.Notifications;
+import com.ourhome.service.INotificationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

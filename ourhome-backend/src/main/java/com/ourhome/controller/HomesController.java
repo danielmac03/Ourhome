@@ -1,7 +1,7 @@
 package com.ourhome.controller;
 
 import com.ourhome.dto.Homes;
-import com.ourhome.service.HomesServiceImpl;
+import com.ourhome.implemention.HomesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

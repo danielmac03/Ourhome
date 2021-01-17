@@ -1,7 +1,7 @@
 package com.ourhome.controller;
 
 import com.ourhome.dto.Notifications;
-import com.ourhome.service.NotificationsServiceImpl;
+import com.ourhome.implemention.NotificationsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

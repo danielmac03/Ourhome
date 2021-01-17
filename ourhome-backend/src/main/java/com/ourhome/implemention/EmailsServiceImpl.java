@@ -1,5 +1,6 @@
-package com.ourhome.service;
+package com.ourhome.implemention;
 
+import com.ourhome.service.IEmailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;

@@ -1,14 +1,15 @@
-package com.ourhome.service;
+package com.ourhome.implemention;
 
 import com.ourhome.dao.IHomesDAO;
 import com.ourhome.dto.Homes;
+import com.ourhome.service.IHomesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class HomesServiceImpl implements IHomesService{
+public class HomesServiceImpl implements IHomesService {
 
 	@Autowired
 	IHomesDAO iHomesDAO;
