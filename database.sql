@@ -86,6 +86,15 @@ CREATE TABLE tokens
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
+CREATE TABLE wishes
+(
+    wish_id    INT      NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id    INT      NOT NULL,
+    home_id    INT      NOT NULL,
+    created_at DATETIME NULL,
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
+);
+
 #Tables to envers
 CREATE TABLE revinfo
 (
@@ -198,5 +207,20 @@ CREATE TABLE tokens_aud
     revtype    TINYINT      NOT NULL,
     PRIMARY KEY (token_id, rev),
     FOREIGN KEY (user_id) REFERENCES users (user_id),
+    FOREIGN KEY (rev) REFERENCES revinfo (rev)
+);
+
+
+CREATE TABLE wishes_aud
+(
+    wish_id    INT      NOT NULL AUTO_INCREMENT,
+    user_id    INT      NULL,
+    home_id    INT      NULL,
+    created_at DATETIME NULL,
+    rev        INT          NOT NULL,
+    revtype    TINYINT      NOT NULL,
+    PRIMARY KEY (wish_id, rev),
+    FOREIGN KEY (user_id) REFERENCES users (user_id),
+    FOREIGN KEY (home_id) REFERENCES homes (home_id),
     FOREIGN KEY (rev) REFERENCES revinfo (rev)
 );

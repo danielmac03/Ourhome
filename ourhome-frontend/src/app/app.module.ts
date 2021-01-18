@@ -35,8 +35,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {PlansComponent} from './plans/plans.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {RecoveryPasswordComponent} from './recovery-password/recovery-password.component';
-import { FilterHomesComponent } from './filter-homes/filter-homes.component';
-
+import {FilterHomesComponent} from './filter-homes/filter-homes.component';
+import {WishlistComponent} from './wishlist/wishlist.component';
+import {IsInWishlistPipe} from './pipes/is-in-wishlist.pipe';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import { FilterHomesComponent } from './filter-homes/filter-homes.component';
     PlansComponent,
     ForgotPasswordComponent,
     RecoveryPasswordComponent,
-    FilterHomesComponent
+    FilterHomesComponent,
+    WishlistComponent,
+    IsInWishlistPipe,
   ],
   imports: [
     BrowserModule,

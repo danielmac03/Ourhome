@@ -56,7 +56,6 @@ export class SeeRequestsComponent implements OnInit {
   listProcesses(): void {
     this.processesService.listProcessByHome(this.home.id).subscribe(resp => {
       this.users = resp;
-      console.log(this.users);
     });
 
     this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(resp => {

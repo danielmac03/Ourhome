@@ -32,7 +32,7 @@ h4 {
   margin-bottom: 40px;
 }
 
-button{
+button {
   background-color: transparent;
   border: 0;
   outline: 0 !important;
@@ -55,4 +55,19 @@ button{
 mat-form-field {
   width: 100%;
   margin: 5px;
+}
+
+.container-homes .card {
+  max-width: 380px;
+}
+
+.container-homes .card-img-button {
+  position: absolute;
+  margin: 15px;
+  right: 0;
+  cursor: pointer;
+}
+
+.container-homes .card-img-top {
+  height: 250px;
 }

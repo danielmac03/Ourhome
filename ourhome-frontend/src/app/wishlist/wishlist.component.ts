@@ -1,25 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {HomesService} from '../service/homes.service';
 import {WishesService} from '../service/wishes.service';
 import {TokenStorageService} from '../service/token-storage.service';
 import {CheckCompatibilityHelper} from '../helpers/check-compatibility.helper';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-wishlist',
+  templateUrl: './wishlist.component.html',
+  styleUrls: ['./wishlist.component.css']
 })
-export class HomeComponent implements OnInit {
+export class WishlistComponent implements OnInit {
 
   user;
-  homes;
+  homes = [];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private wishesService: WishesService,
-    private homesService: HomesService,
     private tokenStorageService: TokenStorageService,
     private checkCompatibilityHelper: CheckCompatibilityHelper
   ) {
@@ -28,8 +26,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
 
-    this.homesService.getActiveHomes().subscribe(resp => {
-      this.homes = resp;
+    this.wishesService.searchWishesByUser(this.user.id).subscribe(resp => {
+      for (const home of resp){
+        this.homes.push(home.home);
+      }
     });
   }
 

@@ -13,8 +13,8 @@ public class TokensServiceImpl implements ITokensService {
     ITokensDAO iTokensDAO;
 
     @Override
-    public Tokens saveToken(Tokens Token) {
-        return iTokensDAO.save(Token);
+    public void saveToken(Tokens Token) {
+        iTokensDAO.save(Token);
     }
 
     @Override

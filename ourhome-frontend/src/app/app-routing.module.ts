@@ -17,6 +17,7 @@ import {CreateAdvertisementComponent} from './create-advertisement/create-advert
 import {PlansComponent} from './plans/plans.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {RecoveryPasswordComponent} from './recovery-password/recovery-password.component';
+import {WishlistComponent} from './wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -154,6 +155,14 @@ const routes: Routes = [
     canActivate: [RequireRolesHelper],
     data: {
       allowedRoles: ['business'],
+    }
+  },
+  {
+    path: 'wishlist',
+    component: WishlistComponent,
+    canActivate: [RequireRolesHelper],
+    data: {
+      allowedRoles: ['search'],
     }
   },
   {

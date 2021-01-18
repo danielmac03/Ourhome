@@ -4,7 +4,7 @@ import com.ourhome.dto.Tokens;
 
 public interface ITokensService {
 
-    public Tokens saveToken(Tokens Token);
+    public void saveToken(Tokens Token);
 
     public Tokens getToken(int userId, String token);
 
