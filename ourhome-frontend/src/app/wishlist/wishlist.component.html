@@ -2,34 +2,5 @@
 
   <h2 class="text-center mb-5">Lista de deseos</h2>
 
-  <app-filter-homes (filterEvent)="getFilteredHomes($event)" [homes]="homes"></app-filter-homes>
-
-  <div class="container-homes text-center">
-    <div *ngFor="let home of homes" class="d-inline-block">
-      <div class="card m-3 {{(home['show']) ? 'd-none' : 'd-inline-block'}}">
-        <div class="card-img-content">
-          <div *ngIf="user['role'] == 'search'">
-            <i *ngIf="home['isInWishlist'] || home['isInWishlist'] | isInWishlist:user['role']:user['id']:home['id'] | async; else notIsInWishlist" class="card-img-button material-icons md-light" (click)="removeWish(home['id']);">favorite</i>
-            <ng-template #notIsInWishlist><i class="card-img-button material-icons md-light" (click)="addWish(home);">favorite_border</i></ng-template>
-          </div>
-
-          <img *ngIf="(home['photos'][0] != null)" class="card-img-top" src="data:image/png;base64,{{ home['photos'][0] }}">
-        </div>
-
-        <div class="card-body">
-          <p *ngIf="(home['description'] != '')" class="card-text">
-            {{ home['description'] }}
-          </p>
-
-          <label class="card-text">
-            {{ home['price'] }} €
-          </label>
-
-          <a class="btn btn-custom d-block" href="/see-advertisement/{{ home['id'] }}">Ver anuncio
-            <label *ngIf="(checkCompatibility(home.user['defaultTestResponses']))" class="m-0">🟢</label>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-home [homes]="homes"></app-home>
 </div>
