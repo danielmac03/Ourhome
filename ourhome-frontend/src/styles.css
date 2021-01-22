@@ -71,3 +71,16 @@ mat-form-field {
 .container-homes .card-img-top {
   height: 250px;
 }
+
+.px-10{
+  margin-right: 6rem !important;
+  margin-left: 6rem !important;
+}
+
+.user-request {
+  cursor: pointer;
+}
+
+.user-request:hover{
+  background-color: #cccccc;
+}

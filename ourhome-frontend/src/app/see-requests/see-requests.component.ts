@@ -23,6 +23,7 @@ export class SeeRequestsComponent implements OnInit {
   };
   user;
 
+  userRequest;
   users;
   questions = [];
 
@@ -59,11 +60,16 @@ export class SeeRequestsComponent implements OnInit {
   listProcesses(): void {
     this.processesService.listProcessByHome(this.home.id).subscribe(resp => {
       this.users = resp;
+      this.userRequest = 0;
     });
 
     this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(resp => {
       this.questions = JSON.parse(resp.questions);
     });
+  }
+
+  viewRequest(user: number): void {
+    this.userRequest = user;
   }
 
   checkCompatibility(defaultTestResponses: string): boolean {

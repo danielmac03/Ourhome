@@ -1,92 +1,82 @@
-<div class="container layout-shadow layout-1000 p-5 my-5">
+<div class="container layout-shadow layout-1000 py-5 my-5">
 
-
-  <div class="row media p-3 m-3">
-    <div class="col-md-4">
-      <img *ngIf="(home['photos'][0] != null)" class="img-fluid" src="data:image/png;base64,{{ home['photos'][0] }}">
-    </div>
-
-    <div class="col-md-8">
-      <div class="ml-2">
-        <h2 *ngIf="home['direction'] != undefined">{{ home['direction'] }} - {{home['price']}}€</h2>
-
-        <p>{{home['description']}}</p>
-
-        <div class="row">
-          <div class="col-md-4">
-            <p><b>Metros: </b>{{ home['meters'] }}</p>
-            <p><b>Plantas: </b>{{ home['floors'] }}</p>
-          </div>
-
-          <div class="col-md-8">
-            <p><b>Habitaciones: </b>{{ home['bedrooms'] }}</p>
-            <p><b>Baños: </b>{{ home['bathrooms'] }}</p>
-          </div>
-        </div>
-
-        <mat-chip-list>
-          <div *ngFor="let additional of home['characteristics']">
-            <mat-chip>{{additional}}</mat-chip>
-          </div>
-        </mat-chip-list>
+  <div class="px-10">
+    <div class="row media m-3">
+      <div class="col-md-4">
+        <img *ngIf="home['photos'] != undefined" class="img-fluid" src="data:image/png;base64,{{ home['photos'][0] }}">
       </div>
-    </div>
-  </div>
 
-  <div *ngFor="let user of users; let i = index">
-    <div class="media border p-3 m-3" id="process{{i}}">
-      <div class="row">
-        <div class="col-md-4">
-          <img *ngIf="(user['user']['photos'] != null)" src="data:image/png;base64,{{ user['user']['photos'][0] }}" class="mr-3 rounded-circle img-fluid">
-        </div>
+      <div class="col-md-8">
+        <div class="ml-2">
+          <h2 *ngIf="home['direction'] != undefined">{{ home['direction'] }} - {{home['price']}}€</h2>
 
-        <div class="col-md-8">
-          <div class="media-body mt-2">
-            <h3>
-              {{ user['user']['name'] }} {{ user['user']['surnames'] }}
-              -
-              {{ user['compatibility'] }}%
-              <label *ngIf="(checkCompatibility(user['user']['defaultTestResponses']))" class="m-0">🟢</label>
-            </h3>
-
-            <h4>
-              ✉  {{ user['user']['email'] }}
-              <div *ngIf="user['user']['phone'] !== null"> 📞 {{ user['user']['phone'] }} </div>
-            </h4>
-          </div>
+          <p>{{home['description']}}</p>
 
           <div class="row">
-            <div class="col-md-8">
-              <button [attr.data-target]="'#answers' + i" class="btn btn-custom" data-toggle="modal">Mostrar
-                respuestas
-              </button>
+            <div class="col-md-5">
+              <p><b>Metros: </b>{{ home['meters'] }}</p>
+              <p><b>Plantas: </b>{{ home['floors'] }}</p>
             </div>
-            <div class="col-md-4">
-              <button (click)="deleteProcess(user['id'], i)" class="btn btn-custom m-auto d-block">
-                Eliminar
-              </button>
+
+            <div class="col-md-7">
+              <p><b>Habitaciones: </b>{{ home['bedrooms'] }}</p>
+              <p><b>Baños: </b>{{ home['bathrooms'] }}</p>
             </div>
           </div>
+
+          <mat-chip-list>
+            <div *ngFor="let additional of home['characteristics']">
+              <mat-chip>{{additional}}</mat-chip>
+            </div>
+          </mat-chip-list>
         </div>
       </div>
     </div>
 
-    <div class="modal" id="answers{{i}}">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Respuestas
-              de {{user['user']['name']}} {{ user['user']['surnames'] }}</h5>
-            <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div *ngFor="let question of questions; let x = index" class="overflow m-2">
-              <p>{{ question['question'] }}:</p>
-              <p>{{(user['answers'].split(',')[x] == 0) ? question['option1'] : question['option2'] }}</p>
-              <hr>
+    <div class="row mt-5">
+      <div class="col-md-4 border-right p-0">
+        <div *ngFor="let user of users; let i = index">
+          <div class="user-request">
+            <div (click)="viewRequest(i)" class="py-4 px-3" id="process{{i}}">
+              <img *ngIf="(user['user']['photos'] != null)" class="mr-3 rounded-circle img-fluid"
+                   src="data:image/png;base64,{{ user['user']['photos'][0] }}">
+
+              <div class="media-body mt-2">
+                <h3>
+                  {{ user['user']['name'] }} {{ user['user']['surnames'] }}
+                  -
+                  <label *ngIf="checkCompatibility(user['user']['defaultTestResponses']); else lowCompatibility"
+                         class="text-success m-0">{{ user['compatibility'] }}%</label>
+                  <ng-template #lowCompatibility>
+                    <label class="text-danger m-0">{{ user['compatibility'] }}%</label>
+                  </ng-template>
+                </h3>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div class="p-4" *ngIf="userRequest != undefined">
+          <img *ngIf="users[userRequest]['user']['photos'] != undefined" class="mr-3 rounded-circle img-fluid"
+               src="data:image/png;base64,{{ users[userRequest]['user']['photos'][0] }}">
+
+          <h3>
+            {{ users[userRequest]['user']['name'] }} {{ users[userRequest]['user']['surnames'] }}
+            -
+            <label *ngIf="checkCompatibility(users[userRequest]['defaultTestResponses']); else lowCompatibility"
+                   class="text-success m-0">{{ users[userRequest]['compatibility'] }}%</label>
+            <ng-template #lowCompatibility>
+              <label class="text-danger m-0">{{ users[userRequest]['compatibility'] }}%</label>
+            </ng-template>
+          </h3>
+
+          <p>{{ users[userRequest]['user']['description'] }}</p>
+
+          <div *ngFor="let question of questions; let x = index" class="overflow mt-3">
+            <p>{{ question['question'] }}:</p>
+            <p>{{ (users[userRequest]['answers'].split(',')[x] == 0) ? question['option1'] : question['option2'] }}</p>
           </div>
         </div>
       </div>
