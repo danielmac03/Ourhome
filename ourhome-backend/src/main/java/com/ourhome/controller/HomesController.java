@@ -53,6 +53,8 @@ public class HomesController {
 
     @PutMapping()
     public Homes updateHome(@RequestPart(name = "photos", required = false) MultipartFile[] photos, @RequestPart(name = "home") Homes home) throws IOException {
+        Homes homeSaved = homesServiceImpl.getHome(home.getId());
+
         byte[][] photosByte = new byte[photos.length][];
 
         if (photos.length != 0) {
@@ -63,7 +65,7 @@ public class HomesController {
             home.setPhotos(photosByte);
         }
 
-        home.setProcess(home.getProcess());
+        home.setProcess(homeSaved.getProcess());
 
         return this.homesServiceImpl.updateHome(home);
     }

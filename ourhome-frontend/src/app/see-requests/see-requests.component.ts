@@ -18,7 +18,8 @@ export class SeeRequestsComponent implements OnInit {
   home = {
     id: undefined,
     direction: undefined,
-    user: undefined
+    user: undefined,
+    characteristics: undefined
   };
   user;
 
@@ -42,12 +43,14 @@ export class SeeRequestsComponent implements OnInit {
       this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(
         resp => {
           this.home = resp;
+          this.home.characteristics = JSON.parse(this.home.characteristics);
           this.listProcesses();
         });
     } else {
       this.homesService.getHomesByUser(this.user.id).subscribe(
         resp => {
           this.home = resp[0];
+          this.home.characteristics = JSON.parse(this.home.characteristics);
           this.listProcesses();
         });
     }
