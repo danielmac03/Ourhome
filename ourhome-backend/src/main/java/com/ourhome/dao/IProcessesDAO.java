@@ -11,6 +11,10 @@ public interface IProcessesDAO extends JpaRepository<Processes, Integer> {
 
     List<Processes> findByHome_id(int homeId);
 
+    Processes findByHome_idAndUser_id(int homeId, int userId);
+
+    void deleteByHome_idAndUser_id(int homeId, int userId);
+
     void deleteByHome_id(int homeId);
 
 }

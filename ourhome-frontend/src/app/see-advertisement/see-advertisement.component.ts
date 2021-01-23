@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {HomesService} from '../service/homes.service';
+import {ProcessesService} from '../service/processes.service';
 import {TokenStorageService} from '../service/token-storage.service';
 
 @Component({
@@ -11,14 +12,21 @@ import {TokenStorageService} from '../service/token-storage.service';
 })
 export class SeeAdvertisementComponent implements OnInit {
 
-  home;
+  home = {
+    id: undefined,
+    photos: undefined,
+    direction: undefined,
+    characteristics: undefined
+  };
   user;
+  existProcess;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private domSanitizer: DomSanitizer,
     private homesService: HomesService,
+    private processesService: ProcessesService,
     private tokenStorageService: TokenStorageService
   ) {
   }
@@ -26,10 +34,14 @@ export class SeeAdvertisementComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
 
-    this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(data => {
-      this.home = data;
+    this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(resp => {
+      this.home = resp;
       this.home.characteristics = JSON.parse(this.home.characteristics);
       this.home.direction = this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.google.com/maps/embed/v1/place?key=AIzaSyB4pHuIU5cQEqWeJCz_Gfcf84YiMhpmaXw&q=' + this.home.direction.replace(' ', '+'));
+    });
+
+    this.processesService.existProcess(this.route.snapshot.params.home, this.user.id).subscribe(resp1 => {
+      this.existProcess = resp1;
     });
   }
 

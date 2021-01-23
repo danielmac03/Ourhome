@@ -33,23 +33,26 @@
       </div>
     </div>
 
-    <div class="row mt-5">
+    <div *ngIf="users.length != 0" class="row mt-5" id="request-content">
       <div class="col-md-4 border-right p-0">
         <div *ngFor="let user of users; let i = index">
           <div class="user-request">
-            <div (click)="viewRequest(i)" class="py-4 px-3" id="process{{i}}">
+            <div (click)="viewRequest(i)" class="py-4 px-3" id="user{{i}}">
               <img *ngIf="(user['user']['photos'] != null)" class="mr-3 rounded-circle img-fluid"
                    src="data:image/png;base64,{{ user['user']['photos'][0] }}">
 
               <div class="media-body mt-2">
                 <h3>
                   {{ user['user']['name'] }} {{ user['user']['surnames'] }}
-                  -
-                  <label *ngIf="checkCompatibility(user['user']['defaultTestResponses']); else lowCompatibility"
-                         class="text-success m-0">{{ user['compatibility'] }}%</label>
-                  <ng-template #lowCompatibility>
-                    <label class="text-danger m-0">{{ user['compatibility'] }}%</label>
-                  </ng-template>
+
+                  <div *ngIf="user['compatibility'] != -1" class="d-inline">
+                    -
+                    <label *ngIf="checkCompatibility(user['user']['defaultTestResponses']); else lowCompatibility"
+                           class="text-success m-0">{{ user['compatibility'] }}%</label>
+                    <ng-template #lowCompatibility>
+                      <label class="text-danger m-0">{{ user['compatibility'] }}%</label>
+                    </ng-template>
+                  </div>
                 </h3>
               </div>
             </div>
@@ -58,26 +61,44 @@
       </div>
 
       <div class="col-md-8">
-        <div class="p-4" *ngIf="userRequest != undefined">
+        <div *ngIf="userRequest != undefined" class="p-4">
           <img *ngIf="users[userRequest]['user']['photos'] != undefined" class="mr-3 rounded-circle img-fluid"
                src="data:image/png;base64,{{ users[userRequest]['user']['photos'][0] }}">
 
           <h3>
             {{ users[userRequest]['user']['name'] }} {{ users[userRequest]['user']['surnames'] }}
-            -
-            <label *ngIf="checkCompatibility(users[userRequest]['defaultTestResponses']); else lowCompatibility"
-                   class="text-success m-0">{{ users[userRequest]['compatibility'] }}%</label>
-            <ng-template #lowCompatibility>
-              <label class="text-danger m-0">{{ users[userRequest]['compatibility'] }}%</label>
-            </ng-template>
+
+            <div *ngIf="users[userRequest]['compatibility'] != -1" class="d-inline">
+              -
+              <label *ngIf="checkCompatibility(users[userRequest]['user']['defaultTestResponses']); else lowCompatibility"
+                     class="text-success m-0">{{ users[userRequest]['compatibility'] }}%</label>
+              <ng-template #lowCompatibility>
+                <label class="text-danger m-0">{{ users[userRequest]['compatibility'] }}%</label>
+              </ng-template>
+            </div>
           </h3>
 
           <p>{{ users[userRequest]['user']['description'] }}</p>
+
+          <div class="row">
+            <div class="col-md-6">
+              <span class="material-icons">email</span>
+              {{ users[userRequest]['user']['email'] }}
+            </div>
+
+            <div class="col-md-6">
+              <span class="material-icons">call</span>
+              <span
+                *ngIf="users[userRequest]['user']['phone'] !== null">{{ users[userRequest]['user']['phone'] }} </span>
+            </div>
+          </div>
 
           <div *ngFor="let question of questions; let x = index" class="overflow mt-3">
             <p>{{ question['question'] }}:</p>
             <p>{{ (users[userRequest]['answers'].split(',')[x] == 0) ? question['option1'] : question['option2'] }}</p>
           </div>
+
+          <button class="btn btn-custom mt-4" (click)="deleteProcess(user['id'], userRequest)">Eliminar</button>
         </div>
       </div>
     </div>

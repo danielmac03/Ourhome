@@ -1,6 +1,6 @@
-<div *ngIf="home['photos'] != null" class="container layout-shadow layout-1000 p-5 my-5">
+<div class="container layout-shadow layout-1000 p-5 my-5">
 
-  <div class="carousel slide" data-ride="carousel" id="advertisementPhotos">
+  <div *ngIf="home['photos'] != undefined" class="carousel slide" data-ride="carousel" id="advertisementPhotos">
     <div class="carousel-inner">
       <div *ngFor="let photo of home['photos']; let x = index" class="carousel-item {{(x == 0) ? 'active' : ''}}">
         <img alt="Photos advertisement" class="d-block img-fluid" height="300" src="data:image/png;base64,{{ photo }}">
@@ -16,7 +16,9 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+  </div>
 
+  <div>
     <p class="mt-4 price">{{ home['price'] }}€</p>
 
     <div class="mt-4">
@@ -72,7 +74,7 @@
     </div>
   </div>
 
-  <button (click)="contact()" *ngIf="(user.role == 'search')" class="btn btn-custom btn-block w-75 mx-auto mb-4"
-          type="submit">Contactar
+  <button (click)="contact()" *ngIf="user.role == 'search' && !existProcess"
+          class="btn btn-custom btn-block w-75 mx-auto mb-4" type="submit">Contactar
   </button>
-
+</div>

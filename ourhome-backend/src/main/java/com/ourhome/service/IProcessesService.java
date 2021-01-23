@@ -1,25 +1,29 @@
 package com.ourhome.service;
 
-import java.util.List;
 import com.ourhome.dto.Processes;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 public interface IProcessesService {
 
-	public List<Processes> listProcesses(); 
-	
-	public Processes saveProcess(Processes process);	
-	
-	public Processes getProcess(int id);
+    public List<Processes> listProcesses();
 
-	public List<Processes> listProcessByHome(int homeId);
+    public Processes saveProcess(Processes process);
 
-	public List<Processes> listProcessByUser(int userId);
+    public Processes getProcess(int id);
 
-	public Processes updateProcess(Processes process); 
-	
-	public void deleteProcess(int id);
+    public List<Processes> listProcessByUser(int userId);
 
-	public void deleteProcessesByHome(int id);
+    public List<Processes> listProcessByHome(int homeId);
+
+    public Processes getProcessByHomeAndUser(int homeId, int userId);
+
+    public Processes updateProcess(Processes process);
+
+    public void deleteProcess(int id);
+
+    public void deleteProcessesByHome(int id);
+
+    public void deleteProcessesByHomeAndUser(int homeId, int userId);
 
 }

@@ -30,13 +30,18 @@ public class ProcessesServiceImpl implements IProcessesService {
 	}
 
 	@Override
+	public List<Processes>  listProcessByUser(int userId){
+		return iProcessesDAO.findByUser_id(userId);
+	}
+
+	@Override
 	public List<Processes> listProcessByHome(int homeId){
 		return iProcessesDAO.findByHome_id(homeId);
 	}
 
 	@Override
-	public List<Processes>  listProcessByUser(int userId){
-		return iProcessesDAO.findByUser_id(userId);
+	public Processes getProcessByHomeAndUser(int homeId, int userId){
+		return iProcessesDAO.findByHome_idAndUser_id(homeId, userId);
 	}
 
 	@Override
@@ -52,6 +57,11 @@ public class ProcessesServiceImpl implements IProcessesService {
 	@Override
 	public void deleteProcessesByHome(int id) {
 		iProcessesDAO.deleteByHome_id(id);
+	}
+
+	@Override
+	public void deleteProcessesByHomeAndUser(int homeId, int userId){
+		iProcessesDAO.deleteByHome_idAndUser_id(homeId, userId);
 	}
 
 }

@@ -84,3 +84,7 @@ mat-form-field {
 .user-request:hover{
   background-color: #cccccc;
 }
+
+.material-icons{
+  vertical-align: middle;
+}

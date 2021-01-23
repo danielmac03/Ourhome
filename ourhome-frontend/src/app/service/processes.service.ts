@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ export class ProcessesService {
 
   private baseUrl = 'http://localhost:8181/api/processes';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   listProcesses(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
@@ -22,6 +23,10 @@ export class ProcessesService {
 
   listProcessByUser(userId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/user/${userId}`);
+  }
+
+  existProcess(homeId: number, userId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${homeId}/${userId}`);
   }
 
   getProcess(processId: number): Observable<any> {
@@ -37,11 +42,15 @@ export class ProcessesService {
   }
 
   deleteProcesses(processId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${processId}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/${processId}`, {responseType: 'text'});
   }
 
   deleteProcessesByHome(userId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/home/${userId}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/home/${userId}`, {responseType: 'text'});
+  }
+
+  deleteProcessesByHomeAndUser(homeId: number, userId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${homeId}/${userId}`);
   }
 
 }
