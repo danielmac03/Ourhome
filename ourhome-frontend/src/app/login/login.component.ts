@@ -1,15 +1,19 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {NgForm} from '@angular/forms';
+import {FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {UsersService} from '../service/users.service';
 import {TokenStorageService} from '../service/token-storage.service';
+
+declare var $: any;
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+
+  form;
 
   constructor(
     private router: Router,
@@ -18,7 +22,14 @@ export class LoginComponent {
   ) {
   }
 
-  onSubmit(data: NgForm): void {
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    });
+  }
+
+  onSubmit(data: FormGroupDirective): void {
     this.usersService.getAuthorization(data.value).subscribe(
       respHeader => {
         this.tokenStorageService.saveToken(respHeader.headers.get('Authorization'));

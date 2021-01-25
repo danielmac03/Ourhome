@@ -1,8 +1,9 @@
 <div class="container layout-shadow layout-700 p-5 my-5">
-  <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
+  <img alt="Logo OURHOME" class="logo_ourhome mx-auto d-block" src="assets/img/color1-logo.png">
 
-  <form #data="ngForm" (ngSubmit)="onSubmit(data)" (keydown.enter)="$event.preventDefault()" class="mt-5">
-    <mat-horizontal-stepper linear #stepper>
+  <form #data="ngForm" (keydown.enter)="$event.preventDefault()" (ngSubmit)="onSubmit(data)" [formGroup]="form"
+        class="mt-5">
+    <mat-horizontal-stepper #stepper linear>
       <mat-step>
         <ng-template matStepLabel>Cuenta</ng-template>
 
@@ -10,15 +11,14 @@
           <div class="row">
             <div class="col-md-6">
               <mat-form-field>
-                <input matInput type="text" id="name" name="name" required ngModel>
+                <input formControlName="name" id="name" matInput name="name" type="text">
                 <mat-label for="name">Nombre</mat-label>
               </mat-form-field>
             </div>
 
             <div class="col-md-6">
               <mat-form-field>
-                <input matInput type="text" id="surnames" name="surnames" required
-                       ngModel>
+                <input formControlName="surnames" id="surnames" matInput name="surnames" type="text">
                 <mat-label for="surnames">Apellidos</mat-label>
               </mat-form-field>
             </div>
@@ -27,25 +27,26 @@
 
         <div *ngIf="!createPersonalAccount">
           <mat-form-field>
-            <input matInput type="text" id="company" name="company" required
-                   ngModel>
+            <input formControlName="company" id="company" matInput name="company" type="text">
             <mat-label for="company">Compañia</mat-label>
           </mat-form-field>
         </div>
 
         <mat-form-field>
-          <input matInput type="email" id="email" name="email" required ngModel>
+          <input appExistEmailValidateDirective formControlName="email" id="email" matInput name="email" type="email">
           <mat-label for="email">Correo</mat-label>
+          <mat-error *ngIf="form.get('email').errors !== null && form.get('email').errors['existEmail']">El email ya sea
+            registrado
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="password" id="password" name="password" required
-                 ngModel>
+          <input formControlName="password" id="password" matInput name="password" type="password">
           <mat-label for="password">Contraseña</mat-label>
         </mat-form-field>
 
         <div class="mt-4 float-right">
-          <button mat-button (click)="goForwardFirst(stepper, data)" type="button">Siguiente</button>
+          <button mat-button matStepperNext type="button">Siguiente</button>
         </div>
       </mat-step>
 
@@ -53,24 +54,21 @@
         <ng-template matStepLabel>Datos Personales</ng-template>
 
         <mat-form-field>
-          <input matInput type="text" id="description" name="description" required
-                 ngModel>
+          <input formControlName="description" id="description" matInput name="description" type="text">
           <mat-label for="description">Descripción</mat-label>
         </mat-form-field>
 
-        <div class="row" *ngIf="createPersonalAccount">
+        <div *ngIf="createPersonalAccount" class="row">
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="tel" id="phone" name="phone" maxlength="9"
-                     ngModel>
+              <input formControlName="phone" id="phone" matInput maxlength="9" name="phone" type="tel">
               <mat-label for="phone">Telefono</mat-label>
             </mat-form-field>
           </div>
 
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="date" id="birthdate" name="birthdate" required
-                     ngModel>
+              <input formControlName="birthdate" id="birthdate" matInput name="birthdate" type="date">
               <mat-label for="birthdate">Fecha de nacimiento</mat-label>
             </mat-form-field>
           </div>
@@ -78,8 +76,7 @@
 
         <div *ngIf="!createPersonalAccount">
           <mat-form-field>
-            <input matInput type="tel" id="phone" name="phone" maxlength="9"
-                   ngModel>
+            <input formControlName="phone" id="phone" matInput maxlength="9" name="phone" type="tel">
             <mat-label for="phone">Telefono</mat-label>
           </mat-form-field>
         </div>
@@ -95,16 +92,14 @@
 
         <div>
           <label for="profilePicture">Imagen de perfil:</label><br>
-          <input type="file" id="profilePicture" name="profilePicture"
-                 required
-                 (change)="onFileChange($event)">
+          <input (change)="onFileChange($event)" id="profilePicture" name="profilePicture" type="file">
         </div>
         <br>
 
-        <mat-radio-group name="role" *ngIf="createPersonalAccount">
+        <mat-radio-group *ngIf="createPersonalAccount" name="role">
           <label>Tipo de usuario: </label><br>
 
-          <mat-radio-group name="role" ngModel>
+          <mat-radio-group formControlName="role" name="role">
             <div class="row">
               <div class="col-md-6">
                 <mat-radio-button name="role" value="0">Busco Casa</mat-radio-button>
@@ -117,15 +112,16 @@
           </mat-radio-group>
         </mat-radio-group>
 
-        <mat-checkbox name="showPhone" class="mt-4" ngModel required>
+        <mat-checkbox class="mt-4" formControlName="showPhone" name="showPhone">
           Mostrar teléfono para contactar
         </mat-checkbox>
 
-        <mat-checkbox name="acceptPolicy" required>
+        <mat-checkbox formControlName="acceptPolicy" name="acceptPolicy">
           Acepto las Condiciones del servicio y la Politica de privacidad de OURHOME
         </mat-checkbox>
 
-        <button type="submit" class="btn btn-custom btn-block w-75 mx-auto my-4">Regístrate</button>
+        <button [disabled]="form.invalid" class="btn btn-custom btn-block w-75 mx-auto my-4" type="submit">Regístrate
+        </button>
 
         <div class="mt-4 float-right">
           <button mat-button matStepperPrevious type="button">Atrás</button>
@@ -133,8 +129,9 @@
       </mat-step>
     </mat-horizontal-stepper>
 
-    <a class="text-center d-block" href="/create-account-business" *ngIf="createPersonalAccount">Crear cuenta professional</a>
+    <a *ngIf="createPersonalAccount" class="text-center d-block" href="/create-account-business">Crear cuenta
+      professional</a>
 
-    <a class="text-center d-block" href="/create-account" *ngIf="!createPersonalAccount">Crear cuenta personal</a>
+    <a *ngIf="!createPersonalAccount" class="text-center d-block" href="/create-account">Crear cuenta personal</a>
   </form>
 </div>

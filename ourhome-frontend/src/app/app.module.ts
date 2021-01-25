@@ -2,9 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {authInterceptorHelper} from './helpers/auth-interceptor.helper';
-import {httpErrorsInterceptorHelper} from './helpers/http-errors-interceptor.helper';
-import {RequireRolesHelper} from './helpers/require-roles.helper';
+
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -21,7 +19,6 @@ import {CreateAccountComponent} from './create-account/create-account.component'
 import {NotFoundComponent} from './not-found/not-found.component';
 import {HeaderComponent} from './header/header.component';
 import {SeeRequestsComponent} from './see-requests/see-requests.component';
-import {CheckCompatibilityHelper} from './helpers/check-compatibility.helper';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -37,6 +34,13 @@ import {ForgotPasswordComponent} from './forgot-password/forgot-password.compone
 import {RecoveryPasswordComponent} from './recovery-password/recovery-password.component';
 import {WishlistComponent} from './wishlist/wishlist.component';
 import {IsInWishlistPipe} from './pipes/is-in-wishlist.pipe';
+import {ExistEmailDirective} from './directives/exist-email.directive';
+
+import {authInterceptorHelper} from './helpers/auth-interceptor.helper';
+import {httpErrorsInterceptorHelper} from './helpers/http-errors-interceptor.helper';
+import {RequireRolesHelper} from './helpers/require-roles.helper';
+import {CheckCompatibilityHelper} from './helpers/check-compatibility.helper';
+import {MatchPasswordsDirective} from './directives/match-passwords.directive';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,9 @@ import {IsInWishlistPipe} from './pipes/is-in-wishlist.pipe';
     ForgotPasswordComponent,
     RecoveryPasswordComponent,
     WishlistComponent,
-    IsInWishlistPipe
+    IsInWishlistPipe,
+    ExistEmailDirective,
+    MatchPasswordsDirective
   ],
   imports: [
     BrowserModule,
@@ -81,7 +87,9 @@ import {IsInWishlistPipe} from './pipes/is-in-wishlist.pipe';
     authInterceptorHelper,
     httpErrorsInterceptorHelper,
     RequireRolesHelper,
-    CheckCompatibilityHelper
+    CheckCompatibilityHelper,
+    ExistEmailDirective,
+    MatchPasswordsDirective
   ],
   bootstrap: [AppComponent]
 })

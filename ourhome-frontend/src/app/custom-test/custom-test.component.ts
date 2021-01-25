@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HomesService} from '../service/homes.service';
 import {ProcessesService} from '../service/processes.service';
@@ -14,6 +14,7 @@ import {TokenStorageService} from '../service/token-storage.service';
 })
 export class CustomTestComponent implements OnInit {
 
+  form;
   user;
   home;
   customTest;
@@ -34,12 +35,12 @@ export class CustomTestComponent implements OnInit {
 
     this.processesService.existProcess(this.route.snapshot.params.home, this.user.id).subscribe(resp1 => {
       if (!resp1) {
-        this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(resp1 => {
-          this.home = resp1;
+        this.homesService.getHomeById(this.route.snapshot.params.home).subscribe(resp2 => {
+          this.home = resp2;
 
-          this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(resp2 => {
-            if (resp2 != null) {
-              this.questions = JSON.parse(resp2.questions);
+          this.customTestsService.getCustomTestsByUser(this.home.user.id).subscribe(resp3 => {
+            if (resp3 != null) {
+              this.questions = JSON.parse(resp3.questions);
             } else {
               const process = {
                 home: this.home,
@@ -48,19 +49,25 @@ export class CustomTestComponent implements OnInit {
                 state: 1
               };
 
-              this.processesService.createProcess(process).subscribe(resp => {
+              this.processesService.createProcess(process).subscribe(resp4 => {
                 this.router.navigate(['list-processes']);
               });
             }
           });
         });
-      }else{
+      } else {
         this.router.navigate(['list-processes']);
       }
     });
+
+    this.form = new FormGroup({});
+
+    for (let i = 0; i < this.questions.length + 1; i++) {
+      this.form.addControl('question' + i, new FormControl('', [Validators.required]));
+    }
   }
 
-  save(data: NgForm): void {
+  onSubmit(data: FormGroupDirective): void {
     let common = 0;
 
     for (let i = 0; i < Object.values(data.value).length; i++) {

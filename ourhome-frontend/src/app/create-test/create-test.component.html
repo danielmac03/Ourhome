@@ -1,30 +1,28 @@
 <div class="container layout-shadow layout-700 p-5 my-5">
-  <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
+  <img alt="Logo OURHOME" class="logo_ourhome mx-auto d-block" src="assets/img/color1-logo.png">
 
-  <form [formGroup]="form" (ngSubmit)="save()">
-    <div formArrayName="questions" *ngFor="let question of form.controls['questions']['controls']; let i = index">
-      <div class="form-group p-2" [formGroupName]="i">
+  <form (ngSubmit)="save()" [formGroup]="form">
+    <div *ngFor="let question of form.controls['questions']['controls']; let i = index" formArrayName="questions">
+      <div [formGroupName]="i" class="form-group p-2">
         <mat-form-field>
-          <input matInput type="text" formControlName="question" required>
+          <input formControlName="question" matInput type="text">
           <mat-label class="lab">Pregunta</mat-label>
         </mat-form-field>
 
         <div class="form-check d-grid small-text-animation">
-          <input type="radio" formControlName="correctOption" [value]="0"
-                 class="form-check-input matInput align-checkbox ml-0" required>
+          <input [value]="0" class="form-check-input align-checkbox ml-0" formControlName="correctOption" type="radio">
 
           <mat-form-field>
-            <input matInput type="text" formControlName="option1" required>
+            <input formControlName="option1" matInput type="text">
             <mat-label class="lab">Respuesta A</mat-label>
           </mat-form-field>
         </div>
 
         <div class="form-check d-grid small-text-animation">
-          <input type="radio" formControlName="correctOption" [value]="1"
-                 class="form-check-input matInput align-checkbox ml-0">
+          <input [value]="1" class="form-check-input align-checkbox ml-0" formControlName="correctOption" type="radio">
 
           <mat-form-field>
-            <input matInput type="text" formControlName="option2" required>
+            <input formControlName="option2" matInput type="text">
             <mat-label class="lab">Respuesta B</mat-label>
           </mat-form-field>
         </div>
@@ -34,10 +32,12 @@
 
     <div class="row my-4">
       <div class="col-md-6">
-        <button type="button" class="btn btn-custom btn-block w-75 mx-auto" (click)="add()">Añadir pregunta</button>
+        <button (click)="add()" [disabled]="form.invalid" class="btn btn-custom btn-block w-75 mx-auto" type="button">
+          Añadir pregunta
+        </button>
       </div>
       <div class="col-md-6">
-        <button type="submit" class="btn btn-custom btn-block w-75 mx-auto">Guardar</button>
+        <button [disabled]="form.invalid" class="btn btn-custom btn-block w-75 mx-auto" type="submit">Guardar</button>
       </div>
     </div>
   </form>

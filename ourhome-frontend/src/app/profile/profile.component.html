@@ -13,30 +13,30 @@
         <div class="row">
           <div class="col-md-4">
             <div *ngIf="profilePicture === undefined && user['profilePicture'] != null">
-              <img src="data:image/png;base64,{{ user['profilePicture'] }}" class="rounded-circle" width="150"
-                   height="150" alt="Profile picture">
+              <img alt="Profile picture" class="rounded-circle" height="150"
+                   src="data:image/png;base64,{{ user['profilePicture'] }}" width="150">
             </div>
 
             <div *ngIf="profilePicture !== undefined">
-              <img src="{{ profilePicturePreview }}" class="rounded-circle" width="150"
-                   height="150" alt="Profile picture">
+              <img alt="Profile picture" class="rounded-circle" height="150"
+                   src="{{ profilePicturePreview }}" width="150">
             </div>
           </div>
 
           <div class="col-md-8 mt-auto">
             <label for="profilePicture">Seleccionar imagen de perfil:</label>
             <br>
-            <input type="file" id="profilePicture" (change)="onFileChange($event)">
+            <input (change)="onFileChange($event)" id="profilePicture" type="file">
           </div>
         </div>
 
-        <button type="submit" class="btn btn-custom d-flex ml-auto my-4">Actualizar</button>
+        <button class="btn btn-custom d-flex ml-auto my-4" type="submit">Actualizar</button>
       </div>
     </div>
   </form>
   <hr>
 
-  <form #form="ngForm" (ngSubmit)="onSubmitUser(form)">
+  <form #data="ngForm" (ngSubmit)="onSubmitUser(data)" [formGroup]="form">
     <div class="row mb-4">
 
       <div class="col-md-4 mb-4">
@@ -46,58 +46,52 @@
       <div class="col-md-8 mb-4">
         <div *ngIf="(user.role === 'search' || user.role === 'have')">
           <mat-form-field>
-            <input matInput type="text" id="name" name="name" required
-                   [(ngModel)]="user['name']">
+            <input formControlName="name" id="name" matInput name="name" type="text">
             <mat-label for="name">Nombre</mat-label>
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput type="text" id="surnames" name="surnames" required
-                   [(ngModel)]="user['surnames']">
+            <input formControlName="surnames" id="surnames" matInput name="surnames" type="text">
             <mat-label for="surnames">Apellidos</mat-label>
           </mat-form-field>
         </div>
 
         <div *ngIf="user.role === 'business'">
           <mat-form-field>
-            <input matInput type="text" id="company" name="company" required
-                   [(ngModel)]="user['company']">
+            <input formControlName="company" id="company" matInput name="company" type="text">
             <mat-label for="company">Compañia</mat-label>
           </mat-form-field>
         </div>
 
         <mat-form-field>
-          <input matInput type="text" id="description" name="description" required
-                 [(ngModel)]="user['description']">
+          <input formControlName="description" id="description" matInput name="description" type="text">
           <mat-label for="description">Descripcion</mat-label>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="email" id="email" name="email" required
-                 [(ngModel)]="user['email']">
+          <input formControlName="email" id="email" matInput name="email"
+                 type="email">
           <mat-label for="email">Correo</mat-label>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="password" id="password" name="password"
-                 autocomplete="on"
-                 required ngModel>
+          <input formControlName="password" id="password" matInput name="password" type="password">
           <mat-label for="password">Contraseña</mat-label>
         </mat-form-field>
 
-        <div class="row" *ngIf="(user.role === 'search' || user.role === 'have')">
+        <div *ngIf="(user.role === 'search' || user.role === 'have')" class="row">
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="tel" id="phone" name="phone" maxlength="9"
-                     [(ngModel)]="user['phone']">
+              <input formControlName="phone" id="phone" matInput maxlength="9" name="phone"
+                     type="tel">
               <mat-label for="phone">Teléfono</mat-label>
             </mat-form-field>
           </div>
 
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="date" id="birthdate" name="birthdate" required
-                     [(ngModel)]="user['birthday']">
+              <input formControlName="birthday" id="birthdate" matInput name="birthdate"
+                     type="date">
               <mat-label for="birthdate">Fecha de nacimiento</mat-label>
             </mat-form-field>
           </div>
@@ -105,8 +99,8 @@
 
         <div *ngIf="(user.role === 'business')">
           <mat-form-field>
-            <input matInput type="tel" id="phone" name="phone" maxlength="9"
-                   [(ngModel)]="user['phone']">
+            <input formControlName="phone" id="phone" matInput maxlength="9" name="phone"
+                   type="tel">
             <mat-label for="phone">Teléfono</mat-label>
           </mat-form-field>
         </div>
@@ -123,14 +117,16 @@
       <div class="col-md-8 mb-4">
         <div class="form-check">
           <div *ngIf="(user['showPhone'] == true)">
-            <input id="showPhone" name="showPhone" type="checkbox" class="form-check-input matInput" checked
-                   [value]="1"
-                   [(ngModel)]="user['showPhone']">
+            <input [value]="1" checked class="form-check-input"
+                   formControlName="showPhone" id="showPhone"
+                   name="showPhone"
+                   type="checkbox">
           </div>
 
           <div *ngIf="(user['showPhone'] == false)">
-            <input name="showPhone" type="checkbox" class="form-check-input matInput" [value]="0"
-                   [(ngModel)]="user['showPhone']">
+            <input [value]="0" class="form-check-input" formControlName="showPhone"
+                   name="showPhone"
+                   type="checkbox">
           </div>
 
           <label class="form-check-label" for="showPhone">
@@ -140,6 +136,7 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Actualizar</button>
+    <button [disabled]="form.invalid" class="btn btn-custom btn-block w-75 mx-auto mb-4" type="submit">Actualizar
+    </button>
   </form>
 </div>

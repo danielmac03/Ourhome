@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CustomTestsService} from '../service/custom-tests.service';
 import {TokenStorageService} from '../service/token-storage.service';
 
@@ -29,10 +29,10 @@ export class CreateTestComponent implements OnInit {
 
   createQuestion(): FormGroup {
     return this.formBuilder.group({
-      question: [''],
-      correctOption: [''],
-      option1: [''],
-      option2: ['']
+      question: ['', Validators.required],
+      correctOption: ['', Validators.required],
+      option1: ['', Validators.required],
+      option2: ['', Validators.required]
     });
   }
 

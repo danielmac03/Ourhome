@@ -32,9 +32,15 @@ public class UsersController {
         return usersServiceImpl.searchUser(id);
     }
 
-    @GetMapping("/public/email/{email}")
+    @GetMapping("/email/{email}")
     public Users searchUserByEmail(@PathVariable(name = "email") String email) {
         return usersServiceImpl.searchUserByEmail(email);
+    }
+
+    @GetMapping("/public/existEmail/{email}")
+    public boolean existEmail(@PathVariable(name = "email") String email) {
+        Users user = usersServiceImpl.searchUserByEmail(email);
+        return user != null;
     }
 
     @PostMapping("/public/")

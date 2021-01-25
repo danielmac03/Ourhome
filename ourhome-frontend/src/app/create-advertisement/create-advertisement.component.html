@@ -1,28 +1,28 @@
 <div class="container layout-shadow layout-700 p-5 my-5">
 
-  <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
+  <img alt="Logo OURHOME" class="logo_ourhome mx-auto d-block my-5" src="assets/img/color1-logo.png">
 
-  <form #data="ngForm" (ngSubmit)="onSubmit(data)" (keydown.enter)="$event.preventDefault()" class="mt-5">
+  <form #data="ngForm" (keydown.enter)="$event.preventDefault()" (ngSubmit)="onSubmit(data)" [formGroup]="form">
     <mat-horizontal-stepper linear>
       <mat-step>
         <ng-template matStepLabel>Subir fotografías</ng-template>
 
         <div>
           <label for="photos">Fotos:</label><br>
-          <input type="file" id="photos" name="photos" multiple
-                 (change)="onFileChange($event)">
+          <input (change)="onFileChange($event)" id="photos" multiple name="photos"
+                 type="file">
         </div>
 
         <!-- Show preview in creation mode -->
         <div *ngIf="photos.length !== 0">
-          <div class="d-inline-block" *ngFor="let photoPreview of photosPreview">
+          <div *ngFor="let photoPreview of photosPreview" class="d-inline-block">
             <img src="{{photoPreview}}" width="180">
           </div>
         </div>
 
         <!-- Show preview in edition mode -->
         <div *ngIf="photos.length === 0 && home['photos'] != null">
-          <div class="d-inline-block" *ngFor="let photo of home['photos']">
+          <div *ngFor="let photo of home['photos']" class="d-inline-block">
             <img src="data:image/png;base64,{{photo}}" width="180">
           </div>
         </div>
@@ -35,14 +35,9 @@
       <mat-step>
         <ng-template matStepLabel>Información basicos</ng-template>
 
-        <div class="form-group text-right" *ngIf="create === false">
+        <div *ngIf="create === false" class="form-group text-right">
           <div class="form-check">
-            <input *ngIf="home['active'] == true" type="checkbox" id="active" name="active"
-                   class="form-check-input matInput"
-                   checked [value]="true" [(ngModel)]="home['active']">
-            <input *ngIf="home['active'] == false" type="checkbox" name="active"
-                   class="form-check-input matInput"
-                   [value]="true" [(ngModel)]="home['active']">
+            <input class="form-check-input" formControlName="active" matInput name="active" type="checkbox">
             <mat-label class="form-check-mat-label" for="active">
               Activo
             </mat-label>
@@ -50,15 +45,14 @@
         </div>
 
         <mat-form-field>
-          <textarea matInput id="description" name="description" required
-                    [(ngModel)]="home['description']"></textarea>
+          <textarea formControlName="description" id="description" matInput name="description"></textarea>
           <mat-label for="description">Descripción</mat-label>
         </mat-form-field>
 
         <div class="row">
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput [(ngModel)]="home['direction']" id="direction" name="direction"
+              <input formControlName="direction" id="direction" matInput name="direction"
                      type="text">
               <mat-label for="direction">Dirección</mat-label>
             </mat-form-field>
@@ -66,8 +60,7 @@
 
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="number" id="price" name="price" required
-                     [(ngModel)]="home['price']">
+              <input formControlName="price" id="price" matInput name="price" type="number">
               <mat-label for="price">Precio</mat-label>
             </mat-form-field>
           </div>
@@ -85,15 +78,14 @@
         <div class="row">
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="number" id="bedrooms" name="bedrooms"
-                     [(ngModel)]="home['bedrooms']">
+              <input formControlName="bedrooms" id="bedrooms" matInput name="bedrooms" type="number">
               <mat-label for="bedrooms">Numero Habitaciones</mat-label>
             </mat-form-field>
           </div>
 
           <div class="col-md-6">
             <mat-form-field>
-              <input [(ngModel)]="home['bathrooms']" id="bathrooms" matInput name="bathrooms"
+              <input formControlName="bathrooms" id="bathrooms" matInput name="bathrooms"
                      type="number">
               <mat-label for="bathrooms">Numero Baños</mat-label>
             </mat-form-field>
@@ -103,16 +95,14 @@
         <div class="row">
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="number" id="meters" name="meters"
-                     [(ngModel)]="home['meters']">
+              <input formControlName="meters" id="meters" matInput name="meters" type="number">
               <mat-label for="meters">Metros cuadrados</mat-label>
             </mat-form-field>
           </div>
 
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput type="number" id="floors" name="floors"
-                     [(ngModel)]="home['floors']">
+              <input formControlName="floors" id="floors" matInput name="floors" type="number">
               <mat-label for="floors">Numero Plantas</mat-label>
             </mat-form-field>
           </div>
@@ -126,11 +116,12 @@
               <mat-icon matChipRemove>cancel</mat-icon>
             </mat-chip>
 
-            <input matInput [matChipInputFor]="extraList" (matChipInputTokenEnd)="add($event)">
+            <input (matChipInputTokenEnd)="add($event)" [matChipInputFor]="extraList" matInput>
           </mat-chip-list>
         </mat-form-field>
 
-        <button type="submit" class="btn btn-custom btn-block w-75 mx-auto my-5">Publicar</button>
+        <button [disabled]="form.invalid" class="btn btn-custom btn-block w-75 mx-auto my-5" type="submit">Publicar
+        </button>
 
         <div class="mt-4 float-right">
           <button mat-button matStepperPrevious type="button">Atrás</button>

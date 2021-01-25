@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForm} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {RecoveryPasswordService} from '../service/recovery-password.service';
+import {MatchPasswordsDirective} from '../directives/match-passwords.directive';
 
 @Component({
   selector: 'app-recovery-password',
@@ -10,10 +11,13 @@ import {RecoveryPasswordService} from '../service/recovery-password.service';
 })
 export class RecoveryPasswordComponent implements OnInit {
 
+  form;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private recoveryPasswordService: RecoveryPasswordService
+    private recoveryPasswordService: RecoveryPasswordService,
+    private mustMatchDirective: MatchPasswordsDirective
   ) {
   }
 
@@ -26,9 +30,16 @@ export class RecoveryPasswordComponent implements OnInit {
     };
 
     this.recoveryPasswordService.isValid(token).subscribe();
+
+    this.form = new FormGroup({
+      password: new FormControl('', [Validators.required]),
+      passwordVerify: new FormControl('', [Validators.required]),
+    }, {
+      validators: this.mustMatchDirective.validate()
+    });
   }
 
-  onSubmit(data: NgForm): void {
+  onSubmit(data: FormGroupDirective): void {
     const token = {
       user: {
         email: this.route.snapshot.params.email

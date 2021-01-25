@@ -1,5 +1,5 @@
 <div class="container layout-shadow layout-700 p-5 my-5">
-  <img src="assets/img/color1-logo.png" class="logo_ourhome mx-auto d-block" alt="Logo OURHOME">
+  <img alt="Logo OURHOME" class="logo_ourhome mx-auto d-block" src="assets/img/color1-logo.png">
 
   <p class="text-center">
     Se sincero en este cuestionario ya que las preguntas se usarán para encontrar a tu compañero ideal
@@ -7,13 +7,12 @@
 
   <hr>
 
-  <form #data="ngForm" (ngSubmit)="onSubmit(data)" ngNativeValidate>
+  <form #data="ngForm" (ngSubmit)="onSubmit(data)" [formGroup]="form">
     <div class="p-2">
       <p>¿Te gusta pasar tiempo com los compañeros de piso?</p>
 
-
-      <mat-radio-group name="p1" ngModel>
-        <mat-radio-button name="p1" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p1" name="p1">
+        <mat-radio-button name="p1" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p1" value="0">No</mat-radio-button>
       </mat-radio-group>
@@ -22,8 +21,8 @@
     <div class="p-2">
       <p>¿Traerías algún animal de compañía al piso?</p>
 
-      <mat-radio-group name="p2" ngModel>
-        <mat-radio-button name="p2" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p2" name="p2">
+        <mat-radio-button name="p2" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p2" value="0">No</mat-radio-button>
       </mat-radio-group>
@@ -32,8 +31,8 @@
     <div class="p-2">
       <p>¿Te molestaría tener una mascota al piso?</p>
 
-      <mat-radio-group name="p3" ngModel>
-        <mat-radio-button name="p3" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p3" name="p3">
+        <mat-radio-button name="p3" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p3" value="0">No</mat-radio-button>
       </mat-radio-group>
@@ -42,8 +41,8 @@
     <div class="p-2">
       <p>¿Fumas en casa?</p>
 
-      <mat-radio-group name="p4" ngModel>
-        <mat-radio-button name="p4" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p4" name="p4">
+        <mat-radio-button name="p4" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p4" value="0">No</mat-radio-button>
       </mat-radio-group>
@@ -52,8 +51,8 @@
     <div class="p-2">
       <p>¿Te molestaría que un compañero fumara en casa?</p>
 
-      <mat-radio-group name="p5" ngModel>
-        <mat-radio-button name="p5" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p5" name="p5">
+        <mat-radio-button name="p5" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p5" value="0">No</mat-radio-button>
       </mat-radio-group>
@@ -62,8 +61,8 @@
     <div class="p-2">
       <p>¿Limpias semanalmente?</p>
 
-      <mat-radio-group name="p6" ngModel>
-        <mat-radio-button name="p6" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p6" name="p6">
+        <mat-radio-button name="p6" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p6" value="0">No</mat-radio-button>
       </mat-radio-group>
@@ -72,8 +71,8 @@
     <div class="p-2">
       <p>¿Te gusta hacer fiestas en casa?</p>
 
-      <mat-radio-group name="p7" ngModel>
-        <mat-radio-button name="p7" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p7" name="p7">
+        <mat-radio-button name="p7" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p7" value="0">No</mat-radio-button>
       </mat-radio-group>
@@ -82,8 +81,8 @@
     <div class="p-2">
       <p>¿Traes con frecuencia invitados en casa?</p>
 
-      <mat-radio-group name="p8" ngModel>
-        <mat-radio-button name="p8" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p8" name="p8">
+        <mat-radio-button name="p8" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p8" value="0">No</mat-radio-button>
       </mat-radio-group>
@@ -92,8 +91,8 @@
     <div class="p-2">
       <p>¿Te gusta tener invitados en casa?</p>
 
-      <mat-radio-group name="p9" ngModel>
-        <mat-radio-button name="p9" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p9" name="p9">
+        <mat-radio-button name="p9" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p9" value="0">No</mat-radio-button>
       </mat-radio-group>
@@ -102,13 +101,13 @@
     <div class="p-2">
       <p>¿Reciclas?</p>
 
-      <mat-radio-group name="p10" ngModel>
-        <mat-radio-button name="p10" value="1" required>Si</mat-radio-button>
+      <mat-radio-group formControlName="p10" name="p10">
+        <mat-radio-button name="p10" value="1">Si</mat-radio-button>
         <br>
         <mat-radio-button name="p10" value="0">No</mat-radio-button>
       </mat-radio-group>
     </div>
 
-    <button type="submit" class="btn btn-custom btn-block w-75 mx-auto mb-4">Guardar</button>
+    <button [disabled]="form.invalid" class="btn btn-custom btn-block w-75 mx-auto mb-4" type="submit">Guardar</button>
   </form>
 </div>

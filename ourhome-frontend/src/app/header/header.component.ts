@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {NotificationsService} from '../service/notifications.service';
 import {TokenStorageService} from '../service/token-storage.service';
 
-declare var $ : any;
+declare var $: any;
 
 @Component({
   selector: 'app-header',
@@ -28,14 +28,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
 
-    if (this.user.id !== undefined){
+    if (this.user.id !== undefined) {
       this.notificationsService.listNotificationByUser(this.user.id).subscribe(resp => {
         this.notifications = resp;
       });
     }
   }
 
-  deleteNotification(notificationId: number, divId: string): void{
+  deleteNotification(notificationId: number, divId: string): void {
     $(divId).remove();
 
     this.notificationsService.deleteNotifications(notificationId).subscribe(resp => {

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {TokenStorageService} from '../service/token-storage.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../service/users.service';
+import {TokenStorageService} from '../service/token-storage.service';
+import {ExistEmailDirective} from '../directives/exist-email.directive';
 
 @Component({
   selector: 'app-profile',
@@ -9,18 +11,36 @@ import {UsersService} from '../service/users.service';
 })
 export class ProfileComponent implements OnInit {
 
+  form;
   user;
   profilePicture;
   profilePicturePreview;
 
   constructor(
+    private usersService: UsersService,
     private tokenStorageService: TokenStorageService,
-    private usersService: UsersService
+    private existEmailValidateDirectiveDirective: ExistEmailDirective
   ) {
   }
 
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
+
+    this.form = new FormGroup({
+      email: new FormControl(this.user.email, [Validators.required, Validators.email], [this.existEmailValidateDirectiveDirective.validate(false)]),
+      password: new FormControl(''),
+      description: new FormControl(this.user.description, [Validators.required]),
+      birthdate: new FormControl(this.user.birthdate),
+      phone: new FormControl(this.user.phone),
+      showPhone: new FormControl(this.user.showPhone),
+    });
+
+    if (this.user.role !== 'business') {
+      this.form.addControl('name', new FormControl(this.user.name, [Validators.required]));
+      this.form.addControl('surnames', new FormControl(this.user.surnames, [Validators.required]));
+    } else {
+      this.form.addControl('company', new FormControl(this.user.company, [Validators.required]));
+    }
   }
 
   onFileChange(event): void {
