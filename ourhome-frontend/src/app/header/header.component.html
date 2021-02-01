@@ -12,22 +12,35 @@
       <div *ngIf="(user.role != undefined)" class="d-inline-flex">
         <li class="nav-item">
           <div class="dropdown">
-            <button class="nav-link dropdown-toggle" data-toggle="dropdown">🔔</button>
+            <button class="nav-link" data-toggle="dropdown">
+              <span class="material-icons" matBadge="{{notifications.length}}" matBadgeColor="warn"
+                    matBadgeSize="small">notifications</span>
+            </button>
 
-            <div class="dropdown-menu dropdown-menu-right overflow-auto p-0" style="width: 350px; max-height: 400px">
-              <div *ngFor="let notification of notifications; let i = index" id="notification{{i}}">
-                <button (click)="deleteNotification(notification['id'], '#notification' + i)" aria-label="Close"
-                        class="close"
+            <div class="dropdown-menu dropdown-menu-right notification overflow-auto p-0"
+                 style="width: 350px; max-height: 400px">
+              <div *ngFor="let notification of notifications; let i = index" class="my-4 mx-2" id="notification{{i}}">
+                <button (click)="deleteNotification(notification['id'], '#notification' + i)" class="close mr-2"
                         type="button">
-                  <span aria-hidden="true">&times;</span>
+                  <span>&times;</span>
                 </button>
 
-                <p class="m-2">{{ notification['content_text'] }}</p>
+                <a href="{{notification['url']}}">
+                  <div class="media">
+                    <div *ngIf="notification['photo'] != null" class="media-left align-center ml-2">
+                      <img class="media-object" src="data:image/png;base64,{{ notification['photo'] }}"
+                           style="width:60px">
+                    </div>
+                    <div class="media-body ml-2">
+                      <p class="m-0">{{ notification['text'] }}</p>
+                    </div>
+                  </div>
+                </a>
 
-                <hr class="m-0">
+                <hr *ngIf="notifications.length != (i + 1)">
               </div>
 
-              <p *ngIf="(notifications == '')" class="m-2">No tienes notificaciones</p>
+              <p *ngIf="(notifications.length == 0)" class="m-2">No tienes notificaciones</p>
             </div>
           </div>
         </li>

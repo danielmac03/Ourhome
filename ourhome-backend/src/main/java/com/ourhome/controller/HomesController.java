@@ -1,7 +1,10 @@
 package com.ourhome.controller;
 
 import com.ourhome.dto.Homes;
+import com.ourhome.dto.Notifications;
 import com.ourhome.implemention.HomesServiceImpl;
+import com.ourhome.implemention.NotificationsServiceImpl;
+import com.ourhome.security.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,6 +18,9 @@ public class HomesController {
 
     @Autowired
     HomesServiceImpl homesServiceImpl;
+
+    @Autowired
+    NotificationsServiceImpl notificationsServiceImpl;
 
     @GetMapping("/public/")
     public List<Homes> listHomes() {
@@ -48,7 +54,10 @@ public class HomesController {
             home.setPhotos(photosByte);
         }
 
-        return homesServiceImpl.saveHomes(home);
+        Homes saveHome = homesServiceImpl.saveHomes(home);
+        notificationsServiceImpl.saveNotification(new Notifications(0, saveHome.getUser(), "Se ha creado correctamente el anuncio", photos.length != 0 ? saveHome.getPhotos()[0] : null, Constants.URL + "see-advertisement/" + saveHome.getId(), null));
+
+        return saveHome;
     }
 
     @PutMapping()
@@ -67,11 +76,17 @@ public class HomesController {
 
         home.setProcess(homeSaved.getProcess());
 
-        return this.homesServiceImpl.updateHome(home);
+        Homes updateHome = homesServiceImpl.updateHome(home);
+        notificationsServiceImpl.saveNotification(new Notifications(0, updateHome.getUser(), "Se ha actualizado correctamente el anuncio", photos.length != 0 ? updateHome.getPhotos()[0] : null, Constants.URL + "see-advertisement/" + updateHome.getId(), null));
+
+        return updateHome;
     }
 
     @DeleteMapping("/{id}")
     public void deleteHome(@PathVariable(name = "id") int id) {
+        Homes home = homesServiceImpl.getHome(id);
+        notificationsServiceImpl.saveNotification(new Notifications(0, home.getUser(), "Se ha eliminado correctamente el anuncio", home.getPhotos().length != 0 ? home.getPhotos()[0] : null, null, null));
+
         homesServiceImpl.deleteHome(id);
     }
 

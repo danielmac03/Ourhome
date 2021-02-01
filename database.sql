@@ -70,9 +70,9 @@ CREATE TABLE notifications
 (
     notification_id INT        NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id         INT        NOT NULL,
-    content_text    MEDIUMTEXT NOT NULL,
-    content_img     MEDIUMTEXT NULL,
-    content_url     MEDIUMTEXT NULL,
+    text            MEDIUMTEXT NOT NULL,
+    photo           LONGBLOB   NULL,
+    url             MEDIUMTEXT NULL,
     created_at      DATETIME   NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
@@ -185,10 +185,10 @@ CREATE TABLE custom_tests_aud
 CREATE TABLE notifications_aud
 (
     notification_id INT        NOT NULL AUTO_INCREMENT,
-    user_id         INT        NOT NULL,
-    content_text    MEDIUMTEXT NOT NULL,
-    content_img     MEDIUMTEXT NULL,
-    content_url     MEDIUMTEXT NULL,
+    user_id         INT        NULL,
+    text            MEDIUMTEXT NULL,
+    photo           LONGBLOB   NULL,
+    url             MEDIUMTEXT NULL,
     created_at      DATETIME   NULL,
     rev             INT        NOT NULL,
     revtype         TINYINT    NOT NULL,
@@ -217,8 +217,8 @@ CREATE TABLE wishes_aud
     user_id    INT      NULL,
     home_id    INT      NULL,
     created_at DATETIME NULL,
-    rev        INT          NOT NULL,
-    revtype    TINYINT      NOT NULL,
+    rev        INT      NOT NULL,
+    revtype    TINYINT  NOT NULL,
     PRIMARY KEY (wish_id, rev),
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     FOREIGN KEY (home_id) REFERENCES homes (home_id),

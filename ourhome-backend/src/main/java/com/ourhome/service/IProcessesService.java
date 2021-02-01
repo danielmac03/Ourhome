@@ -18,8 +18,6 @@ public interface IProcessesService {
 
     public Processes getProcessByHomeAndUser(int homeId, int userId);
 
-    public Processes updateProcess(Processes process);
-
     public void deleteProcess(int id);
 
     public void deleteProcessesByHome(int id);

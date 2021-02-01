@@ -13,7 +13,7 @@ declare var $: any;
 export class HeaderComponent implements OnInit {
 
   user;
-  notifications;
+  notifications = [];
 
   constructor(
     private router: Router,
@@ -29,10 +29,15 @@ export class HeaderComponent implements OnInit {
     this.user = this.tokenStorageService.getUser();
 
     if (this.user.id !== undefined) {
-      this.notificationsService.listNotificationByUser(this.user.id).subscribe(resp => {
-        this.notifications = resp;
-      });
+      this.checkNotifications();
+      setInterval(() => this.checkNotifications(), 10000);
     }
+  }
+
+  checkNotifications(): void {
+    this.notificationsService.listNotificationByUser(this.user.id).subscribe(resp => {
+      this.notifications = resp;
+    });
   }
 
   deleteNotification(notificationId: number, divId: string): void {

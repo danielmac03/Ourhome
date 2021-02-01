@@ -15,3 +15,8 @@
   border-radius: 5px;
   height: 38px;
 }
+
+.notification p {
+  line-height: normal;
+  font-size: 16px;
+}

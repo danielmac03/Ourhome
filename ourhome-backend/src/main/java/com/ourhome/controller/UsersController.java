@@ -1,7 +1,10 @@
 package com.ourhome.controller;
 
+import com.ourhome.dto.Notifications;
 import com.ourhome.dto.Users;
+import com.ourhome.implemention.NotificationsServiceImpl;
 import com.ourhome.implemention.UsersServiceImpl;
+import com.ourhome.security.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +19,10 @@ public class UsersController {
 
     @Autowired
     UsersServiceImpl usersServiceImpl;
+
+    @Autowired
+    NotificationsServiceImpl notificationsServiceImpl;
+
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public UsersController(BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -51,7 +58,10 @@ public class UsersController {
 
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
-        return usersServiceImpl.saveUser(user);
+        Users saveUser = usersServiceImpl.saveUser(user);
+        notificationsServiceImpl.saveNotification(new Notifications(0, saveUser, "Se ha creado correctamente el usuario", saveUser.getProfilePicture(), Constants.URL + "profile", null));
+
+        return saveUser;
     }
 
     @PutMapping()
@@ -72,11 +82,17 @@ public class UsersController {
         user.setNotifications(userSaved.getNotifications());
         user.setTokens(userSaved.getTokens());
 
-        return usersServiceImpl.updateUser(user);
+        Users updateUser = usersServiceImpl.updateUser(user);
+        notificationsServiceImpl.saveNotification(new Notifications(0, updateUser, "Se ha actualizado correctamente el usuario", updateUser.getProfilePicture(), Constants.URL + "profile", null));
+
+        return updateUser;
     }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable(name = "id") int id) {
+        Users user = usersServiceImpl.searchUser(id);
+        notificationsServiceImpl.saveNotification(new Notifications(0, user, "Se ha eliminado correctamente el usuario", user.getProfilePicture(), Constants.URL + "create-account", null));
+
         usersServiceImpl.deleteUser(id);
     }
 

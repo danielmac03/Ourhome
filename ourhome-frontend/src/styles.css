@@ -72,7 +72,7 @@ mat-form-field {
   height: 250px;
 }
 
-.px-10{
+.px-10 {
   margin-right: 6rem !important;
   margin-left: 6rem !important;
 }
@@ -81,10 +81,14 @@ mat-form-field {
   cursor: pointer;
 }
 
-.user-request:hover{
+.user-request:hover {
   background-color: #cccccc;
 }
 
-.material-icons{
+.material-icons {
   vertical-align: middle;
+}
+
+.align-center {
+  align-self: center;
 }

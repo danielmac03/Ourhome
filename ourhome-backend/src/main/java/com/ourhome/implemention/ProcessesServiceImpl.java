@@ -1,12 +1,12 @@
 package com.ourhome.implemention;
 
-import java.util.List;
-
+import com.ourhome.dao.IProcessesDAO;
+import com.ourhome.dto.Processes;
 import com.ourhome.service.IProcessesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ourhome.dao.IProcessesDAO;
-import com.ourhome.dto.Processes;
+
+import java.util.List;
 
 @Service
 public class ProcessesServiceImpl implements IProcessesService {
@@ -42,11 +42,6 @@ public class ProcessesServiceImpl implements IProcessesService {
 	@Override
 	public Processes getProcessByHomeAndUser(int homeId, int userId){
 		return iProcessesDAO.findByHome_idAndUser_id(homeId, userId);
-	}
-
-	@Override
-	public Processes updateProcess(Processes process) {
-		return iProcessesDAO.save(process);
 	}
 
 	@Override

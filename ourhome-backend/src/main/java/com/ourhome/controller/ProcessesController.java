@@ -1,72 +1,78 @@
 package com.ourhome.controller;
 
-import java.util.List;
+import com.ourhome.dto.Notifications;
+import com.ourhome.dto.Processes;
+import com.ourhome.implemention.NotificationsServiceImpl;
+import com.ourhome.implemention.ProcessesServiceImpl;
+import com.ourhome.security.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import com.ourhome.dto.Processes;
-import com.ourhome.implemention.ProcessesServiceImpl;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/processes")
 public class ProcessesController {
 
-	@Autowired
-	ProcessesServiceImpl processesServiceImpl;
+    @Autowired
+    ProcessesServiceImpl processesServiceImpl;
 
-	@GetMapping()
-	public List<Processes> listProcesses(){
-		return processesServiceImpl.listProcesses();
-	}
+    @Autowired
+    NotificationsServiceImpl notificationsServiceImpl;
 
-	@GetMapping("/{id}")
-	public Processes searchProcess(@PathVariable(name = "id") int id) {
-		return processesServiceImpl.getProcess(id);
-	}
+    @GetMapping()
+    public List<Processes> listProcesses() {
+        return processesServiceImpl.listProcesses();
+    }
 
-	@GetMapping("/user/{user_id}")
-	public List<Processes> listProcessByUser(@PathVariable(name = "user_id") int userId){
-		return processesServiceImpl.listProcessByUser(userId);
-	}
+    @GetMapping("/{id}")
+    public Processes searchProcess(@PathVariable(name = "id") int id) {
+        return processesServiceImpl.getProcess(id);
+    }
 
-	@GetMapping("/home/{home_id}")
-	public List<Processes> listProcessByHome(@PathVariable(name = "home_id") int homeId){
-		return processesServiceImpl.listProcessByHome(homeId);
-	}
+    @GetMapping("/user/{user_id}")
+    public List<Processes> listProcessByUser(@PathVariable(name = "user_id") int userId) {
+        return processesServiceImpl.listProcessByUser(userId);
+    }
 
-	@GetMapping("/{home_id}/{user_id}")
-	public boolean existProcess(@PathVariable(name = "home_id") int homeId, @PathVariable(name = "user_id") int userId){
-		Processes process = processesServiceImpl.getProcessByHomeAndUser(homeId, userId);
-		return process != null;
-	}
+    @GetMapping("/home/{home_id}")
+    public List<Processes> listProcessByHome(@PathVariable(name = "home_id") int homeId) {
+        return processesServiceImpl.listProcessByHome(homeId);
+    }
 
-	@PostMapping()
-	public Processes saveProcess(@RequestBody Processes process) {
-		return processesServiceImpl.saveProcess(process);
-	}
+    @GetMapping("/{home_id}/{user_id}")
+    public boolean existProcess(@PathVariable(name = "home_id") int homeId, @PathVariable(name = "user_id") int userId) {
+        Processes process = processesServiceImpl.getProcessByHomeAndUser(homeId, userId);
+        return process != null;
+    }
 
-	@PutMapping("/{id}")
-	public Processes updateProcess(@PathVariable(name = "id") int id, @RequestBody Processes process) {
-		return this.processesServiceImpl.updateProcess(process);
-	}
+    @PostMapping()
+    public Processes saveProcess(@RequestBody Processes process) {
+        Processes saveProcess = processesServiceImpl.saveProcess(process);
+        notificationsServiceImpl.saveNotification(new Notifications(0, saveProcess.getUser(), "Se ha creado correctamente el processo", saveProcess.getHome().getPhotos().length != 0 ? saveProcess.getHome().getPhotos()[0] : null, Constants.URL + "list-processes", null));
 
-	@DeleteMapping("{id}")
-	public void deleteProcess(@PathVariable(name = "id") int id) {
-		processesServiceImpl.deleteProcess(id);
-	}
+        return saveProcess;
+    }
 
-	@Transactional
-	@DeleteMapping("/home/{home_id}")
-	public void deleteProcessesByHome(@PathVariable(name = "home_id") int homeId) {
-		processesServiceImpl.deleteProcessesByHome(homeId);
-	}
+    @DeleteMapping("{id}")
+    public void deleteProcess(@PathVariable(name = "id") int id) {
+        Processes process = processesServiceImpl.getProcess(id);
+        notificationsServiceImpl.saveNotification(new Notifications(0, process.getUser(), "Se ha eliminado correctamente el processo", process.getHome().getPhotos().length != 0 ? process.getHome().getPhotos()[0] : null, Constants.URL + "list-processes", null));
 
-	@Transactional
-	@DeleteMapping("/{home_id}/{user_id}")
-	public void deleteProcessesByHomeAndUser(@PathVariable(name = "home_id") int homeId, @PathVariable(name = "user_id") int userId) {
-		processesServiceImpl.deleteProcessesByHome(homeId);
-	}
-	
+        processesServiceImpl.deleteProcess(id);
+    }
+
+    @Transactional
+    @DeleteMapping("/home/{home_id}")
+    public void deleteProcessesByHome(@PathVariable(name = "home_id") int homeId) {
+        processesServiceImpl.deleteProcessesByHome(homeId);
+    }
+
+    @Transactional
+    @DeleteMapping("/{home_id}/{user_id}")
+    public void deleteProcessesByHomeAndUser(@PathVariable(name = "home_id") int homeId, @PathVariable(name = "user_id") int userId) {
+        processesServiceImpl.deleteProcessesByHome(homeId);
+    }
+
 }

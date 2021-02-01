@@ -3,49 +3,49 @@
     <form #data="ngForm" (ngSubmit)="filterHomes(data)" class="row">
       <div class="col-md-4">
         <mat-form-field>
-          <input id="direction" matInput name="direction" type="text" ngModel>
+          <input id="direction" matInput name="direction" ngModel type="text">
           <mat-label for="direction">Dirección</mat-label>
         </mat-form-field>
       </div>
 
       <div class="col-md-1">
         <mat-form-field>
-          <input id="bedrooms" matInput name="bedrooms" type="number" ngModel>
+          <input id="bedrooms" matInput name="bedrooms" ngModel type="number">
           <mat-label for="bedrooms">Habitaciones</mat-label>
         </mat-form-field>
       </div>
 
       <div class="col-md-1">
         <mat-form-field>
-          <input id="bathrooms" matInput name="bathrooms" type="number" ngModel>
+          <input id="bathrooms" matInput name="bathrooms" ngModel type="number">
           <mat-label for="bathrooms">Baños</mat-label>
         </mat-form-field>
       </div>
 
       <div class="col-md-1">
         <mat-form-field>
-          <input id="floors" matInput name="floors" type="number" ngModel>
+          <input id="floors" matInput name="floors" ngModel type="number">
           <mat-label for="floors">Plantas</mat-label>
         </mat-form-field>
       </div>
 
       <div class="col-md-1">
         <mat-form-field>
-          <input id="meters" matInput name="meters" type="number" ngModel>
+          <input id="meters" matInput name="meters" ngModel type="number">
           <mat-label for="meters">Metros</mat-label>
         </mat-form-field>
       </div>
 
       <div class="col-md-1">
         <mat-form-field>
-          <input id="minprice" matInput name="minprice" type="number" ngModel>
+          <input id="minprice" matInput name="minprice" ngModel type="number">
           <mat-label for="minprice">Min. Precio</mat-label>
         </mat-form-field>
       </div>
 
       <div class="col-md-1">
         <mat-form-field>
-          <input id="maxprice" matInput name="maxprice" type="number" ngModel>
+          <input id="maxprice" matInput name="maxprice" ngModel type="number">
           <mat-label for="maxprice">Max. Precio</mat-label>
         </mat-form-field>
       </div>
@@ -61,14 +61,14 @@
       <div class="card m-3 {{(home['show']) ? 'd-none' : 'd-inline-block'}}" id="home{{i}}">
         <div class="card-img-content">
           <div *ngIf="user['role'] == 'search'">
-            <i
-              (click)="removeWish(home['id']);"
-              *ngIf="home['isInWishlist'] || home['isInWishlist'] | isInWishlist:user['role']:user['id']:home['id'] | async; else notIsInWishlist" class="card-img-button material-icons md-light">favorite</i>
+            <i (click)="removeWish(home['id']);"
+               *ngIf="home['isInWishlist'] || home['isInWishlist'] | isInWishlist:user['role']:user['id']:home['id'] | async; else notIsInWishlist"
+               class="card-img-button material-icons md-light">favorite</i>
             <ng-template #notIsInWishlist><i (click)="addWish(home);" class="card-img-button material-icons md-light">favorite_border</i>
             </ng-template>
           </div>
 
-          <img *ngIf="(home['photos'][0] != null)" class="card-img-top"
+          <img *ngIf="(home['photos'] != null && home['photos'][0] != null)" class="card-img-top"
                src="data:image/png;base64,{{ home['photos'][0] }}">
         </div>
 
@@ -90,13 +90,15 @@
           <div *ngIf="btnContent == 'list-processes-search'">
             <div class="row">
               <div class="col-md-8">
-                <a href="/see-advertisement/{{ home['id'] }}" class="btn btn-custom m-auto d-block">Ver anuncio
+                <a class="btn btn-custom m-auto d-block" href="/see-advertisement/{{ home['id'] }}">Ver anuncio
                   <label *ngIf="(checkCompatibility(home['user']['defaultTestResponses']))" class="m-0">🟢</label>
                 </a>
               </div>
 
               <div class="col-md-4">
-                <button class="btn btn-custom m-auto d-block" (click)="deleteProcess(processes[i]['id'], '#home' + i)">Eliminar</button>
+                <button (click)="deleteProcess(processes[i]['id'], '#home' + i)" class="btn btn-custom m-auto d-block">
+                  Eliminar
+                </button>
               </div>
             </div>
           </div>
@@ -104,13 +106,13 @@
           <div *ngIf="btnContent == 'list-processes-business'">
             <div class="row my-2">
               <div class="col-md-6">
-                <a href="/see-requests/{{ home['id'] }}" class="btn btn-custom d-block">Ver solicitudes</a>
+                <a class="btn btn-custom d-block" href="/see-requests/{{ home['id'] }}">Ver solicitudes</a>
               </div>
               <div class="col-md-6">
-                <a href="/edit-advertisement/{{ home['id'] }}" class="btn btn-custom d-block">Editar anuncio</a>
+                <a class="btn btn-custom d-block" href="/edit-advertisement/{{ home['id'] }}">Editar anuncio</a>
               </div>
             </div>
-            <a href="/see-advertisement/{{ home['id'] }}" class="btn btn-custom d-block">Ver anuncio</a>
+            <a class="btn btn-custom d-block" href="/see-advertisement/{{ home['id'] }}">Ver anuncio</a>
           </div>
         </div>
       </div>
