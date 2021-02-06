@@ -54,9 +54,4 @@ public class ProcessesServiceImpl implements IProcessesService {
 		iProcessesDAO.deleteByHome_id(id);
 	}
 
-	@Override
-	public void deleteProcessesByHomeAndUser(int homeId, int userId){
-		iProcessesDAO.deleteByHome_idAndUser_id(homeId, userId);
-	}
-
 }

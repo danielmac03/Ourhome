@@ -22,6 +22,4 @@ public interface IProcessesService {
 
     public void deleteProcessesByHome(int id);
 
-    public void deleteProcessesByHomeAndUser(int homeId, int userId);
-
 }

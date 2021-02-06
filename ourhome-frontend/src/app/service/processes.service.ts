@@ -37,20 +37,12 @@ export class ProcessesService {
     return this.http.post(`${this.baseUrl}`, process);
   }
 
-  updateProcesses(processId: number, value: any): Observable<object> {
-    return this.http.put(`${this.baseUrl}/${processId}`, value);
-  }
-
-  deleteProcesses(processId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${processId}`, {responseType: 'text'});
+  deleteProcesses(processId: number, role: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${processId}/${role}`, {responseType: 'text'});
   }
 
   deleteProcessesByHome(userId: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/home/${userId}`, {responseType: 'text'});
-  }
-
-  deleteProcessesByHomeAndUser(homeId: number, userId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${homeId}/${userId}`);
   }
 
 }

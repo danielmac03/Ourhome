@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit {
   }
 
   deleteProcess(idProcess: number, divId: string): void {
-    this.processesService.deleteProcesses(idProcess).subscribe(resp => {
+    this.processesService.deleteProcesses(idProcess, this.user.role).subscribe(resp => {
       $(divId).remove();
     });
   }

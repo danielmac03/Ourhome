@@ -76,9 +76,8 @@ export class SeeRequestsComponent implements OnInit {
     return this.checkCompatibilityHelper.check(defaultTestResponses);
   }
 
-  deleteProcess(userId: number, divId: number): void {
-    this.processesService.deleteProcessesByHomeAndUser(this.home.id, userId).subscribe(resp => {
-      console.log(this.users.length);
+  deleteProcess(processId: number, divId: number): void {
+    this.processesService.deleteProcesses(processId, this.user.role).subscribe(resp => {
       if (this.users.length === 1) {
         $('#request-content').remove();
         $('#user' + divId).remove();

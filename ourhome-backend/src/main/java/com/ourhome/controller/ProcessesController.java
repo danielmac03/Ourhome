@@ -55,10 +55,16 @@ public class ProcessesController {
         return saveProcess;
     }
 
-    @DeleteMapping("{id}")
-    public void deleteProcess(@PathVariable(name = "id") int id) {
+    @DeleteMapping("{id}/{role}")
+    public void deleteProcess(@PathVariable(name = "id") int id, @PathVariable(name = "role") String role) {
         Processes process = processesServiceImpl.getProcess(id);
-        notificationsServiceImpl.saveNotification(new Notifications(0, process.getUser(), "Se ha eliminado correctamente el processo", process.getHome().getPhotos().length != 0 ? process.getHome().getPhotos()[0] : null, Constants.URL + "list-processes", null));
+        if (role.equals("search")) {
+            notificationsServiceImpl.saveNotification(new Notifications(0, process.getUser(), "Se ha eliminado correctamente la solicitud", process.getHome().getPhotos().length != 0 ? process.getHome().getPhotos()[0] : null, Constants.URL + "list-processes", null));
+            notificationsServiceImpl.saveNotification(new Notifications(0, process.getHome().getUser(), process.getUser().getName() + process.getUser().getSurnames() + " " + "ha retirado su solicitud", process.getUser().getProfilePicture(), Constants.URL + "see-requests/" + process.getHome().getId(), null));
+        } else if (role.equals("have") || role.equals("business")) {
+            notificationsServiceImpl.saveNotification(new Notifications(0, process.getHome().getUser(), "Se ha eliminado correctamente la solicitud de" + " " + process.getUser().getName() + process.getUser().getSurnames(), process.getUser().getProfilePicture(), Constants.URL + "see-requests/" + process.getHome().getId(), null));
+            notificationsServiceImpl.saveNotification(new Notifications(0, process.getUser(), "Se ha rechazado su solicitud", process.getHome().getPhotos().length != 0 ? process.getHome().getPhotos()[0] : null, Constants.URL + "list-processes", null));
+        }
 
         processesServiceImpl.deleteProcess(id);
     }
@@ -66,12 +72,6 @@ public class ProcessesController {
     @Transactional
     @DeleteMapping("/home/{home_id}")
     public void deleteProcessesByHome(@PathVariable(name = "home_id") int homeId) {
-        processesServiceImpl.deleteProcessesByHome(homeId);
-    }
-
-    @Transactional
-    @DeleteMapping("/{home_id}/{user_id}")
-    public void deleteProcessesByHomeAndUser(@PathVariable(name = "home_id") int homeId, @PathVariable(name = "user_id") int userId) {
         processesServiceImpl.deleteProcessesByHome(homeId);
     }
 

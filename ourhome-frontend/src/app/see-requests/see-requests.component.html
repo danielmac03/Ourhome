@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div *ngIf="users.length != 0" class="row mt-5" id="request-content">
+    <div *ngIf="users != null && users.length != 0" class="row mt-5" id="request-content">
       <div class="col-md-4 border-right p-0">
         <div *ngFor="let user of users; let i = index">
           <div class="user-request">
@@ -98,7 +98,8 @@
             <p>{{ (users[userRequest]['answers'].split(',')[x] == 0) ? question['option1'] : question['option2'] }}</p>
           </div>
 
-          <button class="btn btn-custom mt-4" (click)="deleteProcess(user['id'], userRequest)">Eliminar</button>
+          <button (click)="deleteProcess(users[userRequest]['id'], userRequest)" class="btn btn-custom mt-4">Eliminar
+          </button>
         </div>
       </div>
     </div>
