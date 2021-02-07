@@ -63,8 +63,8 @@
           <div *ngIf="user['role'] == 'search'">
             <i (click)="removeWish(home['id']);"
                *ngIf="home['isInWishlist'] || home['isInWishlist'] | isInWishlist:user['role']:user['id']:home['id'] | async; else notIsInWishlist"
-               class="card-img-button material-icons md-light">favorite</i>
-            <ng-template #notIsInWishlist><i (click)="addWish(home);" class="card-img-button material-icons md-light">favorite_border</i>
+               class="card-img-button material-icons">favorite</i>
+            <ng-template #notIsInWishlist><i (click)="addWish(home);" class="card-img-button material-icons">favorite_border</i>
             </ng-template>
           </div>
 

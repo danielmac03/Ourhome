@@ -15,20 +15,12 @@ declare var $: any;
 })
 export class CreateAdvertisementComponent implements OnInit {
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private homesService: HomesService,
-    private processesService: ProcessesService,
-    private tokenStorageService: TokenStorageService
-  ) {
-  }
-
   form;
   user;
   home = {
     id: undefined,
     user: undefined,
+    photos: undefined,
     description: undefined,
     direction: undefined,
     price: undefined,
@@ -39,12 +31,19 @@ export class CreateAdvertisementComponent implements OnInit {
     characteristics: undefined,
     active: undefined
   };
-
   create = true;
   photos = [];
   photosPreview = [];
-
   characteristics: string[] = [];
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private homesService: HomesService,
+    private processesService: ProcessesService,
+    private tokenStorageService: TokenStorageService
+  ) {
+  }
 
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
@@ -63,41 +62,16 @@ export class CreateAdvertisementComponent implements OnInit {
       if (this.route.snapshot.params.id) {
         this.homesService.getHomeById(this.route.snapshot.params.id).subscribe(resp => {
           this.home = resp;
-          this.characteristics = JSON.parse(this.home.characteristics);
-
-          this.form = new FormGroup({
-            description: new FormControl(this.home.description, [Validators.required]),
-            direction: new FormControl(this.home.direction, [Validators.required]),
-            price: new FormControl(this.home.price, [Validators.required]),
-            bedrooms: new FormControl(this.home.bedrooms, [Validators.required]),
-            bathrooms: new FormControl(this.home.bathrooms, [Validators.required]),
-            meters: new FormControl(this.home.meters, [Validators.required]),
-            floors: new FormControl(this.home.floors, [Validators.required])
-          });
+          this.completeForm();
         });
       } else {
         this.homesService.getHomesByUser(this.user.id).subscribe(resp => {
           this.home = resp[0];
-          this.characteristics = JSON.parse(this.home.characteristics);
-
-          this.form = new FormGroup({
-            description: new FormControl(this.home.description, [Validators.required]),
-            direction: new FormControl(this.home.direction, [Validators.required]),
-            price: new FormControl(this.home.price, [Validators.required]),
-            bedrooms: new FormControl(this.home.bedrooms, [Validators.required]),
-            bathrooms: new FormControl(this.home.bathrooms, [Validators.required]),
-            meters: new FormControl(this.home.meters, [Validators.required]),
-            floors: new FormControl(this.home.floors, [Validators.required]),
-            active: new FormControl('')
-          });
+          this.completeForm();
         });
       }
 
       this.create = false;
-
-      if (this.home.active) {
-        $('#active').prop('checked', true);
-      }
     } else {
       this.form = new FormGroup({
         description: new FormControl('', [Validators.required]),
@@ -109,6 +83,25 @@ export class CreateAdvertisementComponent implements OnInit {
         floors: new FormControl('', [Validators.required]),
         active: new FormControl('')
       });
+    }
+  }
+
+  completeForm(): void {
+    this.characteristics = JSON.parse(this.home.characteristics);
+
+    this.form = new FormGroup({
+      description: new FormControl(this.home.description, [Validators.required]),
+      direction: new FormControl(this.home.direction, [Validators.required]),
+      price: new FormControl(this.home.price, [Validators.required]),
+      bedrooms: new FormControl(this.home.bedrooms, [Validators.required]),
+      bathrooms: new FormControl(this.home.bathrooms, [Validators.required]),
+      meters: new FormControl(this.home.meters, [Validators.required]),
+      floors: new FormControl(this.home.floors, [Validators.required]),
+      active: new FormControl(this.home.active)
+    });
+
+    if (this.home.active) {
+      $('#active').prop('checked', true);
     }
   }
 

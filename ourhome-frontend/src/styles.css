@@ -92,3 +92,8 @@ mat-form-field {
 .align-center {
   align-self: center;
 }
+
+.material-icons {
+  font-size: 20px;
+  color: white;
+}
