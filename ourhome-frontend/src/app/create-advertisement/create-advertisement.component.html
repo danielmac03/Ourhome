@@ -17,13 +17,13 @@
                  type="file">
         </div>
 
-        <div *ngIf="photosPreview.length !== 0 && photosPreview != null">
+        <div *ngIf="photosPreview != null && photosPreview.length !== 0">
           <div *ngFor="let photoPreview of photosPreview" class="d-inline-block">
             <img class="mx-2" src="{{photoPreview}}" width="180">
           </div>
         </div>
 
-        <div *ngIf="home['photos'].length !== 0 && home['photos'] != null">
+        <div *ngIf="home['photos'] != null && home['photos'].length !== 0">
           <div *ngFor="let photo of home['photos']" class="d-inline-block">
             <img class="mx-2" src="data:image/png;base64,{{photo}}" width="180">
           </div>

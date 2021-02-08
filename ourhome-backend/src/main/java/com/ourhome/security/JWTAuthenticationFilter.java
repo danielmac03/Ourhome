@@ -22,7 +22,7 @@ import static com.ourhome.security.Constants.*;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
@@ -41,11 +41,14 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication auth) {
+        final String authorities = auth.getAuthorities().toString();
+
         String token = Jwts.builder()
                 .signWith(SignatureAlgorithm.HS512, SUPER_SECRET_KEY)
                 .setIssuedAt(new Date())
                 .setIssuer(ISSUER_INFO)
                 .setSubject(((User) auth.getPrincipal()).getUsername())
+                .claim(AUTHORITIES_KEY, authorities)
                 .setExpiration(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION_TIME))
                 .compact();
 

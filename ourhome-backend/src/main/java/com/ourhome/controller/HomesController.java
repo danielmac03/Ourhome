@@ -6,6 +6,9 @@ import com.ourhome.implemention.HomesServiceImpl;
 import com.ourhome.implemention.NotificationsServiceImpl;
 import com.ourhome.security.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,13 +25,15 @@ public class HomesController {
     @Autowired
     NotificationsServiceImpl notificationsServiceImpl;
 
-    @GetMapping("/public/")
+    @PreAuthorize("hasAuthority('admin')")
+    @GetMapping()
     public List<Homes> listHomes() {
         return homesServiceImpl.listHomes();
     }
 
     @GetMapping("/public/active/")
     public List<Homes> listActiveHomes() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return homesServiceImpl.listActiveHomes();
     }
 
@@ -37,11 +42,13 @@ public class HomesController {
         return homesServiceImpl.getHome(id);
     }
 
+    @PreAuthorize("hasAnyAuthority('have', 'business')")
     @GetMapping("/user/{user_id}")
     public List<Homes> getHomesByUser(@PathVariable(name = "user_id") int user_id) {
         return homesServiceImpl.getHomesByUser(user_id);
     }
 
+    @PreAuthorize("hasAnyAuthority('have', 'business')")
     @PostMapping()
     public Homes saveHomes(@RequestPart(name = "photos", required = false) MultipartFile[] photos, @RequestPart(name = "home") Homes home) throws IOException {
         byte[][] photosByte = new byte[photos.length][];
@@ -60,6 +67,7 @@ public class HomesController {
         return saveHome;
     }
 
+    @PreAuthorize("hasAnyAuthority('have', 'business')")
     @PutMapping()
     public Homes updateHome(@RequestPart(name = "photos", required = false) MultipartFile[] photos, @RequestPart(name = "home") Homes home) throws IOException {
         Homes homeSaved = homesServiceImpl.getHome(home.getId());
@@ -82,6 +90,7 @@ public class HomesController {
         return updateHome;
     }
 
+    @PreAuthorize("hasAnyAuthority('have', 'business')")
     @DeleteMapping("/{id}")
     public void deleteHome(@PathVariable(name = "id") int id) {
         Homes home = homesServiceImpl.getHome(id);

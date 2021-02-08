@@ -14,7 +14,7 @@ export class HomesService {
   }
 
   getHomes(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/public/`);
+    return this.http.get(`${this.baseUrl}`);
   }
 
   getActiveHomes(): Observable<any> {

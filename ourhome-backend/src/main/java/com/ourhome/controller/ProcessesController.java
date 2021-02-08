@@ -6,6 +6,7 @@ import com.ourhome.implemention.NotificationsServiceImpl;
 import com.ourhome.implemention.ProcessesServiceImpl;
 import com.ourhome.security.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,27 +27,32 @@ public class ProcessesController {
         return processesServiceImpl.listProcesses();
     }
 
+    @PreAuthorize("hasAnyAuthority('search', 'have', 'business')")
     @GetMapping("/{id}")
     public Processes searchProcess(@PathVariable(name = "id") int id) {
         return processesServiceImpl.getProcess(id);
     }
 
+    @PreAuthorize("hasAnyAuthority('search', 'have', 'business')")
     @GetMapping("/user/{user_id}")
     public List<Processes> listProcessByUser(@PathVariable(name = "user_id") int userId) {
         return processesServiceImpl.listProcessByUser(userId);
     }
 
+    @PreAuthorize("hasAnyAuthority('have', 'business')")
     @GetMapping("/home/{home_id}")
     public List<Processes> listProcessByHome(@PathVariable(name = "home_id") int homeId) {
         return processesServiceImpl.listProcessByHome(homeId);
     }
 
+    @PreAuthorize("hasAnyAuthority('search', 'have', 'business')")
     @GetMapping("/{home_id}/{user_id}")
     public boolean existProcess(@PathVariable(name = "home_id") int homeId, @PathVariable(name = "user_id") int userId) {
         Processes process = processesServiceImpl.getProcessByHomeAndUser(homeId, userId);
         return process != null;
     }
 
+    @PreAuthorize("hasAuthority('search')")
     @PostMapping()
     public Processes saveProcess(@RequestBody Processes process) {
         Processes saveProcess = processesServiceImpl.saveProcess(process);
@@ -55,6 +61,7 @@ public class ProcessesController {
         return saveProcess;
     }
 
+    @PreAuthorize("hasAnyAuthority('search', 'have', 'business')")
     @DeleteMapping("{id}/{role}")
     public void deleteProcess(@PathVariable(name = "id") int id, @PathVariable(name = "role") String role) {
         Processes process = processesServiceImpl.getProcess(id);
@@ -69,6 +76,7 @@ public class ProcessesController {
         processesServiceImpl.deleteProcess(id);
     }
 
+    @PreAuthorize("hasAnyAuthority('have', 'business')")
     @Transactional
     @DeleteMapping("/home/{home_id}")
     public void deleteProcessesByHome(@PathVariable(name = "home_id") int homeId) {

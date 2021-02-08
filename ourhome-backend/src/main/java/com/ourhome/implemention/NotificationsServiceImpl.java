@@ -20,11 +20,6 @@ public class NotificationsServiceImpl implements INotificationsService {
 	}
 
 	@Override
-	public Notifications getNotification(int id) {
-		return iNotificationsDAO.findById(id).get();
-	}
-
-	@Override
 	public List<Notifications>  listNotificationByUser(int userId){
 		return iNotificationsDAO.findByUser_id(userId);
 	}

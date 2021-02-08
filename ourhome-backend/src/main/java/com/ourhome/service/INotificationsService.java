@@ -7,8 +7,6 @@ import java.util.List;
 public interface INotificationsService {
 
 	public Notifications saveNotification(Notifications notification);
-	
-	public Notifications getNotification(int id);
 
 	public List<Notifications> listNotificationByUser(int userId);
 

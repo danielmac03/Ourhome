@@ -4,23 +4,21 @@ import com.ourhome.dao.IUsersDAO;
 import com.ourhome.dto.Users;
 import com.ourhome.service.IUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Collections.emptyList;
-
 @Service
-public class UsersServiceImpl implements IUsersService, UserDetailsService {
-
-    private final Path root = Paths.get("uploads/profile-pictures");
+public class UsersServiceImpl implements IUsersService {
 
     @Autowired
     IUsersDAO iUsersDAO;
@@ -63,7 +61,10 @@ public class UsersServiceImpl implements IUsersService, UserDetailsService {
             throw new UsernameNotFoundException(email);
         }
 
-        return new User(user.getEmail(), user.getPassword(), emptyList());
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(user.getRole()));
+
+        return new User(user.getEmail(), user.getPassword(), authorities);
     }
 
 

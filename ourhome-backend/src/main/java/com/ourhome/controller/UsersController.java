@@ -6,6 +6,7 @@ import com.ourhome.implemention.NotificationsServiceImpl;
 import com.ourhome.implemention.UsersServiceImpl;
 import com.ourhome.security.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,16 +30,19 @@ public class UsersController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+    @PreAuthorize("hasAuthority('admin')")
     @GetMapping()
     public List<Users> listUsers() {
         return usersServiceImpl.listUsers();
     }
 
+    @PreAuthorize("hasAuthority('admin')")
     @GetMapping("/{id}")
     public Users searchUser(@PathVariable(name = "id") int id) {
         return usersServiceImpl.searchUser(id);
     }
 
+    @PreAuthorize("hasAnyAuthority('search', 'have', 'business')")
     @GetMapping("/email/{email}")
     public Users searchUserByEmail(@PathVariable(name = "email") String email) {
         return usersServiceImpl.searchUserByEmail(email);
@@ -64,6 +68,7 @@ public class UsersController {
         return saveUser;
     }
 
+    @PreAuthorize("hasAnyAuthority('search', 'have', 'business')")
     @PutMapping()
     public Users updateUser(@RequestPart(name = "profilePicture", required = false) MultipartFile profilePicture, @RequestPart(name = "user") Users user) throws IOException {
         Users userSaved = usersServiceImpl.searchUser(user.getId());
@@ -88,6 +93,7 @@ public class UsersController {
         return updateUser;
     }
 
+    @PreAuthorize("hasAnyAuthority('search', 'have', 'business')")
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable(name = "id") int id) {
         Users user = usersServiceImpl.searchUser(id);

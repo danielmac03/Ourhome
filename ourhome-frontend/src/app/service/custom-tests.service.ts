@@ -12,10 +12,6 @@ export class CustomTestsService {
 
   constructor(private http: HttpClient) { }
 
-  getCustomTests(customTestId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${customTestId}`);
-  }
-
   getCustomTestsByUser(userId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/user/${userId}`);
   }
